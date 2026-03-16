@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full Family Tree — Gemeny Heritage</title>
+  <title>Full Family Tree — Family Heritage Archive</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -13,7 +13,7 @@
       --navy:#0f1a2e;
       --serif:'Cormorant Garamond','Georgia',serif;
       --sans:'Inter',-apple-system,'Segoe UI',sans-serif;
-      --branch-gemeny:#d4a017;--branch-gordon:#5e9acf;--branch-sanderson:#c47a5e;--branch-burgess:#8e6aad;--branch-unknown:#9a8d7c;
+      --branch-gemeny:#d4a017;--branch-gordon:#5e9acf;--branch-sanderson:#c47a5e;--branch-burgess:#8e6aad;--branch-gload:#4a7c59;--branch-unknown:#9a8d7c;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{-webkit-font-smoothing:antialiased}
@@ -168,24 +168,20 @@
 <div class="page">
   <nav class="nav">
     <div class="nav-inner">
-      <span class="nav-brand">Gemeny Heritage</span>
+      <span class="nav-brand">Heritage</span>
       <div class="nav-links-desktop">
-        <a href="../index.html">Home</a>
-        <a href="../maps/index.html">Maps</a>
-        <a href="../heritage/your-story.html">Your Story</a>
+        <a href="../portal.html" style="opacity:0.5">&larr; All Families</a>
+        <a href="../index.html">Gemeny</a>
+        <a href="../gload/index.html">Gload</a>
         <a href="../network/index.html" class="nav-active">Full Tree</a>
-        <a href="../stats/index.html">Data</a>
-        <a href="../streaks/index.html">Streaks</a>
       </div>
       <button class="nav-menu-btn" id="navMenuBtn" title="Menu">&#9776;</button>
     </div>
     <div class="nav-dropdown" id="navDropdown">
-      <a href="../index.html">Home</a>
-      <a href="../maps/index.html">Maps</a>
-      <a href="../heritage/your-story.html">Your Story</a>
+      <a href="../portal.html">&larr; All Families</a>
+      <a href="../index.html">Gemeny</a>
+      <a href="../gload/index.html">Gload</a>
       <a href="../network/index.html" class="nav-active">Full Tree</a>
-      <a href="../stats/index.html">Data</a>
-        <a href="../streaks/index.html">Streaks</a>
     </div>
   </nav>
 
@@ -206,6 +202,7 @@
         <option value="branch:gordon">Gordon/DuBois (branch)</option>
         <option value="branch:sanderson">Sanderson (branch)</option>
         <option value="branch:burgess">Burgess (branch)</option>
+        <option value="branch:gload">Gload (branch)</option>
       </optgroup>
       <optgroup label="By Surname" id="surnameOptions"></optgroup>
     </select>
@@ -254,8 +251,8 @@
     <div class="loading" id="loading">Loading tree data...</div>
     <div class="stats" id="stats"></div>
     <div class="credit" id="credit">
-      <div class="credit-line">Genealogical research and data compiled by <strong>Steven E. Gemeny</strong>, son of W. Gordon Gemeny</div>
-      <div class="credit-line credit-sub">Website by Colin Gload, grandson of W. Gordon Gemeny</div>
+      <div class="credit-line">Gemeny research by <strong>Steven E. Gemeny</strong> &middot; Gload research by <strong>Colin Gload</strong></div>
+      <div class="credit-line credit-sub">Family Heritage Archive</div>
     </div>
   </div>
 
@@ -278,7 +275,7 @@
     gordon: '#5e9acf', 'gordon-dubois': '#5e9acf', 'gordon-mayhue': '#5e9acf',
     sanderson: '#c47a5e', 'sanderson-burgess': '#c47a5e',
     burgess: '#8e6aad',
-    gload: '#9a8d7c',
+    gload: '#4a7c59',
     unknown: '#6b6259'
   };
   const BADGE_ICONS = {
@@ -302,6 +299,7 @@
     if (branch.includes('gordon') || branch.includes('dubois')) return 'gordon';
     if (branch.includes('sanderson')) return 'sanderson';
     if (branch.includes('burgess')) return 'burgess';
+    if (branch.includes('gload')) return 'gload';
     return null;
   }
 
