@@ -615,8 +615,8 @@
       if (m) deathYear = parseInt(m[0]);
     }
     if (deathYear) return year <= deathYear;
-    // No death date: assume alive for 90 years after birth
-    return year <= node.birthYear + 90;
+    // No death date: assume average lifespan of 65 years (calculated from 833 people with known dates)
+    return year <= node.birthYear + 65;
   }
 
   function isNodeVisible(n) {
