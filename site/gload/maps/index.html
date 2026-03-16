@@ -134,48 +134,61 @@
     </div>
 
     <div class="map-wrap">
-      <svg class="map-svg" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" style="min-height:480px">
-        <!-- Simplified US coastline -->
-        <path class="map-coast" d="M 680,30 L 700,35 720,28 740,40 760,38 770,50 750,65 730,70 720,85 710,100 720,110 735,105 750,115 740,130 720,135 710,145 700,160 690,175 695,190 685,200 670,210 660,225 650,240 645,260 640,275 635,285 625,295 618,310 610,320 600,330 595,345 588,355 580,360 575,370 570,385 565,395 555,400 545,410 535,420 530,430 520,435 510,440 500,445"/>
-        <path class="map-coast" d="M 480,80 Q 500,70 520,75 540,85 530,95 510,90 490,95 480,80"/>
-        <path class="map-coast" d="M 500,445 L 480,450 450,445 420,450 390,448 360,455 330,450"/>
+      <svg class="map-svg" viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg" style="min-height:480px">
+        <!-- US east coast -->
+        <path class="map-coast" d="M 580,30 L 600,35 620,28 640,40 660,38 670,50 650,65 630,70 620,85 610,100 620,110 635,105 650,115 640,130 620,135 610,145 600,160 590,175 595,190 585,200 570,210 560,225 550,240 545,260 540,275 535,285 525,295 518,310 510,320 500,330 495,345 488,355 480,360"/>
+        <path class="map-coast" d="M 380,80 Q 400,70 420,75 440,85 430,95 410,90 390,95 380,80"/>
+        <path class="map-coast" d="M 400,445 L 380,450 350,445 320,450 290,448 260,455 230,450"/>
+        <!-- Canada (St Lawrence corridor) -->
+        <path class="map-coast" style="stroke:rgba(255,255,255,0.07)" d="M 580,30 L 570,20 555,15 540,18 530,25 545,35 560,40 570,50 580,30"/>
+        <path class="map-coast" style="stroke:rgba(255,255,255,0.07)" d="M 620,28 L 640,15 660,10 680,12 670,25 650,30 640,40"/>
+        <!-- France outline -->
+        <path class="map-coast" style="stroke:rgba(255,255,255,0.08)" d="M 1050,310 L 1055,285 1065,265 1080,250 1090,235 1100,225 1110,210 1115,195 1105,180 1090,175 1075,185 1065,195 1050,210 1040,230 1035,250 1040,270 1045,290 1050,310"/>
+        <!-- UK/Ireland suggestion -->
+        <path class="map-coast" style="stroke:rgba(255,255,255,0.05)" d="M 1060,155 L 1065,140 1075,130 1080,140 1085,155 1075,165 1065,160 1060,155"/>
+
+        <!-- Atlantic crossing (dashed) -->
+        <path style="stroke:#4a7c59;stroke-width:1;stroke-dasharray:8,6;opacity:0.2;fill:none" d="M 1050,275 Q 850,200 615,60"/>
 
         <!-- Route lines -->
-        <line class="m-line" id="us-ln0" x1="710" y1="80" x2="715" y2="95" stroke="#4a7c59"/>
-        <line class="m-line" id="us-ln1" x1="715" y1="95" x2="718" y2="92" stroke="#4a7c59"/>
-        <line class="m-line" id="us-ln2" x1="718" y1="92" x2="718" y2="92" stroke="#4a7c59"/>
-        <line class="m-line" id="us-ln3" x1="718" y1="92" x2="665" y2="210" stroke="#4a7c59"/>
-        <line class="m-line" id="us-ln4" x1="665" y1="210" x2="275" y2="140" stroke="#4a7c59"/>
-        <line class="m-line" id="us-ln5" x1="275" y1="140" x2="668" y2="198" stroke="#4a7c59"/>
+        <line class="m-line" id="us-ln0" x1="615" y1="60" x2="620" y2="80" stroke="#4a7c59"/>
+        <line class="m-line" id="us-ln1" x1="620" y1="80" x2="622" y2="77" stroke="#4a7c59"/>
+        <line class="m-line" id="us-ln2" x1="622" y1="77" x2="565" y2="210" stroke="#4a7c59"/>
+        <line class="m-line" id="us-ln3" x1="565" y1="210" x2="175" y2="140" stroke="#4a7c59"/>
+        <line class="m-line" id="us-ln4" x1="175" y1="140" x2="568" y2="198" stroke="#4a7c59"/>
 
-        <!-- Dots & Labels with step IDs -->
+        <!-- Marennes, France -->
+        <circle class="m-dot" id="us-d-fr" cx="1050" cy="275" r="6" fill="#4a7c59" opacity="0.9"/>
+        <text class="m-label m-label-major" x="1000" y="300" style="fill:rgba(74,124,89,0.8)">Marennes</text>
+        <text class="m-label" x="1010" y="315" style="fill:rgba(74,124,89,0.4);font-size:9px">France, 1618</text>
+
         <!-- La Prairie / Quebec -->
-        <circle class="m-dot" id="us-d0" cx="710" cy="80" r="5" fill="#4a7c59"/>
-        <text class="m-label m-label-major" id="us-l0" x="720" y="75">La Prairie, Quebec</text>
+        <circle class="m-dot" id="us-d0" cx="615" cy="60" r="5" fill="#4a7c59"/>
+        <text class="m-label m-label-major" id="us-l0" x="625" y="55">Quebec</text>
+        <text class="m-label" x="625" y="68" style="font-size:9px">1684</text>
 
         <!-- Champlain, NY -->
-        <circle class="m-dot" id="us-d1" cx="715" cy="95" r="4" fill="#4a7c59"/>
-        <text class="m-label" id="us-l1" x="728" y="91">Champlain, NY</text>
+        <circle class="m-dot" id="us-d1" cx="620" cy="80" r="4" fill="#4a7c59"/>
+        <text class="m-label" id="us-l1" x="633" y="76">Champlain, NY</text>
 
         <!-- Plattsburgh, NY -->
-        <circle class="m-dot" id="us-d2" cx="718" cy="92" r="3" fill="#4a7c59"/>
-        <text class="m-label" id="us-l2" x="731" y="100">Plattsburgh, NY</text>
+        <circle class="m-dot" id="us-d2" cx="622" cy="77" r="3" fill="#4a7c59"/>
+        <text class="m-label" id="us-l2" x="635" y="88">Plattsburgh</text>
 
         <!-- Crofton, MD -->
-        <circle class="m-dot" id="us-d3" cx="665" cy="210" r="5" fill="#4a7c59"/>
-        <text class="m-label m-label-major" id="us-l3" x="678" y="206">Crofton, MD</text>
+        <circle class="m-dot" id="us-d3" cx="565" cy="210" r="5" fill="#4a7c59"/>
+        <text class="m-label m-label-major" id="us-l3" x="578" y="206">Maryland</text>
 
         <!-- Rapid City, SD -->
-        <circle class="m-dot" id="us-d4" cx="275" cy="140" r="4" fill="#4a7c59"/>
-        <text class="m-label" id="us-l4" x="230" y="135">Rapid City, SD</text>
+        <circle class="m-dot" id="us-d4" cx="175" cy="140" r="4" fill="#4a7c59"/>
+        <text class="m-label" id="us-l4" x="130" y="135">Rapid City, SD</text>
 
-        <!-- Fallston, MD -->
-        <circle class="m-dot" id="us-d5" cx="668" cy="198" r="5" fill="#4a7c59"/>
-        <text class="m-label m-label-major" id="us-l5" x="681" y="193">Fallston, MD</text>
+        <!-- Bel Air / Fallston, MD -->
+        <circle class="m-dot" id="us-d5" cx="568" cy="198" r="5" fill="#4a7c59"/>
+        <text class="m-label m-label-major" id="us-l5" x="581" y="193">Bel Air, MD</text>
 
-        <!-- Marennes, France note -->
-        <text x="810" y="65" fill="rgba(74,124,89,0.5)" font-family="var(--serif)" font-size="11" font-style="italic">Marennes, France &rarr;</text>
-        <text x="830" y="80" fill="rgba(74,124,89,0.3)" font-family="var(--serif)" font-size="9">(origin, 1618)</text>
+        <!-- Caption -->
+        <text x="600" y="500" text-anchor="middle" fill="rgba(255,255,255,0.12)" font-family="var(--serif)" font-size="11" font-style="italic">"The family followed water the way water follows gravity."</text>
       </svg>
 
       <!-- Year display -->
@@ -379,7 +392,7 @@
     infoId: 'us-info',
     panelId: 'panel-americas',
     steps: [
-      { year:'1618', dot:null, label:null, line:null, place:'Marennes, France', person:'Jacques Poissant', desc:'Huguenot court officer in the salt-making capital of Saintonge.' },
+      { year:'1618', dot:'us-d-fr', label:null, line:null, place:'Marennes, France', person:'Jacques Poissant', desc:'Huguenot court officer in the salt-making capital of Saintonge.' },
       { year:'1684', dot:'us-d0', label:'us-l0', line:null, place:'La Prairie, Quebec', person:'Jacques dit LaSaline', desc:'Orphaned soldier crosses the Atlantic aboard L\'Emerillon. Arrives November, covered in ice.' },
       { year:'1709', dot:null, label:null, line:null, place:'La Prairie, Quebec', person:'Claude "Glode" Poissant', desc:'A godfather named Glode Maheu at his baptism changes the family name forever.' },
       { year:'~1825', dot:'us-d1', label:'us-l1', line:'us-ln0', place:'Champlain, New York', person:'Jacob Poissant dit Glode', desc:'Walks across the border from Quebec. The family becomes American.' },
@@ -388,7 +401,7 @@
       { year:'1948', dot:null, label:null, line:'us-ln2', place:'United States Air Force', person:'Robert Gload', desc:'Among the first to wear the new blue uniform. Twenty years of service.' },
       { year:'1968', dot:'us-d3', label:'us-l3', line:'us-ln3', place:'Crofton, Maryland', person:'Robert & Dolores Gload', desc:'After USAF retirement, the family settles near Fort Meade. Second career at Motorola.' },
       { year:'1989', dot:'us-d4', label:'us-l4', line:'us-ln4', place:'Rapid City, South Dakota', person:'Colin Frederick Gload', desc:'Born near Ellsworth AFB. The family follows the military to the Great Plains.' },
-      { year:'Today', dot:'us-d5', label:'us-l5', line:'us-ln5', place:'Fallston, Maryland', person:'Colin Gload', desc:'Archive curator. Using technology to rebuild what memory could no longer hold.' }
+      { year:'Today', dot:'us-d5', label:'us-l5', line:'us-ln4', place:'Bel Air, Maryland', person:'Colin Gload', desc:'Archive curator. Using technology to rebuild what memory could no longer hold.' }
     ]
   });
   </script>

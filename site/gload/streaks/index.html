@@ -117,7 +117,13 @@
   const GEO = {
     // England
     'kent':{'lat':51.27,'lng':0.52},'warwickshire':{'lat':52.28,'lng':-1.58},'suffolk':{'lat':52.19,'lng':1.0},'somerset':{'lat':51.1,'lng':-2.9},'london':{'lat':51.51,'lng':-0.13},'leicestershire':{'lat':52.63,'lng':-1.13},'ashby':{'lat':52.75,'lng':-1.47},'ilchester':{'lat':51.0,'lng':-2.68},'hatton':{'lat':52.29,'lng':-1.67},'sussex':{'lat':50.83,'lng':-0.13},
-    // Europe
+    // France
+    'marennes':{'lat':45.82,'lng':-1.11},'saintonge':{'lat':45.75,'lng':-0.63},'france':{'lat':46.6,'lng':2.2},'la rochelle':{'lat':46.16,'lng':-1.15},
+    // Quebec / Canada
+    'la prairie':{'lat':45.42,'lng':-73.5},'quebec':{'lat':46.81,'lng':-71.21},'canada':{'lat':46.81,'lng':-71.21},'st-constant':{'lat':45.37,'lng':-73.57},'pointe-aux-trembles':{'lat':45.64,'lng':-73.51},'montreal':{'lat':45.5,'lng':-73.57},
+    // Upstate NY (Champlain corridor)
+    'champlain':{'lat':44.99,'lng':-73.45},'plattsburgh':{'lat':44.7,'lng':-73.45},'clinton':{'lat':44.75,'lng':-73.7},'mooers':{'lat':44.97,'lng':-73.59},'bombay':{'lat':44.94,'lng':-74.58},'malone':{'lat':44.85,'lng':-74.29},'island pond':{'lat':44.81,'lng':-71.88},'vermont':{'lat':44.26,'lng':-72.58},'crofton':{'lat':39.0,'lng':-76.69},'kennett square':{'lat':39.85,'lng':-75.71},'ocala':{'lat':29.19,'lng':-82.14},'bowie':{'lat':38.94,'lng':-76.73},
+    // Europe (other)
     'lille':{'lat':50.63,'lng':3.06},'dublin':{'lat':53.35,'lng':-6.26},'waldenburg':{'lat':47.38,'lng':7.62},'new paltz':{'lat':41.75,'lng':-74.09},'ulster':{'lat':41.88,'lng':-74.03},
     // Colonial America
     'salem':{'lat':42.52,'lng':-70.9},'boston':{'lat':42.36,'lng':-71.06},'philadelphia':{'lat':39.95,'lng':-75.17},'new york':{'lat':40.71,'lng':-74.01},
@@ -286,6 +292,23 @@
       i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
     });
     ctx.stroke();
+
+    // Canada rough outline (St Lawrence corridor)
+    const ca = [[49,-67],[48,-64],[47,-61],[46,-61],[45,-62],[47,-65],[48,-69],[47,-71],[46,-71],[45,-74],[45,-76],[46,-80],[48,-85],[49,-85]];
+    ctx.beginPath();
+    ca.forEach(([lat,lng],i) => {
+      const {x,y} = latLngToXY(lat,lng,W,H);
+      i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+
+    // Key location labels
+    ctx.font = '10px ' + getComputedStyle(document.documentElement).getPropertyValue('--serif');
+    ctx.fillStyle = 'rgba(74,124,89,0.4)';
+    let pt;
+    pt = latLngToXY(45.82, -1.11, W, H); ctx.fillText('Marennes', pt.x + 5, pt.y - 5);
+    pt = latLngToXY(45.42, -73.5, W, H); ctx.fillText('Quebec', pt.x + 5, pt.y - 5);
+    pt = latLngToXY(44.99, -73.45, W, H); ctx.fillText('Champlain', pt.x + 5, pt.y + 12);
   }
 
   function drawStreaksAndDots() {
