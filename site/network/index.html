@@ -582,7 +582,9 @@
     if (activeBranch !== 'all') {
       const node = nodeMap[n.id];
       const bg = branchGroup(node && node.branch);
-      if (bg && bg !== activeBranch) return false;
+      // Only show people who belong to the selected branch
+      // People with no branch (null) get dimmed too
+      if (bg !== activeBranch) return false;
     }
     return true;
   }
