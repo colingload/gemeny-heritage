@@ -160,12 +160,12 @@
       <div class="chart-box">
         <div class="chart-box-title">Most Common First Names</div>
         <div class="chart-box-sub">Top 15 across all generations</div>
-        <canvas id="chartNames" height="300"></canvas>
+        <canvas id="chartNames" height="340"></canvas>
       </div>
       <div class="chart-box">
         <div class="chart-box-title">Most Common Surnames</div>
         <div class="chart-box-sub">Top 15 family names in the tree</div>
-        <canvas id="chartSurnames" height="300"></canvas>
+        <canvas id="chartSurnames" height="340"></canvas>
       </div>
       <div class="chart-box">
         <div class="chart-box-title">Birth Month Distribution</div>
@@ -208,7 +208,7 @@
       <div class="chart-box">
         <div class="chart-box-title">Top Locations</div>
         <div class="chart-box-sub">Most common birthplaces by state/region</div>
-        <canvas id="chartStates" height="350"></canvas>
+        <canvas id="chartStates" height="380"></canvas>
       </div>
       <div class="chart-box">
         <div class="chart-box-title">Countries of Origin</div>
@@ -294,8 +294,8 @@
     const s=setupCanvas(id,height||250); if(!s) return;
     const {ctx,w,h}=s;
     const max=Math.max(...values,1);
-    const barW=Math.min(30,(w-40)/labels.length-4);
-    const left=50, bottom=h-30;
+    const barW=Math.min(32,(w-60)/labels.length-4);
+    const left=45, bottom=h-70;
     const chartH=bottom-10;
 
     // Grid
@@ -313,11 +313,21 @@
     labels.forEach((l,i)=>{
       const x=startX+i*(barW+4);
       const bh=(values[i]/max)*chartH;
-      ctx.fillStyle=typeof color==='string'?color:(color[i]||'#d4a017');
+      const barColor=typeof color==='string'?color:(color[i]||'#d4a017');
+      ctx.fillStyle=barColor;
       ctx.fillRect(x,bottom-bh,barW,bh);
-      ctx.save();ctx.translate(x+barW/2,bottom+4);ctx.rotate(-0.5);
-      ctx.fillStyle='#6d5f4e';ctx.font='8px Inter';ctx.textAlign='left';
-      ctx.fillText(l,0,8);ctx.restore();
+
+      // Value on top of bar
+      ctx.fillStyle='#6d5f4e';ctx.font='bold 8px Inter';ctx.textAlign='center';
+      ctx.fillText(values[i],x+barW/2,bottom-bh-4);
+
+      // Label below, rotated 60 degrees for readability
+      ctx.save();
+      ctx.translate(x+barW/2, bottom+6);
+      ctx.rotate(-Math.PI/3);
+      ctx.fillStyle='#2a2017';ctx.font='9px Inter';ctx.textAlign='right';
+      ctx.fillText(l,0,0);
+      ctx.restore();
     });
   }
 
@@ -484,7 +494,7 @@
     const counts={};
     nodes.forEach(n=>{const f=n.name.split(' ')[0];if(f&&f.length>1)counts[f]=(counts[f]||0)+1;});
     const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,15);
-    drawBarChart('chartNames',top.map(e=>e[0]),top.map(e=>e[1]),'#d4a017',280);
+    drawBarChart('chartNames',top.map(e=>e[0]),top.map(e=>e[1]),'#d4a017',320);
   }
 
   function renderSurnames(nodes) {
@@ -496,7 +506,7 @@
       if(lc.includes('gemeny'))return'#d4a017';if(lc.includes('dubois')||lc.includes('gordon'))return'#5e9acf';
       if(lc.includes('sanderson'))return'#c47a5e';if(lc.includes('burgess'))return'#8e6aad';return'#9a8d7c';
     });
-    drawBarChart('chartSurnames',top.map(e=>e[0]),top.map(e=>e[1]),colors,280);
+    drawBarChart('chartSurnames',top.map(e=>e[0]),top.map(e=>e[1]),colors,320);
   }
 
   function renderMonths(nodes) {
@@ -585,7 +595,7 @@
       if(st&&st.length>1&&!st.match(/^\d/))counts[st]=(counts[st]||0)+1;
     });
     const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,15);
-    drawBarChart('chartStates',top.map(e=>e[0]),top.map(e=>e[1]),'#5e9acf',320);
+    drawBarChart('chartStates',top.map(e=>e[0]),top.map(e=>e[1]),'#5e9acf',360);
   }
 
   function renderCountries(nodes) {
