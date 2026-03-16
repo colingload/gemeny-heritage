@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Gload Family &mdash; Heritage Archive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    :root {
+      --cream: #f7f4ef;
+      --warm: #f0ebe3;
+      --dark: #1e1810;
+      --dark-soft: #2c2418;
+      --text: #2a2017;
+      --text-mid: #6d5f4e;
+      --text-light: #9a8d7c;
+      --gold: #4a7c59;
+      --gold-hover: #5d9a6f;
+      --birth: #5a8a4f;
+      --death: #9a6b5e;
+      --marriage: #8e6aad;
+      --event: #4a7c59;
+      --border: #ddd5c8;
+      --border-light: #e8e2d8;
+      --card: #fffefb;
+      --serif: 'Cormorant Garamond', 'Georgia', serif;
+      --sans: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-hover); }
+
+    /* ===== Navigation ===== */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(247, 244, 239, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0.9rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: var(--serif); font-size: 1.5rem; font-weight: 500;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--text);
+    }
+    .nav-links { list-style: none; display: flex; gap: 1.2rem; align-items: center; white-space: nowrap; }
+    .nav-links a {
+      font-size: 0.68rem; font-weight: 400; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--text-mid);
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-portal-link { opacity: 0.5; }
+    .nav-portal-link:hover { opacity: 1; }
+
+    /* ===== Hero ===== */
+    .hero {
+      background: linear-gradient(160deg, #121e15 0%, #1a2e1a 80%, #1e1810 100%);
+      color: var(--cream);
+      text-align: center;
+      padding: 6rem 2rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, rgba(74,124,89,0.07) 0%, transparent 60%);
+    }
+    .hero-pre {
+      font-family: var(--sans);
+      font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase;
+      opacity: 0.35; margin-bottom: 1.5rem; position: relative;
+    }
+    .hero h1 {
+      font-family: var(--serif); font-size: 4rem; font-weight: 300;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      line-height: 1.15; position: relative; color: var(--cream);
+    }
+    .hero-line {
+      width: 50px; height: 1px; background: var(--gold);
+      margin: 2rem auto; opacity: 0.5; position: relative;
+    }
+    .hero-sub {
+      font-family: var(--serif); font-size: 1.1rem; font-weight: 300;
+      opacity: 0.6; line-height: 1.8; position: relative;
+    }
+
+    /* ===== Intro ===== */
+    .intro {
+      max-width: 620px; margin: 0 auto;
+      padding: 4rem 2rem; text-align: center;
+    }
+    .intro p {
+      font-family: var(--serif); font-size: 1.15rem;
+      line-height: 2; color: var(--text-mid); font-weight: 300;
+    }
+    .intro strong { font-weight: 500; color: var(--text); }
+
+    /* ===== Navigation Cards ===== */
+    .cards {
+      max-width: 1100px; margin: 0 auto 4rem;
+      padding: 0 2rem;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1px; background: var(--border-light);
+      border: 1px solid var(--border-light);
+    }
+    .card {
+      background: var(--card); padding: 2.5rem 1.5rem;
+      text-align: center; color: var(--text);
+      transition: background 0.3s;
+    }
+    .card:hover { background: var(--warm); text-decoration: none; }
+    .card-num {
+      font-family: var(--serif); font-size: 1.8rem; font-weight: 300;
+      color: var(--border); margin-bottom: 0.8rem; letter-spacing: 0.1em;
+    }
+    .card h2 {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 500;
+      margin-bottom: 0.4rem; letter-spacing: 0.04em;
+    }
+    .card p { font-size: 0.82rem; color: var(--text-light); line-height: 1.55; }
+
+    /* ===== Key Figures ===== */
+    .figures {
+      background: linear-gradient(160deg, #121e15 0%, #1a2e1a 80%, #1e1810 100%);
+      color: var(--cream);
+      padding: 5rem 2rem;
+    }
+    .figures-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: var(--sans); font-size: 0.7rem; font-weight: 400;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      text-align: center; margin-bottom: 3rem; opacity: 0.35;
+    }
+    .figures-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1px; background: rgba(255,255,255,0.06);
+    }
+    .figure {
+      background: rgba(26,46,26,0.5); padding: 1.8rem;
+      color: var(--cream); transition: background 0.3s;
+    }
+    .figure:hover { background: rgba(255,255,255,0.03); text-decoration: none; }
+    .figure-gen {
+      font-size: 0.62rem; letter-spacing: 0.18em;
+      text-transform: uppercase; opacity: 0.3; margin-bottom: 0.5rem;
+    }
+    .figure h3 {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
+      color: var(--cream); margin-bottom: 0.15rem;
+    }
+    .figure-dates { font-size: 0.78rem; opacity: 0.3; margin-bottom: 0.6rem; }
+    .figure-desc { font-size: 0.82rem; line-height: 1.55; opacity: 0.45; }
+
+    /* ===== Lineage ===== */
+    .lineage {
+      max-width: 800px; margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .lineage .section-label { color: var(--text-light); }
+    .lineage-chain {
+      display: flex; flex-direction: column; align-items: center; gap: 0;
+    }
+    .lineage-person {
+      text-align: center; padding: 1.2rem 0;
+      position: relative;
+    }
+    .lineage-person::after {
+      content: ''; display: block;
+      width: 1px; height: 2rem;
+      background: var(--border); margin: 1.2rem auto 0;
+    }
+    .lineage-person:last-child::after { display: none; }
+    .lineage-name {
+      font-family: var(--serif); font-size: 1.2rem; font-weight: 500;
+      color: var(--text);
+    }
+    .lineage-detail {
+      font-size: 0.78rem; color: var(--text-light); margin-top: 0.15rem;
+    }
+    .lineage-tag {
+      display: inline-block; margin-top: 0.3rem;
+      font-size: 0.65rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold); padding: 0.15rem 0.5rem;
+      opacity: 0.7;
+    }
+
+    /* ===== Moments ===== */
+    .moments {
+      background: var(--warm);
+      padding: 5rem 2rem;
+    }
+    .moments-inner { max-width: 720px; margin: 0 auto; }
+    .moments .section-label { color: var(--text-light); }
+    .moment {
+      display: flex; gap: 2rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .moment:last-child { border-bottom: none; }
+    .moment-date {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 500;
+      color: var(--gold); min-width: 70px; text-align: right; flex-shrink: 0;
+    }
+    .moment h3 {
+      font-family: var(--serif); font-size: 1rem; font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    .moment p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
+
+    /* ===== Stories Preview ===== */
+    .stories-preview {
+      max-width: 1100px; margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+    .stories-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1px; background: var(--border-light);
+      border: 1px solid var(--border-light);
+    }
+    .story-preview {
+      background: var(--card); padding: 2rem;
+      color: var(--text); transition: background 0.3s;
+    }
+    .story-preview:hover { background: var(--warm); text-decoration: none; }
+    .story-preview-icon { font-size: 1.3rem; opacity: 0.5; margin-bottom: 0.6rem; }
+    .story-preview h3 {
+      font-family: var(--serif); font-size: 1.05rem; font-weight: 500;
+      margin-bottom: 0.2rem; line-height: 1.35;
+    }
+    .story-preview-author { font-size: 0.78rem; color: var(--text-light); }
+
+    /* ===== Placeholder (for sparse sections) ===== */
+    .placeholder {
+      text-align: center; padding: 3rem 2rem;
+      max-width: 500px; margin: 0 auto;
+    }
+    .placeholder-icon {
+      font-size: 2rem; opacity: 0.3; margin-bottom: 1rem;
+    }
+    .placeholder p {
+      font-family: var(--serif); font-size: 1rem;
+      color: var(--text-light); font-style: italic; line-height: 1.7;
+    }
+
+    /* ===== Footer ===== */
+    .footer {
+      border-top: 1px solid var(--border-light);
+      padding: 3rem 2rem; text-align: center;
+      color: var(--dark); font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+    .footer-credits {
+      font-family: var(--serif); font-style: italic;
+      margin-top: 0.4rem; color: var(--text);
+    }
+    .footer-credits strong {
+      color: var(--dark); font-weight: 600;
+    }
+    .footer-copy {
+      margin-top: 1rem; font-size: 0.72rem; color: var(--text-mid);
+    }
+
+    /* ===== CTA ===== */
+    .cta {
+      text-align: center; padding: 4rem 2rem;
+      max-width: 600px; margin: 0 auto;
+    }
+    .cta p {
+      font-family: var(--serif); font-size: 1.05rem;
+      color: var(--text-mid); font-style: italic; margin-bottom: 1.5rem;
+    }
+    .btn {
+      display: inline-block; padding: 0.65rem 2rem;
+      background: var(--dark); color: var(--cream);
+      font-size: 0.75rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: var(--sans);
+      border: 1px solid var(--dark); transition: all 0.2s;
+    }
+    .btn:hover {
+      background: var(--gold); border-color: var(--gold); color: #fff;
+      text-decoration: none;
+    }
+
+    /* ===== This Day in History ===== */
+    .today-widget {
+      max-width: 620px; margin: 0 auto;
+      padding: 0 2rem 3rem; text-align: center;
+    }
+    .today-inner {
+      border: 1px solid var(--border-light);
+      background: var(--card);
+      padding: 1.5rem 2rem;
+      position: relative;
+    }
+    .today-inner::before {
+      content: ''; position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+      width: 40px; height: 3px; background: var(--gold);
+    }
+    .today-label {
+      font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--text-light); margin-bottom: 0.5rem;
+    }
+    .today-text {
+      font-family: var(--serif); font-size: 1.05rem; font-weight: 400;
+      color: var(--text-mid); font-style: italic; line-height: 1.7;
+    }
+    .today-text strong { font-weight: 600; font-style: normal; color: var(--text); }
+
+    /* ===== Migration Map ===== */
+    .migration {
+      background: #0f1a2e; color: var(--cream);
+      padding: 5rem 2rem 6rem;
+      overflow: hidden;
+    }
+    .migration-inner {
+      max-width: 1200px; margin: 0 auto;
+      position: relative;
+    }
+    .migration .section-label { color: rgba(255,255,255,0.4); }
+    .migration-wrap {
+      position: relative;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .map-svg {
+      width: 100%; height: auto; display: block;
+    }
+    .map-coast { fill: none; stroke: rgba(255,255,255,0.1); stroke-width: 2; }
+    .map-dot {
+      fill: #4a7c59; cursor: pointer;
+      transition: opacity 0.5s;
+    }
+    .map-label {
+      font-family: var(--serif); font-size: 12px; fill: rgba(255,255,255,0.5);
+      pointer-events: none;
+    }
+    .map-label-major { fill: rgba(74,124,89,0.85); font-size: 13px; font-weight: 600; }
+    .map-label-pending { fill: rgba(255,255,255,0.15); font-style: italic; }
+
+    /* ===== Streaks ===== */
+    .streaks-link {
+      background: var(--warm);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .streaks-link a {
+      display: inline-block; padding: 0.65rem 2rem;
+      font-size: 0.75rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-family: var(--sans);
+      border: 1px solid var(--border);
+      color: var(--text-mid);
+      transition: all 0.2s;
+    }
+    .streaks-link a:hover {
+      border-color: var(--gold); color: var(--gold);
+    }
+
+    /* ===== Mobile Nav ===== */
+    .nav-menu-btn { display: none; background: none; border: none; color: var(--text-mid); font-size: 1.4rem; cursor: pointer; padding: 0.2rem; }
+    .nav-dropdown { display: none; background: var(--cream); border-bottom: 1px solid var(--border-light); padding: 0.5rem 2rem; }
+    .nav-dropdown.open { display: block; }
+    .nav-dropdown a { display: block; padding: 0.6rem 0; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; border-bottom: 1px solid var(--border-light); }
+    .nav-dropdown a:last-child { border-bottom: none; }
+    .nav-dropdown a:hover { color: var(--gold); }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 900px) {
+      .cards { grid-template-columns: 1fr; }
+      .stories-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.4rem; }
+      .figures-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .nav-menu-btn { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">Gload</a>
+      <ul class="nav-links">
+        <li><a href="../portal.html" class="nav-portal-link">&larr; All Families</a></li>
+        <li><a href="#lineage">Lineage</a></li>
+        <li><a href="#figures">Key Figures</a></li>
+        <li><a href="#stories">Stories</a></li>
+        <li><a href="../network/index.html">Full Tree</a></li>
+        <li><a href="../maps/index.html">Maps</a></li>
+        <li><a href="../stats/index.html">Data</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <button class="nav-menu-btn" id="navMenuBtn">&#9776;</button>
+    </div>
+    <div class="nav-dropdown" id="navDropdown">
+      <a href="../portal.html">&larr; All Families</a>
+      <a href="#lineage">Lineage</a>
+      <a href="#figures">Key Figures</a>
+      <a href="#stories">Stories</a>
+      <a href="../network/index.html">Full Tree</a>
+      <a href="../maps/index.html">Maps</a>
+      <a href="../stats/index.html">Data</a>
+      <a href="#about">About</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <p class="hero-pre">Poissant &middot; Glaude &middot; Glode &middot; Gload &mdash; 440 Years</p>
+    <h1>The Gload<br>Family</h1>
+    <div class="hero-line"></div>
+    <p class="hero-sub">From the salt marshes of Huguenot France to modern America &mdash; thirteen generations, four countries, five surnames.</p>
+  </section>
+
+  <!-- Intro -->
+  <section class="intro">
+    <p>Start with <strong>Poissant</strong>, a word that tastes of the French Atlantic. Follow it through <strong>Poissant dit LaSaline</strong>, the alias of a young Huguenot orphan who crossed the ocean with a musket and a forced conversion. Watch it become <strong>Glaude</strong>, then <strong>Glode</strong>, then finally <strong>Gload</strong> &mdash; each mutation a record of displacement, of a family moving ever southward through <strong>440 years and four countries</strong>.</p>
+  </section>
+
+  <!-- This Day in History -->
+  <section class="today-widget">
+    <div class="today-inner">
+      <div class="today-label">The Surname&rsquo;s Journey</div>
+      <div class="today-text" id="today-text"><strong>Poissant</strong> (1618, France) &rarr; <strong>Poissant dit LaSaline</strong> (1684, Quebec) &rarr; <strong>Poissant dit Claude</strong> (1709) &rarr; <strong>Glaude/Glode</strong> (1825, New York) &rarr; <strong>Gload</strong> (c. 1900, Champlain)</div>
+    </div>
+  </section>
+
+  <!-- Branch Cards -->
+  <section class="cards">
+    <a href="stories/salt-soldiers-surnames.html" class="card">
+      <div class="card-num" style="color:#4a7c59">I</div>
+      <h2>The Full Story</h2>
+      <p>Salt, Soldiers, and Surnames &mdash; a narrative history of the Gload family through 440 years.</p>
+    </a>
+    <a href="#lineage" class="card">
+      <div class="card-num" style="color:#4a7c59">II</div>
+      <h2>Lineage</h2>
+      <p>Thirteen generations from Huguenot France to modern Maryland. Five surnames, one family.</p>
+    </a>
+    <a href="../network/index.html" class="card">
+      <div class="card-num" style="color:#b8860b">III</div>
+      <h2>Full Combined Tree</h2>
+      <p>See how the Gload and Gemeny lines converge through Amelia Gemeny and Ted Gload.</p>
+    </a>
+    <a href="../index.html" class="card">
+      <div class="card-num" style="color:#d4a017">IV</div>
+      <h2>Gemeny Heritage</h2>
+      <p>Explore the maternal side &mdash; four lineages spanning five centuries and three countries.</p>
+    </a>
+  </section>
+
+  <!-- Direct Lineage -->
+  <section class="lineage" id="lineage">
+    <div class="section-label">Direct Lineage &mdash; Thirteen Generations</div>
+    <div class="lineage-chain">
+
+      <div class="lineage-person">
+        <div class="lineage-name">Jacques Poissant</div>
+        <div class="lineage-detail">c. 1618, Marennes, France &middot; Sergent Royal &middot; Huguenot</div>
+        <span class="lineage-tag">Founding Ancestor</span>
+      </div>
+
+      <div class="lineage-person">
+        <div class="lineage-name">Jacques Poissant dit LaSaline</div>
+        <div class="lineage-detail">1661 &ndash; 1734 &middot; Marennes &rarr; Quebec &middot; Soldier, Compagnies franches de la Marine</div>
+        <span class="lineage-tag">Gen 1 &middot; Crossed the Atlantic</span>
+      </div>
+
+      <div class="lineage-person">
+        <div class="lineage-name">Claude &ldquo;Glode&rdquo; Poissant</div>
+        <div class="lineage-detail">1709 &ndash; 1773 &middot; La Prairie, Quebec &middot; Godfather changed the name</div>
+        <span class="lineage-tag">Gen 2</span>
+      </div>
+
+      <div class="lineage-person">
+        <div class="lineage-name">Jacques-Marie Claude Poissant</div>
+        <div class="lineage-detail">c. 1750 &ndash; c. 1824 &middot; Quebec &middot; Lived through the British Conquest</div>
+        <span class="lineage-tag">Gen 3</span>
+      </div>
+
+      <div class="lineage-person">
+        <div class="lineage-name">Jacques &ldquo;Jacob&rdquo; Poissant dit Glode</div>
+        <div class="lineage-detail">c. 1812 &ndash; c. 1867 &middot; Quebec &rarr; Champlain, NY &middot; Crossed the border</div>
+        <span class="lineage-tag">Gen 4 &middot; Quebec to America</span>
+      </div>
+
+      <div class="lineage-person">
+        <div class="lineage-name">Joseph Glode</div>
+        <div class="lineage-detail">c. 1835, Champlain, NY &middot; Canal family &middot; Twelve children</div>
+        <span class="lineage-tag">Gen 5</span>
+      </div>
+
+      <div class="lineage-person">
+        <div class="lineage-name">Amos Glode / Gload</div>
+        <div class="lineage-detail">c. 1874 &ndash; 1933 &middot; Champlain, NY &middot; Final surname shift: Glode &rarr; Gload</div>
+        <span class="lineage-tag">Gen 6</span>
+      </div>
+
+      <div class="lineage-person">
+        <div class="lineage-name">Frederick &ldquo;Mim&rdquo; Gload Sr. &amp; Eva &ldquo;Pip&rdquo; Lavalley</div>
+        <div class="lineage-detail">c. 1900 &middot; Champlain, NY &middot; Nine children, 35 grandchildren</div>
+        <span class="lineage-tag">Gen 7</span>
+      </div>
+
+      <div class="lineage-person">
+        <div class="lineage-name">Robert Frederick Gload &amp; Dolores DiPersico</div>
+        <div class="lineage-detail">1930 &ndash; 2020 &middot; USAF Major &middot; Champlain &rarr; Crofton, MD</div>
+        <span class="lineage-tag">Gen 8 &middot; Military bridge to Maryland</span>
+      </div>
+
+      <div class="lineage-person">
+        <div class="lineage-name">Frederick Anthony &ldquo;Ted&rdquo; Gload &amp; Diane Lee</div>
+        <div class="lineage-detail">b. 1959, Plattsburgh, NY</div>
+        <span class="lineage-tag">Gen 9</span>
+      </div>
+
+      <div class="lineage-person">
+        <div class="lineage-name">Colin Frederick Gload</div>
+        <div class="lineage-detail">b. 1989, Rapid City, SD &middot; Archive curator</div>
+        <span class="lineage-tag">Gen 10</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Key Figures -->
+  <section class="figures" id="figures">
+    <div class="figures-inner">
+      <div class="section-label">Key Figures</div>
+      <div class="figures-grid">
+
+        <a href="stories/salt-soldiers-surnames.html" class="figure">
+          <div class="figure-gen">Founding Ancestor &middot; 1618</div>
+          <h3>Jacques Poissant</h3>
+          <div class="figure-dates">c. 1618 &ndash; c. 1670</div>
+          <p class="figure-desc">Huguenot court officer in Marennes, France. Sergent Royal. His faith defined the family&rsquo;s persecution and eventual exodus.</p>
+        </a>
+
+        <a href="stories/salt-soldiers-surnames.html" class="figure">
+          <div class="figure-gen">Generation 1 &middot; The Crossing</div>
+          <h3>Jacques dit LaSaline</h3>
+          <div class="figure-dates">1661 &ndash; 1734</div>
+          <p class="figure-desc">Orphaned Huguenot soldier. Crossed the Atlantic aboard L&rsquo;Emerillon in 1684. Forced to abjure his faith. Nine children in Quebec.</p>
+        </a>
+
+        <a href="stories/salt-soldiers-surnames.html" class="figure">
+          <div class="figure-gen">Generation 2 &middot; The Name Change</div>
+          <h3>Claude &ldquo;Glode&rdquo; Poissant</h3>
+          <div class="figure-dates">1709 &ndash; 1773</div>
+          <p class="figure-desc">A godfather named Glode Maheu at his baptism changed the family name forever. Poissant became Claude, then Glaude, then Glode, then Gload.</p>
+        </a>
+
+        <div class="figure">
+          <div class="figure-gen">Generation 7 &middot; Depression Era</div>
+          <h3>Frederick &ldquo;Mim&rdquo; &amp; Eva &ldquo;Pip&rdquo;</h3>
+          <div class="figure-dates">c. 1900s</div>
+          <p class="figure-desc">Raised nine children in Champlain during the Depression and WWII. 35 grandchildren. The trunk from which every modern Gload branch grows.</p>
+        </div>
+
+        <div class="figure">
+          <div class="figure-gen">Generation 8 &middot; Cold War</div>
+          <h3>Robert Frederick Gload</h3>
+          <div class="figure-dates">1930 &ndash; 2020</div>
+          <p class="figure-desc">USAF Major. Mount Assumption Institute &rsquo;47. Carried the family from Champlain to Maryland. Avid fisherman who once spotted &ldquo;Champ&rdquo; on the lake.</p>
+        </div>
+
+        <div class="figure">
+          <div class="figure-gen">Generation 8 &middot; Last of Nine</div>
+          <h3>Leona Gload</h3>
+          <div class="figure-dates">1937 &ndash; 2026</div>
+          <p class="figure-desc">The last surviving child of Mim and Pip. Her passing in 2026 closed a chapter. Preceded in death by all eight siblings.</p>
+        </div>
+
+        <div class="figure">
+          <div class="figure-gen">Generation 9</div>
+          <h3>Frederick &ldquo;Ted&rdquo; Gload</h3>
+          <div class="figure-dates">b. 1959</div>
+          <p class="figure-desc">Son of Robert and Dolores. Born in Plattsburgh. Father of Colin, Taylor, Kristen, and Andrew.</p>
+        </div>
+
+        <div class="figure">
+          <div class="figure-gen">Generation 10 &middot; The Archivist</div>
+          <h3>Colin Frederick Gload</h3>
+          <div class="figure-dates">b. 1989</div>
+          <p class="figure-desc">Born in Rapid City, SD. Uses technology to rebuild what memory could no longer hold. Curator of this archive.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Migration Map -->
+  <section class="migration" id="migration">
+    <div class="migration-inner">
+      <div class="section-label">Migration &mdash; Always South, Always West</div>
+      <div class="migration-wrap">
+        <svg class="map-svg" viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg" style="min-height: 420px;">
+          <!-- Simplified coastlines -->
+          <!-- North America east coast -->
+          <path class="map-coast" d="
+            M 680,30 L 700,35 720,28 740,40 760,38 770,50 750,65 730,70
+            720,85 710,100 720,110 735,105 750,115 740,130 720,135
+            710,145 700,160 690,175 695,190 685,200 670,210
+            660,225 650,240 645,260 640,275 635,285 625,295
+            618,310 610,320 600,330 595,345 588,355 580,360
+          "/>
+          <!-- France/Europe suggestion -->
+          <path class="map-coast" style="stroke:rgba(255,255,255,0.06)" d="M 1050,120 L 1060,140 1055,160 1065,175 1060,195 1050,210 1040,220 1030,230"/>
+
+          <!-- Atlantic crossing line -->
+          <line style="stroke:#4a7c59;stroke-width:1;stroke-dasharray:6,4;opacity:0.25" x1="1040" y1="180" x2="710" y2="80"/>
+
+          <!-- Migration route lines -->
+          <line style="stroke:#4a7c59;stroke-width:1.5;stroke-dasharray:3,3;opacity:0.35" x1="710" y1="80" x2="715" y2="95"/>
+          <line style="stroke:#4a7c59;stroke-width:1.5;stroke-dasharray:3,3;opacity:0.35" x1="715" y1="95" x2="660" y2="210"/>
+          <line style="stroke:#4a7c59;stroke-width:1.5;stroke-dasharray:3,3;opacity:0.35" x1="660" y1="210" x2="275" y2="140"/>
+          <line style="stroke:#4a7c59;stroke-width:1.5;stroke-dasharray:3,3;opacity:0.35" x1="660" y1="210" x2="655" y2="225"/>
+
+          <!-- Marennes, France -->
+          <circle class="map-dot" cx="1040" cy="180" r="5" opacity="0.7"/>
+          <text class="map-label map-label-major" x="970" y="175">Marennes, France</text>
+          <text class="map-label" x="975" y="192" style="font-size:10px;opacity:0.3">1618</text>
+
+          <!-- La Prairie / Montreal, Quebec -->
+          <circle class="map-dot" cx="710" cy="80" r="5" opacity="0.8"/>
+          <text class="map-label map-label-major" x="720" y="75">Quebec</text>
+          <text class="map-label" x="720" y="92" style="font-size:10px;opacity:0.3">1684</text>
+
+          <!-- Champlain, NY -->
+          <circle class="map-dot" cx="715" cy="95" r="5" opacity="0.8"/>
+          <text class="map-label map-label-major" x="728" y="100">Champlain, NY</text>
+          <text class="map-label" x="728" y="114" style="font-size:10px;opacity:0.3">1825</text>
+
+          <!-- Crofton / Maryland -->
+          <circle class="map-dot" cx="660" cy="210" r="5" opacity="0.8"/>
+          <text class="map-label map-label-major" x="610" y="228">Maryland</text>
+          <text class="map-label" x="610" y="242" style="font-size:10px;opacity:0.3">1968</text>
+
+          <!-- Rapid City, SD -->
+          <circle class="map-dot" cx="275" cy="140" r="4" opacity="0.6"/>
+          <text class="map-label" x="235" y="133">Rapid City, SD</text>
+          <text class="map-label" x="255" y="148" style="font-size:10px;opacity:0.3">1989</text>
+
+          <!-- Fallston, MD -->
+          <circle class="map-dot" cx="668" cy="198" r="4" opacity="0.8"/>
+          <text class="map-label" x="681" y="195">Fallston</text>
+          <text class="map-label" x="681" y="208" style="font-size:10px;opacity:0.3">Today</text>
+
+          <!-- Caption -->
+          <text style="font-family:var(--serif);font-size:11px;fill:rgba(255,255,255,0.15);font-style:italic" x="450" y="500" text-anchor="middle">&ldquo;The family followed water the way water follows gravity.&rdquo;</text>
+        </svg>
+      </div>
+      <div style="text-align:center;margin-top:1rem">
+        <a href="../maps/index.html" style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;opacity:0.4;color:var(--cream)">View full interactive maps &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Streaks Link -->
+  <section class="streaks-link">
+    <div class="section-label" style="color:var(--text-light)">Family Data</div>
+    <a href="../streaks/index.html">View Streaks &amp; Statistics &rarr;</a>
+  </section>
+
+  <!-- Moments in Time -->
+  <section class="moments" id="moments">
+    <div class="moments-inner">
+      <div class="section-label">Moments in Time</div>
+
+      <div class="moment">
+        <div class="moment-date">c. 1618</div>
+        <div class="moment-body">
+          <h3>Jacques Poissant born in Marennes</h3>
+          <p>A Huguenot court officer in the salt-making capital of Saintonge, France.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-date">1684</div>
+        <div class="moment-body">
+          <h3>Jacques dit LaSaline crosses the Atlantic</h3>
+          <p>An orphaned Huguenot soldier boards L&rsquo;Emerillon at La Rochelle. Arrives Quebec in November, covered in ice.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-date">1685</div>
+        <div class="moment-body">
+          <h3>Forced abjuration</h3>
+          <p>On Palm Sunday, Jacques renounces his Calvinist faith at Pointe-aux-Trembles. The faith that persecuted them became the faith that sustained them.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-date">1694</div>
+        <div class="moment-body">
+          <h3>Land grant at C&ocirc;te de la Tortue</h3>
+          <p>Jacques receives 85 acres with Saint Lawrence frontage at La Prairie. The family puts down roots.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-date">1709</div>
+        <div class="moment-body">
+          <h3>A godfather changes a surname</h3>
+          <p>Claude &ldquo;Glode&rdquo; Poissant is baptized. Godfather Glode Maheu introduces the name that will eventually replace Poissant.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-date">1759</div>
+        <div class="moment-body">
+          <h3>The Fall of Quebec</h3>
+          <p>The British defeat the French on the Plains of Abraham. The world turns English. The family adapts.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-date">c. 1825</div>
+        <div class="moment-body">
+          <h3>Jacob crosses the border</h3>
+          <p>Jacques-Marie &ldquo;Jacob&rdquo; Poissant dit Glode walks from St-Constant, Quebec to Champlain, New York. The family becomes American.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-date">1918</div>
+        <div class="moment-body">
+          <h3>Nettie dies at 44</h3>
+          <p>First wife of Amos Glode. March 1918 &mdash; the same month the Spanish Flu first appeared in America.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-date">1930</div>
+        <div class="moment-body">
+          <h3>Robert Frederick Gload born</h3>
+          <p>Born May 6 in Champlain, the year the Depression began. He would live to see another pandemic.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-date">1948</div>
+        <div class="moment-body">
+          <h3>Robert enlists in the USAF</h3>
+          <p>Among the first to wear the new blue uniform. The Air Force had existed as a separate branch for barely four months.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-date">1957</div>
+        <div class="moment-body">
+          <h3>Robert marries Dolores DiPersico</h3>
+          <p>Franco-American Catholic meets Italian-American Catholic. Both traditions rooted in parish life.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-date">2004</div>
+        <div class="moment-body">
+          <h3>Bob spots &ldquo;Champ&rdquo;</h3>
+          <p>At 74, Bob and four grandchildren see three humps in Lake Champlain while bass fishing. Makes CBS News.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-date">2020</div>
+        <div class="moment-body">
+          <h3>Robert Frederick Gload dies</h3>
+          <p>Age 90. Born the year the Depression began, died the year of another pandemic. Survived by wife of 63 years.</p>
+        </div>
+      </div>
+
+      <div class="moment">
+        <div class="moment-date">2026</div>
+        <div class="moment-body">
+          <h3>Leona, the last of nine, passes</h3>
+          <p>With her passing, all nine children of Mim and Pip are gone. The stories now live only in what they passed to their children.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Stories Preview -->
+  <section class="stories-preview" id="stories">
+    <div class="section-label">Stories &amp; Research</div>
+    <div class="stories-grid">
+
+      <a href="stories/salt-soldiers-surnames.html" class="story-preview">
+        <div class="story-preview-icon">&#9875;</div>
+        <h3>Salt, Soldiers, and Surnames</h3>
+        <div class="story-preview-author">The Gload Family Through 440 Years &middot; March 2026</div>
+      </a>
+
+      <a href="#moments" class="story-preview">
+        <div class="story-preview-icon">&#128270;</div>
+        <h3>The Surname&rsquo;s Journey</h3>
+        <div class="story-preview-author">Poissant &rarr; LaSaline &rarr; Claude &rarr; Glode &rarr; Gload</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Six Threads -->
+  <section class="cta">
+    <p style="font-style:normal;font-family:var(--sans);font-size:0.82rem;color:var(--text-light);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.8rem">Six Threads Through 440 Years</p>
+    <p><strong>Religion.</strong> Huguenot &rarr; forced Catholic. <strong>Language.</strong> French &rarr; English. <strong>The surname.</strong> Five names, one family. <strong>Water.</strong> Salt marshes, Atlantic, St. Lawrence, Lake Champlain, Chesapeake. <strong>Military.</strong> Jacques in 1684, Robert in 1948. <strong>Migration.</strong> Always south. Always west.</p>
+    <a href="stories/salt-soldiers-surnames.html" class="btn" style="margin-top:1rem">Read the Full Story</a>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <p>This is a growing archive. If you have information about the Gload family &mdash; records, photos, stories, or memories &mdash;</p>
+    <a href="#about" class="btn">Get in Touch</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="about">
+    <p>A project to preserve and share the Gload family heritage.</p>
+    <p class="footer-credits">Research and archive curated by <strong>Colin Gload</strong>.</p>
+    <p class="footer-copy">&copy; 2026 Colin Gload. Part of the Family Heritage Archive.</p>
+  </footer>
+
+  <script>
+  // === Mobile Nav Hamburger ===
+  document.getElementById('navMenuBtn').addEventListener('click', function() {
+    document.getElementById('navDropdown').classList.toggle('open');
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav')) document.getElementById('navDropdown').classList.remove('open');
+  });
+  document.querySelectorAll('#navDropdown a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.getElementById('navDropdown').classList.remove('open');
+    });
+  });
+  </script>
+
+</body>
+</html>

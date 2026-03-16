@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Salt, Soldiers, and Surnames — Gload Family Heritage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --cream:#f7f4ef;--warm:#f0ebe3;--dark:#1e1810;--text:#2a2017;--text-mid:#6d5f4e;--text-light:#9a8d7c;--gold:#4a7c59;--gold-hover:#5d9a6f;--border:#ddd5c8;--border-light:#e8e2d8;--card:#fffefb;--serif:'Cormorant Garamond','Georgia',serif;--sans:'Inter',-apple-system,'Segoe UI',sans-serif; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--sans);background:var(--cream);color:var(--text);font-size:15px;line-height:1.65}
+    a{color:var(--gold);text-decoration:none;transition:color 0.2s}a:hover{color:var(--gold-hover)}
+    .nav{position:sticky;top:0;z-index:100;background:rgba(247,244,239,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0.9rem 2rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-brand{font-family:var(--serif);font-size:1.5rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--text)}
+    .nav-back{font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-mid)}
+    .story-hero{background:linear-gradient(160deg, #121e15 0%, #1a2e1a 80%, #1e1810 100%);color:var(--cream);text-align:center;padding:4rem 2rem 3.5rem}
+    .story-hero-label{font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;opacity:0.35;margin-bottom:1rem}
+    .story-hero h1{font-family:var(--serif);font-size:2.6rem;font-weight:300;letter-spacing:0.04em;line-height:1.2;color:var(--cream);margin-bottom:0.6rem}
+    .story-hero-subtitle{font-family:var(--serif);font-size:1.15rem;font-weight:300;opacity:0.55;font-style:italic;margin-bottom:0.5rem}
+    .story-hero-meta{font-family:var(--serif);font-size:1rem;font-style:italic;opacity:0.45}
+    .story-body{max-width:720px;margin:0 auto;padding:3rem 2rem 5rem}
+    .story-body h2{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--text);margin:3rem 0 1.2rem;padding-top:1rem;border-top:1px solid var(--border-light)}
+    .story-body h3{font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--text);margin:2rem 0 0.8rem}
+    .story-body p{margin-bottom:1.2rem;line-height:1.9;font-size:0.93rem}
+    .story-body em{font-style:italic}
+    .story-body strong{font-weight:600}
+    .story-body blockquote{border-left:3px solid var(--gold);padding:1rem 1.5rem;margin:2rem 0;font-family:var(--serif);font-style:italic;color:var(--text-mid);font-size:1rem;line-height:1.8}
+    .story-body hr{border:none;border-top:1px solid var(--border-light);margin:3rem 0}
+    .story-body .pull-quote{font-family:var(--serif);font-size:1.3rem;font-weight:300;color:var(--gold);line-height:1.6;text-align:center;padding:2rem 1rem;margin:2rem 0;font-style:italic}
+    .content-note{background:var(--warm);border:1px solid var(--border-light);padding:1.5rem 2rem;margin:2rem 0;font-size:0.88rem;line-height:1.7}
+    .content-note-label{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;display:block}
+    .story-source{max-width:720px;margin:0 auto;padding:0 2rem 2rem}
+    .story-source h3{font-family:var(--sans);font-size:0.72rem;color:var(--text-mid);letter-spacing:0.06em;margin-bottom:0.8rem;text-transform:uppercase}
+    .story-source ol{padding-left:1.5rem;font-size:0.78rem;color:var(--text-light);line-height:1.8}
+    .story-source ol li{margin-bottom:0.3rem}
+    .story-people{max-width:720px;margin:0 auto;padding:0 2rem 3rem}
+    .story-people h3{font-family:var(--sans);font-size:0.72rem;color:var(--text-mid);letter-spacing:0.06em;margin-bottom:0.8rem;text-transform:uppercase}
+    .story-people-list{display:flex;gap:0.5rem;flex-wrap:wrap}
+    .story-people-link{padding:0.35rem 0.9rem;border:1px solid var(--border-light);font-size:0.82rem;color:var(--text);transition:all 0.2s}
+    .story-people-link:hover{border-color:var(--gold);color:var(--gold);text-decoration:none}
+    .footer{border-top:1px solid var(--border-light);padding:2rem;text-align:center;color:var(--text-light);font-size:0.78rem;margin-top:3rem}
+    @media(max-width:600px){.story-hero h1{font-size:1.8rem}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Gload</a>
+      <a href="../index.html#stories" class="nav-back">&larr; Back to Gload Heritage</a>
+    </div>
+  </nav>
+
+  <section class="story-hero">
+    <div class="story-hero-label">Narrative &middot; 440 Years of History</div>
+    <h1>Salt, Soldiers, and Surnames</h1>
+    <div class="story-hero-subtitle">The Gload Family Through 440 Years of History</div>
+    <div class="story-hero-meta">Compiled for the Gemeny-Gload Heritage Project &middot; March 2026</div>
+  </section>
+
+  <article class="story-body">
+
+    <blockquote>A family&rsquo;s name tells you where they have been. Start with Poissant, a word that tastes of the French Atlantic, of salt marshes and herring nets in the grey light of Saintonge. Follow it through Poissant dit LaSaline, the military alias of a young Huguenot orphan who crossed the ocean with nothing but a musket and a forced conversion. Watch it become Poissant dit Claude, then Glaude, then Glode, then finally Gload, each mutation a record of displacement, of a new clerk&rsquo;s ear trying to parse an unfamiliar sound, of a family moving ever southward and westward through four centuries and four countries, shedding syllables the way a river sheds sediment as it slows toward the sea. This is the story of that river. It begins where all the Poissant stories begin: in the smell of brine.</blockquote>
+
+    <div class="content-note">
+      <span class="content-note-label">Dedication</span>
+      <p>For the family members who carried the stories forward, and for those who will carry them next.</p>
+    </div>
+
+    <hr>
+
+    <h2>I. The Salt and the Psalms: Marennes, France, 1580 to 1684</h2>
+
+    <h3>A town between the tides</h3>
+
+    <p>The town of Marennes sits on a tongue of land between two estuaries, the Charente to the north, the Seudre to the south, on the Atlantic coast of what was then the province of Saintonge. In the seventeenth century, it was practically an island. The surrounding salt marshes were so vast and so thoroughly flooded that a trip of ten miles to the neighboring village of Broue still required a forty-ton vessel. The landscape was geometry and water: rectangular basins of varying depth glinting in the sun, whitened crystals crusting the edges of shallow pans, wicker baskets draining in rows along earthen dikes. The air tasted of mineral brine. At low tide, the mudflats of the Seudre estuary exhaled a rich, organic smell, brackish water, seaweed, and the sweetness of oysters maturing in the converted salt ponds called <em>claires</em>. Overhead, terns wheeled and screamed.</p>
+
+    <p>Salt was everything. The <em>marais salants</em> of the Seudre basin covered roughly five thousand hectares, an enormous expanse of shallow evaporation pools where Atlantic seawater was channeled through progressively shallower chambers until, in the final crystallization pans no more than four centimeters deep, the grey crystals of <em>sel de Saintonge</em> formed under the summer sun. Workers scooped the salt with wide wooden rakes and loaded it into wicker baskets to drain. The product was coarse, grey-tinged, and prized across northern Europe for preserving fish and meat. Salt boats waited off the fortress of Royan for favorable winds, then carried their cargo to England, the Netherlands, and the Baltic. The salt tax, the hated <em>gabelle</em>, was so onerous that in 1548, when Henri II extended it to Saintonge, the entire population rose in revolt. They were crushed. And they became Protestants.</p>
+
+    <p>By 1576, nearly three-quarters of the population of Aunis and Saintonge had converted to the Reformed faith. The coastal villages between the Seudre and the Garonne were populated almost entirely by Protestant mariners, and the town of Marennes was their spiritual capital. The Protestant temple stood at the center of community life, not a cathedral of stone and stained glass, but an austere rectangular building with clear windows, bare walls, no images, no statuary, no crucifix. A high central pulpit dominated the interior. The focus was entirely on the Word.</p>
+
+    <p>Into this world, around 1618, Jacques Poissant the elder was born. He would become a <em>sergent royal</em>, a judicial officer of the Crown, charged with serving legal documents, executing seizures of property, and making arrests. It was a position of modest but real authority, requiring literacy and legal knowledge, both hallmarks of the Huguenot artisan class. He married Suzanne Guichard in 1638, and after her death, Elisabeth Magord in 1654. Six children are recorded across both marriages. Jacques was one of three Poissant clans in the Reformed Church of Marennes: Samuel the tailor, Pierre the shoemaker, and Jacques the court officer. They baptized their children in the temple, sang the Genevan Psalter in unison without instruments, and read their Bibles in French by candlelight. They were literate, disciplined, and devout. They were also doomed.</p>
+
+    <h3>The faith under siege</h3>
+
+    <p>The Edict of Nantes, signed by Henry IV in 1598, had granted French Protestants freedom of conscience, limited public worship, and access to public office. It was the fragile architecture of coexistence. Louis XIV spent his reign dismantling it. Between 1657 and 1685, approximately three hundred rulings were issued against Huguenots, each one tightening the noose. Professions were closed to them: medicine, law, midwifery, many guild-controlled trades. Protestant children as young as seven were permitted to convert without parental consent. Psalm singing outside the temple was outlawed. Temples were challenged in court, one by one, on technicalities of their founding documents, and demolished.</p>
+
+    <p>Then came the <em>dragonnades</em>. In the spring of 1681, mounted infantry soldiers, dragoons, were quartered in Protestant households with implied permission to brutalize the inhabitants. They ate the family&rsquo;s food, drank their wine, smashed their furniture, deprived them of sleep, and forced them to pay for the privilege of their own destruction. When the family abjured the Protestant faith, the dragoons moved to the next house. Within months, 38,000 conversions were registered in Poitou alone.</p>
+
+    <p>On October 18, 1685, Louis XIV signed the Edict of Fontainebleau, revoking every protection the Edict of Nantes had granted. All remaining temples were to be demolished. All Protestant assemblies were forbidden on pain of imprisonment. All Protestant pastors were expelled within fifteen days. And here was the cruelest provision: while pastors could leave France, lay Protestants were forbidden to emigrate. Men caught fleeing were sentenced to the galleys. Women were sent to prison or convents. An estimated 200,000 to 400,000 Huguenots fled anyway, hidden in salt barrels, pregnant, shoeless, with diamonds sewn into their cloaks.</p>
+
+    <p>Some of the Poissants of Marennes fled to London&rsquo;s Spitalfields, where over thirteen thousand French refugees had settled by 1687, building nine new Reformed churches and transforming the English silk industry. But the youngest Jacques Poissant, born July 12, 1661, the son of Jacques and Elisabeth Magord, did not go to London. Orphaned by age nine, Protestant in a kingdom that had criminalized his faith, he enlisted in the Compagnies franches de la Marine at twenty-three and boarded the ship <em>L&rsquo;Emerillon</em>. He arrived in New France in November 1684. He never saw Marennes again.</p>
+
+    <hr>
+
+    <h2>II. Ice and Abjuration: The Crossing to New France, 1684</h2>
+
+    <p>In the last days of August 1684, a ship called <em>L&rsquo;Emerillon</em> cleared the harbor at La Rochelle and turned its bow toward the open Atlantic. Aboard were three hundred soldiers sent by Louis XIV to reinforce New France against the Iroquois Confederacy. Among them was Jacques Poissant, twenty-three years old, from Marennes.</p>
+
+    <p>The crossing took approximately ten weeks. The ship would have been small, perhaps two hundred tons, pitching and rolling in the grey swells. Below deck, soldiers slept in hammocks or on straw pallets in cramped, dark, poorly ventilated quarters shared with rats. They ate salt pork, hardtack, dried peas, and drank water that grew fouler with each passing week. On November 12, 1684, the ship dropped anchor off Quebec City, covered with ice and frost.</p>
+
+    <p>Five months later, on Palm Sunday, April 1685, Jacques stood before the altar of the parish church at Pointe-aux-Trembles, near Montreal, and renounced his Calvinist faith. He could neither read nor write. The priest read the profession of faith aloud, and Jacques assented, placing his hands on a Bible and swearing allegiance to the Catholic Church. The political act that had destroyed his family&rsquo;s faith in Marennes now forced him to adopt the faith of his persecutors in a frozen colony on the other side of the world.</p>
+
+    <h3>War in the wilderness</h3>
+
+    <p>Jacques served in the Company of Monsieur de Noyan, colonial infantry assigned to the naval department&rsquo;s budget. Before barracks were established in 1749, soldiers lived billeted with local families, supplementing meager rations by hunting. On the morning of August 5, 1689, approximately fifteen hundred Mohawk warriors crossed Lake Saint-Louis by canoe and attacked the settlement of Lachine on the south shore of Montreal Island. Twenty-four colonists were killed. Seventy to ninety were taken prisoner. Houses were put to the torch. As a soldier stationed in the Montreal area, Jacques would have been directly involved in the response.</p>
+
+    <p>For a decade, the colony lived in a state of near-constant alert. Then, on August 4, 1701, Governor Calliere and over 1,300 Indigenous delegates from thirty-nine nations signed the Great Peace of Montreal, ending nearly a century of the Beaver Wars. Wampum belts were exchanged. A peace pipe was shared. The wars were over.</p>
+
+    <h3>Roots in the river-lot soil</h3>
+
+    <p>On July 3, 1694, Jacques received a land grant at Cote de la Tortue, La Prairie: roughly eighty-five acres with frontage on the Saint Lawrence. He married Marie Marguerite Besset dit Brisetout around 1699. Together they raised nine children. He grew wheat, peas, oats, and corn. He raised cattle, pigs, and chickens. The family name now bore its first mutation: Poissant dit LaSaline, &ldquo;Poissant, called the Salt Works,&rdquo; a <em>nom de guerre</em> referencing his hometown&rsquo;s famous marshes.</p>
+
+    <p>Jacques Poissant dit LaSaline died on August 19, 1734, at La Prairie, and was buried the same day, the haste suggesting an epidemic. He was seventy-three years old. He had lived exactly half his life in France and half in Canada.</p>
+
+    <hr>
+
+    <h2>III. The Quiet Century: How a Godfather Changed a Surname, 1709 to 1825</h2>
+
+    <p>The generations that followed Jacques lived in the long exhale of the Great Peace. They were <em>habitants</em>, the French-Canadian farming class, and their world was defined by the rhythms of the land, the river, and the Church. Their whitewashed houses sat close to the road near the Saint Lawrence, a few rods from their neighbors on either side. Behind each house: a storeroom, a barn of untrimmed logs chinked with clay, a root cellar half-sunk in the ground, and a domed bake-oven of boulders plastered with clay, fired weekly for the whole week&rsquo;s bread.</p>
+
+    <p>In 1709, Jacques&rsquo;s son was baptized at La Prairie. His godfather was a man named Glode Maheu, and the child was recorded as &ldquo;Glode Poissant.&rdquo; The name Claude attached itself to the family. In the <em>dit</em> name system, it became Poissant dit Claude. Pronounced in the rural dialect of the Saint Lawrence valley, Claude became Glaude. Written by English-speaking clerks after the Conquest, Glaude became Glode. And eventually, Glode became Gload. The entire metamorphosis traces back to a godfather at a baptismal font in 1709.</p>
+
+    <div class="pull-quote">&ldquo;Five names, one family, 440 years.&rdquo;</div>
+
+    <h3>When the world turned English</h3>
+
+    <p>On September 13, 1759, British soldiers under General James Wolfe defeated the French under Montcalm on the Plains of Abraham outside Quebec City. Both generals died. The Treaty of Paris in 1763 gave all of New France to Britain. For ordinary <em>habitants</em> like the Poissants, the Conquest was disorienting but not immediately devastating. The Quebec Act of 1774 restored French civil law for private matters and guaranteed the Church&rsquo;s power to collect tithes. The Church, with its clergy among the few educated leaders who remained, became the primary institution of French-Canadian cultural preservation.</p>
+
+    <p>When American forces invaded Quebec in the autumn of 1775, Benedict Arnold&rsquo;s ragged troops crossing the St. Lawrence after a nightmarish march through the Maine wilderness, most <em>habitants</em> remained neutral. The invasion collapsed. But it demonstrated something the Poissants would have recognized from their own history: that ordinary people are always caught between the ambitions of empires.</p>
+
+    <hr>
+
+    <h2>IV. Southward Across the Border: From Quebec to Champlain, 1812 to 1874</h2>
+
+    <p>On the morning of September 11, 1814, the Lake Champlain corridor witnessed what historians have called the most decisive engagement of the War of 1812. Lieutenant General Sir George Prevost marched ten thousand British veterans south from Montreal toward Plattsburgh, New York. In Plattsburgh Bay, Master Commandant Thomas Macdonough&rsquo;s flagship <em>Saratoga</em>, unable to fire from one side, used anchor cables to swing the ship entirely around, presenting fresh guns to the stunned British fleet. The British squadron was devastated. Prevost retreated. The treaty ending the war was signed three months later.</p>
+
+    <p>A decade later, the Champlain Canal opened. Completed in 1823, this sixty-mile waterway with twenty-one locks connected Lake Champlain to the Hudson River and, through it, to New York City. The economic transformation was immediate. And it drew workers.</p>
+
+    <p>Among them was Jacques-Marie Poissant, known increasingly as Jacob, who around 1825 crossed the border from Saint-Constant, Quebec, to Champlain, Clinton County, New York. The distance was trivial: the international boundary ran through open farmland, crossable by a man on foot in an afternoon. The reasons for crossing were profound. Quebec&rsquo;s population had increased four hundred percent between 1784 and 1844 while agricultural acreage grew only 275 percent. For a young <em>habitant</em> with too many brothers and too little land, the American side offered canal work, lumber jobs, cheap farmland, and a future.</p>
+
+    <p>His children did not call themselves Poissant. They used the <em>dit</em> name, Claude, Glaude, Glode. In 1846, a fire destroyed the parish registers of Saint-Joseph de Corbeau, the records that would have documented the precise moment of transition. The paper trail that might have preserved the family&rsquo;s French identity was reduced to ash.</p>
+
+    <hr>
+
+    <h2>V. Canal Families and Iron Men: Champlain in the American Century, 1835 to 1933</h2>
+
+    <p>Joseph Glode was born in 1835, into a world defined by water and wood. Lake Champlain was a highway of lumber rafts and sailing canal boats. The Glode family were, by some accounts, a &ldquo;canal family&rdquo; who for generations lived and canaled from Champlain on the Chazy River to New York City.</p>
+
+    <p>Joseph raised twelve children and never left Champlain. His son Amos Glode, born around 1874, married three times, and all three wives predeceased him. Nettie died in March 1918 at the age of forty-four. Eva died in 1925. Cora died in 1931. Amos survived until December 1933 and was buried at St. Mary&rsquo;s Roman Catholic Cemetery in Champlain.</p>
+
+    <p>Nettie&rsquo;s death in March 1918 raises a grim question. The Spanish Flu pandemic&rsquo;s first documented American cases appeared that same month at Camp Funston, Kansas. A forty-four-year-old woman dying in upstate New York in March 1918 falls within the pandemic&rsquo;s earliest footprint. Without a death certificate, certainty is impossible. But the timing is haunting.</p>
+
+    <p>It was during Amos&rsquo;s lifetime that the final vowel shift occurred. Glode became Gload. One more phonetic mutation, one more census taker&rsquo;s interpretation, one more step away from the French original.</p>
+
+    <div class="pull-quote">&ldquo;The family followed water the way water follows gravity.&rdquo;</div>
+
+    <hr>
+
+    <h2>VI. Mim and Pip: The Nine Children of Frederick and Eva Gload, 1920s to 2026</h2>
+
+    <p>Frederick Charles Gload Sr., born around 1900, married Eva Lavalley in a union that reflected generations of intermarriage within the Franco-American community. The Gload and Lavalley families had been appearing together in Champlain records for decades, bound by shared language, shared faith, and the tight geography of a parish that was simultaneously their church, their school, their social club, and their safety net. The family knew Frederick as &ldquo;Mim&rdquo; and Eva as &ldquo;Pip,&rdquo; the kind of nicknames that stick for life in big families and small towns.</p>
+
+    <p>Eva Gload&rsquo;s civic presence is recorded in the September 1938 edition of the <em>North Countryman</em>, which listed &ldquo;Mrs. George Gload&rdquo; on the committee for Champlain&rsquo;s Sesquicentennial celebration, alongside the village&rsquo;s other leading citizens. Whether this was Eva herself or another Gload relative, it confirms the family&rsquo;s deep roots in the community&rsquo;s public life during the years between the wars.</p>
+
+    <p>Together, Mim and Pip raised nine children in the Champlain and Plattsburgh area during the Depression, the Second World War, and the postwar boom. Those nine children would produce thirty-five grandchildren, and the family would eventually scatter from upstate New York to Maryland, Illinois, Iowa, Arizona, and beyond. But the center held: Plattsburgh and Lake Champlain remained the place where the branches came back together.</p>
+
+    <h3>The nine branches</h3>
+
+    <p><strong>Richard Gload</strong>, the eldest, raised four sons: Dickie, Jerry, Jimmy, and Allen. Allen Gload remains connected to the wider family and attended the most recent Gload reunion in Plattsburgh.</p>
+
+    <p><strong>Peter Gload</strong> had two children: Peggy, who married into the Maloney family, and David. Peggy Maloney remains active in the extended family.</p>
+
+    <p><strong>Betty Gload</strong> married into the Passnault family and raised three daughters: Jan, who married into the Gaines family; Kathy, who married into the Shumaker family; and Jill, who married into the Reese family. Jill Reese has been one of the most active members of the extended Gload family network. Betty was listed as a surviving sister in Robert&rsquo;s 2020 obituary.</p>
+
+    <p><strong>Robert &ldquo;Bob&rdquo; Gload</strong> (1930&ndash;2020), the fourth child, was born on May 6, 1930, in Champlain. His story is told in full below, as it is through his line that the family&rsquo;s migration from upstate New York to Maryland is traced. He married Dolores DiPersico in 1957 and raised four children: Ted, Nancy, Bob Jr., and Chris, who between them produced fifteen grandchildren and, by 2020, two great-grandsons.</p>
+
+    <p><strong>Joyce Gload</strong> married into the Rock family and had the largest brood of any of the nine siblings: seven children. Raney, Bob, Susie, Cindy (who married into the Bengtsson family), Laurie, Brenda (who married into the Munson family), and Tim. The Rock branch is the most prolific in the extended family. Bob Rock, Timothy Rock, and their children and grandchildren, including Joshwa, Alex, Tylor, Jane, Michelle, and Renee Rock, as well as Kate Munson-Duprey and Daniel Munson from Brenda&rsquo;s line, form one of the largest contingents at family gatherings.</p>
+
+    <p><strong>Marion Gload</strong> raised three children: Val, Matt, and Bill.</p>
+
+    <p><strong>Gloria Gload</strong> had four children: Becky, Johnny, Patti (who married into the Crowley family), and Michael. John Crowley and Patti Crowley remain part of the extended family network.</p>
+
+    <p><strong>Leona Gload</strong> (1937&ndash;2026) was born in Plattsburgh and was the eighth of the nine children. She married John Cartuccio, and her four children carry the Shapiro name: Macey &ldquo;Butch&rdquo; Shapiro, Ree Shapiro, Gina (who married into the Redina family), and Vicky (who married into the O&rsquo;Donnell family). Leona&rsquo;s life traced its own wide arc across the country: from Plattsburgh and Lake Champlain, to Chicago and the surrounding suburbs, to a farm in Maryland she shared with her late husband John, and ultimately to Florida, where she enjoyed time at the ocean. She spent her final years in the care of her children, with Ree in Manson, Iowa, and with Butch and Michele in Green Valley, Arizona. Leona passed peacefully in early 2026, surrounded by family. Her obituary confirmed she was preceded in death by all eight of her siblings. A celebration of life is planned for the summer of 2026 in Plattsburgh. She is survived by ten grandchildren, twenty-one great-grandchildren, and five great-great-grandchildren. Butch Shapiro has been the most active family historian and reunion organizer among the grandchildren of Mim and Pip.</p>
+
+    <p><strong>Mary Lou Gload</strong>, the youngest, married into the Snyder family and raised four daughters: Cheryl (who married into the Schneider family), Eve (who married into the Redmond family), Sandy (who married into the Berry family), and Andrea (who married into the Wendel family).</p>
+
+    <h3>The math of a family</h3>
+
+    <p>The numbers tell their own story. Nine children. Thirty-five grandchildren. And from those thirty-five, a generation of great-grandchildren and great-great-grandchildren whose full count is still being assembled. The 2025 Gload family reunion in Plattsburgh drew dozens of descendants, complete with a point-based leaderboard tracking participation and family engagement. The top scorer, Butch Shapiro, tallied over three thousand points. The names on that leaderboard, Rock, Shapiro, Reese, Schneider, Munson, Bengtsson, Crowley, Maloney, Gaines, Shumaker, Crim, O&rsquo;Donnell, Redina, Redmond, Berry, Wendel, Gload, tell the story of a single Franco-American family from Champlain that married into dozens of other American families across the country. Every one of those names traces back to Mim and Pip, to the Depression-era house in the Champlain area where French was likely still spoken at the dinner table, where the parish of St. Mary&rsquo;s anchored the week, and where nine children grew up in the shadow of Lake Champlain.</p>
+
+    <p>With Leona&rsquo;s passing in 2026, all nine of Frederick and Eva&rsquo;s children are gone. The stories they carried, the memories of Mim and Pip, the sound of their parents&rsquo; voices, the layout of the family home, all of that now lives only in what they passed to their own children. The reunion in Plattsburgh is the family&rsquo;s answer to that loss: a deliberate act of gathering, of counting heads, of making sure the branches still know they are part of the same tree.</p>
+
+    <hr>
+
+    <h2>VII. Robert&rsquo;s Branch: The Military Bridge from Champlain to Maryland, 1930 to 2020</h2>
+
+    <p>Of the nine children, Robert&rsquo;s story carried the family the farthest from home. He was educated at Mount Assumption Institute, an all-boys Catholic secondary school in Plattsburgh run by the Brothers of Christian Instruction, a French Catholic religious order that had served the community since 1903. The Brothers taught mathematics, science, and religious instruction with a versatility born of necessity, &ldquo;open to anything, which included directing the band and driving the bus.&rdquo; Robert graduated in 1947.</p>
+
+    <p>Six months later, in January 1948, he enlisted in the United States Air Force, an institution that had existed as an independent branch for barely four months, having been separated from the Army on September 18, 1947. He was among the very first to wear the new blue uniform. The Cold War military career was a life of constant movement. Robert served twenty years, rising to the rank of Major, USAF. He married Dolores DiPersico on January 26, 1957, merging the Franco-American Catholic tradition with the Italian-American Catholic tradition, both communities deeply rooted in parish life and the rhythms of the liturgical calendar.</p>
+
+    <p>After retirement from the Air Force in 1968, the family settled in Crofton, Maryland, a planned community in Anne Arundel County adjacent to Fort George G. Meade, home to the National Security Agency and Maryland&rsquo;s largest employer. Robert built a second career with Motorola and later Ericsson-GE. He was a dedicated member of the Veterans of Foreign Wars, the American Legion, and the Disabled American Veterans, and was the VFW&rsquo;s Buddy Poppy Program&rsquo;s chief fundraiser, raising thousands of dollars for the cause. He was also a longtime member of the Benevolent Protective Order of Elks.</p>
+
+    <p>But Champlain never let go entirely. Robert was an avid fisherman who returned to fish on Lake Champlain for most of his life. In August 2004, Bob and four of his grandchildren made the news when they reported seeing &ldquo;Champ,&rdquo; the legendary Lake Champlain monster, while bass fishing. He described an explosion in the water and three humps, two to three feet tall. A man who had been born in the area and never believed in lake monsters became, at seventy-four, a convert.</p>
+
+    <p>Robert lived to ninety, dying on February 23, 2020. He had been born in the year the Great Depression began and died in the year of another pandemic. He is survived by his wife of sixty-three years, Dolores, and his four children and their families: Ted and Diane Gload, and their children Colin and Brittany, Taylor, Kristen, and Andrew; Nancy Crim and Russell Crim, and their children Matthew and Victoria, and Jennifer; Bob and Karla Gload, and their children Kaylee and Kerrie; and Chris Gload, and his children Joseph, Torrey, Amy, Jessie, Troy, and Alahna.</p>
+
+    <hr>
+
+    <h2>VIII. The Generation That Looked Back</h2>
+
+    <p>By the time Robert&rsquo;s grandchildren were born, the family&rsquo;s connection to Champlain and Quebec existed mostly in stories told at holiday tables and the annual pull of Lake Champlain&rsquo;s bass fishing. The French was gone. The canal boats were gone. The Brothers of Christian Instruction would leave Plattsburgh in 2014 after 111 years. Mount Assumption Institute had merged into Seton Catholic Central in 1989. The old community was dispersing, its stories fading with the generation that remembered them.</p>
+
+    <p>But this generation possesses something no previous generation had: the tools to recover what was lost. Ancestry.com hosts the yearbooks of Mount Assumption Institute. FamilySearch has digitized Quebec parish registers dating to the 1600s. DNA testing connects descendants to their Quebec origins. And digital tools can now cross-reference centuries-old records, translate French-Canadian documents, and reconstruct family networks that fire and time had seemingly erased.</p>
+
+    <div class="pull-quote">&ldquo;The circle closes. A family that lost its records in the Corbeau parish fire of 1846 now uses technology to rebuild what memory could no longer hold.&rdquo;</div>
+
+    <p>The Gload family reunion in Plattsburgh is proof that the impulse to gather, to remember, to count the branches and trace them back to the trunk, is alive. The leaderboard with its points and its playful competition is, at its heart, the same thing as a parish register or a notary&rsquo;s marriage contract: a record of who belongs to whom, of who showed up, of who was present when the family came together. Colin Gload, one of Robert&rsquo;s grandchildren, has been curating this research and assembling the pieces into a family heritage project, pulling together what the Gload reunions, Ancestry records, obituaries, and digitized archives can tell us about where the family came from and how it got here.</p>
+
+    <p>The circle closes. A family that lost its records in the Corbeau parish fire of 1846, that lost its language in the English-speaking schools of upstate New York, that lost its geographic rootedness in the military&rsquo;s endless relocations, now uses technology to rebuild what memory could no longer hold.</p>
+
+    <hr>
+
+    <h2>The Long Arc: Six Threads Through 440 Years</h2>
+
+    <p><strong>Religion</strong> traces the most dramatic arc. The Poissants were Huguenots whose faith defined their literacy, their work ethic, and their persecution. A single political act forced a twenty-three-year-old orphan to renounce his faith. Within two generations, the family was devoutly Catholic. The faith that persecuted them became the faith that sustained them.</p>
+
+    <p><strong>Language</strong> tells a quieter story of erosion. French was the family&rsquo;s tongue for over two centuries. English arrived with the British Conquest and became dominant in the American schools that forced children to stop speaking French in the playgrounds. By the current generation, it exists only in the surname.</p>
+
+    <p><strong>The surname</strong> is a geological record of displacement. Poissant. Poissant dit LaSaline. Poissant dit Claude. Glaude. Glode. Gload. Five names, one family, 440 years.</p>
+
+    <p><strong>Water</strong> connects every chapter. The salt marshes of Marennes. The Atlantic crossing. The Saint Lawrence. Lake Champlain. The Champlain Canal. The Chesapeake Bay watershed. The family followed water the way water follows gravity.</p>
+
+    <p><strong>Military service</strong> bookends the story. Jacques enlisted in 1684 and served through the Iroquois Wars. Robert enlisted in 1948 and served through the Cold War. Three hundred years separate them, but the fundamental bargain is the same.</p>
+
+    <p><strong>Migration</strong> always moves in one direction. From Marennes to Quebec, across the Atlantic. From Quebec to Champlain, across the border. From Champlain to the Air Force, across the country. Always south. Always west. Always away from the place before.</p>
+
+    <div class="pull-quote">&ldquo;Always south. Always west. Always away from the place before.&rdquo;</div>
+
+  </article>
+
+  <div class="story-people">
+    <h3>People in this story</h3>
+    <div class="story-people-list">
+      <a class="story-people-link" href="#">Jacques Poissant</a>
+      <a class="story-people-link" href="#">Jacques dit LaSaline</a>
+      <a class="story-people-link" href="#">Claude &ldquo;Glode&rdquo; Poissant</a>
+      <a class="story-people-link" href="#">Joseph Glode</a>
+      <a class="story-people-link" href="#">Amos Glode</a>
+      <a class="story-people-link" href="#">Frederick &ldquo;Mim&rdquo; Gload</a>
+      <a class="story-people-link" href="#">Eva &ldquo;Pip&rdquo; Lavalley</a>
+      <a class="story-people-link" href="#">Robert Frederick Gload</a>
+      <a class="story-people-link" href="#">Dolores DiPersico</a>
+      <a class="story-people-link" href="#">Leona Gload</a>
+      <a class="story-people-link" href="#">Frederick &ldquo;Ted&rdquo; Gload</a>
+      <a class="story-people-link" href="#">Colin Gload</a>
+    </div>
+  </div>
+
+  <div class="story-source">
+    <h3>References and Sources</h3>
+    <ol>
+      <li>Reformed Church of Marennes, Temple registers (baptisms, marriages, burials), 1632&ndash;1683. Archives d&eacute;partementales de la Charente-Maritime.</li>
+      <li>Abjuration record of Jacques Poissant, April 15, 1685, Pointe-aux-Trembles parish, Montreal. Programme de recherche en d&eacute;mographie historique (PRDH), Individual #63494.</li>
+      <li>Land grant, C&ocirc;te de la Tortue, July 3, 1694. Notary Anthoine Adh&eacute;mar, La Prairie.</li>
+      <li>Marriage contract, Jacques Poissant p&egrave;re and Elisabeth Magord, July 23, 1653. Notary Nicolas Aubin, Marennes.</li>
+      <li>Burial record, Elisabeth Magord, June 16, 1670. Reformed Church of Marennes.</li>
+      <li>Burial record, Jacques Poissant dit LaSaline, August 19, 1734. La Prairie parish, Drouin Collection.</li>
+      <li>Baptismal record, Claude (Glode) Poissant, January 27, 1709. La Prairie parish.</li>
+      <li>St. Mary&rsquo;s Roman Catholic Cemetery, Champlain, Clinton County, NY. McLellan Cemetery Records, transcribed by NNY Tombstone Project.</li>
+      <li>Robert F. Gload obituary, Beall Funeral Home, Crofton, MD, February 23, 2020.</li>
+      <li>Leona Genevieve (Gload) Cartuccio obituary, 2026.</li>
+      <li>Orville J. &ldquo;Bing&rdquo; Gload Jr. obituary, Press-Republican, Plattsburgh, NY, May 17, 2019.</li>
+      <li>Gload Family Reunion leaderboard and family data, Plattsburgh, NY, 2025.</li>
+      <li>Champlain Sesquicentennial Committee records, North Countryman, September 8, 1938 (&ldquo;Mrs. George Gload&rdquo; listed as committee member).</li>
+      <li>CBS News, &ldquo;The Odd Truth,&rdquo; August 3, 2004 (Bob Gload and grandchildren sighting of &ldquo;Champ&rdquo; on Lake Champlain).</li>
+      <li>Poissant, Dr. J.C. <em>G&eacute;n&eacute;alogie de la Famille Poissant</em>, 1909. Translated excerpts at johnfishersr.net.</li>
+      <li>Fisher, John R. &ldquo;Poissant Huguenot Migration from Marennes, France.&rdquo; Research paper, johnfishersr.net.</li>
+      <li>Fisher, John R. &ldquo;Poissant Acts from Marennes.&rdquo; Transcription of 63 Poissant records from the Reformed Church registers.</li>
+      <li>Fisher, John R. &ldquo;Jacques Poissant dit LaSaline: First Poissant in Quebec and America.&rdquo; Timeline document, johnfishersr.net.</li>
+      <li>Fichier Origine, entry #243351. Programme de recherche en d&eacute;mographie historique.</li>
+      <li>Diteman, Jeff. &ldquo;Biography of Jacques Poissant.&rdquo; jeffditeman.org, December 11, 2020.</li>
+      <li>WikiTree profile: Jacques Poissant (1661&ndash;1734), Poissant-24.</li>
+      <li>Geni.com profile: Jacques Dit Lasaline Poissant dit LaSaline (1661&ndash;1734).</li>
+      <li>Geneanet family trees: &ldquo;syroots&rdquo; (Joe Syroots) and &ldquo;monartque&rdquo; (Jacques St-Pierre).</li>
+      <li>RootsWeb WorldConnect: Famille Poissant Family Tree.</li>
+      <li>Ancestry.com: Jacques (Jacob) Poissant dit Glode (1812&ndash;1850); Joseph Glode (b. 1835); William Andrew Gload (1879&ndash;1951).</li>
+      <li>FrancoAmerican Gravy (genealogy blog): &ldquo;Glode, Poissant, Allard&rdquo; family history page.</li>
+      <li>Mes A&iuml;eux (mesaieux.com): Glode family marriage database (554 records).</li>
+      <li>FindAGrave: Muriel R. Lamkins Gload (1908&ndash;1997), Memorial #157271770; Laura Glode Lavalley; Benjamin LaValley; Agnes Lavalley Dupont.</li>
+      <li>Forebears.io: Gload surname distribution data (57 individuals in the US).</li>
+      <li>Baird, Charles W. <em>History of the Huguenot Emigration to America</em>. New York, 1885. Internet Archive.</li>
+      <li>Mus&eacute;e protestant (museeprotestant.org): &ldquo;Religious Practices,&rdquo; &ldquo;The Dragonnades (1681&ndash;1685),&rdquo; &ldquo;The Edict of Fontainebleau or the Revocation (1685),&rdquo; &ldquo;Protestantism in Poitou-Charentes.&rdquo;</li>
+      <li>World History Encyclopedia: &ldquo;Louis XIV and the Revocation of the Edict of Nantes.&rdquo;</li>
+      <li>Britannica: &ldquo;Edict of Nantes,&rdquo; &ldquo;Battle of Quebec (1759),&rdquo; &ldquo;Battle of Plattsburgh (1814),&rdquo; &ldquo;Quebec Act (1774).&rdquo;</li>
+      <li>Wikipedia: &ldquo;Dragonnades,&rdquo; &ldquo;Huguenots,&rdquo; &ldquo;Edict of Fontainebleau,&rdquo; &ldquo;Compagnies franches de la marine,&rdquo; &ldquo;Lachine massacre,&rdquo; &ldquo;Great Peace of Montreal,&rdquo; &ldquo;Battle of the Plains of Abraham,&rdquo; &ldquo;Conquest of New France,&rdquo; &ldquo;Invasion of Quebec (1775),&rdquo; &ldquo;Battle of Plattsburgh,&rdquo; &ldquo;Champlain Canal,&rdquo; &ldquo;Habitants,&rdquo; &ldquo;Dit name,&rdquo; &ldquo;History of the Franco-Americans,&rdquo; &ldquo;Lyon Mountain, New York.&rdquo;</li>
+      <li>Canadian Museum of History: &ldquo;Vernacular Architecture in New France,&rdquo; Virtual Museum of New France.</li>
+      <li>Chronicles of America: &ldquo;Daily Life in New France.&rdquo;</li>
+      <li>The Canadian Encyclopedia: &ldquo;The Conquest of New France,&rdquo; &ldquo;Quebec Act, 1774,&rdquo; &ldquo;French Immigration in Canada,&rdquo; &ldquo;The 1704 Raid on Deerfield.&rdquo;</li>
+      <li>U.S. National Park Service: &ldquo;Battle of Lake Champlain.&rdquo;</li>
+      <li>New York Almanack: &ldquo;French Canadians in Northern New York: A Primer&rdquo; (October 2023).</li>
+      <li>Lake Champlain Maritime Museum: &ldquo;A Brief History of Sailing Canal Schooners.&rdquo;</li>
+      <li>Royan Atlantique Tourism Office: &ldquo;From salt to oysters on the banks of the Seudre.&rdquo;</li>
+      <li>Smith, Rev. John Talbot. <em>The Catholic Church in New York</em>, 1885.</li>
+      <li>NY Heritage Digital Collections: St. Mary&rsquo;s Church in Champlain, NY and Monument to Champlain (photograph).</li>
+      <li>Champlain History (champlainhistory.org): Local history resources.</li>
+      <li>Clinton County, NY property records and assessment rolls.</li>
+      <li>The French-Canadian Genealogist (tfcg.ca): &ldquo;French-Canadian &lsquo;Dit&rsquo; Names,&rdquo; &ldquo;The Compagnies franches de la Marine in Canada,&rdquo; &ldquo;1704 Deerfield Captives.&rdquo;</li>
+      <li>Library and Archives Canada Blog: &ldquo;The nicknames and &lsquo;dit names&rsquo; of French-Canadian ancestors.&rdquo;</li>
+      <li>Heritage Discovered: &ldquo;What is a nom dit and why did my French Canadian ancestor have one?&rdquo;</li>
+      <li>Yale Teachers Institute: &ldquo;Land and People: French Canadian Immigration to the United States.&rdquo;</li>
+    </ol>
+  </div>
+
+  <footer class="footer">
+    <p>Research curated by Colin Gload for the Family Heritage Archive.</p>
+  </footer>
+</body>
+</html>
