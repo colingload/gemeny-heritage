@@ -52,7 +52,7 @@
     .m-dot:hover{r:8}
     .m-dot.hidden{opacity:0.08!important}
     .m-line{stroke-width:1.5;stroke-dasharray:4,3;transition:opacity 0.5s;opacity:0}
-    .m-line.vis{opacity:0.4}
+    .m-line.vis{opacity:0.7}
     .m-line.hidden{opacity:0.05!important}
     .m-label{font-family:var(--serif);font-size:11px;fill:rgba(255,255,255,0.5);pointer-events:none;transition:opacity 0.5s;opacity:0}
     .m-label.vis{opacity:1}
@@ -140,52 +140,50 @@
         <path class="map-coast" d="M 380,80 Q 400,70 420,75 440,85 430,95 410,90 390,95 380,80"/>
         <path class="map-coast" d="M 400,445 L 380,450 350,445 320,450 290,448 260,455 230,450"/>
         <!-- Canada (St Lawrence corridor) -->
-        <path class="map-coast" style="stroke:rgba(255,255,255,0.07)" d="M 580,30 L 570,20 555,15 540,18 530,25 545,35 560,40 570,50 580,30"/>
-        <path class="map-coast" style="stroke:rgba(255,255,255,0.07)" d="M 620,28 L 640,15 660,10 680,12 670,25 650,30 640,40"/>
+        <path class="map-coast" style="stroke:rgba(255,255,255,0.15)" d="M 580,30 L 570,20 555,15 540,18 530,25 545,35 560,40 570,50 580,30"/>
+        <path class="map-coast" style="stroke:rgba(255,255,255,0.15)" d="M 620,28 L 640,15 660,10 680,12 670,25 650,30 640,40"/>
         <!-- France outline -->
-        <path class="map-coast" style="stroke:rgba(255,255,255,0.08)" d="M 1050,310 L 1055,285 1065,265 1080,250 1090,235 1100,225 1110,210 1115,195 1105,180 1090,175 1075,185 1065,195 1050,210 1040,230 1035,250 1040,270 1045,290 1050,310"/>
+        <path class="map-coast" style="stroke:rgba(93,154,111,0.25);stroke-width:2" d="M 1050,310 L 1055,285 1065,265 1080,250 1090,235 1100,225 1110,210 1115,195 1105,180 1090,175 1075,185 1065,195 1050,210 1040,230 1035,250 1040,270 1045,290 1050,310"/>
         <!-- UK/Ireland suggestion -->
-        <path class="map-coast" style="stroke:rgba(255,255,255,0.05)" d="M 1060,155 L 1065,140 1075,130 1080,140 1085,155 1075,165 1065,160 1060,155"/>
+        <path class="map-coast" style="stroke:rgba(255,255,255,0.1)" d="M 1060,155 L 1065,140 1075,130 1080,140 1085,155 1075,165 1065,160 1060,155"/>
 
         <!-- Atlantic crossing (dashed) -->
-        <path style="stroke:#4a7c59;stroke-width:1;stroke-dasharray:8,6;opacity:0.2;fill:none" d="M 1050,275 Q 850,200 615,60"/>
+        <path style="stroke:#5d9a6f;stroke-width:2;stroke-dasharray:8,6;opacity:0.4;fill:none" d="M 1050,275 Q 850,200 615,60"/>
 
-        <!-- Route lines -->
-        <line class="m-line" id="us-ln0" x1="615" y1="60" x2="620" y2="80" stroke="#4a7c59"/>
-        <line class="m-line" id="us-ln1" x1="620" y1="80" x2="622" y2="77" stroke="#4a7c59"/>
-        <line class="m-line" id="us-ln2" x1="622" y1="77" x2="565" y2="210" stroke="#4a7c59"/>
-        <line class="m-line" id="us-ln3" x1="565" y1="210" x2="175" y2="140" stroke="#4a7c59"/>
-        <line class="m-line" id="us-ln4" x1="175" y1="140" x2="568" y2="198" stroke="#4a7c59"/>
+        <!-- Route lines (more visible) -->
+        <line class="m-line" id="us-ln0" x1="615" y1="60" x2="620" y2="80" stroke="#5d9a6f" stroke-width="2.5"/>
+        <line class="m-line" id="us-ln1" x1="620" y1="80" x2="565" y2="210" stroke="#5d9a6f" stroke-width="2.5"/>
+        <line class="m-line" id="us-ln2" x1="565" y1="210" x2="175" y2="140" stroke="#5d9a6f" stroke-width="2"/>
+        <line class="m-line" id="us-ln3" x1="565" y1="210" x2="568" y2="198" stroke="#5d9a6f" stroke-width="2.5"/>
 
         <!-- Marennes, France -->
-        <circle class="m-dot" id="us-d-fr" cx="1050" cy="275" r="6" fill="#4a7c59" opacity="0.9"/>
-        <text class="m-label m-label-major" x="1000" y="300" style="fill:rgba(74,124,89,0.8)">Marennes</text>
-        <text class="m-label" x="1010" y="315" style="fill:rgba(74,124,89,0.4);font-size:9px">France, 1618</text>
+        <circle class="m-dot" id="us-d-fr" cx="1050" cy="275" r="7" fill="#5d9a6f" opacity="1"/>
+        <text class="m-label m-label-major" x="990" y="300" style="fill:rgba(93,154,111,0.9);font-size:13px">Marennes</text>
+        <text class="m-label" x="1000" y="318" style="fill:rgba(93,154,111,0.6);font-size:10px">France, 1618</text>
 
         <!-- La Prairie / Quebec -->
-        <circle class="m-dot" id="us-d0" cx="615" cy="60" r="5" fill="#4a7c59"/>
-        <text class="m-label m-label-major" id="us-l0" x="625" y="55">Quebec</text>
-        <text class="m-label" x="625" y="68" style="font-size:9px">1684</text>
+        <circle class="m-dot" id="us-d0" cx="615" cy="60" r="6" fill="#5d9a6f"/>
+        <text class="m-label m-label-major" id="us-l0" x="625" y="52" style="fill:rgba(93,154,111,0.9);font-size:13px">Quebec</text>
+        <text class="m-label" x="625" y="68" style="fill:rgba(93,154,111,0.6);font-size:10px">1684</text>
 
         <!-- Champlain, NY -->
-        <circle class="m-dot" id="us-d1" cx="620" cy="80" r="4" fill="#4a7c59"/>
-        <text class="m-label" id="us-l1" x="633" y="76">Champlain, NY</text>
-
-        <!-- Plattsburgh, NY -->
-        <circle class="m-dot" id="us-d2" cx="622" cy="77" r="3" fill="#4a7c59"/>
-        <text class="m-label" id="us-l2" x="635" y="88">Plattsburgh</text>
+        <circle class="m-dot" id="us-d1" cx="620" cy="80" r="5" fill="#5d9a6f"/>
+        <text class="m-label" id="us-l1" x="633" y="76" style="fill:rgba(255,255,255,0.7)">Champlain, NY</text>
 
         <!-- Crofton, MD -->
-        <circle class="m-dot" id="us-d3" cx="565" cy="210" r="5" fill="#4a7c59"/>
-        <text class="m-label m-label-major" id="us-l3" x="578" y="206">Maryland</text>
+        <circle class="m-dot" id="us-d2" cx="565" cy="210" r="6" fill="#5d9a6f"/>
+        <text class="m-label m-label-major" id="us-l2" x="578" y="206" style="fill:rgba(93,154,111,0.9);font-size:13px">Maryland</text>
+        <text class="m-label" x="578" y="222" style="fill:rgba(93,154,111,0.6);font-size:10px">1968</text>
 
-        <!-- Rapid City, SD -->
-        <circle class="m-dot" id="us-d4" cx="175" cy="140" r="4" fill="#4a7c59"/>
-        <text class="m-label" id="us-l4" x="130" y="135">Rapid City, SD</text>
+        <!-- Rapid City, SD (Colin born here) -->
+        <circle class="m-dot" id="us-d3" cx="175" cy="140" r="5" fill="#5d9a6f"/>
+        <text class="m-label" id="us-l3" x="120" y="132" style="fill:rgba(255,255,255,0.7)">Rapid City, SD</text>
+        <text class="m-label" x="135" y="148" style="fill:rgba(93,154,111,0.5);font-size:9px">Colin b. 1989</text>
 
-        <!-- Bel Air / Fallston, MD -->
-        <circle class="m-dot" id="us-d5" cx="568" cy="198" r="5" fill="#4a7c59"/>
-        <text class="m-label m-label-major" id="us-l5" x="581" y="193">Bel Air, MD</text>
+        <!-- Bel Air, MD (today) -->
+        <circle class="m-dot" id="us-d4" cx="568" cy="198" r="6" fill="#5d9a6f"/>
+        <text class="m-label m-label-major" id="us-l4" x="581" y="193" style="fill:rgba(93,154,111,0.9);font-size:13px">Bel Air, MD</text>
+        <text class="m-label" x="581" y="209" style="fill:rgba(93,154,111,0.6);font-size:10px">Today</text>
 
         <!-- Caption -->
         <text x="600" y="500" text-anchor="middle" fill="rgba(255,255,255,0.12)" font-family="var(--serif)" font-size="11" font-style="italic">"The family followed water the way water follows gravity."</text>
@@ -396,12 +394,11 @@
       { year:'1684', dot:'us-d0', label:'us-l0', line:null, place:'La Prairie, Quebec', person:'Jacques dit LaSaline', desc:'Orphaned soldier crosses the Atlantic aboard L\'Emerillon. Arrives November, covered in ice.' },
       { year:'1709', dot:null, label:null, line:null, place:'La Prairie, Quebec', person:'Claude "Glode" Poissant', desc:'A godfather named Glode Maheu at his baptism changes the family name forever.' },
       { year:'~1825', dot:'us-d1', label:'us-l1', line:'us-ln0', place:'Champlain, New York', person:'Jacob Poissant dit Glode', desc:'Walks across the border from Quebec. The family becomes American.' },
-      { year:'~1835', dot:null, label:null, line:null, place:'Champlain, New York', person:'Joseph Glode', desc:'Canal family. Twelve children. The Glode name takes root in upstate New York.' },
-      { year:'~1900', dot:'us-d2', label:'us-l2', line:'us-ln1', place:'Champlain, New York', person:'Frederick "Mim" & Eva "Pip"', desc:'Nine children raised during the Depression and WWII. The trunk of the modern family.' },
-      { year:'1948', dot:null, label:null, line:'us-ln2', place:'United States Air Force', person:'Robert Gload', desc:'Among the first to wear the new blue uniform. Twenty years of service.' },
-      { year:'1968', dot:'us-d3', label:'us-l3', line:'us-ln3', place:'Crofton, Maryland', person:'Robert & Dolores Gload', desc:'After USAF retirement, the family settles near Fort Meade. Second career at Motorola.' },
-      { year:'1989', dot:'us-d4', label:'us-l4', line:'us-ln4', place:'Rapid City, South Dakota', person:'Colin Frederick Gload', desc:'Born near Ellsworth AFB. The family follows the military to the Great Plains.' },
-      { year:'Today', dot:'us-d5', label:'us-l5', line:'us-ln4', place:'Bel Air, Maryland', person:'Colin Gload', desc:'Archive curator. Using technology to rebuild what memory could no longer hold.' }
+      { year:'~1900', dot:null, label:null, line:null, place:'Champlain, New York', person:'Frederick "Mim" & Eva "Pip"', desc:'Nine children raised during the Depression and WWII. The trunk of the modern family.' },
+      { year:'1948', dot:null, label:null, line:null, place:'United States Air Force', person:'Robert Gload', desc:'Among the first to wear the new blue uniform. Twenty years of service.' },
+      { year:'1968', dot:'us-d2', label:'us-l2', line:'us-ln1', place:'Crofton, Maryland', person:'Robert & Dolores Gload', desc:'After USAF retirement, the family settles near Fort Meade. Second career at Motorola.' },
+      { year:'1989', dot:'us-d3', label:'us-l3', line:'us-ln2', place:'Rapid City, South Dakota', person:'Colin Frederick Gload', desc:'Born near Ellsworth AFB. Ted Gload stationed with the USAF.' },
+      { year:'2020', dot:'us-d4', label:'us-l4', line:'us-ln3', place:'Bel Air, Maryland', person:'Brody Gload', desc:'Born July 7, 2020. The family settles in Bel Air, Harford County, Maryland.' }
     ]
   });
   </script>
