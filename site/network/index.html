@@ -1591,18 +1591,130 @@
 
   // Expand entire tree
   document.getElementById('expandAll').addEventListener('click', function() {
-    if (!confirm('This will expand all ' + data.nodes.length + ' nodes. The tree may be very wide. Continue?')) return;
-    // Expand everything reachable from root
-    function expandAllFrom(id, visited) {
-      if (visited.has(id)) return;
-      visited.add(id);
-      expanded.add(id);
-      getChildren(id).forEach(c => expandAllFrom(c, visited));
+    if (!confirm('This will show all ' + data.nodes.length + ' people across all family clusters. May take a moment. Continue?')) return;
+
+    // Find all disconnected clusters by walking through all nodes
+    const allVisited = new Set();
+    const clusters = []; // each cluster = {rootId, nodeIds}
+
+    function walkCluster(startId) {
+      const clusterNodes = new Set();
+      const queue = [startId];
+      while (queue.length) {
+        const id = queue.shift();
+        if (clusterNodes.has(id) || !nodeMap[id]) continue;
+        clusterNodes.add(id);
+        allVisited.add(id);
+        const n = nodeMap[id];
+        // Walk up to parents
+        if (n.familyAsChild && familyMap[n.familyAsChild]) {
+          const f = familyMap[n.familyAsChild];
+          if (f.husband) queue.push(f.husband);
+          if (f.wife) queue.push(f.wife);
+          f.children.forEach(c => queue.push(c));
+        }
+        // Walk to spouse + children
+        (n.familiesAsSpouse || []).forEach(fId => {
+          const f = familyMap[fId]; if (!f) return;
+          if (f.husband) queue.push(f.husband);
+          if (f.wife) queue.push(f.wife);
+          f.children.forEach(c => queue.push(c));
+        });
+      }
+      return clusterNodes;
     }
-    const vis = new Set();
-    expandAllFrom(treeRoot, vis);
-    computeLayout();
-    // Zoom to fit
+
+    // Find all clusters
+    for (const n of data.nodes) {
+      if (!allVisited.has(n.id)) {
+        const cluster = walkCluster(n.id);
+        // Find the root of this cluster (walk up to oldest ancestor)
+        let rootId = [...cluster][0];
+        const visited = new Set();
+        while (true) {
+          visited.add(rootId);
+          const parents = getParents(rootId);
+          const validParent = parents.find(p => cluster.has(p) && !visited.has(p));
+          if (!validParent) break;
+          rootId = validParent;
+        }
+        clusters.push({ rootId, size: cluster.size });
+      }
+    }
+
+    // Sort clusters by size (biggest first)
+    clusters.sort((a, b) => b.size - a.size);
+
+    // Expand all nodes and compute layout for each cluster, side by side
+    expanded.clear();
+    layoutNodes = [];
+    layoutEdges = [];
+
+    function expandAllFrom(id, vis) {
+      if (vis.has(id)) return;
+      vis.add(id);
+      expanded.add(id);
+      getChildren(id).forEach(c => expandAllFrom(c, vis));
+    }
+
+    let offsetX = 0;
+    for (const cluster of clusters) {
+      // Set this cluster's root and expand
+      treeRoot = cluster.rootId;
+      expandAllFrom(cluster.rootId, new Set());
+      computeLayout();
+
+      // Shift all nodes in this cluster's layout by offsetX
+      const clusterNodes = layoutNodes.slice();
+      const clusterEdges = layoutEdges.slice();
+
+      // Find bounds of this cluster
+      let minX = Infinity, maxX = -Infinity;
+      clusterNodes.forEach(ln => {
+        minX = Math.min(minX, ln.x);
+        maxX = Math.max(maxX, ln.x + NODE_W);
+      });
+
+      // Shift to start at offsetX
+      const shift = offsetX - minX + 50;
+      clusterNodes.forEach(ln => { ln.x += shift; });
+
+      offsetX = maxX + shift + 100; // gap between clusters
+
+      // We'll rebuild the full layout at the end
+    }
+
+    // Build each cluster separately, then merge
+    const allNodes = [];
+    const allEdges = [];
+    offsetX = 0;
+
+    for (const cluster of clusters) {
+      treeRoot = cluster.rootId;
+      expanded.clear();
+      expandAllFrom(cluster.rootId, new Set());
+      computeLayout();
+
+      if (layoutNodes.length === 0) continue;
+
+      // Find bounds
+      let minX = Infinity, maxX = -Infinity;
+      layoutNodes.forEach(ln => { minX = Math.min(minX, ln.x); maxX = Math.max(maxX, ln.x + NODE_W); });
+
+      // Shift this cluster
+      const shift = offsetX - minX;
+      layoutNodes.forEach(ln => { ln.x += shift; });
+      offsetX = maxX + shift + 80;
+
+      allNodes.push(...layoutNodes);
+      allEdges.push(...layoutEdges);
+    }
+
+    layoutNodes = allNodes;
+    layoutEdges = allEdges;
+    treeRoot = clusters[0].rootId;
+
+    // Zoom to fit everything
     if (layoutNodes.length > 0) {
       let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
       layoutNodes.forEach(ln => {
@@ -1610,7 +1722,7 @@
         minY=Math.min(minY,ln.y); maxY=Math.max(maxY,ln.y+NODE_H);
       });
       const tw=maxX-minX, th=maxY-minY;
-      zoom = Math.min(W/tw*0.9, H/th*0.9, 1);
+      zoom = Math.min(W/tw*0.9, H/th*0.9, 0.5);
       camX = -(minX+tw/2)*zoom + W/2;
       camY = -(minY+th/2)*zoom + H/2;
     }
