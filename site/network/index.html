@@ -402,15 +402,19 @@
 
     subtreeWidth(treeRoot);
 
-    // Also build ancestor chain above root (up to 4 generations)
+    // Build full ancestor chain above root (up to 20 generations)
     const ancestorLayers = [];
     let currentIds = [treeRoot];
-    for (let i = 0; i < 4; i++) {
+    const ancestorSeen = new Set([treeRoot]);
+    for (let i = 0; i < 20; i++) {
       const parentLayer = [];
       for (const id of currentIds) {
         const parents = getParents(id);
         for (const p of parents) {
-          if (!parentLayer.includes(p)) parentLayer.push(p);
+          if (!parentLayer.includes(p) && !ancestorSeen.has(p)) {
+            parentLayer.push(p);
+            ancestorSeen.add(p);
+          }
         }
       }
       if (parentLayer.length === 0) break;
