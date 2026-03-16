@@ -134,7 +134,15 @@
   let data = null, nodeMap = {}, familyMap = {};
 
   async function loadData() {
-    const paths = ['../../data/gedcom-tree.json','../data/gedcom-tree.json','/data/gedcom-tree.json','data/gedcom-tree.json'];
+    // Resolve base URL for GitHub Pages (handles /gemeny-heritage/ prefix)
+    const base = document.querySelector('base') ? document.querySelector('base').href : window.location.pathname.replace(/\/heritage\/.*$/, '/');
+    const paths = [
+      base + 'data/gedcom-tree.json',
+      '../data/gedcom-tree.json',
+      '../../data/gedcom-tree.json',
+      '/gemeny-heritage/data/gedcom-tree.json',
+      '/data/gedcom-tree.json'
+    ];
     for (const p of paths) {
       try { const r = await fetch(p); if (r.ok) { data = await r.json(); break; } } catch(e) {}
     }
