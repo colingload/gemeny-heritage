@@ -1216,18 +1216,68 @@
     });
   });
 
-  // Badge filters
+  // Badge filters — show ALL matching people in a grid layout
+  let badgeLayoutActive = false;
+  let savedLayout = null; // to restore when badge is deactivated
+
   document.querySelectorAll('.badge-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       if (this.classList.contains('active')) {
+        // Deactivate — restore previous tree layout
         this.classList.remove('active');
         activeBadge = null;
+        if (savedLayout) {
+          layoutNodes = savedLayout.nodes;
+          layoutEdges = savedLayout.edges;
+          camX = savedLayout.camX;
+          camY = savedLayout.camY;
+          zoom = savedLayout.zoom;
+          savedLayout = null;
+        }
+        badgeLayoutActive = false;
+        draw();
       } else {
+        // Save current layout so we can restore it
+        if (!badgeLayoutActive) {
+          savedLayout = {
+            nodes: [...layoutNodes],
+            edges: [...layoutEdges],
+            camX, camY, zoom
+          };
+        }
         document.querySelectorAll('.badge-btn').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
         activeBadge = this.dataset.badge;
+        badgeLayoutActive = true;
+
+        // Build flat grid of all people with this badge
+        const matching = data.nodes.filter(n => n.badges && n.badges.includes(activeBadge));
+        matching.sort((a, b) => (a.birthYear || 9999) - (b.birthYear || 9999));
+
+        const cols = Math.ceil(Math.sqrt(matching.length * 1.5));
+        const padX = NODE_W + H_GAP;
+        const padY = NODE_H + V_GAP * 0.6;
+
+        layoutNodes = [];
+        layoutEdges = [];
+        for (let i = 0; i < matching.length; i++) {
+          const col = i % cols;
+          const row = Math.floor(i / cols);
+          layoutNodes.push({
+            id: matching[i].id,
+            x: col * padX - (cols * padX) / 2,
+            y: row * padY,
+            isAncestor: false
+          });
+        }
+
+        // Center view on the grid
+        zoom = 0.7;
+        const totalH = Math.ceil(matching.length / cols) * padY;
+        camX = W / 2;
+        camY = -totalH * zoom / 2 + H / 2;
+        draw();
       }
-      draw();
     });
   });
 
@@ -1265,6 +1315,8 @@
 
     // Reset badge filter
     activeBadge = null;
+    badgeLayoutActive = false;
+    savedLayout = null;
     document.querySelectorAll('.badge-btn').forEach(b => b.classList.remove('active'));
 
     // Reset timeline
