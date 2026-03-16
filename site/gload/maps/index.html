@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gload Family Maps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:#f7f4ef;--warm:#f0ebe3;--dark:#1e1810;--text:#2a2017;--text-mid:#6d5f4e;
+      --text-light:#9a8d7c;--gold:#4a7c59;--gold-hover:#5d9a6f;--border:#ddd5c8;
+      --border-light:#e8e2d8;--card:#fffefb;--navy:#0f1a2e;
+      --serif:'Cormorant Garamond','Georgia',serif;--sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--sans);background:var(--navy);color:var(--cream);font-size:15px;line-height:1.65}
+    a{color:var(--gold);text-decoration:none}
+
+    /* Nav */
+    .nav{background:rgba(15,26,46,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;z-index:100}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0.9rem 2rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-brand{font-family:var(--serif);font-size:1.5rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--cream)}
+    .nav-back{font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+
+    /* Map Tabs */
+    .map-tabs{display:flex;justify-content:center;gap:0;padding:0;background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.06)}
+    .map-tab{padding:1rem 2rem;background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);transition:all 0.2s;border-bottom:2px solid transparent;margin-bottom:-1px}
+    .map-tab:hover{color:rgba(255,255,255,0.6)}
+    .map-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+    /* Map Container */
+    .map-panel{display:none;padding:2rem}
+    .map-panel.active{display:block}
+    .map-title{text-align:center;margin-bottom:0.5rem}
+    .map-title h2{font-family:var(--serif);font-size:1.8rem;font-weight:300;color:var(--cream)}
+    .map-subtitle{text-align:center;font-size:0.78rem;color:rgba(255,255,255,0.3);margin-bottom:2rem}
+
+    /* Branch Label */
+    .branch-label{display:flex;justify-content:center;margin-bottom:1.5rem;padding:0 1rem}
+    .branch-label span{padding:0.3rem 0.8rem;border:1px solid rgba(74,124,89,0.4);font-family:var(--sans);font-size:0.68rem;letter-spacing:0.05em;text-transform:uppercase;color:#4a7c59;border-radius:2px}
+
+    /* SVG Maps */
+    .map-wrap{max-width:1100px;margin:0 auto;position:relative}
+    .map-svg{width:100%;height:auto;display:block}
+    .map-coast{fill:none;stroke:rgba(255,255,255,0.1);stroke-width:2}
+    .map-land{fill:rgba(255,255,255,0.03);stroke:rgba(255,255,255,0.08);stroke-width:1}
+    .m-dot{cursor:pointer;transition:opacity 0.5s,r 0.2s;opacity:0}
+    .m-dot.vis{opacity:1}
+    .m-dot.glow{opacity:1;filter:drop-shadow(0 0 6px rgba(74,124,89,0.8))}
+    .m-dot:hover{r:8}
+    .m-dot.hidden{opacity:0.08!important}
+    .m-line{stroke-width:1.5;stroke-dasharray:4,3;transition:opacity 0.5s;opacity:0}
+    .m-line.vis{opacity:0.4}
+    .m-line.hidden{opacity:0.05!important}
+    .m-label{font-family:var(--serif);font-size:11px;fill:rgba(255,255,255,0.5);pointer-events:none;transition:opacity 0.5s;opacity:0}
+    .m-label.vis{opacity:1}
+    .m-label.hidden{opacity:0.08!important}
+    .m-label-major{fill:rgba(74,124,89,0.8);font-size:12px}
+
+    /* Player controls */
+    .play-controls{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+    .play-btn{width:44px;height:44px;border-radius:50%;background:rgba(74,124,89,0.12);border:2px solid rgba(74,124,89,0.4);color:#4a7c59;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all 0.2s}
+    .play-btn:hover{background:rgba(74,124,89,0.2);border-color:#4a7c59}
+    .speed-group{display:flex;gap:0.2rem}
+    .speed-btn{padding:0.2rem 0.5rem;background:none;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.35);cursor:pointer;font-family:var(--sans);font-size:0.68rem;transition:all 0.2s}
+    .speed-btn.active{border-color:#4a7c59;color:#4a7c59}
+    .play-hint{font-size:0.7rem;color:rgba(255,255,255,0.25);letter-spacing:0.04em}
+    .year-display{position:absolute;top:1rem;right:2rem;font-family:var(--serif);font-size:2.5rem;font-weight:300;color:rgba(74,124,89,0.6);pointer-events:none}
+    .progress-wrap{max-width:500px;width:100%;margin:0.8rem auto 0;padding:0 2rem}
+    .progress-track{width:100%;height:2px;background:rgba(255,255,255,0.08);cursor:pointer;position:relative}
+    .progress-fill{height:100%;background:#4a7c59;width:0%;transition:width 0.3s}
+    .progress-labels{display:flex;justify-content:space-between;max-width:500px;width:100%;margin:0.3rem auto 0;padding:0 2rem;font-size:0.6rem;color:rgba(255,255,255,0.2);font-family:var(--serif)}
+
+    /* Info panel */
+    .map-info{position:absolute;bottom:1.5rem;left:1.5rem;background:rgba(15,26,46,0.92);border-left:3px solid var(--gold);padding:1rem 1.2rem;max-width:300px;opacity:0;transition:opacity 0.3s;pointer-events:none}
+    .map-info.visible{opacity:1}
+    .map-info-name{font-family:var(--serif);font-size:1.05rem;color:var(--cream);margin-bottom:0.15rem}
+    .map-info-dates{font-size:0.8rem;color:var(--gold);margin-bottom:0.2rem}
+    .map-info-detail{font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.5}
+
+    /* Burial specific */
+    .burial-dot{cursor:pointer;transition:r 0.2s}
+    .burial-dot:hover{r:8}
+    .burial-label{font-family:var(--serif);font-size:10px;fill:rgba(255,255,255,0.4);pointer-events:none}
+    .burial-list{max-width:800px;margin:2rem auto 0;padding:0 2rem}
+    .burial-list h3{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--gold);margin-bottom:0.8rem;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:0.4rem}
+    .burial-entry{display:flex;gap:1.5rem;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.85rem;align-items:baseline}
+    .burial-entry:last-child{border-bottom:none}
+    .burial-entry-name{font-family:var(--serif);color:rgba(255,255,255,0.7);min-width:200px}
+    .burial-entry-place{color:rgba(255,255,255,0.35);flex:1}
+    .burial-entry-dates{color:rgba(255,255,255,0.25);font-size:0.78rem;min-width:100px;text-align:right}
+
+    /* Footer */
+    .footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:0.75rem}
+
+    @media(max-width:768px){
+      .map-tab{padding:0.8rem 1rem;font-size:0.65rem}
+      .burial-entry{flex-direction:column;gap:0.2rem}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav"><div class="nav-inner">
+    <span class="nav-brand">Gload</span>
+    <a href="../index.html" class="nav-back">&larr; Gload Heritage</a>
+  </div></nav>
+
+  <!-- Map Tabs -->
+  <div class="map-tabs">
+    <button class="map-tab active" data-panel="americas">Story of the Americas</button>
+    <button class="map-tab" data-panel="burials">Known Burial Sites</button>
+  </div>
+
+  <!-- ============ AMERICAS MAP ============ -->
+  <div class="map-panel active" id="panel-americas">
+    <div class="map-title"><h2>Story of the Americas</h2></div>
+    <div class="map-subtitle">The Gload family&rsquo;s journey from France to America &mdash; 1618 to present</div>
+
+    <div class="play-controls">
+      <div class="speed-group">
+        <button class="speed-btn active" data-speed="1" data-map="us">1x</button>
+        <button class="speed-btn" data-speed="2" data-map="us">2x</button>
+        <button class="speed-btn" data-speed="3" data-map="us">3x</button>
+      </div>
+      <button class="play-btn" id="us-play">&#9654;</button>
+      <span class="play-hint">Press play to watch the journey unfold</span>
+    </div>
+
+    <div class="branch-label">
+      <span>Gload / Poissant Migration</span>
+    </div>
+
+    <div class="map-wrap">
+      <svg class="map-svg" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" style="min-height:480px">
+        <!-- Simplified US coastline -->
+        <path class="map-coast" d="M 680,30 L 700,35 720,28 740,40 760,38 770,50 750,65 730,70 720,85 710,100 720,110 735,105 750,115 740,130 720,135 710,145 700,160 690,175 695,190 685,200 670,210 660,225 650,240 645,260 640,275 635,285 625,295 618,310 610,320 600,330 595,345 588,355 580,360 575,370 570,385 565,395 555,400 545,410 535,420 530,430 520,435 510,440 500,445"/>
+        <path class="map-coast" d="M 480,80 Q 500,70 520,75 540,85 530,95 510,90 490,95 480,80"/>
+        <path class="map-coast" d="M 500,445 L 480,450 450,445 420,450 390,448 360,455 330,450"/>
+
+        <!-- Route lines -->
+        <line class="m-line" id="us-ln0" x1="710" y1="80" x2="715" y2="95" stroke="#4a7c59"/>
+        <line class="m-line" id="us-ln1" x1="715" y1="95" x2="718" y2="92" stroke="#4a7c59"/>
+        <line class="m-line" id="us-ln2" x1="718" y1="92" x2="718" y2="92" stroke="#4a7c59"/>
+        <line class="m-line" id="us-ln3" x1="718" y1="92" x2="665" y2="210" stroke="#4a7c59"/>
+        <line class="m-line" id="us-ln4" x1="665" y1="210" x2="275" y2="140" stroke="#4a7c59"/>
+        <line class="m-line" id="us-ln5" x1="275" y1="140" x2="668" y2="198" stroke="#4a7c59"/>
+
+        <!-- Dots & Labels with step IDs -->
+        <!-- La Prairie / Quebec -->
+        <circle class="m-dot" id="us-d0" cx="710" cy="80" r="5" fill="#4a7c59"/>
+        <text class="m-label m-label-major" id="us-l0" x="720" y="75">La Prairie, Quebec</text>
+
+        <!-- Champlain, NY -->
+        <circle class="m-dot" id="us-d1" cx="715" cy="95" r="4" fill="#4a7c59"/>
+        <text class="m-label" id="us-l1" x="728" y="91">Champlain, NY</text>
+
+        <!-- Plattsburgh, NY -->
+        <circle class="m-dot" id="us-d2" cx="718" cy="92" r="3" fill="#4a7c59"/>
+        <text class="m-label" id="us-l2" x="731" y="100">Plattsburgh, NY</text>
+
+        <!-- Crofton, MD -->
+        <circle class="m-dot" id="us-d3" cx="665" cy="210" r="5" fill="#4a7c59"/>
+        <text class="m-label m-label-major" id="us-l3" x="678" y="206">Crofton, MD</text>
+
+        <!-- Rapid City, SD -->
+        <circle class="m-dot" id="us-d4" cx="275" cy="140" r="4" fill="#4a7c59"/>
+        <text class="m-label" id="us-l4" x="230" y="135">Rapid City, SD</text>
+
+        <!-- Fallston, MD -->
+        <circle class="m-dot" id="us-d5" cx="668" cy="198" r="5" fill="#4a7c59"/>
+        <text class="m-label m-label-major" id="us-l5" x="681" y="193">Fallston, MD</text>
+
+        <!-- Marennes, France note -->
+        <text x="810" y="65" fill="rgba(74,124,89,0.5)" font-family="var(--serif)" font-size="11" font-style="italic">Marennes, France &rarr;</text>
+        <text x="830" y="80" fill="rgba(74,124,89,0.3)" font-family="var(--serif)" font-size="9">(origin, 1618)</text>
+      </svg>
+
+      <!-- Year display -->
+      <div class="year-display" id="us-year"></div>
+
+      <div class="map-info" id="us-info">
+        <div class="map-info-name" id="us-info-name"></div>
+        <div class="map-info-dates" id="us-info-dates"></div>
+        <div class="map-info-detail" id="us-info-detail"></div>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-wrap"><div class="progress-track" id="us-progress"><div class="progress-fill" id="us-fill"></div></div></div>
+    <div class="progress-labels"><span>1618</span><span>1700</span><span>1800</span><span>1900</span><span>2000</span><span>Now</span></div>
+  </div>
+
+  <!-- ============ BURIAL SITES ============ -->
+  <div class="map-panel" id="panel-burials">
+    <div class="map-title"><h2>Known Burial Sites</h2></div>
+    <div class="map-subtitle">Where they were laid to rest</div>
+
+    <div class="map-wrap">
+      <svg class="map-svg" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" style="min-height:400px">
+        <!-- Same US coastline -->
+        <path class="map-coast" d="M 680,30 L 700,35 720,28 740,40 760,38 770,50 750,65 730,70 720,85 710,100 720,110 735,105 750,115 740,130 720,135 710,145 700,160 690,175 695,190 685,200 670,210 660,225 650,240 645,260 640,275 635,285 625,295 618,310 610,320 600,330 595,345"/>
+        <path class="map-coast" d="M 480,80 Q 500,70 520,75 540,85 530,95 510,90 490,95 480,80"/>
+
+        <!-- La Prairie, Quebec -->
+        <circle class="burial-dot" cx="710" cy="80" r="6" fill="#4a7c59" opacity="0.8"/>
+        <text class="burial-label" x="720" y="77">La Prairie, Quebec</text>
+
+        <!-- Champlain, NY -->
+        <circle class="burial-dot" cx="715" cy="95" r="5" fill="#4a7c59" opacity="0.7"/>
+        <text class="burial-label" x="728" y="92">Champlain, NY</text>
+
+        <!-- Crofton, MD area -->
+        <circle class="burial-dot" cx="665" cy="210" r="6" fill="#4a7c59" opacity="0.8"/>
+        <text class="burial-label" x="678" y="207">Crofton, MD</text>
+      </svg>
+    </div>
+
+    <!-- Burial directory -->
+    <div class="burial-list">
+      <h3>Known Burial Locations</h3>
+
+      <div class="burial-entry">
+        <span class="burial-entry-name">Jacques dit LaSaline</span>
+        <span class="burial-entry-place">La Prairie, Quebec</span>
+        <span class="burial-entry-dates">d. 1734</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Amos Glode</span>
+        <span class="burial-entry-place">St. Mary&rsquo;s RC Cemetery, Champlain, NY</span>
+        <span class="burial-entry-dates">d. 1933</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Robert Gload</span>
+        <span class="burial-entry-place">Crofton, Maryland area</span>
+        <span class="burial-entry-dates">d. 2020</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Research curated by Colin Gload for the Family Heritage Archive</p>
+  </footer>
+
+  <script>
+  // ===== Tab switching =====
+  document.querySelectorAll('.map-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.map-tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.map-panel').forEach(function(p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+    });
+  });
+
+  // ===== Generic Map Player =====
+  function createPlayer(config) {
+    var current = -1, playing = false, speed = 1, timer = null;
+    var playBtn = document.getElementById(config.playId);
+    var yearEl = document.getElementById(config.yearId);
+    var fillEl = document.getElementById(config.fillId);
+    var progressEl = document.getElementById(config.progressId);
+    var infoEl = document.getElementById(config.infoId);
+    var panel = document.getElementById(config.panelId);
+
+    function showDot(id) { var e = panel.querySelector('#'+id); if(e) { e.classList.add('vis'); e.classList.add('glow'); } }
+    function showLabel(id) { var e = panel.querySelector('#'+id); if(e) e.classList.add('vis'); }
+    function showLine(id) { var e = panel.querySelector('#'+id); if(e) e.classList.add('vis'); }
+    function clearGlow() {
+      panel.querySelectorAll('.m-dot.glow').forEach(function(d) { d.classList.remove('glow'); });
+    }
+
+    function showStep(n) {
+      if (n < 0 || n >= config.steps.length) return;
+      current = n;
+      var s = config.steps[n];
+      clearGlow();
+      if (s.dot) showDot(s.dot);
+      if (s.label) showLabel(s.label);
+      if (s.line) showLine(s.line);
+      if (yearEl) yearEl.textContent = s.year || '';
+      if (fillEl) fillEl.style.width = ((n+1)/config.steps.length*100) + '%';
+
+      // Update info panel
+      if (infoEl && s.place) {
+        infoEl.querySelector('.map-info-name').textContent = s.person || s.place;
+        infoEl.querySelector('.map-info-dates').textContent = (s.year || '') + ' — ' + s.place;
+        infoEl.querySelector('.map-info-detail').textContent = s.desc || '';
+        infoEl.classList.add('visible');
+      }
+    }
+
+    function reset() {
+      current = -1;
+      if (yearEl) yearEl.textContent = '';
+      if (fillEl) fillEl.style.width = '0%';
+      if (infoEl) infoEl.classList.remove('visible');
+      panel.querySelectorAll('.m-dot').forEach(function(d) { d.classList.remove('vis','glow'); });
+      panel.querySelectorAll('.m-label').forEach(function(l) { l.classList.remove('vis'); });
+      panel.querySelectorAll('.m-line').forEach(function(l) { l.classList.remove('vis'); });
+    }
+
+    function advance() {
+      if (current >= config.steps.length - 1) { pause(); enableHover(); return; }
+      showStep(current + 1);
+    }
+
+    function play() {
+      if (current >= config.steps.length - 1) reset();
+      playing = true;
+      playBtn.innerHTML = '&#9646;&#9646;';
+      advance();
+      timer = setInterval(advance, 1800 / speed);
+    }
+
+    function pause() {
+      playing = false;
+      playBtn.innerHTML = '&#9654;';
+      clearInterval(timer);
+    }
+
+    function enableHover() {
+      panel.querySelectorAll('.m-dot.vis').forEach(function(dot) {
+        dot.addEventListener('mouseenter', function() {
+          var label = dot.nextElementSibling;
+          if (!label || !infoEl) return;
+          var name = label.textContent.trim();
+          // Find matching step
+          for (var i = 0; i < config.steps.length; i++) {
+            if (config.steps[i].place && config.steps[i].place.indexOf(name) >= 0) {
+              infoEl.querySelector('.map-info-name').textContent = config.steps[i].person || config.steps[i].place;
+              infoEl.querySelector('.map-info-dates').textContent = (config.steps[i].year || '') + ' — ' + config.steps[i].place;
+              infoEl.querySelector('.map-info-detail').textContent = config.steps[i].desc || '';
+              infoEl.classList.add('visible');
+              break;
+            }
+          }
+        });
+        dot.addEventListener('mouseleave', function() { if(infoEl) infoEl.classList.remove('visible'); });
+      });
+    }
+
+    playBtn.addEventListener('click', function() { if (playing) pause(); else play(); });
+
+    // Speed buttons
+    document.querySelectorAll('.speed-btn[data-map="'+config.mapKey+'"]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.speed-btn[data-map="'+config.mapKey+'"]').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        speed = parseFloat(btn.dataset.speed);
+        if (playing) { clearInterval(timer); timer = setInterval(advance, 1800 / speed); }
+      });
+    });
+
+    // Progress click
+    if (progressEl) {
+      progressEl.addEventListener('click', function(e) {
+        var rect = progressEl.getBoundingClientRect();
+        var pct = (e.clientX - rect.left) / rect.width;
+        var target = Math.round(pct * (config.steps.length - 1));
+        reset();
+        for (var i = 0; i <= target; i++) showStep(i);
+        if (playing) { clearInterval(timer); timer = setInterval(advance, 1800 / speed); }
+      });
+    }
+
+    return { play: play, pause: pause, reset: reset };
+  }
+
+  // ===== Americas Player =====
+  createPlayer({
+    mapKey: 'us',
+    playId: 'us-play',
+    yearId: 'us-year',
+    fillId: 'us-fill',
+    progressId: 'us-progress',
+    infoId: 'us-info',
+    panelId: 'panel-americas',
+    steps: [
+      { year:'1618', dot:null, label:null, line:null, place:'Marennes, France', person:'Jacques Poissant', desc:'Huguenot court officer in the salt-making capital of Saintonge.' },
+      { year:'1684', dot:'us-d0', label:'us-l0', line:null, place:'La Prairie, Quebec', person:'Jacques dit LaSaline', desc:'Orphaned soldier crosses the Atlantic aboard L\'Emerillon. Arrives November, covered in ice.' },
+      { year:'1709', dot:null, label:null, line:null, place:'La Prairie, Quebec', person:'Claude "Glode" Poissant', desc:'A godfather named Glode Maheu at his baptism changes the family name forever.' },
+      { year:'~1825', dot:'us-d1', label:'us-l1', line:'us-ln0', place:'Champlain, New York', person:'Jacob Poissant dit Glode', desc:'Walks across the border from Quebec. The family becomes American.' },
+      { year:'~1835', dot:null, label:null, line:null, place:'Champlain, New York', person:'Joseph Glode', desc:'Canal family. Twelve children. The Glode name takes root in upstate New York.' },
+      { year:'~1900', dot:'us-d2', label:'us-l2', line:'us-ln1', place:'Champlain, New York', person:'Frederick "Mim" & Eva "Pip"', desc:'Nine children raised during the Depression and WWII. The trunk of the modern family.' },
+      { year:'1948', dot:null, label:null, line:'us-ln2', place:'United States Air Force', person:'Robert Gload', desc:'Among the first to wear the new blue uniform. Twenty years of service.' },
+      { year:'1968', dot:'us-d3', label:'us-l3', line:'us-ln3', place:'Crofton, Maryland', person:'Robert & Dolores Gload', desc:'After USAF retirement, the family settles near Fort Meade. Second career at Motorola.' },
+      { year:'1989', dot:'us-d4', label:'us-l4', line:'us-ln4', place:'Rapid City, South Dakota', person:'Colin Frederick Gload', desc:'Born near Ellsworth AFB. The family follows the military to the Great Plains.' },
+      { year:'Today', dot:'us-d5', label:'us-l5', line:'us-ln5', place:'Fallston, Maryland', person:'Colin Gload', desc:'Archive curator. Using technology to rebuild what memory could no longer hold.' }
+    ]
+  });
+  </script>
+
+</body>
+</html>

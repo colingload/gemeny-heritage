@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gload Family Data</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--cream:#f7f4ef;--warm:#f0ebe3;--dark:#1e1810;--text:#2a2017;--text-mid:#6d5f4e;--text-light:#9a8d7c;--gold:#4a7c59;--gold-hover:#5d9a6f;--border:#ddd5c8;--border-light:#e8e2d8;--card:#fffefb;--navy:#0f1a2e;--serif:'Cormorant Garamond','Georgia',serif;--sans:'Inter',-apple-system,'Segoe UI',sans-serif}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--sans);background:var(--cream);color:var(--text);font-size:15px;line-height:1.65}
+    a{color:var(--gold);text-decoration:none}
+
+    .nav{position:sticky;top:0;z-index:100;background:rgba(247,244,239,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light)}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0.9rem 2rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-brand{font-family:var(--serif);font-size:1.5rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--text)}
+    .nav-links-desktop{display:flex;gap:1.5rem;list-style:none}
+    .nav-links-desktop a{font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-mid);text-decoration:none}
+    .nav-links-desktop a:hover,.nav-links-desktop a.nav-active{color:var(--gold)}
+
+    .hero{background:var(--navy);color:var(--cream);text-align:center;padding:4rem 2rem 3rem}
+    .hero h1{font-family:var(--serif);font-size:2.8rem;font-weight:300;letter-spacing:0.08em}
+    .hero-sub{font-family:var(--serif);font-size:1rem;opacity:0.4;margin-top:0.5rem}
+
+    /* Big stats */
+    .big-stats{display:flex;justify-content:center;gap:2rem;padding:2.5rem 2rem;background:var(--dark);color:var(--cream);flex-wrap:wrap}
+    .big-stat{text-align:center;min-width:100px}
+    .big-stat-num{font-family:var(--serif);font-size:2.4rem;font-weight:300;color:var(--gold);display:block}
+    .big-stat-label{font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.4;margin-top:0.1rem}
+
+    /* Branch filter */
+    .filter-bar{display:flex;justify-content:center;gap:0.4rem;padding:1.5rem 2rem;flex-wrap:wrap}
+    .filter-btn{padding:0.3rem 0.9rem;border:1px solid var(--border);background:none;cursor:pointer;font-family:var(--sans);font-size:0.7rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--text-light);transition:all 0.2s;border-radius:2px}
+    .filter-btn:hover{border-color:var(--text-mid);color:var(--text-mid)}
+    .filter-btn.active{background:var(--gold);color:#fff;border-color:var(--gold)}
+    .filter-select{padding:0.3rem 0.5rem;border:1px solid var(--border);background:var(--card);color:var(--text);font-family:var(--sans);font-size:0.7rem;border-radius:2px;cursor:pointer;outline:none}
+    .filter-select:focus{border-color:var(--gold)}
+
+    /* Section */
+    .section{max-width:1100px;margin:0 auto;padding:3rem 2rem}
+    .section-title{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--text);margin-bottom:0.3rem}
+    .section-sub{font-size:0.78rem;color:var(--text-light);margin-bottom:1.5rem}
+    .section-dark{background:var(--navy);color:var(--cream);padding:3rem 0}
+    .section-dark .section{padding-top:0;padding-bottom:0}
+    .section-dark .section-title{color:var(--cream)}
+    .section-dark .section-sub{color:rgba(255,255,255,0.35)}
+
+    /* Chart containers */
+    .chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+    .chart-box{background:var(--card);border:1px solid var(--border-light);padding:1.5rem;border-radius:4px}
+    .chart-box-title{font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:0.2rem}
+    .chart-box-sub{font-size:0.7rem;color:var(--text-light);margin-bottom:1rem}
+    canvas{display:block;width:100%;height:auto}
+
+    /* Leaderboard */
+    .leaders{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem}
+    .leader-card{background:var(--card);border:1px solid var(--border-light);padding:1.2rem;border-radius:4px}
+    .leader-card h3{font-family:var(--serif);font-size:1rem;font-weight:400;color:var(--gold);margin-bottom:0.8rem}
+    .leader-item{display:flex;justify-content:space-between;align-items:baseline;padding:0.3rem 0;border-bottom:1px solid var(--border-light);font-size:0.82rem}
+    .leader-item:last-child{border-bottom:none}
+    .leader-rank{color:var(--text-light);font-size:0.7rem;min-width:1.5rem}
+    .leader-name{flex:1;color:var(--text)}
+    .leader-val{color:var(--gold);font-weight:500;font-family:var(--serif);font-size:0.95rem}
+
+    /* Comparison cards */
+    .compare-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .compare-card{background:var(--card);border:1px solid var(--border-light);padding:1rem;border-radius:4px;text-align:center}
+    .compare-card-branch{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.5rem}
+    .compare-card-num{font-family:var(--serif);font-size:2rem;font-weight:300;display:block}
+    .compare-card-label{font-size:0.7rem;color:var(--text-light);margin-top:0.2rem}
+
+    /* Data completeness */
+    .completeness{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+    .complete-item{text-align:center;padding:1rem;background:var(--card);border:1px solid var(--border-light);border-radius:4px}
+    .complete-bar{width:100%;height:6px;background:var(--border-light);border-radius:3px;margin:0.5rem 0;overflow:hidden}
+    .complete-fill{height:100%;border-radius:3px;transition:width 0.6s}
+    .complete-pct{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--gold)}
+    .complete-label{font-size:0.68rem;color:var(--text-light);letter-spacing:0.05em;text-transform:uppercase}
+
+    /* Badge stats */
+    .badge-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .badge-stat{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);padding:1.2rem;border-radius:4px;text-align:center}
+    .badge-stat-icon{font-size:1.8rem;margin-bottom:0.3rem}
+    .badge-stat-num{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--gold)}
+    .badge-stat-label{font-size:0.7rem;color:rgba(255,255,255,0.4);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.2rem}
+
+    /* Missing data list */
+    .missing-list{grid-column:1/-1;margin-top:1rem}
+    .missing-header{display:flex;justify-content:space-between;align-items:center;padding:0.8rem 1rem;background:var(--warm);border:1px solid var(--border);border-radius:4px 4px 0 0;font-size:0.85rem}
+    .missing-close{cursor:pointer;font-size:1.2rem;color:var(--text-light);padding:0 0.3rem}
+    .missing-close:hover{color:var(--text)}
+    .missing-scroll{max-height:400px;overflow-y:auto;border:1px solid var(--border-light);border-top:none;border-radius:0 0 4px 4px;background:var(--card)}
+    .missing-row{display:flex;justify-content:space-between;align-items:baseline;padding:0.4rem 1rem;border-bottom:1px solid var(--border-light);font-size:0.8rem}
+    .missing-row:last-child{border-bottom:none}
+    .missing-name{font-family:var(--serif);color:var(--text);font-weight:500;min-width:160px}
+    .missing-link{color:var(--gold);cursor:pointer;text-decoration:none}
+    .missing-link:hover{text-decoration:underline}
+    .missing-info{font-size:0.72rem;color:var(--text-light);flex:1;text-align:center;min-width:80px}
+    .missing-input{flex:0 0 180px;padding:0.25rem 0.5rem;font-family:var(--sans);font-size:0.75rem;border:1px solid var(--border-light);border-radius:3px;background:var(--cream);color:var(--text);outline:none}
+    .missing-input:focus{border-color:var(--gold)}
+    .missing-input::placeholder{color:var(--text-light);font-size:0.7rem}
+    .missing-save{background:none;border:1px solid var(--border-light);border-radius:3px;cursor:pointer;padding:0.2rem 0.5rem;font-size:0.8rem;color:var(--text-light);transition:all 0.15s}
+    .missing-save:hover{border-color:var(--gold);color:var(--gold)}
+    .missing-footer{padding:0.6rem 1rem;background:var(--warm);border:1px solid var(--border);border-top:none;border-radius:0 0 4px 4px;font-size:0.75rem;color:var(--text-mid);display:flex;align-items:center;gap:0.5rem}
+    .missing-export{background:var(--gold);color:#fff;border:none;padding:0.2rem 0.6rem;border-radius:2px;cursor:pointer;font-size:0.7rem;letter-spacing:0.05em;text-transform:uppercase}
+    .missing-export:hover{background:var(--gold-hover)}
+
+    .footer{border-top:1px solid var(--border-light);padding:2rem;text-align:center;color:var(--text);font-size:0.78rem}
+    .footer strong{color:var(--dark)}
+    .footer-sub{font-size:0.7rem;color:var(--text-mid);margin-top:0.3rem}
+
+    @media(max-width:768px){
+      .nav-links-desktop{display:none}
+      .chart-grid{grid-template-columns:1fr}
+      .leaders{grid-template-columns:1fr}
+      .compare-grid{grid-template-columns:1fr 1fr}
+      .completeness{grid-template-columns:1fr 1fr}
+      .badge-grid{grid-template-columns:1fr 1fr}
+      .hero h1{font-size:2rem}
+      .big-stats{gap:1rem}
+      .big-stat-num{font-size:1.8rem}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav"><div class="nav-inner">
+    <span class="nav-brand">Gload</span>
+    <div class="nav-links-desktop">
+      <a href="../index.html">Home</a>
+      <a href="../maps/index.html">Maps</a>
+      <a href="../stats/index.html" class="nav-active">Data</a>
+      <a href="../streaks/index.html">Streaks</a>
+      <a href="../../network/index.html">Full Tree</a>
+    </div>
+  </div></nav>
+
+  <div class="hero">
+    <h1>Gload Family Data</h1>
+    <p class="hero-sub">500 years of history, visualized</p>
+  </div>
+
+  <div class="big-stats" id="bigStats"></div>
+
+  <div class="filter-bar">
+    <span style="padding:0.3rem 0.9rem;font-family:var(--sans);font-size:0.7rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold);font-weight:500">Gload</span>
+    <select class="filter-select" id="surnameSelect">
+      <option value="">By Surname...</option>
+    </select>
+  </div>
+
+  <!-- Data Completeness -->
+  <div class="section">
+    <h2 class="section-title">Data Completeness</h2>
+    <p class="section-sub">How much do we know about our ancestors?</p>
+    <div class="completeness" id="completeness"></div>
+  </div>
+
+  <!-- Demographics Charts -->
+  <div class="section">
+    <h2 class="section-title">Demographics</h2>
+    <p class="section-sub">Names, lifespans, and family size across the centuries</p>
+    <div class="chart-grid">
+      <div class="chart-box">
+        <div class="chart-box-title">Most Common First Names</div>
+        <div class="chart-box-sub">Top 15 across all generations</div>
+        <canvas id="chartNames" height="340"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-box-title">Most Common Surnames</div>
+        <div class="chart-box-sub">Top 15 family names in the tree</div>
+        <canvas id="chartSurnames" height="340"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-box-title">Birth Month Distribution</div>
+        <div class="chart-box-sub">When were family members born?</div>
+        <canvas id="chartMonths" height="300"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-box-title">Average Lifespan by Decade</div>
+        <div class="chart-box-sub">How long did people live?</div>
+        <canvas id="chartLifespan" height="300"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-box-title">Age at Death Distribution</div>
+        <div class="chart-box-sub">How many reached 50, 60, 70, 80+?</div>
+        <canvas id="chartAgeDist" height="300"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-box-title">Children per Family</div>
+        <div class="chart-box-sub">Family size distribution</div>
+        <canvas id="chartChildren" height="300"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-box-title">Family Population Over Time</div>
+        <div class="chart-box-sub">How many family members alive in each year</div>
+        <canvas id="chartPopulation" height="300"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-box-title">Births & Deaths by Decade</div>
+        <div class="chart-box-sub">Growth and loss over time</div>
+        <canvas id="chartBirthsDeath" height="300"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Geographic -->
+  <div class="section">
+    <h2 class="section-title">Geographic</h2>
+    <p class="section-sub">Where the family lived across the centuries</p>
+    <div class="chart-grid">
+      <div class="chart-box">
+        <div class="chart-box-title">Top Locations</div>
+        <div class="chart-box-sub">Most common birthplaces by state/region</div>
+        <canvas id="chartStates" height="380"></canvas>
+      </div>
+      <div class="chart-box">
+        <div class="chart-box-title">Countries of Origin</div>
+        <div class="chart-box-sub">Where the family came from</div>
+        <canvas id="chartCountries" height="350"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Badges / Affiliations -->
+  <div class="section-dark">
+    <div class="section">
+      <h2 class="section-title">Service & Affiliations</h2>
+      <p class="section-sub">Military, Freemasons, Patriots, and Immigrants</p>
+      <div class="badge-grid" id="badgeGrid"></div>
+    </div>
+  </div>
+
+  <!-- Leaderboards -->
+  <div class="section">
+    <h2 class="section-title">Records & Leaderboards</h2>
+    <p class="section-sub">The most, the oldest, the biggest</p>
+    <div class="leaders" id="leaders"></div>
+  </div>
+
+  <footer class="footer">
+    <p>Research curated by <strong>Colin Gload</strong>.</p>
+    <p class="footer-sub">Website created by <strong>Colin Gload</strong>.</p>
+  </footer>
+
+<script>
+(function() {
+  'use strict';
+
+  let data=null, nodeMap={}, familyMap={};
+  let activeSurname=null;
+
+  // Surname normalization
+  const SURNAME_ALIASES={'dubois':['DuBois','Dubois','DUBOIS','duBois','Duboise'],'mudd':['Mudd','Mudd*'],'burgess':['Burgess','BURGESS'],'callaway':['Callaway','CALLAWAY','Calloway'],'scheibly':['Scheibly','Scheibley','Sheibley','Sheibly','Shively','SHIVELY'],'franklin':['FRANKLIN','Franklin','franklin'],'garrison':['Garrison','GARRISON'],'pittman':['Pitman','Pittman'],'tewksbury':['Tewksbury','TEWKSBURY','Tewkesbury'],'gemeny':['Gemeny','Gemini','DGemeny','D.Gemeny','SandyGemeny'],'degroff':['deGroff','Degroff'],'hammond':['Hammond','HAMMOND'],'davidson':['Davidson','DAVIDSON'],'maynard':['Maynard','MAYNARD'],'maynor':['Maynor','MAYNOR'],'arnold':['Arnold','Arnold*'],'turner':['Turner','TURNER'],'harvey':['Harvey','HARVEY'],'hopkins':['Hopkins','HOPKINS','Hopkins*'],'doran':['Doran','Dorren'],'tschudi':['Tschudi','Tschudy']};
+  const surnameToGroup={};
+  Object.entries(SURNAME_ALIASES).forEach(([g,vs])=>{vs.forEach(v=>{surnameToGroup[v]=g;});});
+  function getSurnameGroup(s){return surnameToGroup[s]||s.toLowerCase().replace(/[^a-z]/g,'');}
+  const MONTHS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+  function filtered() {
+    let nodes=data.nodes;
+    if(activeSurname) nodes=nodes.filter(n=>{const p=n.name.split(' ');const l=p[p.length-1];return getSurnameGroup(l)===activeSurname;});
+    return nodes;
+  }
+  function filteredFams() {
+    if(!activeSurname) return data.families;
+    const ids=new Set(filtered().map(n=>n.id));
+    return data.families.filter(f=>ids.has(f.husband)||ids.has(f.wife));
+  }
+
+  function extractYear(d){if(!d)return null;const m=d.match(/\d{4}/);return m?parseInt(m[0]):null;}
+  function extractMonth(d){if(!d)return null;const ms={JAN:0,FEB:1,MAR:2,APR:3,MAY:4,JUN:5,JUL:6,AUG:7,SEP:8,OCT:9,NOV:10,DEC:11};const m=d.match(/(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)/);return m?ms[m[1]]:null;}
+
+  // ── Chart Drawing Utilities ──────────────────────────────
+
+  function setupCanvas(id, h) {
+    const c=document.getElementById(id); if(!c) return null;
+    const dpr=window.devicePixelRatio||1;
+    const w=c.parentElement.clientWidth-48;
+    c.width=w*dpr; c.height=h*dpr;
+    c.style.width=w+'px'; c.style.height=h+'px';
+    const ctx=c.getContext('2d');
+    ctx.scale(dpr,dpr);
+    return {ctx,w,h};
+  }
+
+  function drawBarChart(id, labels, values, color, height) {
+    const s=setupCanvas(id,height||250); if(!s) return;
+    const {ctx,w,h}=s;
+    const max=Math.max(...values,1);
+    const barW=Math.min(32,(w-60)/labels.length-4);
+    const left=45, bottom=h-70;
+    const chartH=bottom-10;
+
+    // Grid
+    ctx.strokeStyle='#e8e2d8'; ctx.lineWidth=0.5;
+    for(let i=0;i<=4;i++){
+      const y=bottom-chartH*i/4;
+      ctx.beginPath();ctx.moveTo(left,y);ctx.lineTo(w,y);ctx.stroke();
+      ctx.fillStyle='#9a8d7c';ctx.font='9px Inter';ctx.textAlign='right';
+      ctx.fillText(Math.round(max*i/4),left-5,y+3);
+    }
+
+    // Bars
+    const totalW=labels.length*(barW+4);
+    const startX=left+(w-left-totalW)/2;
+    labels.forEach((l,i)=>{
+      const x=startX+i*(barW+4);
+      const bh=(values[i]/max)*chartH;
+      const barColor=typeof color==='string'?color:(color[i]||'#4a7c59');
+      ctx.fillStyle=barColor;
+      ctx.fillRect(x,bottom-bh,barW,bh);
+
+      // Value on top of bar
+      ctx.fillStyle='#6d5f4e';ctx.font='bold 8px Inter';ctx.textAlign='center';
+      ctx.fillText(values[i],x+barW/2,bottom-bh-4);
+
+      // Label below, rotated 60 degrees for readability
+      ctx.save();
+      ctx.translate(x+barW/2, bottom+6);
+      ctx.rotate(-Math.PI/3);
+      ctx.fillStyle='#2a2017';ctx.font='9px Inter';ctx.textAlign='right';
+      ctx.fillText(l,0,0);
+      ctx.restore();
+    });
+  }
+
+  function drawLineChart(id, labels, datasets, height) {
+    const s=setupCanvas(id,height||250); if(!s) return;
+    const {ctx,w,h}=s;
+    const left=50,bottom=h-30,chartH=bottom-10;
+    let allVals=[];
+    datasets.forEach(ds=>allVals.push(...ds.values));
+    const max=Math.max(...allVals,1);
+
+    // Grid
+    ctx.strokeStyle='#e8e2d8';ctx.lineWidth=0.5;
+    for(let i=0;i<=4;i++){
+      const y=bottom-chartH*i/4;
+      ctx.beginPath();ctx.moveTo(left,y);ctx.lineTo(w,y);ctx.stroke();
+      ctx.fillStyle='#9a8d7c';ctx.font='9px Inter';ctx.textAlign='right';
+      ctx.fillText(Math.round(max*i/4),left-5,y+3);
+    }
+
+    // Lines
+    const stepX=(w-left-10)/(labels.length-1||1);
+    datasets.forEach(ds=>{
+      ctx.beginPath();ctx.strokeStyle=ds.color;ctx.lineWidth=2;
+      ds.values.forEach((v,i)=>{
+        const x=left+i*stepX, y=bottom-(v/max)*chartH;
+        i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+      });
+      ctx.stroke();
+    });
+
+    // Labels
+    labels.forEach((l,i)=>{
+      if(i%Math.ceil(labels.length/10)===0){
+        const x=left+i*stepX;
+        ctx.fillStyle='#9a8d7c';ctx.font='8px Inter';ctx.textAlign='center';
+        ctx.fillText(l,x,bottom+12);
+      }
+    });
+  }
+
+  function drawRadialChart(id, labels, values, height) {
+    const s=setupCanvas(id,height||250); if(!s) return;
+    const {ctx,w,h}=s;
+    const cx=w/2,cy=h/2,r=Math.min(w,h)/2-30;
+    const max=Math.max(...values,1);
+    const n=labels.length;
+
+    // Grid circles
+    ctx.strokeStyle='#e8e2d8';ctx.lineWidth=0.5;
+    [0.25,0.5,0.75,1].forEach(pct=>{
+      ctx.beginPath();ctx.arc(cx,cy,r*pct,0,Math.PI*2);ctx.stroke();
+    });
+
+    // Spokes + labels
+    labels.forEach((l,i)=>{
+      const angle=Math.PI*2*i/n-Math.PI/2;
+      const x2=cx+Math.cos(angle)*r,y2=cy+Math.sin(angle)*r;
+      ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(x2,y2);ctx.stroke();
+      const lx=cx+Math.cos(angle)*(r+15),ly=cy+Math.sin(angle)*(r+15);
+      ctx.fillStyle='#6d5f4e';ctx.font='9px Inter';ctx.textAlign='center';ctx.fillText(l,lx,ly+3);
+    });
+
+    // Data polygon
+    ctx.beginPath();ctx.fillStyle='rgba(74,124,89,0.15)';ctx.strokeStyle='#4a7c59';ctx.lineWidth=2;
+    values.forEach((v,i)=>{
+      const angle=Math.PI*2*i/n-Math.PI/2;
+      const vr=r*(v/max);
+      const x=cx+Math.cos(angle)*vr,y=cy+Math.sin(angle)*vr;
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    });
+    ctx.closePath();ctx.fill();ctx.stroke();
+
+    // Dots
+    values.forEach((v,i)=>{
+      const angle=Math.PI*2*i/n-Math.PI/2;
+      const vr=r*(v/max);
+      ctx.beginPath();ctx.arc(cx+Math.cos(angle)*vr,cy+Math.sin(angle)*vr,3,0,Math.PI*2);
+      ctx.fillStyle='#4a7c59';ctx.fill();
+    });
+  }
+
+  function drawPieChart(id, labels, values, colors, height) {
+    const s=setupCanvas(id,height||250); if(!s) return;
+    const {ctx,w,h}=s;
+    const cx=w/2-60,cy=h/2,r=Math.min(w/2-60,h/2)-10;
+    const total=values.reduce((a,b)=>a+b,0)||1;
+    let angle=-Math.PI/2;
+
+    labels.forEach((l,i)=>{
+      const slice=Math.PI*2*(values[i]/total);
+      ctx.beginPath();ctx.moveTo(cx,cy);ctx.arc(cx,cy,r,angle,angle+slice);ctx.closePath();
+      ctx.fillStyle=colors[i];ctx.fill();
+      ctx.strokeStyle='#fff';ctx.lineWidth=1;ctx.stroke();
+      angle+=slice;
+    });
+
+    // Legend
+    const lx=cx+r+30;
+    labels.forEach((l,i)=>{
+      const ly=20+i*18;
+      ctx.fillStyle=colors[i];ctx.fillRect(lx,ly,10,10);
+      ctx.fillStyle='#2a2017';ctx.font='10px Inter';ctx.fillText(l+' ('+values[i]+')',lx+16,ly+9);
+    });
+  }
+
+  // ── Render All ──────────────────────────────────────────
+
+  function renderAll() {
+    const nodes=filtered();
+    const fams=filteredFams();
+    renderBigStats(nodes,fams);
+    renderCompleteness(nodes);
+    renderNames(nodes);
+    renderSurnames(nodes);
+    renderMonths(nodes);
+    renderLifespan(nodes);
+    renderAgeDist(nodes);
+    renderChildren(fams);
+    renderPopulation(nodes);
+    renderBirthsDeath(nodes);
+    renderStates(nodes);
+    renderCountries(nodes);
+    renderBadges(nodes);
+    renderLeaders(nodes,fams);
+  }
+
+  function renderBigStats(nodes,fams) {
+    const withBirth=nodes.filter(n=>n.birthYear).length;
+    const years=nodes.filter(n=>n.birthYear).map(n=>n.birthYear);
+    const earliest=years.length?Math.min(...years):'?';
+    const span=years.length?(new Date().getFullYear()-earliest):0;
+    const el=document.getElementById('bigStats');
+    el.innerHTML=`
+      <div class="big-stat"><span class="big-stat-num">${nodes.length}</span><span class="big-stat-label">People</span></div>
+      <div class="big-stat"><span class="big-stat-num">${fams.length}</span><span class="big-stat-label">Families</span></div>
+      <div class="big-stat"><span class="big-stat-num">${span}+</span><span class="big-stat-label">Years</span></div>
+      <div class="big-stat"><span class="big-stat-num">${earliest}</span><span class="big-stat-label">Earliest Birth</span></div>
+      <div class="big-stat"><span class="big-stat-num">${nodes.filter(n=>n.badges&&n.badges.length>0).length}</span><span class="big-stat-label">With Badges</span></div>
+    `;
+  }
+
+  function renderCompleteness(nodes) {
+    const total=nodes.length||1;
+    const fields=[
+      {label:'Birth Year', key:'birthYear', test:n=>!n.birthYear, missing:nodes.filter(n=>!n.birthYear)},
+      {label:'Death Date', key:'deathDate', test:n=>!n.deathDate, missing:nodes.filter(n=>!n.deathDate)},
+      {label:'Birth Place', key:'birthPlace', test:n=>!n.birthPlace, missing:nodes.filter(n=>!n.birthPlace)},
+      {label:'Parents Known', key:'parents', test:n=>!n.familyAsChild, missing:nodes.filter(n=>!n.familyAsChild)},
+      {label:'Has Spouse', key:'spouse', test:n=>!(n.familiesAsSpouse&&n.familiesAsSpouse.length>0), missing:nodes.filter(n=>!(n.familiesAsSpouse&&n.familiesAsSpouse.length>0))}
+    ];
+    fields.forEach(f=>{ f.pct=Math.round((total-f.missing.length)/total*100); });
+
+    const el=document.getElementById('completeness');
+    el.innerHTML=fields.map((f,i)=>`
+      <div class="complete-item" style="cursor:pointer" data-field="${i}" title="Click to see who's missing ${f.label.toLowerCase()}">
+        <div class="complete-pct">${f.pct}%</div>
+        <div class="complete-bar"><div class="complete-fill" style="width:${f.pct}%;background:${f.pct>70?'#6a9a4a':f.pct>40?'#4a7c59':'#c47a5e'}"></div></div>
+        <div class="complete-label">${f.label}</div>
+        <div style="font-size:0.65rem;color:var(--text-light);margin-top:0.2rem">${f.missing.length} missing</div>
+      </div>
+    `).join('') + '<div id="missingList" class="missing-list"></div>';
+
+    // Click handler for each completeness item
+    el.querySelectorAll('.complete-item').forEach(item=>{
+      item.addEventListener('click',function(){
+        const idx=parseInt(this.dataset.field);
+        const field=fields[idx];
+        const listEl=document.getElementById('missingList');
+
+        // Toggle: if already showing this field, close it
+        if(listEl.dataset.active===String(idx)){
+          listEl.innerHTML='';listEl.dataset.active='';return;
+        }
+        listEl.dataset.active=String(idx);
+
+        // Sort missing by name
+        const sorted=field.missing.slice().sort((a,b)=>a.name.localeCompare(b.name));
+        const showing=sorted.slice(0,100);
+
+        // Load any saved suggestions from localStorage
+        const saved=JSON.parse(localStorage.getItem('gload-suggestions')||'{}');
+        const fieldKey=field.key;
+        const placeholder={birthYear:'e.g. 1835',deathDate:'e.g. 15 MAR 1900',birthPlace:'e.g. Baltimore, Maryland',parents:'e.g. Father: John, Mother: Mary',spouse:'e.g. Mary Roberts'}[fieldKey]||'Enter value...';
+
+        listEl.innerHTML=`
+          <div class="missing-header">
+            <strong>${field.missing.length} people</strong> missing <strong>${field.label.toLowerCase()}</strong>
+            <span style="font-size:0.7rem;color:var(--text-light);margin-left:auto;margin-right:1rem">Click a name to view in tree &middot; Type to suggest data</span>
+            <span class="missing-close" id="missingClose">&times;</span>
+          </div>
+          <div class="missing-scroll">
+            ${showing.map(n=>{
+              const savedVal=saved[n.id+'_'+fieldKey]||'';
+              return `<div class="missing-row">
+                <a class="missing-name missing-link" href="../../network/index.html#person=${n.id}" title="View in tree">${n.name}</a>
+                <span class="missing-info">${n.birthYear?'b.'+n.birthYear:''}${n.birthPlace?' &middot; '+n.birthPlace.split(',').slice(0,2).join(','):''}</span>
+                <input class="missing-input" data-id="${n.id}" data-field="${fieldKey}" placeholder="${placeholder}" value="${savedVal}">
+                <button class="missing-save" data-id="${n.id}" data-field="${fieldKey}" title="Save suggestion">${savedVal?'&#10003;':'&#9998;'}</button>
+              </div>`;
+            }).join('')}
+            ${sorted.length>100?`<div class="missing-row" style="color:var(--text-light);font-style:italic">...and ${sorted.length-100} more</div>`:''}
+          </div>
+          ${Object.keys(saved).length>0?`<div class="missing-footer">${Object.keys(saved).length} suggestion(s) saved locally &middot; <button class="missing-export" id="exportBtn">Export All</button></div>`:''}
+        `;
+
+        // Close button
+        document.getElementById('missingClose').addEventListener('click',function(e){
+          e.stopPropagation();listEl.innerHTML='';listEl.dataset.active='';
+        });
+
+        // Save buttons
+        listEl.querySelectorAll('.missing-save').forEach(btn=>{
+          btn.addEventListener('click',function(){
+            const id=this.dataset.id, fld=this.dataset.field;
+            const input=listEl.querySelector(`.missing-input[data-id="${id}"][data-field="${fld}"]`);
+            if(!input||!input.value.trim())return;
+            const saved=JSON.parse(localStorage.getItem('gload-suggestions')||'{}');
+            saved[id+'_'+fld]=input.value.trim();
+            localStorage.setItem('gload-suggestions',JSON.stringify(saved));
+            this.innerHTML='&#10003;';this.style.color='#6a9a4a';
+          });
+        });
+
+        // Export button
+        const exportBtn=document.getElementById('exportBtn');
+        if(exportBtn){
+          exportBtn.addEventListener('click',function(){
+            const saved=JSON.parse(localStorage.getItem('gload-suggestions')||'{}');
+            const lines=['ID,Field,Suggested Value'];
+            Object.entries(saved).forEach(([k,v])=>{
+              const [id,fld]=k.split('_');
+              const node=nodeMap[id];
+              lines.push(`"${node?node.name:id}","${fld}","${v}"`);
+            });
+            const blob=new Blob([lines.join('\n')],{type:'text/csv'});
+            const url=URL.createObjectURL(blob);
+            const a=document.createElement('a');a.href=url;a.download='gload-suggestions.csv';a.click();
+          });
+        }
+
+        listEl.scrollIntoView({behavior:'smooth',block:'nearest'});
+      });
+    });
+  }
+
+  function renderNames(nodes) {
+    const counts={};
+    nodes.forEach(n=>{const f=n.name.split(' ')[0];if(f&&f.length>1)counts[f]=(counts[f]||0)+1;});
+    const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,15);
+    drawBarChart('chartNames',top.map(e=>e[0]),top.map(e=>e[1]),'#4a7c59',320);
+  }
+
+  function renderSurnames(nodes) {
+    const counts={};
+    nodes.forEach(n=>{const p=n.name.split(' ');const l=p[p.length-1];if(l&&l.length>1)counts[l]=(counts[l]||0)+1;});
+    const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,15);
+    const colors=top.map(e=>'#4a7c59');
+    drawBarChart('chartSurnames',top.map(e=>e[0]),top.map(e=>e[1]),colors,320);
+  }
+
+  function renderMonths(nodes) {
+    const counts=new Array(12).fill(0);
+    nodes.forEach(n=>{const m=extractMonth(n.birthDate);if(m!==null)counts[m]++;});
+    drawRadialChart('chartMonths',MONTHS,counts,280);
+  }
+
+  function renderLifespan(nodes) {
+    const decades={};
+    nodes.forEach(n=>{
+      if(!n.birthYear||!n.deathDate)return;
+      const dy=extractYear(n.deathDate);if(!dy)return;
+      const age=dy-n.birthYear;if(age<1||age>120)return;
+      const dec=Math.floor(n.birthYear/50)*50;
+      if(!decades[dec])decades[dec]={total:0,count:0};
+      decades[dec].total+=age;decades[dec].count++;
+    });
+    const sorted=Object.keys(decades).map(Number).sort((a,b)=>a-b);
+    const labels=sorted.map(d=>d+'s');
+    const values=sorted.map(d=>Math.round(decades[d].total/decades[d].count));
+    drawLineChart('chartLifespan',labels,[{values,color:'#4a7c59'}],280);
+  }
+
+  function renderAgeDist(nodes) {
+    // Special first bucket for infant death, then 5-year buckets
+    const labels=['0-1','2-4'];
+    const values=[0,0];
+    for(let i=5;i<=100;i+=5){labels.push(i+'-'+(i+4));values.push(0);}
+    labels.push('105+');values.push(0);
+    nodes.forEach(n=>{
+      if(!n.birthYear||!n.deathDate)return;
+      const dy=extractYear(n.deathDate);if(!dy)return;
+      const age=dy-n.birthYear;if(age<0||age>120)return;
+      if(age<=1) values[0]++;
+      else if(age<=4) values[1]++;
+      else {
+        const idx=Math.min(Math.floor(age/5),values.length-1);
+        values[idx]++;
+      }
+    });
+    drawBarChart('chartAgeDist',labels,values,'#8e6aad',280);
+  }
+
+  function renderChildren(fams) {
+    const buckets={'0':0,'1':0,'2':0,'3':0,'4':0,'5':0,'6':0,'7+':0};
+    fams.forEach(f=>{
+      const c=f.children.length;
+      if(c>=7)buckets['7+']++;else buckets[c+'']++;
+    });
+    drawBarChart('chartChildren',Object.keys(buckets),Object.values(buckets),'#5e9acf',280);
+  }
+
+  function renderPopulation(nodes) {
+    const startY=1500,endY=2025;
+    const labels=[],values=[];
+    for(let y=startY;y<=endY;y+=5){
+      labels.push(y);
+      let alive=0;
+      nodes.forEach(n=>{
+        if(!n.birthYear)return;
+        if(n.birthYear>y)return;
+        let dy=extractYear(n.deathDate);
+        if(dy){if(y<=dy)alive++;}
+        else{if(y<=n.birthYear+90)alive++;}
+      });
+      values.push(alive);
+    }
+    drawLineChart('chartPopulation',labels.map(String),[{values,color:'#4a7c59'}],280);
+  }
+
+  function renderBirthsDeath(nodes) {
+    const bDec={},dDec={};
+    nodes.forEach(n=>{
+      if(n.birthYear){const d=Math.floor(n.birthYear/10)*10;bDec[d]=(bDec[d]||0)+1;}
+      const dy=extractYear(n.deathDate);
+      if(dy){const d=Math.floor(dy/10)*10;dDec[d]=(dDec[d]||0)+1;}
+    });
+    const allDecs=new Set([...Object.keys(bDec),...Object.keys(dDec)]);
+    const sorted=[...allDecs].map(Number).sort((a,b)=>a-b);
+    drawLineChart('chartBirthsDeath',sorted.map(d=>d+'s'),[
+      {values:sorted.map(d=>bDec[d]||0),color:'#6a9a4a'},
+      {values:sorted.map(d=>dDec[d]||0),color:'#c47a5e'}
+    ],280);
+  }
+
+  function renderStates(nodes) {
+    const counts={};
+    nodes.forEach(n=>{
+      if(!n.birthPlace)return;
+      const parts=n.birthPlace.split(',').map(s=>s.trim());
+      const st=parts.length>=2?parts[parts.length-2]:parts[0];
+      if(st&&st.length>1&&!st.match(/^\d/))counts[st]=(counts[st]||0)+1;
+    });
+    const top=Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0,15);
+    drawBarChart('chartStates',top.map(e=>e[0]),top.map(e=>e[1]),'#5e9acf',360);
+  }
+
+  function renderCountries(nodes) {
+    const counts={USA:0};
+    nodes.forEach(n=>{
+      if(!n.birthPlace)return;
+      const lc=n.birthPlace.toLowerCase();
+      if(/england|london|leicester|ashby|kent|warwick|suffolk/.test(lc))counts['England']=(counts['England']||0)+1;
+      else if(/ireland|dublin/.test(lc))counts['Ireland']=(counts['Ireland']||0)+1;
+      else if(/france|lille/.test(lc))counts['France']=(counts['France']||0)+1;
+      else if(/switzerland|waldenburg/.test(lc))counts['Switzerland']=(counts['Switzerland']||0)+1;
+      else if(/netherlands|holland|new paltz/.test(lc))counts['Netherlands']=(counts['Netherlands']||0)+1;
+      else if(/germany|palatinate|hungary/.test(lc))counts['Germany/Hungary']=(counts['Germany/Hungary']||0)+1;
+      else if(/scotland/.test(lc))counts['Scotland']=(counts['Scotland']||0)+1;
+      else counts['USA']++;
+    });
+    const entries=Object.entries(counts).filter(e=>e[1]>0).sort((a,b)=>b[1]-a[1]);
+    const colors=['#4a7c59','#5e9acf','#c47a5e','#8e6aad','#6a9a4a','#c46a8e','#6ac4a0','#a0a0a0'];
+    drawPieChart('chartCountries',entries.map(e=>e[0]),entries.map(e=>e[1]),colors,320);
+  }
+
+  function renderBadges(nodes) {
+    const badges={military:0,freemason:0,dar:0,immigration:0};
+    nodes.forEach(n=>{(n.badges||[]).forEach(b=>{if(badges[b]!==undefined)badges[b]++;});});
+    const icons={military:'\u{1F6E1}',freemason:'\u{1F3DB}',dar:'\u2B50',immigration:'\u26F5'};
+    const labels={military:'Military',freemason:'Freemasons',dar:'DAR/SAR Patriots',immigration:'Immigrants'};
+    document.getElementById('badgeGrid').innerHTML=Object.entries(badges).map(([k,v])=>`
+      <div class="badge-stat">
+        <div class="badge-stat-icon">${icons[k]}</div>
+        <div class="badge-stat-num">${v}</div>
+        <div class="badge-stat-label">${labels[k]}</div>
+      </div>
+    `).join('');
+  }
+
+  function renderLeaders(nodes,fams) {
+    // Longest lived
+    const lifespans=[];
+    nodes.forEach(n=>{
+      if(!n.birthYear||!n.deathDate)return;
+      const dy=extractYear(n.deathDate);if(!dy)return;
+      const age=dy-n.birthYear;if(age>0&&age<120)lifespans.push({name:n.name,age});
+    });
+    lifespans.sort((a,b)=>b.age-a.age);
+
+    // Most children
+    const famKids=fams.map(f=>{
+      const h=nodeMap[f.husband],w=nodeMap[f.wife];
+      const name=(h?h.name.split(' ')[0]:'?')+' & '+(w?w.name.split(' ')[0]:'?');
+      return{name,count:f.children.length};
+    }).sort((a,b)=>b.count-a.count);
+
+    // Most connected (parents+spouse+children+siblings)
+    const connections=nodes.map(n=>{
+      let c=0;
+      if(n.familyAsChild){const f=familyMap[n.familyAsChild];if(f)c+=f.children.length-1+(f.husband?1:0)+(f.wife?1:0);}
+      (n.familiesAsSpouse||[]).forEach(fId=>{const f=familyMap[fId];if(f)c+=f.children.length+1;});
+      return{name:n.name,count:c};
+    }).sort((a,b)=>b.count-a.count);
+
+    const el=document.getElementById('leaders');
+    function leaderHTML(title,items,valLabel) {
+      return `<div class="leader-card"><h3>${title}</h3>${items.slice(0,8).map((it,i)=>
+        `<div class="leader-item"><span class="leader-rank">${i+1}.</span><span class="leader-name">${it.name}</span><span class="leader-val">${it.val}${valLabel||''}</span></div>`
+      ).join('')}</div>`;
+    }
+    el.innerHTML=
+      leaderHTML('Longest Lived',lifespans.slice(0,8).map(l=>({name:l.name,val:l.age})),' yrs')+
+      leaderHTML('Largest Families',famKids.slice(0,8).map(f=>({name:f.name,val:f.count})),' kids')+
+      leaderHTML('Most Connected',connections.slice(0,8).map(c=>({name:c.name,val:c.count})));
+  }
+
+  // ── Load & Init ─────────────────────────────────────────
+
+  async function init() {
+    const paths=['../../data/gload-gedcom-tree.json'];
+    for(const p of paths){try{const r=await fetch(p);if(r.ok){data=await r.json();break;}}catch(e){}}
+    if(!data) return;
+    for(const n of data.nodes) nodeMap[n.id]=n;
+    for(const f of data.families) familyMap[f.id]=f;
+    populateSurnameOptions();
+    renderAll();
+  }
+
+  // Surname dropdown filter
+  document.getElementById('surnameSelect').addEventListener('change',function(){
+    activeSurname=this.value||null;
+    renderAll();
+  });
+
+  // Populate surname options
+  function populateSurnameOptions(){
+    const groups={};
+    data.nodes.forEach(n=>{const p=n.name.split(' ');const l=p[p.length-1];if(!l||l.length<=1)return;const g=getSurnameGroup(l);if(!groups[g])groups[g]={count:0,display:l};groups[g].count++;if(l[0]===l[0].toUpperCase()&&l!==l.toUpperCase())groups[g].display=l;});
+    const sorted=Object.entries(groups).sort((a,b)=>b[1].count-a[1].count).filter(e=>e[1].count>=3);
+    const sel=document.getElementById('surnameSelect');
+    sorted.forEach(([group,info])=>{
+      const opt=document.createElement('option');opt.value=group;opt.textContent=info.display+' ('+info.count+')';
+      sel.appendChild(opt);
+    });
+  }
+
+  // Handle resize
+  let resizeTimer;
+  window.addEventListener('resize',function(){clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{if(data)renderAll();},200);});
+
+  init();
+})();
+</script>
+</body>
+</html>
