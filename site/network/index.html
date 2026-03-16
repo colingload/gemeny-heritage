@@ -186,6 +186,7 @@
 
     <div class="divider"></div>
 
+    <button class="zoom-btn" id="viewToggle" title="Toggle grid/tree view" style="font-size:0.6rem;width:auto;padding:0 0.5rem">GRID</button>
     <button class="zoom-btn" id="zoomIn" title="Zoom in">+</button>
     <button class="zoom-btn" id="zoomOut" title="Zoom out">&minus;</button>
     <button class="zoom-btn" id="zoomReset" title="Reset view" style="font-size:0.65rem">FIT</button>
@@ -591,12 +592,13 @@
   }
 
   function isNodeVisible(n) {
-    // In grid layouts (branch or badge), all displayed nodes are already filtered
-    if (branchLayoutActive || badgeLayoutActive) return true;
+    // In grid mode, all displayed nodes are already filtered
+    if (viewMode === 'grid') return true;
+    // In tree mode, dim nodes that don't match active filters
+    const node = nodeMap[n.id];
+    if (!node) return true;
     if (activeBranch !== 'all') {
-      const node = nodeMap[n.id];
-      const bg = branchGroup(node && node.branch);
-      if (bg !== activeBranch) return false;
+      if (branchGroup(node.branch) !== activeBranch) return false;
     }
     return true;
   }
@@ -1220,137 +1222,131 @@
 
   // ── Controls ─────────────────────────────────────────────
 
-  // Branch filters — show all people in that branch as a grid (same approach as badges)
-  let branchLayoutActive = false;
-  let savedBranchLayout = null;
+  // Unified filter system: branch + badge combine, grid/tree toggle
+  let viewMode = 'tree'; // 'tree' or 'grid'
+  let savedTreeLayout = null;
+  const viewToggle = document.getElementById('viewToggle');
 
+  function matchesFilters(node) {
+    let pass = true;
+    if (activeBranch !== 'all') {
+      if (branchGroup(node.branch) !== activeBranch) pass = false;
+    }
+    if (activeBadge) {
+      if (!node.badges || !node.badges.includes(activeBadge)) pass = false;
+    }
+    return pass;
+  }
+
+  function getFilteredNodes() {
+    return data.nodes.filter(n => matchesFilters(n));
+  }
+
+  function hasActiveFilter() {
+    return activeBranch !== 'all' || activeBadge !== null;
+  }
+
+  function buildGridLayout(nodes) {
+    nodes.sort((a, b) => (a.birthYear || 9999) - (b.birthYear || 9999));
+    const cols = Math.max(1, Math.ceil(Math.sqrt(nodes.length * 1.5)));
+    const padX = NODE_W + H_GAP;
+    const padY = NODE_H + V_GAP * 0.6;
+    layoutNodes = [];
+    layoutEdges = [];
+    for (let i = 0; i < nodes.length; i++) {
+      layoutNodes.push({
+        id: nodes[i].id,
+        x: (i % cols) * padX - (cols * padX) / 2,
+        y: Math.floor(i / cols) * padY,
+        isAncestor: false
+      });
+    }
+    zoom = Math.min(0.8, W / ((cols + 1) * padX));
+    const totalH = Math.ceil(nodes.length / cols) * padY;
+    camX = W / 2;
+    camY = -totalH * zoom / 2 + H / 2;
+  }
+
+  function applyFilters() {
+    if (viewMode === 'grid' && hasActiveFilter()) {
+      // Save tree layout if not already saved
+      if (!savedTreeLayout) {
+        savedTreeLayout = { nodes: [...layoutNodes], edges: [...layoutEdges], camX, camY, zoom };
+      }
+      buildGridLayout(getFilteredNodes());
+    } else if (viewMode === 'grid' && !hasActiveFilter()) {
+      // Grid mode but no filter — show all 1,477 people
+      if (!savedTreeLayout) {
+        savedTreeLayout = { nodes: [...layoutNodes], edges: [...layoutEdges], camX, camY, zoom };
+      }
+      buildGridLayout(data.nodes);
+    } else {
+      // Tree mode — restore tree layout if we were in grid
+      if (savedTreeLayout) {
+        layoutNodes = savedTreeLayout.nodes;
+        layoutEdges = savedTreeLayout.edges;
+        camX = savedTreeLayout.camX;
+        camY = savedTreeLayout.camY;
+        zoom = savedTreeLayout.zoom;
+        savedTreeLayout = null;
+      }
+    }
+    draw();
+  }
+
+  // Grid/Tree toggle
+  viewToggle.addEventListener('click', function() {
+    viewMode = viewMode === 'tree' ? 'grid' : 'tree';
+    this.textContent = viewMode === 'tree' ? 'GRID' : 'TREE';
+    this.style.color = viewMode === 'grid' ? 'var(--gold)' : '';
+    applyFilters();
+  });
+
+  // Branch filters
   document.querySelectorAll('.branch-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       document.querySelectorAll('.branch-btn').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
       activeBranch = this.dataset.branch;
-
-      if (activeBranch === 'all') {
-        // Restore tree
-        if (savedBranchLayout) {
-          layoutNodes = savedBranchLayout.nodes;
-          layoutEdges = savedBranchLayout.edges;
-          camX = savedBranchLayout.camX;
-          camY = savedBranchLayout.camY;
-          zoom = savedBranchLayout.zoom;
-          savedBranchLayout = null;
-        }
-        branchLayoutActive = false;
-        draw();
-        return;
+      // Auto-switch to grid when selecting a specific branch
+      if (activeBranch !== 'all' && viewMode === 'tree') {
+        viewMode = 'grid';
+        viewToggle.textContent = 'TREE';
+        viewToggle.style.color = 'var(--gold)';
       }
-
-      // Save current tree layout
-      if (!branchLayoutActive && !badgeLayoutActive) {
-        savedBranchLayout = { nodes: [...layoutNodes], edges: [...layoutEdges], camX, camY, zoom };
+      if (activeBranch === 'all' && !activeBadge) {
+        viewMode = 'tree';
+        viewToggle.textContent = 'GRID';
+        viewToggle.style.color = '';
       }
-      // Deactivate badge layout if active
-      if (badgeLayoutActive) {
-        activeBadge = null;
-        badgeLayoutActive = false;
-        savedLayout = null;
-        document.querySelectorAll('.badge-btn').forEach(b => b.classList.remove('active'));
-      }
-      branchLayoutActive = true;
-
-      // Build grid of all people in this branch, sorted by birth year
-      const matching = data.nodes.filter(n => branchGroup(n.branch) === activeBranch);
-      matching.sort((a, b) => (a.birthYear || 9999) - (b.birthYear || 9999));
-
-      const cols = Math.ceil(Math.sqrt(matching.length * 1.5));
-      const padX = NODE_W + H_GAP;
-      const padY = NODE_H + V_GAP * 0.6;
-
-      layoutNodes = [];
-      layoutEdges = [];
-      for (let i = 0; i < matching.length; i++) {
-        const col = i % cols;
-        const row = Math.floor(i / cols);
-        layoutNodes.push({ id: matching[i].id, x: col * padX - (cols * padX) / 2, y: row * padY, isAncestor: false });
-      }
-
-      // Reset the branch visibility check so all grid nodes show full opacity
-      activeBranch = 'all';  // temporarily so isNodeVisible returns true for all grid nodes
-      // But keep the button active visually — we'll restore activeBranch for drawing
-      const selectedBranch = this.dataset.branch;
-
-      zoom = 0.7;
-      const totalH = Math.ceil(matching.length / cols) * padY;
-      camX = W / 2;
-      camY = -totalH * zoom / 2 + H / 2;
-
-      activeBranch = selectedBranch;
-      draw();
+      applyFilters();
     });
   });
 
-  // Badge filters — show ALL matching people in a grid layout
-  let badgeLayoutActive = false;
-  let savedLayout = null; // to restore when badge is deactivated
-
+  // Badge filters (toggle on/off, can combine with branch)
   document.querySelectorAll('.badge-btn').forEach(btn => {
+    if (btn.id === 'relateBtn') return; // skip the relationship button
     btn.addEventListener('click', function() {
       if (this.classList.contains('active')) {
-        // Deactivate — restore previous tree layout
         this.classList.remove('active');
         activeBadge = null;
-        if (savedLayout) {
-          layoutNodes = savedLayout.nodes;
-          layoutEdges = savedLayout.edges;
-          camX = savedLayout.camX;
-          camY = savedLayout.camY;
-          zoom = savedLayout.zoom;
-          savedLayout = null;
-        }
-        badgeLayoutActive = false;
-        draw();
       } else {
-        // Save current layout so we can restore it
-        if (!badgeLayoutActive) {
-          savedLayout = {
-            nodes: [...layoutNodes],
-            edges: [...layoutEdges],
-            camX, camY, zoom
-          };
-        }
-        document.querySelectorAll('.badge-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.badge-btn:not(#relateBtn)').forEach(b => b.classList.remove('active'));
         this.classList.add('active');
         activeBadge = this.dataset.badge;
-        badgeLayoutActive = true;
-
-        // Build flat grid of all people with this badge
-        const matching = data.nodes.filter(n => n.badges && n.badges.includes(activeBadge));
-        matching.sort((a, b) => (a.birthYear || 9999) - (b.birthYear || 9999));
-
-        const cols = Math.ceil(Math.sqrt(matching.length * 1.5));
-        const padX = NODE_W + H_GAP;
-        const padY = NODE_H + V_GAP * 0.6;
-
-        layoutNodes = [];
-        layoutEdges = [];
-        for (let i = 0; i < matching.length; i++) {
-          const col = i % cols;
-          const row = Math.floor(i / cols);
-          layoutNodes.push({
-            id: matching[i].id,
-            x: col * padX - (cols * padX) / 2,
-            y: row * padY,
-            isAncestor: false
-          });
-        }
-
-        // Center view on the grid
-        zoom = 0.7;
-        const totalH = Math.ceil(matching.length / cols) * padY;
-        camX = W / 2;
-        camY = -totalH * zoom / 2 + H / 2;
-        draw();
       }
+      // Auto-switch to grid when a badge is active
+      if (activeBadge && viewMode === 'tree') {
+        viewMode = 'grid';
+        viewToggle.textContent = 'TREE';
+        viewToggle.style.color = 'var(--gold)';
+      }
+      if (!activeBadge && activeBranch === 'all') {
+        viewMode = 'tree';
+        viewToggle.textContent = 'GRID';
+        viewToggle.style.color = '';
+      }
+      applyFilters();
     });
   });
 
@@ -1383,15 +1379,17 @@
   document.getElementById('clearBtn').addEventListener('click', function() {
     // Reset branch filter
     activeBranch = 'all';
-    branchLayoutActive = false;
-    savedBranchLayout = null;
     document.querySelectorAll('.branch-btn').forEach(b => b.classList.remove('active'));
     document.querySelector('.branch-btn[data-branch="all"]').classList.add('active');
 
     // Reset badge filter
     activeBadge = null;
-    badgeLayoutActive = false;
-    savedLayout = null;
+
+    // Reset view mode
+    viewMode = 'tree';
+    viewToggle.textContent = 'GRID';
+    viewToggle.style.color = '';
+    savedTreeLayout = null;
     document.querySelectorAll('.badge-btn').forEach(b => b.classList.remove('active'));
 
     // Reset timeline
