@@ -608,11 +608,20 @@
       .cards { grid-template-columns: repeat(2, 1fr); }
       .stories-grid { grid-template-columns: 1fr; }
     }
-    @media (max-width: 600px) {
+    /* Mobile nav */
+    .nav-menu-btn { display: none; background: none; border: none; color: var(--text-mid); font-size: 1.4rem; cursor: pointer; padding: 0.2rem; }
+    .nav-dropdown { display: none; background: var(--cream); border-bottom: 1px solid var(--border-light); padding: 0.5rem 2rem; }
+    .nav-dropdown.open { display: block; }
+    .nav-dropdown a { display: block; padding: 0.6rem 0; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-mid); text-decoration: none; border-bottom: 1px solid var(--border-light); }
+    .nav-dropdown a:last-child { border-bottom: none; }
+    .nav-dropdown a:hover { color: var(--gold); }
+
+    @media (max-width: 768px) {
       .hero h1 { font-size: 2.4rem; }
       .cards { grid-template-columns: 1fr; }
       .figures-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      .nav-menu-btn { display: block; }
       .h-timeline-track { height: 260px; }
       .h-event { width: 60px; }
       .h-event-major { width: 70px; }
@@ -636,6 +645,18 @@
         <li><a href="#stories">Stories</a></li>
         <li><a href="#about">About</a></li>
       </ul>
+      <button class="nav-menu-btn" id="navMenuBtn">&#9776;</button>
+    </div>
+    <div class="nav-dropdown" id="navDropdown">
+      <a href="#lineage">Lineage</a>
+      <a href="#figures">Key Figures</a>
+      <a href="#moments">Timeline</a>
+      <a href="#migration">Migration</a>
+      <a href="maps/index.html">Maps</a>
+      <a href="network/index.html">Full Tree</a>
+      <a href="heritage/your-story.html">Your Story</a>
+      <a href="#stories">Stories</a>
+      <a href="#about">About</a>
     </div>
   </nav>
 
@@ -1615,6 +1636,20 @@
         el.innerHTML = months[m] + ' ' + d;
       });
   })();
+
+  // === Mobile Nav Hamburger ===
+  document.getElementById('navMenuBtn').addEventListener('click', function() {
+    document.getElementById('navDropdown').classList.toggle('open');
+  });
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav')) document.getElementById('navDropdown').classList.remove('open');
+  });
+  // Close dropdown when clicking anchor links (same-page navigation)
+  document.querySelectorAll('#navDropdown a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.getElementById('navDropdown').classList.remove('open');
+    });
+  });
 
   // === Horizontal Timeline Filters (two independent rows) ===
   (function() {
