@@ -23,8 +23,17 @@
     .nav{background:rgba(15,26,46,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);position:relative;z-index:100}
     .nav-inner{max-width:1400px;margin:0 auto;padding:0.7rem 2rem;display:flex;align-items:center;justify-content:space-between}
     .nav-brand{font-family:var(--serif);font-size:1.35rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--cream)}
-    .nav-back{font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none}
-    .nav-back:hover{color:var(--gold)}
+    .nav-links-desktop{display:flex;gap:1.5rem}
+    .nav-links-desktop a{font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none}
+    .nav-links-desktop a:hover{color:var(--gold)}
+    .nav-links-desktop a.nav-active{color:var(--gold)}
+    .nav-menu-btn{display:none;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.3rem;cursor:pointer;padding:0.2rem}
+    .nav-menu-btn:hover{color:var(--cream)}
+    .nav-dropdown{display:none;background:rgba(15,26,46,0.98);border-bottom:1px solid rgba(255,255,255,0.06);padding:0.5rem 2rem}
+    .nav-dropdown.open{display:block}
+    .nav-dropdown a{display:block;padding:0.5rem 0;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.5);text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04)}
+    .nav-dropdown a:last-child{border-bottom:none}
+    .nav-dropdown a:hover,.nav-dropdown a.nav-active{color:var(--gold)}
     a{color:var(--gold);text-decoration:none}
 
     /* Controls bar */
@@ -51,6 +60,8 @@
     /* Badge filter buttons */
     .badge-btn{padding:0.25rem 0.6rem;border:1px solid rgba(255,255,255,0.12);background:none;cursor:pointer;font-family:var(--sans);font-size:0.65rem;letter-spacing:0.04em;text-transform:uppercase;color:rgba(255,255,255,0.35);transition:all 0.15s;border-radius:2px}
     .badge-btn:hover{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.6)}
+    .story-link{background:rgba(212,160,23,0.1);border-color:rgba(212,160,23,0.3);color:var(--gold);text-decoration:none}
+    .story-link:hover{background:rgba(212,160,23,0.2);border-color:var(--gold);color:var(--gold)}
     .badge-btn.active{background:rgba(212,160,23,0.15);color:var(--gold);border-color:var(--gold)}
 
     /* Zoom controls */
@@ -129,11 +140,13 @@
     .main{flex:1;position:relative;overflow:hidden}
 
     @media(max-width:768px){
+      .nav-links-desktop{display:none}
+      .nav-menu-btn{display:block}
       .controls{gap:0.3rem;padding:0.4rem 0.5rem;overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;-webkit-overflow-scrolling:touch;scrollbar-width:none}
       .controls::-webkit-scrollbar{display:none}
       .search-input{width:120px;min-width:120px}
       .divider{display:none}
-      .branch-btn,.badge-btn{white-space:nowrap;font-size:0.6rem;padding:0.2rem 0.5rem}
+      .branch-btn,.badge-btn,.story-link{white-space:nowrap;font-size:0.6rem;padding:0.2rem 0.5rem}
       .zoom-btn{width:24px;height:24px;font-size:0.85rem}
       .sidebar{width:100%;right:-100%}
       .nav-inner{padding:0.6rem 1rem}
@@ -153,7 +166,19 @@
   <nav class="nav">
     <div class="nav-inner">
       <span class="nav-brand">Gemeny Heritage</span>
-      <a href="../index.html" class="nav-back">Back to Home</a>
+      <div class="nav-links-desktop">
+        <a href="../index.html">Home</a>
+        <a href="../maps/index.html">Maps</a>
+        <a href="../heritage/your-story.html">Your Story</a>
+        <a href="../network/index.html" class="nav-active">Full Tree</a>
+      </div>
+      <button class="nav-menu-btn" id="navMenuBtn" title="Menu">&#9776;</button>
+    </div>
+    <div class="nav-dropdown" id="navDropdown">
+      <a href="../index.html">Home</a>
+      <a href="../maps/index.html">Maps</a>
+      <a href="../heritage/your-story.html">Your Story</a>
+      <a href="../network/index.html" class="nav-active">Full Tree</a>
     </div>
   </nav>
 
@@ -183,6 +208,7 @@
     <div class="divider"></div>
 
     <button class="badge-btn" id="relateBtn" title="Find how two people are related">&#x1F517; Related?</button>
+    <a href="../heritage/your-story.html" class="badge-btn story-link" title="See your personalized family story">&#x1F4DC; Your Story</a>
 
     <div class="divider"></div>
 
@@ -1622,6 +1648,18 @@
       draw();
     }
   };
+
+  // ── Mobile Nav ───────────────────────────────────────────
+
+  document.getElementById('navMenuBtn').addEventListener('click', function() {
+    document.getElementById('navDropdown').classList.toggle('open');
+  });
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav')) {
+      document.getElementById('navDropdown').classList.remove('open');
+    }
+  });
 
   // ── Init ─────────────────────────────────────────────────
 
