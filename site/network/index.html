@@ -1220,75 +1220,68 @@
 
   // ── Controls ─────────────────────────────────────────────
 
-  // Branch filters — show ALL matching people in a grid when a branch is selected
-  let branchLayoutActive = false;
-  let savedBranchLayout = null;
-
+  // Branch filters — expand all nodes so every person in that branch is visible
   document.querySelectorAll('.branch-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       document.querySelectorAll('.branch-btn').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
       activeBranch = this.dataset.branch;
 
-      if (activeBranch === 'all') {
-        // Restore tree layout
-        if (savedBranchLayout) {
-          layoutNodes = savedBranchLayout.nodes;
-          layoutEdges = savedBranchLayout.edges;
-          camX = savedBranchLayout.camX;
-          camY = savedBranchLayout.camY;
-          zoom = savedBranchLayout.zoom;
-          savedBranchLayout = null;
+      if (activeBranch !== 'all') {
+        // Deactivate badge layout if active
+        if (badgeLayoutActive) {
+          activeBadge = null;
+          badgeLayoutActive = false;
+          document.querySelectorAll('.badge-btn').forEach(b => b.classList.remove('active'));
         }
-        branchLayoutActive = false;
-        draw();
-        return;
+
+        // Find a good root for this branch and expand everything
+        const branchPeople = data.nodes.filter(n => branchGroup(n.branch) === activeBranch);
+        // Find the earliest ancestor in this branch (smallest birth year)
+        const sorted = branchPeople.filter(n => n.birthYear).sort((a, b) => a.birthYear - b.birthYear);
+        if (sorted.length > 0) {
+          // Expand all to show everyone in this branch
+          expanded.clear();
+          // Walk from each branch person up to find a common root
+          // Then expand all descendants
+          function expandAll(id, visited) {
+            if (visited.has(id)) return;
+            visited.add(id);
+            expanded.add(id);
+            for (const cId of getChildren(id)) expandAll(cId, visited);
+          }
+          const vis = new Set();
+          // Start from the earliest person and expand their whole subtree
+          expandAll(sorted[0].id, vis);
+          // Also expand from other early ancestors in case tree branches
+          for (let i = 1; i < Math.min(sorted.length, 5); i++) {
+            expandAll(sorted[i].id, vis);
+          }
+
+          treeRoot = sorted[0].id;
+          computeLayout();
+          centerOnRoot();
+          zoom = 0.4; // zoom out to see all
+          // Center on the middle of all laid out nodes
+          if (layoutNodes.length > 0) {
+            let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+            for (const ln of layoutNodes) {
+              if (branchGroup(nodeMap[ln.id] && nodeMap[ln.id].branch) === activeBranch) {
+                minX = Math.min(minX, ln.x);
+                maxX = Math.max(maxX, ln.x + NODE_W);
+                minY = Math.min(minY, ln.y);
+                maxY = Math.max(maxY, ln.y + NODE_H);
+              }
+            }
+            if (minX < Infinity) {
+              const cx = (minX + maxX) / 2;
+              const cy = (minY + maxY) / 2;
+              camX = -cx * zoom + W / 2;
+              camY = -cy * zoom + H / 2;
+            }
+          }
+        }
       }
-
-      // Save current layout if not already in a special layout
-      if (!branchLayoutActive && !badgeLayoutActive) {
-        savedBranchLayout = {
-          nodes: [...layoutNodes],
-          edges: [...layoutEdges],
-          camX, camY, zoom
-        };
-      }
-
-      // Deactivate badge layout if active
-      if (badgeLayoutActive) {
-        activeBadge = null;
-        badgeLayoutActive = false;
-        document.querySelectorAll('.badge-btn').forEach(b => b.classList.remove('active'));
-      }
-
-      branchLayoutActive = true;
-
-      // Build grid of all people in this branch
-      const matching = data.nodes.filter(n => branchGroup(n.branch) === activeBranch);
-      matching.sort((a, b) => (a.birthYear || 9999) - (b.birthYear || 9999));
-
-      const cols = Math.ceil(Math.sqrt(matching.length * 1.5));
-      const padX = NODE_W + H_GAP;
-      const padY = NODE_H + V_GAP * 0.6;
-
-      layoutNodes = [];
-      layoutEdges = [];
-      for (let i = 0; i < matching.length; i++) {
-        const col = i % cols;
-        const row = Math.floor(i / cols);
-        layoutNodes.push({
-          id: matching[i].id,
-          x: col * padX - (cols * padX) / 2,
-          y: row * padY,
-          isAncestor: false
-        });
-      }
-
-      // Center view
-      zoom = 0.7;
-      const totalH = Math.ceil(matching.length / cols) * padY;
-      camX = W / 2;
-      camY = -totalH * zoom / 2 + H / 2;
       draw();
     });
   });
@@ -1387,8 +1380,6 @@
   document.getElementById('clearBtn').addEventListener('click', function() {
     // Reset branch filter
     activeBranch = 'all';
-    branchLayoutActive = false;
-    savedBranchLayout = null;
     document.querySelectorAll('.branch-btn').forEach(b => b.classList.remove('active'));
     document.querySelector('.branch-btn[data-branch="all"]').classList.add('active');
 
