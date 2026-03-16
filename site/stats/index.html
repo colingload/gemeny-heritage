@@ -98,8 +98,18 @@
     .missing-scroll{max-height:400px;overflow-y:auto;border:1px solid var(--border-light);border-top:none;border-radius:0 0 4px 4px;background:var(--card)}
     .missing-row{display:flex;justify-content:space-between;align-items:baseline;padding:0.4rem 1rem;border-bottom:1px solid var(--border-light);font-size:0.8rem}
     .missing-row:last-child{border-bottom:none}
-    .missing-name{font-family:var(--serif);color:var(--text);font-weight:500}
-    .missing-info{font-size:0.72rem;color:var(--text-light);text-align:right}
+    .missing-name{font-family:var(--serif);color:var(--text);font-weight:500;min-width:160px}
+    .missing-link{color:var(--gold);cursor:pointer;text-decoration:none}
+    .missing-link:hover{text-decoration:underline}
+    .missing-info{font-size:0.72rem;color:var(--text-light);flex:1;text-align:center;min-width:80px}
+    .missing-input{flex:0 0 180px;padding:0.25rem 0.5rem;font-family:var(--sans);font-size:0.75rem;border:1px solid var(--border-light);border-radius:3px;background:var(--cream);color:var(--text);outline:none}
+    .missing-input:focus{border-color:var(--gold)}
+    .missing-input::placeholder{color:var(--text-light);font-size:0.7rem}
+    .missing-save{background:none;border:1px solid var(--border-light);border-radius:3px;cursor:pointer;padding:0.2rem 0.5rem;font-size:0.8rem;color:var(--text-light);transition:all 0.15s}
+    .missing-save:hover{border-color:var(--gold);color:var(--gold)}
+    .missing-footer{padding:0.6rem 1rem;background:var(--warm);border:1px solid var(--border);border-top:none;border-radius:0 0 4px 4px;font-size:0.75rem;color:var(--text-mid);display:flex;align-items:center;gap:0.5rem}
+    .missing-export{background:var(--gold);color:#fff;border:none;padding:0.2rem 0.6rem;border-radius:2px;cursor:pointer;font-size:0.7rem;letter-spacing:0.05em;text-transform:uppercase}
+    .missing-export:hover{background:var(--gold-hover)}
 
     .footer{border-top:1px solid var(--border-light);padding:2rem;text-align:center;color:var(--text);font-size:0.78rem}
     .footer strong{color:var(--dark)}
@@ -520,22 +530,67 @@
         const sorted=field.missing.slice().sort((a,b)=>a.name.localeCompare(b.name));
         const showing=sorted.slice(0,100);
 
+        // Load any saved suggestions from localStorage
+        const saved=JSON.parse(localStorage.getItem('gemeny-suggestions')||'{}');
+        const fieldKey=field.key;
+        const placeholder={birthYear:'e.g. 1835',deathDate:'e.g. 15 MAR 1900',birthPlace:'e.g. Baltimore, Maryland',parents:'e.g. Father: John, Mother: Mary',spouse:'e.g. Mary Roberts'}[fieldKey]||'Enter value...';
+
         listEl.innerHTML=`
           <div class="missing-header">
             <strong>${field.missing.length} people</strong> missing <strong>${field.label.toLowerCase()}</strong>
+            <span style="font-size:0.7rem;color:var(--text-light);margin-left:auto;margin-right:1rem">Click a name to view in tree &middot; Type to suggest data</span>
             <span class="missing-close" id="missingClose">&times;</span>
           </div>
           <div class="missing-scroll">
-            ${showing.map(n=>`<div class="missing-row">
-              <span class="missing-name">${n.name}</span>
-              <span class="missing-info">${n.birthYear?'b.'+n.birthYear:''}${n.birthPlace?' &middot; '+n.birthPlace.split(',').slice(0,2).join(','):''}</span>
-            </div>`).join('')}
+            ${showing.map(n=>{
+              const savedVal=saved[n.id+'_'+fieldKey]||'';
+              return `<div class="missing-row">
+                <a class="missing-name missing-link" href="../network/index.html#person=${n.id}" title="View in tree">${n.name}</a>
+                <span class="missing-info">${n.birthYear?'b.'+n.birthYear:''}${n.birthPlace?' &middot; '+n.birthPlace.split(',').slice(0,2).join(','):''}</span>
+                <input class="missing-input" data-id="${n.id}" data-field="${fieldKey}" placeholder="${placeholder}" value="${savedVal}">
+                <button class="missing-save" data-id="${n.id}" data-field="${fieldKey}" title="Save suggestion">${savedVal?'&#10003;':'&#9998;'}</button>
+              </div>`;
+            }).join('')}
             ${sorted.length>100?`<div class="missing-row" style="color:var(--text-light);font-style:italic">...and ${sorted.length-100} more</div>`:''}
           </div>
+          ${Object.keys(saved).length>0?`<div class="missing-footer">${Object.keys(saved).length} suggestion(s) saved locally &middot; <button class="missing-export" id="exportBtn">Export All</button></div>`:''}
         `;
+
+        // Close button
         document.getElementById('missingClose').addEventListener('click',function(e){
           e.stopPropagation();listEl.innerHTML='';listEl.dataset.active='';
         });
+
+        // Save buttons
+        listEl.querySelectorAll('.missing-save').forEach(btn=>{
+          btn.addEventListener('click',function(){
+            const id=this.dataset.id, fld=this.dataset.field;
+            const input=listEl.querySelector(`.missing-input[data-id="${id}"][data-field="${fld}"]`);
+            if(!input||!input.value.trim())return;
+            const saved=JSON.parse(localStorage.getItem('gemeny-suggestions')||'{}');
+            saved[id+'_'+fld]=input.value.trim();
+            localStorage.setItem('gemeny-suggestions',JSON.stringify(saved));
+            this.innerHTML='&#10003;';this.style.color='#6a9a4a';
+          });
+        });
+
+        // Export button
+        const exportBtn=document.getElementById('exportBtn');
+        if(exportBtn){
+          exportBtn.addEventListener('click',function(){
+            const saved=JSON.parse(localStorage.getItem('gemeny-suggestions')||'{}');
+            const lines=['ID,Field,Suggested Value'];
+            Object.entries(saved).forEach(([k,v])=>{
+              const [id,fld]=k.split('_');
+              const node=nodeMap[id];
+              lines.push(`"${node?node.name:id}","${fld}","${v}"`);
+            });
+            const blob=new Blob([lines.join('\n')],{type:'text/csv'});
+            const url=URL.createObjectURL(blob);
+            const a=document.createElement('a');a.href=url;a.download='gemeny-suggestions.csv';a.click();
+          });
+        }
+
         listEl.scrollIntoView({behavior:'smooth',block:'nearest'});
       });
     });

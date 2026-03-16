@@ -382,6 +382,24 @@
     setRoot(defaultRoot.id);
     document.getElementById('loading').style.display = 'none';
     updateStats();
+
+    // Check URL hash for person deep link (e.g. #person=I123)
+    const hash = window.location.hash;
+    if (hash && hash.startsWith('#person=')) {
+      const personId = hash.substring(8);
+      if (nodeMap[personId]) {
+        setRoot(personId);
+        expandGenerations(personId, 2);
+        computeLayout();
+        const ln = layoutNodes.find(n => n.id === personId);
+        if (ln) {
+          panTo(ln.x + NODE_W / 2, ln.y + NODE_H / 2);
+          selectedNode = ln;
+          showSidebar(nodeMap[personId]);
+        }
+        draw();
+      }
+    }
   }
 
   // ── Tree layout ──────────────────────────────────────────
@@ -606,7 +624,7 @@
 
   function isAliveInYear(node, year) {
     if (year >= 2026) return true; // 2026 = show all
-    if (!node.birthYear) return true; // unknown birth = always show
+    if (!node.birthYear) return false; // unknown birth = hide when timeline active
     if (node.birthYear > year) return false; // not born yet
     // Estimate death year
     let deathYear = null;
