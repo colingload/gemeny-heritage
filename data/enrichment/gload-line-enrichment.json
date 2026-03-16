@@ -1,0 +1,115 @@
+{
+  "_meta": {
+    "purpose": "Data enrichment request for the Gload surname line (Colin's paternal side)",
+    "project": "Gemeny Family Heritage (gemeny-heritage)",
+    "created": "2026-03-16",
+    "created_by": "Colin Gload via Claude Code",
+    "instructions_for_enricher": [
+      "This file contains all known data for the Gload paternal line.",
+      "The Gload line is currently VERY sparse — Colin's father is Frederick Anthony 'Ted' Gload.",
+      "We need to trace the Gload surname back as far as possible.",
+      "Research sources: FamilySearch.org, FindAGrave.com, Ancestry hints, newspapers.com, census records, vital records.",
+      "For each person you find or update, ADD a source entry to 'sources_to_add' with type and citation.",
+      "Do NOT fabricate data. If uncertain, use the 'confidence' field: 'high', 'medium', 'low', or 'speculative'.",
+      "Living people should NOT be deeply researched for privacy — only add publicly available info.",
+      "When done, return this entire JSON file with your additions filled in.",
+      "ADD NEW PEOPLE to the 'new_people_found' array using the same format as existing entries."
+    ],
+    "surname_variants_to_search": [
+      "Gload", "Gloade", "Glode", "Gload", "Gloyd"
+    ],
+    "geographic_focus": [
+      "Maryland (Prince Georges County, Calvert County, College Park)",
+      "Rapid City, South Dakota",
+      "Fallston, Harford County, Maryland",
+      "Any other Gload concentrations found"
+    ],
+    "key_questions": [
+      "Where does the Gload surname originate? German? English? Dutch?",
+      "What is Ted Gload's full lineage — parents, grandparents, great-grandparents?",
+      "Are there Gload concentrations in specific US regions?",
+      "Any immigration records for the first Gload in America?",
+      "What is Ted Gload's mother's maiden name / maternal line?"
+    ]
+  },
+
+  "known_people": [
+    {
+      "id": "colin-gload-1989",
+      "name": "Colin Frederick Gload",
+      "current_data": {
+        "birth": { "date": "1989-05-24", "precision": "exact", "place": "Rapid City, Pennington County, SD" },
+        "death": null,
+        "occupation": ["entrepreneur", "consultant"],
+        "mother": "amelia-gemeny-1965 (Amelia Gordon Gemeny)",
+        "father": "Frederick Anthony 'Ted' Gload (NO RECORD YET)",
+        "residence": ["College Park, PG County MD", "Fallston MD c.2020"],
+        "notes": "Project curator. Privacy: family."
+      },
+      "enrich_needed": {
+        "father_record": "CRITICAL — Ted Gload has no person record. Need: full name, birth date/place, parents, occupation",
+        "why_rapid_city_sd": "ENRICH_NEEDED — Why was Colin born in Rapid City? Military base? Ellsworth AFB?"
+      },
+      "sources_to_add": [],
+      "notes_to_add": null,
+      "privacy": "family — do not deeply research, only add publicly available info"
+    },
+
+    {
+      "id": "NEEDS_RECORD:ted-gload",
+      "name": "Frederick Anthony 'Ted' Gload",
+      "current_data": {
+        "birth": { "date": null, "precision": null, "place": null },
+        "death": null,
+        "occupation": [],
+        "spouse": "Amelia Gordon Gemeny (1965-)",
+        "children": ["Colin Frederick Gload (1989)", "Brody Gload (2020)", "Aurora Gload (2024)"],
+        "residence": [],
+        "sources": [],
+        "notes": "Father of Colin, Brody, Aurora. Married to Amelia Gemeny. No data file exists yet."
+      },
+      "enrich_needed": {
+        "birth_date": "ENRICH_NEEDED",
+        "birth_place": "ENRICH_NEEDED",
+        "parents": "ENRICH_NEEDED — Father's name and mother's maiden name",
+        "grandparents": "ENRICH_NEEDED",
+        "occupation": "ENRICH_NEEDED",
+        "military_service": "ENRICH_NEEDED — Rapid City SD birth of Colin suggests possible Ellsworth AFB connection",
+        "marriage_date_place": "ENRICH_NEEDED — When/where did Ted marry Amelia?",
+        "residence_history": "ENRICH_NEEDED"
+      },
+      "sources_to_add": [],
+      "notes_to_add": null,
+      "privacy": "family — limit to publicly available records"
+    }
+  ],
+
+  "new_people_found": [
+    {
+      "_template": {
+        "id": "firstname-lastname-birthyear",
+        "name": "Full Name",
+        "relationship_to_line": "e.g., Ted's father, Ted's paternal grandfather",
+        "birth": { "date": null, "precision": null, "place": null },
+        "death": { "date": null, "precision": null, "place": null },
+        "burial": null,
+        "occupation": [],
+        "marriage": null,
+        "children": [],
+        "residence": [],
+        "sources": [],
+        "confidence": "high | medium | low | speculative",
+        "notes": null
+      }
+    }
+  ],
+
+  "surname_research": {
+    "etymology": "ENRICH_NEEDED — Origin and meaning of the Gload surname",
+    "earliest_us_record": "ENRICH_NEEDED — First Gload in American records",
+    "geographic_distribution": "ENRICH_NEEDED — Where Gloads settled in the US",
+    "variant_spellings_found": [],
+    "immigration_records": "ENRICH_NEEDED",
+    "notes": null
+  }
+}

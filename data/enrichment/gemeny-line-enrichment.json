@@ -1,0 +1,286 @@
+{
+  "_meta": {
+    "purpose": "Data enrichment request for the Gemeny surname direct patrilineal line",
+    "project": "Gemeny Family Heritage (gemeny-heritage)",
+    "created": "2026-03-16",
+    "created_by": "Colin Gload via Claude Code",
+    "instructions_for_enricher": [
+      "This file contains all known data for the Gemeny surname direct line.",
+      "For each person, fields marked ENRICH_NEEDED have gaps that could potentially be filled by web research.",
+      "Research sources: FamilySearch.org, FindAGrave.com, Ancestry hints, newspapers.com, census records, vital records.",
+      "For each field you update, ADD a source entry to that person's 'sources_to_add' array with type and citation.",
+      "Do NOT fabricate data. If uncertain, use the 'confidence' field: 'high', 'medium', 'low', or 'speculative'.",
+      "Do NOT change existing confirmed data — only fill gaps or add new sources for existing data.",
+      "When done, return this entire JSON file with your additions filled in.",
+      "Living people (no death date) should NOT be researched for privacy — skip enrichment on those."
+    ],
+    "surname_variants_to_search": [
+      "Gemeny", "Gemini", "Jeminy", "Jemminy", "Gemyne", "Jeminy", "Gemeny", "Gemmeny", "Gemney"
+    ],
+    "geographic_focus": [
+      "Salem, Essex County, Massachusetts",
+      "Philadelphia, Pennsylvania",
+      "Alexandria, Virginia / Fairfax County",
+      "Kinsale, Westmoreland County, Virginia",
+      "Washington, DC",
+      "Royal Oak / St. Michaels, Talbot County, Maryland",
+      "Brandywine, Prince Georges County, Maryland",
+      "Junction City, Kansas",
+      "Solomons Island, Calvert County, Maryland"
+    ]
+  },
+
+  "people": [
+    {
+      "id": "anthony-gemini-1730",
+      "name": "Anthony Gemeny / Gemini / Jeminy",
+      "current_data": {
+        "birth": { "date": "1730", "precision": "circa", "place": null },
+        "death": { "date": "1776", "precision": "year", "place": null },
+        "burial": null,
+        "occupation": ["sailor"],
+        "marriage": "Katherine Richards, Oct 17, 1756, Salem MA",
+        "children": ["Mary F. (1769)", "John (1769, twin)", "Martha (1771-1790)"],
+        "residence": ["Essex County MA by 1750", "Salem MA 1756"],
+        "sources": [
+          "Vital Records of Salem Marriages, Essex Inst. Pg 545",
+          "Family History Library, Salt Lake City, Film # 0761210"
+        ],
+        "notes": "Founding ancestor of every Gemeny in America. Origin unknown."
+      },
+      "enrich_needed": {
+        "birth_place": "ENRICH_NEEDED — Italian origin? English via Thomas Gemini of Louvain? Ship arrival record?",
+        "death_place": "ENRICH_NEEDED — Where did he die? Salem MA area?",
+        "death_exact_date": "ENRICH_NEEDED — Only year 1776 known",
+        "burial_place": "ENRICH_NEEDED — Cemetery in Salem area?",
+        "immigration_record": "ENRICH_NEEDED — Ship manifest, port of entry, year of arrival",
+        "military_service": "ENRICH_NEEDED — Any Revolutionary War or French & Indian War service?",
+        "probate_or_will": "ENRICH_NEEDED — Any Essex County probate records?",
+        "church_records": "ENRICH_NEEDED — Salem church membership, christening records for children",
+        "additional_children": "ENRICH_NEEDED — Were there other children besides Mary F., John, Martha?",
+        "catherine_remarriage": "Confirmed: Catherine later married Ebenezer Aborn — any date/details?"
+      },
+      "sources_to_add": [],
+      "notes_to_add": null
+    },
+
+    {
+      "id": "john-gemeny-1769",
+      "name": "John 'The Sea Captain' Gemeny",
+      "current_data": {
+        "birth": { "date": "1769-11-05", "precision": "exact", "place": "Salem, Essex County, MA" },
+        "death": { "date": "1804", "precision": "circa", "place": "At sea" },
+        "burial": "Lost at sea per family bible",
+        "occupation": ["ship's master", "sea captain"],
+        "marriage": "Naomi Tewksbury, Jul 24, 1790, Salem MA",
+        "children": ["John Henry II (1791, MA)", "Elizabeth Tewksbury (1794)", "Anthony Richard (1800, PA)"],
+        "residence": ["Salem MA 1769", "Philadelphia PA area c.1797"],
+        "sources": [
+          "Vital Records of Salem — christening Nov 5, 1769",
+          "FamilySearch MFB7-GRV",
+          "Ship records: Master of The James, Aug 1797",
+          "Family bible"
+        ]
+      },
+      "enrich_needed": {
+        "death_exact_date": "ENRICH_NEEDED — Only 'circa 1804' known. Any ship loss records?",
+        "ship_name_final_voyage": "ENRICH_NEEDED — What ship was he on when lost?",
+        "other_ships_captained": "ENRICH_NEEDED — Besides The James (1797), what other vessels?",
+        "philadelphia_address": "ENRICH_NEEDED — Specific address or ward in Philadelphia",
+        "elizabeth_tewksbury_gemeny": "ENRICH_NEEDED — Daughter born 1794, any further info?",
+        "anthony_richard_gemeny": "ENRICH_NEEDED — Son born 1800 in PA, any further info?",
+        "naomi_after_johns_death": "ENRICH_NEEDED — What happened to Naomi Tewksbury after John was lost at sea?",
+        "tall_clock_provenance": "ENRICH_NEEDED — PA Tall Clock acquisition details"
+      },
+      "sources_to_add": [],
+      "notes_to_add": null
+    },
+
+    {
+      "id": "john-gemeny-ii-1791",
+      "name": "John Henry Gemeny II",
+      "current_data": {
+        "birth": { "date": "1791-03-25", "precision": "exact", "place": "Massachusetts" },
+        "death": { "date": "1850-02-08", "precision": "exact", "place": "Alexandria, Virginia" },
+        "burial": null,
+        "occupation": ["grocery store owner"],
+        "marriage": "Matilda Figg, 1816, Alexandria VA area",
+        "children": ["9 children including Andrew (1828/29), Benjamin (1835), Edgar John, John 3rd, Richard Henry, others"],
+        "residence": ["Alexandria VA 1816", "Kinsale VA c.1820", "Alexandria/Washington DC 1830"],
+        "sources": [
+          "Family Bible",
+          "FamilySearch ID MFB7-G4C"
+        ],
+        "notes": "Built Pleasant View estate near Kinsale. Made the General Harrison Quilt (1840). Gemley Corner named for family."
+      },
+      "enrich_needed": {
+        "birth_place_specific": "ENRICH_NEEDED — Massachusetts but where specifically? Salem?",
+        "burial_place": "ENRICH_NEEDED — Buried in Alexandria? Which cemetery?",
+        "marriage_exact_date": "ENRICH_NEEDED — Only '1816' known",
+        "pleasant_view_details": "ENRICH_NEEDED — Exact location, acreage, any deed records?",
+        "census_1820_1830_1840": "ENRICH_NEEDED — Census appearances in Alexandria/Westmoreland County",
+        "grocery_store_details": "ENRICH_NEEDED — Location, name of store, any newspaper ads?",
+        "matilda_figg_background": "ENRICH_NEEDED — Her parents, origins, birth/death details",
+        "complete_children_list": "ENRICH_NEEDED — Full list of all 9 children with dates",
+        "general_harrison_quilt": "ENRICH_NEEDED — More details on the 1840 quilt"
+      },
+      "sources_to_add": [],
+      "notes_to_add": null
+    },
+
+    {
+      "id": "andrew-gemeny-1828",
+      "name": "Andrew Gemeny (Carpenter, Royal Oak)",
+      "current_data": {
+        "birth": { "date": "1829-03-04", "precision": "exact", "place": "Alexandria, Fairfax County, VA" },
+        "death": { "date": "1882-04-13", "precision": "exact", "place": "Royal Oak, Talbot County, MD" },
+        "burial": "Spring Hill Cemetery, Easton, Talbot County, MD",
+        "occupation": ["carpenter"],
+        "marriage": "Eliza J. Howdershell, Apr 2, 1855, Washington DC",
+        "children": ["Edgar Dean (1863/65)", "other children noted in record"],
+        "residence": ["Alexandria VA 1850", "Baltimore 1860", "Royal Oak MD 1870", "Royal Oak 1880"],
+        "sources": [
+          "Census 1850-1880 (4 censuses)",
+          "Military: Maryland Civil War records",
+          "Find A Grave: Spring Hill Cemetery",
+          "Burial records"
+        ]
+      },
+      "enrich_needed": {
+        "civil_war_unit": "ENRICH_NEEDED — Which Maryland unit did he serve in? Rank?",
+        "civil_war_service_dates": "ENRICH_NEEDED — Enlistment and discharge dates",
+        "pension_records": "ENRICH_NEEDED — Any Civil War pension application?",
+        "newspaper_obituary": "ENRICH_NEEDED — April 1882 obituary in Talbot County papers?",
+        "complete_children_list": "ENRICH_NEEDED — Full list of all 5 children with dates",
+        "eliza_howdershell_parents": "ENRICH_NEEDED — Her family background",
+        "carpentry_work": "ENRICH_NEEDED — Any notable buildings or commissions?",
+        "find_a_grave_memorial_id": "ENRICH_NEEDED — FAG memorial number"
+      },
+      "sources_to_add": [],
+      "notes_to_add": null
+    },
+
+    {
+      "id": "benjamin-gemeny-1835",
+      "name": "Benjamin Gemeny",
+      "current_data": {
+        "birth": { "date": "1835-05-04", "precision": "exact", "place": "Washington, DC" },
+        "death": { "date": "1895", "precision": "year", "place": null },
+        "burial": null,
+        "occupation": [],
+        "marriage": "Mary E. Roberts, Nov 1, 1855, Baltimore MD",
+        "children": ["Henry Millard (1856)", "Wilbur (1858)", "Minnie (1861)", "Bessy"],
+        "residence": ["Baltimore 1855", "Kinsale VA 1861", "Junction City KS c.1870"],
+        "sources": [
+          "Gemeny Family Bible",
+          "Baltimore MD marriage records"
+        ]
+      },
+      "enrich_needed": {
+        "death_place": "ENRICH_NEEDED — Where did he die? Junction City KS?",
+        "death_exact_date": "ENRICH_NEEDED — Only '1895' known",
+        "burial_place": "ENRICH_NEEDED — Cemetery in Junction City KS area?",
+        "occupation": "ENRICH_NEEDED — What did he do for a living? Pre-war in Baltimore, post-war in KS?",
+        "kansas_census": "ENRICH_NEEDED — 1870, 1880 census in Junction City / Geary County KS",
+        "civil_war_details": "ENRICH_NEEDED — Was he formally charged? Court records? Duration of imprisonment?",
+        "mary_roberts_parents": "ENRICH_NEEDED — Her family background",
+        "newspaper_mentions": "ENRICH_NEEDED — Junction City newspapers, Westmoreland County VA records"
+      },
+      "sources_to_add": [],
+      "notes_to_add": null
+    },
+
+    {
+      "id": "edgar-dean-gemeny-1865",
+      "name": "Edgar Dean Gemeny",
+      "current_data": {
+        "birth": { "date": "1863-01-12", "precision": "exact", "place": "Kinsale, Westmoreland County, VA" },
+        "death": { "date": "1939-09-25", "precision": "exact", "place": "Washington, DC" },
+        "burial": null,
+        "occupation": [],
+        "marriage": "Eva Ferguson, Jun 28, 1893, Royal Oak MD",
+        "children": ["Andrew (1896)", "plus 5 others"],
+        "residence": ["Talbot County MD 1870-1900", "Washington DC 1910-1930"],
+        "sources": [
+          "Birth record, census 1870-1930 (6 census records)",
+          "Marriage record Jun 28, 1893",
+          "Burial records"
+        ],
+        "notes": "ID says 1865 but birth year is 1863. Son of Andrew the Carpenter."
+      },
+      "enrich_needed": {
+        "burial_place": "ENRICH_NEEDED — Cemetery in Washington DC area?",
+        "occupation": "ENRICH_NEEDED — What work did he do in DC?",
+        "complete_children_list": "ENRICH_NEEDED — Full list of all 6 children with dates",
+        "dc_address": "ENRICH_NEEDED — Specific DC addresses from census records",
+        "newspaper_obituary": "ENRICH_NEEDED — September 1939 DC newspapers",
+        "eva_ferguson_details": "ENRICH_NEEDED — Her parents, birth/death, background",
+        "find_a_grave": "ENRICH_NEEDED — Memorial if exists"
+      },
+      "sources_to_add": [],
+      "notes_to_add": null
+    },
+
+    {
+      "id": "andrew-gemeny-1896",
+      "name": "Andrew Gemeny ('Pop')",
+      "current_data": {
+        "birth": { "date": "1896-11-16", "precision": "exact", "place": "St. Michaels, Maryland" },
+        "death": { "date": "1989-03-30", "precision": "exact", "place": "Brandywine, Prince Georges County, MD" },
+        "burial": null,
+        "occupation": [],
+        "marriage1": "First wife (details in record)",
+        "marriage2": "Lucy Pittman (second wife)",
+        "children": ["William Gordon (1930)", "others"],
+        "residence": ["St. Michaels MD 1900", "Washington DC 1910-1940", "Brandywine MD 1950-1960"],
+        "sources": [
+          "Vital records, 7 census records (1900-1960)",
+          "Marriage records (2 marriages)",
+          "Oral history recordings 1974-1980",
+          "Burial records"
+        ]
+      },
+      "enrich_needed": {
+        "burial_place": "ENRICH_NEEDED — Cemetery in Brandywine/PG County area?",
+        "occupation": "ENRICH_NEEDED — What was his profession/trade?",
+        "first_wife_details": "ENRICH_NEEDED — Name, marriage date, divorce or death?",
+        "complete_children_list": "ENRICH_NEEDED — All children from both marriages",
+        "wwi_or_wwii_service": "ENRICH_NEEDED — Born 1896, would have been draft age for WWI",
+        "dc_addresses": "ENRICH_NEEDED — Specific DC addresses",
+        "obituary": "ENRICH_NEEDED — March 1989 obituary, PG County or DC papers",
+        "find_a_grave": "ENRICH_NEEDED — Memorial if exists"
+      },
+      "sources_to_add": [],
+      "notes_to_add": null
+    },
+
+    {
+      "id": "william-gordon-gemeny-1930",
+      "name": "William Gordon Gemeny",
+      "current_data": {
+        "birth": { "date": "1930-01-05", "precision": "exact", "place": "Washington, DC" },
+        "death": { "date": "2017-11-22", "precision": "exact", "place": "Solomons Island, Calvert County, MD" },
+        "burial": null,
+        "occupation": ["insurance"],
+        "marriage": "Mary Amelia Sanderson (1933-2016)",
+        "children": ["Steven Evans (1955)", "Michael Wayne (1958)", "Amelia Gordon (1965)"],
+        "residence": ["DC 1930-1940", "Brandywine MD 1950", "Calvert County MD various"],
+        "sources": [
+          "Vital records, census 1930-1940",
+          "No marriage or burial source citations yet"
+        ]
+      },
+      "enrich_needed": {
+        "burial_place": "ENRICH_NEEDED — Cemetery in Calvert County MD area?",
+        "marriage_date_place": "ENRICH_NEEDED — When and where did he marry Mary Amelia Sanderson?",
+        "military_service": "ENRICH_NEEDED — Born 1930, Korean War era — any service?",
+        "insurance_career_details": "ENRICH_NEEDED — Company, specialty, years active",
+        "obituary": "ENRICH_NEEDED — November 2017 obituary, Calvert County papers",
+        "find_a_grave": "ENRICH_NEEDED — Memorial if exists",
+        "thomas_gemini_essay": "He wrote the 2002 essay on Thomas Gemini origin — any other publications?"
+      },
+      "sources_to_add": [],
+      "notes_to_add": null
+    }
+  ]
+}
