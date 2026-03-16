@@ -1,0 +1,79 @@
+{
+  "$schema": "person",
+  "id": "john-gemeny-ii-1791",
+  "name": {
+    "first": "John",
+    "middle": "Henry",
+    "last": "Gemeny",
+    "maiden": null,
+    "suffix": "II",
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1791-03-25",
+    "date_precision": "exact",
+    "place": "Massachusetts"
+  },
+  "death": {
+    "date": "1850-02-08",
+    "date_precision": "exact",
+    "place": "Alexandria, Virginia"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [
+    "grocery store owner"
+  ],
+  "residence": [
+    {
+      "date": "1816",
+      "date_precision": "year",
+      "place": "Alexandria, Virginia",
+      "census_notes": "Married Matilda Figg here"
+    },
+    {
+      "date": "1830",
+      "date_precision": "year",
+      "place": "Alexandria, Washington, DC",
+      "census_notes": null
+    },
+    {
+      "date": "1820",
+      "date_precision": "circa",
+      "place": "Kinsale, Westmoreland County, VA",
+      "census_notes": "Built Pleasant View estate"
+    }
+  ],
+  "generation": 2,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "john-gemeny-1769",
+    "mother": "naomi-tewksbury-1770"
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic",
+    "antebellum",
+    "kinsale",
+    "pleasant-view",
+    "alexandria"
+  ],
+  "sources": [
+    {
+      "type": "census",
+      "note": "1830 US Census, Alexandria DC"
+    },
+    {
+      "type": "vital-records",
+      "note": "Birth record, Massachusetts"
+    }
+  ],
+  "artifacts": [
+    "artifacts/general-harrison-quilt-full.jpg",
+    "artifacts/general-harrison-quilt-center.jpg"
+  ],
+  "narratives": [
+    "narratives/pleasant-view-and-quilt.md"
+  ],
+  "notes": "John Henry Gemeny II. Born March 25, 1791 in Massachusetts. Son of John 'Jemminy' Gemeny (1769-1804, lost at sea) and Naomi Tewksbury. Siblings: Elizabeth Tewksbury Gemeny (1794), Anthony Richard Gemeny (1800, born in PA). Father lost at sea c. 1804 — family legend: Naomi hid John II in a cupboard to keep him from sailing with his father. Every Gemeny descends from John II. Moved to Alexandria, VA. Part owner of grocery store/tavern on Lee Street. Married Matilda 'Milly' Figg on June 23, 1816 in Alexandria. Built 'Pleasant View' in Kinsale, Westmoreland County, VA. Nine children: Naomi (1817-1899), John III (1823-1897), Richard Henry (1825-1873), Virginia Cecilia (1827-1890), Andrew (1829-1882), Mary Elizabeth (1832-1891), Benjamin (1835-1895), Edgar John (1839-1924), Amelia (1841-1843, died young in Kinsale). Died February 8, 1850 in Alexandria at age 58."
+}

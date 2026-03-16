@@ -1,0 +1,62 @@
+{
+  "$schema": "person",
+  "id": "albert-e-sanderson-1905",
+  "name": {
+    "first": "Albert",
+    "middle": "Evans",
+    "last": "Sanderson",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1905-07-15",
+    "date_precision": "exact",
+    "place": "North Carolina"
+  },
+  "death": {
+    "date": "1946-08-16",
+    "date_precision": "exact",
+    "place": "Washington, District of Columbia"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1928",
+      "date_precision": "year",
+      "place": "Sewanee, Tennessee",
+      "census_notes": null
+    },
+    {
+      "date": "1940",
+      "date_precision": "year",
+      "place": "Bristol, Virginia",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Head"
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "thadius-h-sanderson-1866",
+    "mother": "mary-e-smith-1885"
+  },
+  "privacy": "public",
+  "tags": [
+    "interwar"
+  ],
+  "sources": [
+    {
+      "type": "vital-records",
+      "note": "Birth record, North Carolina"
+    },
+    {
+      "type": "census",
+      "note": "1940 US Census, Bristol VA"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Grandfather on the Sanderson side. Father orphaned young — his father Thadius died 1913 in Georgia, mother Mary Elizabeth died 1917 in Georgia. Had a brother John Jackson Sanderson (1908–). Lived in Sewanee, TN (1928), then Bristol, VA. Married Flora Esther Burgess. Two children: Mary Amelia (1933) and Albert Evans Jr. (1936). Died August 16, 1946 in Washington DC at age 41, when Mary Amelia was just 13."
+}

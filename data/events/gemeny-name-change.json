@@ -1,0 +1,16 @@
+{
+  "$schema": "event",
+  "id": "gemeny-name-change",
+  "title": "Surname changes from Gemini to Gemeny",
+  "date_start": "1790",
+  "date_end": null,
+  "date_precision": "circa",
+  "era": "early-republic",
+  "category": "milestone",
+  "description": "The family surname changes from 'Gemini' to 'Gemeny,' attributed to Naomi Tewksbury after her marriage to John Gemeny. The original form appears in Salem vital records as 'Gemini,' 'Jeminy,' and 'Gemyne.'",
+  "people": ["naomi-tewksbury-1770", "john-gemeny-1769"],
+  "location": "Salem, Essex County, MA",
+  "artifacts": [],
+  "narratives": [],
+  "tags": ["surname", "spelling-change", "tewksbury"]
+}

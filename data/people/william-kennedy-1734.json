@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "william-kennedy-1734",
+  "name": {
+    "first": "William",
+    "middle": null,
+    "last": "Kennedy",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1734",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1800",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1734",
+      "date_precision": "circa",
+      "place": "Duplin County, North Carolina",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "hugh-kennedy-1695",
+    "mother": "martha-carew-1699"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "irish"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "4th great-grandfather Kennedy line. Irish descent."
+}

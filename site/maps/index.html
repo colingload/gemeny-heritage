@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Maps — Gemeny Heritage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:#f7f4ef;--warm:#f0ebe3;--dark:#1e1810;--text:#2a2017;--text-mid:#6d5f4e;
+      --text-light:#9a8d7c;--gold:#b8860b;--gold-hover:#d4a017;--border:#ddd5c8;
+      --border-light:#e8e2d8;--card:#fffefb;--navy:#0f1a2e;
+      --serif:'Cormorant Garamond','Georgia',serif;--sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--sans);background:var(--navy);color:var(--cream);font-size:15px;line-height:1.65}
+    a{color:var(--gold);text-decoration:none}
+
+    /* Nav */
+    .nav{background:rgba(15,26,46,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;z-index:100}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0.9rem 2rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-brand{font-family:var(--serif);font-size:1.5rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--cream)}
+    .nav-back{font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+
+    /* Map Tabs */
+    .map-tabs{display:flex;justify-content:center;gap:0;padding:0;background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.06)}
+    .map-tab{padding:1rem 2rem;background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);transition:all 0.2s;border-bottom:2px solid transparent;margin-bottom:-1px}
+    .map-tab:hover{color:rgba(255,255,255,0.6)}
+    .map-tab.active{color:var(--gold);border-bottom-color:var(--gold)}
+
+    /* Map Container */
+    .map-panel{display:none;padding:2rem}
+    .map-panel.active{display:block}
+    .map-title{text-align:center;margin-bottom:0.5rem}
+    .map-title h2{font-family:var(--serif);font-size:1.8rem;font-weight:300;color:var(--cream)}
+    .map-subtitle{text-align:center;font-size:0.78rem;color:rgba(255,255,255,0.3);margin-bottom:2rem}
+
+    /* Branch Filters */
+    .branch-filters{display:flex;justify-content:center;gap:0.4rem;margin-bottom:1.5rem;flex-wrap:wrap;padding:0 1rem}
+    .branch-btn{padding:0.3rem 0.8rem;border:1px solid rgba(255,255,255,0.12);background:none;cursor:pointer;font-family:var(--sans);font-size:0.68rem;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.35);transition:all 0.2s;border-radius:2px}
+    .branch-btn:hover{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.6)}
+    .branch-btn.active{background:var(--gold);color:#fff;border-color:var(--gold)}
+
+    /* SVG Maps */
+    .map-wrap{max-width:1100px;margin:0 auto;position:relative}
+    .map-svg{width:100%;height:auto;display:block}
+    .map-coast{fill:none;stroke:rgba(255,255,255,0.1);stroke-width:2}
+    .map-land{fill:rgba(255,255,255,0.03);stroke:rgba(255,255,255,0.08);stroke-width:1}
+    .m-dot{cursor:pointer;transition:opacity 0.5s,r 0.2s;opacity:0}
+    .m-dot.vis{opacity:1}
+    .m-dot.glow{opacity:1;filter:drop-shadow(0 0 6px rgba(212,160,23,0.8))}
+    .m-dot:hover{r:8}
+    .m-dot.hidden{opacity:0.08!important}
+    .m-line{stroke-width:1.5;stroke-dasharray:4,3;transition:opacity 0.5s;opacity:0}
+    .m-line.vis{opacity:0.4}
+    .m-line.hidden{opacity:0.05!important}
+    .m-label{font-family:var(--serif);font-size:11px;fill:rgba(255,255,255,0.5);pointer-events:none;transition:opacity 0.5s;opacity:0}
+    .m-label.vis{opacity:1}
+    .m-label.hidden{opacity:0.08!important}
+    .m-label-major{fill:rgba(212,160,23,0.8);font-size:12px}
+
+    /* Player controls */
+    .play-controls{display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap}
+    .play-btn{width:44px;height:44px;border-radius:50%;background:rgba(212,160,23,0.12);border:2px solid rgba(212,160,23,0.4);color:#d4a017;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1rem;transition:all 0.2s}
+    .play-btn:hover{background:rgba(212,160,23,0.2);border-color:#d4a017}
+    .speed-group{display:flex;gap:0.2rem}
+    .speed-btn{padding:0.2rem 0.5rem;background:none;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.35);cursor:pointer;font-family:var(--sans);font-size:0.68rem;transition:all 0.2s}
+    .speed-btn.active{border-color:#d4a017;color:#d4a017}
+    .play-hint{font-size:0.7rem;color:rgba(255,255,255,0.25);letter-spacing:0.04em}
+    .year-display{position:absolute;top:1rem;right:2rem;font-family:var(--serif);font-size:2.5rem;font-weight:300;color:rgba(212,160,23,0.6);pointer-events:none}
+    .progress-wrap{max-width:500px;width:100%;margin:0.8rem auto 0;padding:0 2rem}
+    .progress-track{width:100%;height:2px;background:rgba(255,255,255,0.08);cursor:pointer;position:relative}
+    .progress-fill{height:100%;background:#d4a017;width:0%;transition:width 0.3s}
+    .progress-labels{display:flex;justify-content:space-between;max-width:500px;width:100%;margin:0.3rem auto 0;padding:0 2rem;font-size:0.6rem;color:rgba(255,255,255,0.2);font-family:var(--serif)}
+
+    /* Info panel */
+    .map-info{position:absolute;bottom:1.5rem;left:1.5rem;background:rgba(15,26,46,0.92);border-left:3px solid var(--gold);padding:1rem 1.2rem;max-width:300px;opacity:0;transition:opacity 0.3s;pointer-events:none}
+    .map-info.visible{opacity:1}
+    .map-info-name{font-family:var(--serif);font-size:1.05rem;color:var(--cream);margin-bottom:0.15rem}
+    .map-info-dates{font-size:0.8rem;color:var(--gold);margin-bottom:0.2rem}
+    .map-info-detail{font-size:0.78rem;color:rgba(255,255,255,0.45);line-height:1.5}
+
+    /* Burial specific */
+    .burial-dot{cursor:pointer;transition:r 0.2s}
+    .burial-dot:hover{r:8}
+    .burial-label{font-family:var(--serif);font-size:10px;fill:rgba(255,255,255,0.4);pointer-events:none}
+    .burial-list{max-width:800px;margin:2rem auto 0;padding:0 2rem}
+    .burial-list h3{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--gold);margin-bottom:0.8rem;border-bottom:1px solid rgba(255,255,255,0.06);padding-bottom:0.4rem}
+    .burial-entry{display:flex;gap:1.5rem;padding:0.5rem 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.85rem;align-items:baseline}
+    .burial-entry:last-child{border-bottom:none}
+    .burial-entry-name{font-family:var(--serif);color:rgba(255,255,255,0.7);min-width:200px}
+    .burial-entry-place{color:rgba(255,255,255,0.35);flex:1}
+    .burial-entry-dates{color:rgba(255,255,255,0.25);font-size:0.78rem;min-width:100px;text-align:right}
+
+    /* Footer */
+    .footer{border-top:1px solid rgba(255,255,255,0.06);padding:2rem;text-align:center;color:rgba(255,255,255,0.2);font-size:0.75rem}
+
+    @media(max-width:600px){
+      .map-tab{padding:0.8rem 1rem;font-size:0.65rem}
+      .branch-filters{gap:0.3rem}
+      .burial-entry{flex-direction:column;gap:0.2rem}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Gemeny</a>
+      <a href="../index.html" class="nav-back">&larr; Home</a>
+    </div>
+  </nav>
+
+  <!-- Map Tabs -->
+  <div class="map-tabs">
+    <button class="map-tab active" data-panel="americas">Story of the Americas</button>
+    <button class="map-tab" data-panel="england">Story of England</button>
+    <button class="map-tab" data-panel="burials">Burial Map</button>
+  </div>
+
+  <!-- ============ AMERICAS MAP ============ -->
+  <div class="map-panel active" id="panel-americas">
+    <div class="map-title"><h2>Story of the Americas</h2></div>
+    <div class="map-subtitle">The Gemeny family&rsquo;s journey across America &mdash; 1755 to present</div>
+
+    <div class="play-controls">
+      <div class="speed-group">
+        <button class="speed-btn active" data-speed="1" data-map="us">1x</button>
+        <button class="speed-btn" data-speed="2" data-map="us">2x</button>
+        <button class="speed-btn" data-speed="3" data-map="us">3x</button>
+      </div>
+      <button class="play-btn" id="us-play">&#9654;</button>
+      <span class="play-hint">Press play to watch the journey unfold</span>
+    </div>
+
+    <div class="branch-filters" id="branch-filters-us">
+      <button class="branch-btn active" data-branch="all">All Branches</button>
+      <button class="branch-btn" data-branch="gemeny" style="border-color:#d4a017;color:#d4a017">Gemeny</button>
+      <button class="branch-btn" data-branch="gordon" style="border-color:#5e9acf;color:#5e9acf">Gordon / DuBois</button>
+      <button class="branch-btn" data-branch="sanderson" style="border-color:#c47a5e;color:#c47a5e">Sanderson</button>
+      <button class="branch-btn" data-branch="burgess" style="border-color:#8e6aad;color:#8e6aad">Burgess</button>
+    </div>
+
+    <div class="map-wrap">
+      <svg class="map-svg" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" style="min-height:480px">
+        <!-- Simplified US coastline -->
+        <path class="map-coast" d="M 680,30 L 700,35 720,28 740,40 760,38 770,50 750,65 730,70 720,85 710,100 720,110 735,105 750,115 740,130 720,135 710,145 700,160 690,175 695,190 685,200 670,210 660,225 650,240 645,260 640,275 635,285 625,295 618,310 610,320 600,330 595,345 588,355 580,360 575,370 570,385 565,395 555,400 545,410 535,420 530,430 520,435 510,440 500,445"/>
+        <path class="map-coast" d="M 480,80 Q 500,70 520,75 540,85 530,95 510,90 490,95 480,80"/>
+        <path class="map-coast" d="M 500,445 L 480,450 450,445 420,450 390,448 360,455 330,450"/>
+
+        <!-- Lines -->
+        <line class="m-line" id="us-ln0" data-branch="gemeny" x1="735" y1="105" x2="680" y2="180" stroke="#d4a017"/>
+        <line class="m-line" id="us-ln1" data-branch="gemeny tewksbury" x1="680" y1="180" x2="660" y2="215" stroke="#d4a017"/>
+        <line class="m-line" id="us-ln2" data-branch="gemeny" x1="660" y1="215" x2="645" y2="230" stroke="#d4a017"/>
+        <line class="m-line" id="us-ln3" data-branch="gemeny" x1="645" y1="230" x2="640" y2="270" stroke="#d4a017"/>
+        <line class="m-line" id="us-ln4" data-branch="gemeny" x1="640" y1="270" x2="300" y2="280" stroke="#d4a017"/>
+        <line class="m-line" id="us-ln5" data-branch="gemeny" x1="640" y1="270" x2="675" y2="225" stroke="#d4a017"/>
+        <line class="m-line" id="us-ln6" data-branch="gemeny" x1="675" y1="225" x2="655" y2="200" stroke="#d4a017"/>
+        <line class="m-line" id="us-ln7" data-branch="gemeny" x1="655" y1="200" x2="650" y2="240" stroke="#d4a017"/>
+        <line class="m-line" id="us-ln8" data-branch="gemeny" x1="650" y1="240" x2="660" y2="255" stroke="#d4a017"/>
+        <line class="m-line" id="us-ln9" data-branch="sanderson" x1="580" y1="360" x2="580" y2="360" stroke="#c47a5e"/>
+        <line class="m-line" id="us-ln10" data-branch="sanderson" x1="580" y1="360" x2="620" y2="400" stroke="#c47a5e"/>
+        <line class="m-line" id="us-ln11" data-branch="sanderson" x1="620" y1="400" x2="600" y2="345" stroke="#c47a5e"/>
+        <line class="m-line" id="us-ln12" data-branch="burgess" x1="645" y1="235" x2="650" y2="240" stroke="#8e6aad"/>
+        <line class="m-line" id="us-ln13" data-branch="gemeny" x1="660" y1="255" x2="668" y2="208" stroke="#d4a017"/>
+
+        <!-- Dots & Labels with step IDs -->
+        <circle class="m-dot" id="us-d0" data-branch="gemeny" cx="735" cy="105" r="5" fill="#d4a017"/>
+        <text class="m-label m-label-major" id="us-l0" data-branch="gemeny" x="748" y="100">Salem, MA</text>
+
+        <circle class="m-dot" id="us-d1" data-branch="gemeny tewksbury" cx="680" cy="180" r="4" fill="#d4a017"/>
+        <text class="m-label" id="us-l1" data-branch="gemeny tewksbury" x="693" y="176">Philadelphia</text>
+
+        <circle class="m-dot" id="us-d2" data-branch="gemeny tewksbury" cx="660" cy="215" r="4" fill="#d4a017"/>
+        <text class="m-label" id="us-l2" data-branch="gemeny tewksbury" x="673" y="211">Baltimore</text>
+
+        <circle class="m-dot" id="us-d3" data-branch="gemeny" cx="645" cy="230" r="4" fill="#d4a017"/>
+        <text class="m-label" id="us-l3" data-branch="gemeny" x="598" y="225">Alexandria</text>
+
+        <circle class="m-dot" id="us-d4" data-branch="gemeny" cx="640" cy="270" r="5" fill="#d4a017"/>
+        <text class="m-label m-label-major" id="us-l4" data-branch="gemeny" x="653" y="267">Kinsale, VA</text>
+
+        <circle class="m-dot" id="us-d5" data-branch="gemeny" cx="300" cy="280" r="4" fill="#d4a017"/>
+        <text class="m-label m-label-major" id="us-l5" data-branch="gemeny" x="255" y="273">Junction City, KS</text>
+
+        <circle class="m-dot" id="us-d6" data-branch="gemeny" cx="675" cy="225" r="4" fill="#d4a017"/>
+        <text class="m-label" id="us-l6" data-branch="gemeny" x="688" y="237">Royal Oak, MD</text>
+
+        <circle class="m-dot" id="us-d7" data-branch="gemeny" cx="655" cy="200" r="4" fill="#d4a017"/>
+        <text class="m-label" id="us-l7" data-branch="gemeny" x="610" y="195">St. Michaels</text>
+
+        <circle class="m-dot" id="us-d8" data-branch="gordon gemeny" cx="650" cy="240" r="5" fill="#5e9acf"/>
+        <text class="m-label m-label-major" id="us-l8" data-branch="gordon gemeny" x="603" y="248">Washington, DC</text>
+
+        <circle class="m-dot" id="us-d9" data-branch="gemeny" cx="660" cy="255" r="4" fill="#d4a017"/>
+        <text class="m-label" id="us-l9" data-branch="gemeny" x="673" y="252">Solomons, MD</text>
+
+        <circle class="m-dot" id="us-d10" data-branch="sanderson" cx="580" cy="360" r="4" fill="#c47a5e"/>
+        <text class="m-label" id="us-l10" data-branch="sanderson" x="530" y="357">Duplin County, NC</text>
+
+        <circle class="m-dot" id="us-d11" data-branch="sanderson" cx="620" cy="400" r="4" fill="#c47a5e"/>
+        <text class="m-label" id="us-l11" data-branch="sanderson" x="630" y="397">Baxley, GA</text>
+
+        <circle class="m-dot" id="us-d12" data-branch="sanderson" cx="600" cy="345" r="3" fill="#c47a5e"/>
+        <text class="m-label" id="us-l12" data-branch="sanderson" x="610" y="342">Bristol, VA</text>
+
+        <circle class="m-dot" id="us-d13" data-branch="burgess" cx="645" cy="235" r="4" fill="#8e6aad"/>
+        <text class="m-label" id="us-l13" data-branch="burgess" x="658" y="232">Alexandria, VA</text>
+
+        <circle class="m-dot" id="us-d14" data-branch="gordon" cx="430" cy="180" r="3" fill="#5e9acf"/>
+        <text class="m-label" id="us-l14" data-branch="gordon" x="440" y="177">Indiana</text>
+
+        <circle class="m-dot" id="us-d15" data-branch="gemeny" cx="668" cy="208" r="5" fill="#d4a017"/>
+        <text class="m-label m-label-major" id="us-l15" data-branch="gemeny" x="681" y="203">Fallston, MD</text>
+
+        <circle class="m-dot" id="us-d16" data-branch="gemeny" cx="250" cy="160" r="3" fill="#d4a017"/>
+        <text class="m-label" id="us-l16" data-branch="gemeny" x="210" y="155">Rapid City, SD</text>
+
+        <circle class="m-dot" data-branch="tewksbury" cx="740" cy="80" r="3" fill="#6aad8e"/>
+        <text class="m-label" data-branch="tewksbury" x="750" y="77">New Hampshire</text>
+      </svg>
+
+      <!-- Year display -->
+      <div class="year-display" id="us-year"></div>
+
+      <div class="map-info" id="us-info">
+        <div class="map-info-name" id="us-info-name"></div>
+        <div class="map-info-dates" id="us-info-dates"></div>
+        <div class="map-info-detail" id="us-info-detail"></div>
+      </div>
+    </div>
+
+    <!-- Progress bar -->
+    <div class="progress-wrap"><div class="progress-track" id="us-progress"><div class="progress-fill" id="us-fill"></div></div></div>
+    <div class="progress-labels"><span>1755</span><span>1800</span><span>1850</span><span>1900</span><span>1950</span><span>Now</span></div>
+  </div>
+
+  <!-- ============ ENGLAND MAP ============ -->
+  <div class="map-panel" id="panel-england">
+    <div class="map-title"><h2>Story of England</h2></div>
+    <div class="map-subtitle">Where the family came from &mdash; 1506 to 1654</div>
+
+    <div class="play-controls">
+      <div class="speed-group">
+        <button class="speed-btn active" data-speed="1" data-map="eng">1x</button>
+        <button class="speed-btn" data-speed="2" data-map="eng">2x</button>
+        <button class="speed-btn" data-speed="3" data-map="eng">3x</button>
+      </div>
+      <button class="play-btn" id="eng-play">&#9654;</button>
+      <span class="play-hint">Press play to trace the English roots</span>
+    </div>
+
+    <div class="map-wrap">
+      <svg class="map-svg" viewBox="0 0 600 700" xmlns="http://www.w3.org/2000/svg" style="min-height:550px">
+        <!-- Simplified England/Wales outline -->
+        <path class="map-land" d="
+          M 250,50 L 280,45 310,55 340,48 360,60 380,55 400,70 390,90
+          385,110 395,130 400,150 395,170 405,190 400,210 410,230
+          420,250 415,270 420,290 425,310 430,330 440,350 445,370
+          440,390 430,410 420,430 400,445 380,455 360,465 340,470
+          320,475 300,480 280,475 260,480 240,475 220,470 200,460
+          180,445 165,430 155,410 150,390 145,370 140,350 145,330
+          150,310 155,290 160,270 155,250 150,230 155,210 160,190
+          170,170 180,150 190,130 200,110 210,90 220,70 240,55 250,50
+        "/>
+
+        <!-- London area -->
+        <rect x="330" y="320" width="4" height="4" fill="rgba(255,255,255,0.15)"/>
+
+        <!-- Key locations with step IDs -->
+        <line class="m-line" id="eng-ln0" x1="370" y1="340" x2="280" y2="260" stroke="#d4a017" opacity="0.2"/>
+        <line class="m-line" id="eng-ln1" x1="350" y1="310" x2="280" y2="260" stroke="#8e6aad" opacity="0.2"/>
+        <line class="m-line" id="eng-ln2" x1="240" y1="290" x2="280" y2="260" stroke="#6aad8e" opacity="0.2"/>
+        <line class="m-line" id="eng-ln3" x1="370" y1="340" x2="335" y2="325" stroke="#5e9acf" opacity="0.2"/>
+        <line class="m-line" id="eng-ln4" x1="240" y1="290" x2="210" y2="360" stroke="#6aad8e" opacity="0.2"/>
+        <line class="m-line" id="eng-ln5" x1="280" y1="260" x2="370" y2="340" stroke="#d4a017" opacity="0.15"/>
+
+        <!-- Kent -->
+        <circle class="m-dot" id="eng-d0" cx="370" cy="340" r="5" fill="#d4a017"/>
+        <text class="m-label m-label-major" id="eng-l0" x="380" y="337">Kent</text>
+
+        <!-- Warwickshire -->
+        <circle class="m-dot" id="eng-d1" cx="280" cy="260" r="5" fill="#c47a5e"/>
+        <text class="m-label m-label-major" id="eng-l1" x="230" y="257">Warwickshire</text>
+
+        <!-- Essex -->
+        <circle class="m-dot" id="eng-d2" cx="350" cy="310" r="4" fill="#8e6aad"/>
+        <text class="m-label" id="eng-l2" x="360" y="307">Essex</text>
+
+        <!-- London -->
+        <circle class="m-dot" id="eng-d3" cx="335" cy="325" r="5" fill="#5e9acf"/>
+        <text class="m-label m-label-major" id="eng-l3" x="305" y="322">London</text>
+
+        <!-- Gloucestershire -->
+        <circle class="m-dot" id="eng-d4" cx="240" cy="290" r="4" fill="#6aad8e"/>
+        <text class="m-label" id="eng-l4" x="190" y="287">Gloucestershire</text>
+
+        <!-- Dorset -->
+        <circle class="m-dot" id="eng-d5" cx="230" cy="390" r="4" fill="#6aad8e"/>
+        <text class="m-label" id="eng-l5" x="180" y="387">Dorset</text>
+
+        <!-- Gloucestershire/Tewksbury -->
+        <circle class="m-dot" id="eng-d6" cx="210" cy="360" r="4" fill="#6aad8e"/>
+        <text class="m-label" id="eng-l6" x="145" y="357">Somerset</text>
+
+        <!-- Lancashire -->
+        <circle class="m-dot" cx="250" cy="140" r="3" fill="#5e9acf"/>
+        <text class="m-label" x="260" y="137">Lancashire</text>
+
+        <!-- Greenwich -->
+        <circle class="m-dot" id="eng-d7" cx="345" cy="330" r="3" fill="#6aad8e"/>
+        <text class="m-label" id="eng-l7" x="355" y="332" style="font-size:9px">Greenwich</text>
+
+        <!-- Yorkshire -->
+        <circle class="m-dot" cx="300" cy="170" r="3" fill="#d4a017"/>
+        <text class="m-label" x="310" y="167">Yorkshire</text>
+
+        <!-- Northamptonshire -->
+        <circle class="m-dot" cx="310" cy="260" r="3" fill="#d4a017"/>
+        <text class="m-label" x="320" y="257" style="font-size:9px">Northampton</text>
+
+        <!-- Marblehead note (colonial departure) -->
+        <!-- Connection lines -->
+        <line class="m-line" x1="280" y1="260" x2="370" y2="340" stroke="#d4a017" opacity="0.2"/>
+        <line class="m-line" x1="280" y1="260" x2="350" y2="310" stroke="#8e6aad" opacity="0.2"/>
+        <line class="m-line" x1="335" y1="325" x2="370" y2="340" stroke="#5e9acf" opacity="0.2"/>
+        <line class="m-line" x1="240" y1="290" x2="210" y2="360" stroke="#6aad8e" opacity="0.2"/>
+        <line class="m-line" x1="345" y1="330" x2="240" y2="290" stroke="#6aad8e" opacity="0.2"/>
+
+        <!-- Departure arrow to America -->
+        <text x="100" y="460" fill="rgba(212,160,23,0.4)" font-family="var(--serif)" font-size="13" font-style="italic">&larr; To the Americas</text>
+      </svg>
+
+      <div class="year-display" id="eng-year"></div>
+
+      <div class="map-info" id="eng-info">
+        <div class="map-info-name" id="eng-info-name"></div>
+        <div class="map-info-dates" id="eng-info-dates"></div>
+        <div class="map-info-detail" id="eng-info-detail"></div>
+      </div>
+    </div>
+
+    <div class="progress-wrap"><div class="progress-track" id="eng-progress"><div class="progress-fill" id="eng-fill"></div></div></div>
+    <div class="progress-labels"><span>1506</span><span>1550</span><span>1600</span><span>1654</span></div>
+  </div>
+
+  <!-- ============ BURIAL MAP ============ -->
+  <div class="map-panel" id="panel-burials">
+    <div class="map-title"><h2>Resting Places</h2></div>
+    <div class="map-subtitle">Where they were laid to rest</div>
+
+    <div class="map-wrap">
+      <svg class="map-svg" viewBox="0 0 900 520" xmlns="http://www.w3.org/2000/svg" style="min-height:400px">
+        <!-- Same US coastline -->
+        <path class="map-coast" d="M 680,30 L 700,35 720,28 740,40 760,38 770,50 750,65 730,70 720,85 710,100 720,110 735,105 750,115 740,130 720,135 710,145 700,160 690,175 695,190 685,200 670,210 660,225 650,240 645,260 640,275 635,285 625,295 618,310 610,320 600,330 595,345"/>
+        <path class="map-coast" d="M 480,80 Q 500,70 520,75 540,85 530,95 510,90 490,95 480,80"/>
+
+        <!-- Burial locations -->
+        <!-- Congressional Cemetery, Washington DC -->
+        <circle class="burial-dot" cx="650" cy="240" r="6" fill="#d4a017" opacity="0.8"/>
+        <text class="burial-label" x="605" y="252">Congressional Cemetery, DC</text>
+
+        <!-- Suitland, Prince George's Co -->
+        <circle class="burial-dot" cx="658" cy="248" r="6" fill="#c47a5e" opacity="0.8"/>
+        <text class="burial-label" x="668" y="245">Suitland, MD</text>
+
+        <!-- Brandywine, Prince George's Co -->
+        <circle class="burial-dot" cx="655" cy="256" r="5" fill="#8e6aad" opacity="0.8"/>
+        <text class="burial-label" x="665" y="260">Brandywine, MD</text>
+
+        <!-- Swain Farm / Royal Oak -->
+        <circle class="burial-dot" cx="680" cy="220" r="5" fill="#6aad8e" opacity="0.8"/>
+        <text class="burial-label" x="690" y="217">Swain Farm / Royal Oak, MD</text>
+
+        <!-- St. Michaels -->
+        <circle class="burial-dot" cx="678" cy="215" r="4" fill="#6aad8e" opacity="0.7"/>
+        <text class="burial-label" x="688" y="227">St. Michaels, MD</text>
+
+        <!-- Kinsale, VA -->
+        <circle class="burial-dot" cx="640" cy="270" r="4" fill="#d4a017" opacity="0.7"/>
+        <text class="burial-label" x="650" y="278">Kinsale, VA</text>
+
+        <!-- Amesbury, MA -->
+        <circle class="burial-dot" cx="738" cy="90" r="4" fill="#6aad8e" opacity="0.7"/>
+        <text class="burial-label" x="748" y="87">Amesbury, MA</text>
+
+        <!-- Boston -->
+        <circle class="burial-dot" cx="735" cy="105" r="4" fill="#8e6aad" opacity="0.7"/>
+        <text class="burial-label" x="748" y="108">Boston, MA</text>
+
+        <!-- At Sea -->
+        <circle class="burial-dot" cx="800" cy="180" r="5" fill="rgba(212,160,23,0.5)" opacity="0.6"/>
+        <text class="burial-label" x="770" y="195" style="font-style:italic;fill:rgba(212,160,23,0.5)">Lost at Sea</text>
+      </svg>
+    </div>
+
+    <!-- Burial directory -->
+    <div class="burial-list">
+      <h3>Known Burial Locations</h3>
+
+      <div class="burial-entry">
+        <span class="burial-entry-name">John &ldquo;The Sea Captain&rdquo; Gemeny</span>
+        <span class="burial-entry-place">Lost at sea &mdash; per family bible</span>
+        <span class="burial-entry-dates">c. 1804</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Matilda &ldquo;Milly&rdquo; Figg</span>
+        <span class="burial-entry-place">Kinsale, Westmoreland County, VA</span>
+        <span class="burial-entry-dates">d. 1876</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Andrew Gemeny (1829)</span>
+        <span class="burial-entry-place">Swain Farm, Royal Oak, Talbot County, MD</span>
+        <span class="burial-entry-dates">d. 1882</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Margaret Elnora &ldquo;Nora&rdquo; Denny</span>
+        <span class="burial-entry-place">Saint Michaels, Talbot County, MD</span>
+        <span class="burial-entry-dates">d. 1929</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Edgar Dean Gemeny</span>
+        <span class="burial-entry-place">Brandywine, Prince George&rsquo;s County, MD</span>
+        <span class="burial-entry-dates">d. 1939</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">William Wallace Gordon</span>
+        <span class="burial-entry-place">Congressional Cemetery, Washington, DC</span>
+        <span class="burial-entry-dates">d. 1926</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Mary Esther Mayes</span>
+        <span class="burial-entry-place">Washington, District of Columbia</span>
+        <span class="burial-entry-dates">d. 1957</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Myrtelle M. Gordon</span>
+        <span class="burial-entry-place">Suitland, Prince George&rsquo;s County, MD</span>
+        <span class="burial-entry-dates">d. 1967</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Andrew &ldquo;Pop&rdquo; Gemeny</span>
+        <span class="burial-entry-place">Suitland, Prince George&rsquo;s County, MD</span>
+        <span class="burial-entry-dates">d. 1989</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Eugene Speiden Burgess</span>
+        <span class="burial-entry-place">Suitland, Prince George&rsquo;s County, MD</span>
+        <span class="burial-entry-dates">d. 1944</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Amelia Bertha Recker</span>
+        <span class="burial-entry-place">Suitland, Prince George&rsquo;s County, MD</span>
+        <span class="burial-entry-dates">d. 1965</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Flora Esther Burgess</span>
+        <span class="burial-entry-place">Suitland, Prince George&rsquo;s County, MD</span>
+        <span class="burial-entry-dates">d. 1996</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Henry Tewksbury (1621)</span>
+        <span class="burial-entry-place">Amesbury, Essex County, MA</span>
+        <span class="burial-entry-dates">d. 1697</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Martha Copp</span>
+        <span class="burial-entry-place">Amesbury, Essex County, MA</span>
+        <span class="burial-entry-dates">d. 1729</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">William Copp</span>
+        <span class="burial-entry-place">Boston, Suffolk County, MA</span>
+        <span class="burial-entry-dates">d. 1670</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Alice Benton</span>
+        <span class="burial-entry-place">Epping, Essex, England</span>
+        <span class="burial-entry-dates">d. 1605</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Thomas Copp</span>
+        <span class="burial-entry-place">Hatton, Warwickshire, England</span>
+        <span class="burial-entry-dates">d. 1628</span>
+      </div>
+      <div class="burial-entry">
+        <span class="burial-entry-name">Mary Prideaux</span>
+        <span class="burial-entry-place">Puritan burial ground</span>
+        <span class="burial-entry-dates">d. 1776</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Gemeny Family Heritage &middot; Maps &amp; Geographic History</p>
+  </footer>
+
+  <script>
+  // ===== Tab switching =====
+  document.querySelectorAll('.map-tab').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.map-tab').forEach(function(t) { t.classList.remove('active'); });
+      document.querySelectorAll('.map-panel').forEach(function(p) { p.classList.remove('active'); });
+      tab.classList.add('active');
+      document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+    });
+  });
+
+  // ===== Generic Map Player =====
+  function createPlayer(config) {
+    var current = -1, playing = false, speed = 1, timer = null;
+    var playBtn = document.getElementById(config.playId);
+    var yearEl = document.getElementById(config.yearId);
+    var fillEl = document.getElementById(config.fillId);
+    var progressEl = document.getElementById(config.progressId);
+    var infoEl = document.getElementById(config.infoId);
+    var panel = document.getElementById(config.panelId);
+
+    function showDot(id) { var e = panel.querySelector('#'+id); if(e) { e.classList.add('vis'); e.classList.add('glow'); } }
+    function showLabel(id) { var e = panel.querySelector('#'+id); if(e) e.classList.add('vis'); }
+    function showLine(id) { var e = panel.querySelector('#'+id); if(e) e.classList.add('vis'); }
+    function clearGlow() {
+      panel.querySelectorAll('.m-dot.glow').forEach(function(d) { d.classList.remove('glow'); });
+    }
+
+    function showStep(n) {
+      if (n < 0 || n >= config.steps.length) return;
+      current = n;
+      var s = config.steps[n];
+      clearGlow();
+      if (s.dot) showDot(s.dot);
+      if (s.label) showLabel(s.label);
+      if (s.line) showLine(s.line);
+      if (yearEl) yearEl.textContent = s.year || '';
+      if (fillEl) fillEl.style.width = ((n+1)/config.steps.length*100) + '%';
+
+      // Update info panel
+      if (infoEl && s.place) {
+        infoEl.querySelector('.map-info-name').textContent = s.place;
+        infoEl.querySelector('.map-info-dates').textContent = s.year || '';
+        infoEl.querySelector('.map-info-detail').textContent = s.desc || '';
+        infoEl.classList.add('visible');
+      }
+    }
+
+    function reset() {
+      current = -1;
+      if (yearEl) yearEl.textContent = '';
+      if (fillEl) fillEl.style.width = '0%';
+      if (infoEl) infoEl.classList.remove('visible');
+      panel.querySelectorAll('.m-dot').forEach(function(d) { d.classList.remove('vis','glow'); });
+      panel.querySelectorAll('.m-label').forEach(function(l) { l.classList.remove('vis'); });
+      panel.querySelectorAll('.m-line').forEach(function(l) { l.classList.remove('vis'); });
+    }
+
+    function advance() {
+      if (current >= config.steps.length - 1) { pause(); enableHover(); return; }
+      showStep(current + 1);
+    }
+
+    function play() {
+      if (current >= config.steps.length - 1) reset();
+      playing = true;
+      playBtn.innerHTML = '&#9646;&#9646;';
+      advance();
+      timer = setInterval(advance, 1800 / speed);
+    }
+
+    function pause() {
+      playing = false;
+      playBtn.innerHTML = '&#9654;';
+      clearInterval(timer);
+    }
+
+    function enableHover() {
+      panel.querySelectorAll('.m-dot.vis').forEach(function(dot) {
+        dot.addEventListener('mouseenter', function() {
+          var label = dot.nextElementSibling;
+          if (!label || !infoEl) return;
+          var name = label.textContent.trim();
+          // Find matching step
+          for (var i = 0; i < config.steps.length; i++) {
+            if (config.steps[i].place && config.steps[i].place.indexOf(name) >= 0) {
+              infoEl.querySelector('.map-info-name').textContent = config.steps[i].place;
+              infoEl.querySelector('.map-info-dates').textContent = config.steps[i].year || '';
+              infoEl.querySelector('.map-info-detail').textContent = config.steps[i].desc || '';
+              infoEl.classList.add('visible');
+              break;
+            }
+          }
+        });
+        dot.addEventListener('mouseleave', function() { if(infoEl) infoEl.classList.remove('visible'); });
+      });
+    }
+
+    playBtn.addEventListener('click', function() { if (playing) pause(); else play(); });
+
+    // Speed buttons
+    document.querySelectorAll('.speed-btn[data-map="'+config.mapKey+'"]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.speed-btn[data-map="'+config.mapKey+'"]').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        speed = parseFloat(btn.dataset.speed);
+        if (playing) { clearInterval(timer); timer = setInterval(advance, 1800 / speed); }
+      });
+    });
+
+    // Progress click
+    if (progressEl) {
+      progressEl.addEventListener('click', function(e) {
+        var rect = progressEl.getBoundingClientRect();
+        var pct = (e.clientX - rect.left) / rect.width;
+        var target = Math.round(pct * (config.steps.length - 1));
+        reset();
+        for (var i = 0; i <= target; i++) showStep(i);
+        if (playing) { clearInterval(timer); timer = setInterval(advance, 1800 / speed); }
+      });
+    }
+
+    return { play: play, pause: pause, reset: reset };
+  }
+
+  // ===== Americas Player =====
+  createPlayer({
+    mapKey: 'us',
+    playId: 'us-play',
+    yearId: 'us-year',
+    fillId: 'us-fill',
+    progressId: 'us-progress',
+    infoId: 'us-info',
+    panelId: 'panel-americas',
+    steps: [
+      { year:'1755', dot:'us-d0', label:'us-l0', line:null, place:'Salem, Massachusetts', desc:'Anthony Gemini arrives. Marries Catherine Richards 1756.' },
+      { year:'1769', dot:null, label:null, line:null, place:'Salem, Massachusetts', desc:'John born Nov 5 — twin with Mary. Christened in Salem.' },
+      { year:'~1790', dot:null, label:null, line:null, place:'Salem, Massachusetts', desc:'John marries Naomi Tewksbury. Name changes from Gemini to Gemeny.' },
+      { year:'~1797', dot:'us-d1', label:'us-l1', line:'us-ln0', place:'Philadelphia', desc:'John "The Sea Captain" works for Prager merchants. Acquires Grandfather Clock.' },
+      { year:'c.1804', dot:null, label:null, line:null, place:'At Sea', desc:'John sails on a voyage and is never heard from again. Lost at sea per family bible.' },
+      { year:'~1810', dot:'us-d2', label:'us-l2', line:'us-ln1', place:'Baltimore', desc:'Naomi settles here. Operates a rooming house.' },
+      { year:'1816', dot:'us-d3', label:'us-l3', line:'us-ln2', place:'Alexandria, VA', desc:'John II marries Matilda "Milly" Figg. Owns grocery/tavern on Lee Street.' },
+      { year:'~1820', dot:'us-d4', label:'us-l4', line:'us-ln3', place:'Kinsale, Virginia', desc:'John II builds Pleasant View — the family seat. 9 children raised here.' },
+      { year:'1861', dot:null, label:null, line:null, place:'Kinsale, Virginia', desc:'Benjamin imprisoned as Union spy. Andrew serves in Civil War.' },
+      { year:'~1870', dot:'us-d5', label:'us-l5', line:'us-ln4', place:'Junction City, Kansas', desc:'Benjamin & Mary move west after the war.' },
+      { year:'~1870', dot:'us-d6', label:'us-l6', line:'us-ln5', place:'Royal Oak, Maryland', desc:'Andrew Gemeny, carpenter. Nora Denny. Swain Farm.' },
+      { year:'1831', dot:'us-d10', label:'us-l10', line:'us-ln9', place:'Duplin County, North Carolina', desc:'Isaac & Sylvia Sanderson raise 8 children here.' },
+      { year:'1885', dot:'us-d11', label:'us-l11', line:'us-ln10', place:'Baxley, Georgia', desc:'Mary Elizabeth Smith born. Thadius & Mary Elizabeth both die in Georgia.' },
+      { year:'1875', dot:'us-d13', label:'us-l13', line:'us-ln12', place:'Alexandria, Virginia', desc:'Burgess & Recker families. Eugene & Amelia marry here 1898.' },
+      { year:'1896', dot:'us-d7', label:'us-l7', line:'us-ln6', place:'St. Michaels, Maryland', desc:'Andrew "Pop" Gemeny born here.' },
+      { year:'~1900', dot:'us-d8', label:'us-l8', line:'us-ln7', place:'Washington, DC', desc:'Pop, Myrtelle, Gordon families converge in DC. Multiple generations.' },
+      { year:'1872', dot:'us-d14', label:'us-l14', line:null, place:'Indiana', desc:'Mary Esther Mayes born here. Moves to DC, marries William Wallace Gordon.' },
+      { year:'1940', dot:'us-d12', label:'us-l12', line:'us-ln11', place:'Bristol, Virginia', desc:'Albert & Flora Sanderson with young Mary Amelia.' },
+      { year:'~1960', dot:'us-d9', label:'us-l9', line:'us-ln8', place:'Solomons, Maryland', desc:'W. Gordon & Mary Amelia settle in Calvert County. 62-year marriage.' },
+      { year:'1989', dot:'us-d16', label:'us-l16', line:null, place:'Rapid City, South Dakota', desc:'Colin Frederick Gload born. 8th generation.' },
+      { year:'Today', dot:'us-d15', label:'us-l15', line:'us-ln13', place:'Fallston, Maryland', desc:'Colin, Brody & Aurora. 9th generation. Where you are now.' }
+    ]
+  });
+
+  // ===== England Player =====
+  createPlayer({
+    mapKey: 'eng',
+    playId: 'eng-play',
+    yearId: 'eng-year',
+    fillId: 'eng-fill',
+    progressId: 'eng-progress',
+    infoId: 'eng-info',
+    panelId: 'panel-england',
+    steps: [
+      { year:'1506', dot:'eng-d0', label:'eng-l0', line:null, place:'Kent — Sutton Valence', desc:'Ralph Rogers born. Earliest known ancestor.' },
+      { year:'1516', dot:'eng-d1', label:'eng-l1', line:null, place:'Warwickshire — Hatton', desc:'John Copp born. Marries Alyce Merymoth.' },
+      { year:'1520', dot:'eng-d2', label:'eng-l2', line:null, place:'Essex — Epping', desc:'Humphrey Benton & Joane Graygoose born. They will die 2 days apart in 1579.' },
+      { year:'1536', dot:null, label:null, line:'eng-ln0', place:'Kent — Dartford', desc:'Francis Rogers born in Sutton Valence. Son of Ralph.' },
+      { year:'1539', dot:null, label:null, line:null, place:'Warwickshire — Hatton', desc:'Thomas Copp born June 28. Son of John Copp & Alyce. Lived to 88.' },
+      { year:'1544', dot:null, label:null, line:'eng-ln1', place:'Essex — Epping', desc:'Alice Benton born Nov 14. Daughter of Humphrey & Joane.' },
+      { year:'1550', dot:'eng-d3', label:'eng-l3', line:null, place:'London', desc:'Sir James Taylor. Knight. Daughter Cecelia will emigrate to Massachusetts.' },
+      { year:'1550', dot:'eng-d4', label:'eng-l4', line:'eng-ln2', place:'Gloucestershire', desc:'Isabel Gunne born. Marries Thomas Copp. Lived through the Elizabethan era.' },
+      { year:'1565', dot:null, label:null, line:'eng-ln3', place:'Warwickshire — Hatton', desc:'Sir Robert Rogers born. Knight. Son of Francis Rogers & Alice Benton.' },
+      { year:'1580', dot:null, label:null, line:null, place:'London', desc:'Cecelia Taylor born. Daughter of Sir James. Will marry Sir Robert Rogers.' },
+      { year:'1585', dot:'eng-d6', label:'eng-l6', line:'eng-ln4', place:'Gloucestershire — Tewksbury', desc:'Henry Brundish Tewksbury born. Named for the town. Arrives Boston 1620.' },
+      { year:'1586', dot:'eng-d5', label:'eng-l5', line:null, place:'Dorset — Upwey', desc:'Alice Brewse born. Mother of Henry Tewksbury (the emigrant).' },
+      { year:'1589', dot:null, label:null, line:null, place:'Warwickshire — Hatton', desc:'William Copp born Nov 9. Son of Thomas & Isabel. Will emigrate to Massachusetts 1641.' },
+      { year:'1590', dot:null, label:null, line:null, place:'Warwickshire — Hatton', desc:'Anne Rogers born. Daughter of Sir Robert. Marries William Copp.' },
+      { year:'1614', dot:null, label:null, line:'eng-ln5', place:'Warwickshire — Hatton', desc:'William Copp marries Anne Rogers in Hatton. The Copp-Rogers union.' },
+      { year:'1620', dot:null, label:null, line:null, place:'Boston, Massachusetts', desc:'Henry Brundish arrives in Boston — the Mayflower year. A new world begins.' },
+      { year:'1630', dot:null, label:null, line:null, place:'Greenwich, Kent', desc:'Martha Copp born. She will live to 99 in colonial America.' },
+      { year:'1641', dot:null, label:null, line:null, place:'Boston, Massachusetts', desc:'William Copp arrives. Becomes Freeman. The family crosses the Atlantic.' },
+      { year:'1654', dot:'eng-d7', label:'eng-l7', line:null, place:'Somerset — West Hatch', desc:'Henry Tewksbury (son) arrives in Boston from Greenwich. The Tewksbury line plants roots in New England.' }
+    ]
+  });
+
+  // ===== Branch filtering (Americas) =====
+  document.querySelectorAll('#branch-filters-us .branch-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#branch-filters-us .branch-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var branch = btn.dataset.branch;
+      document.querySelectorAll('#panel-americas .m-dot.vis, #panel-americas .m-label.vis, #panel-americas .m-line.vis').forEach(function(el) {
+        var elBranches = (el.getAttribute('data-branch') || '').split(' ');
+        if (branch === 'all' || elBranches.indexOf(branch) >= 0) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+    });
+  });
+  </script>
+
+</body>
+</html>

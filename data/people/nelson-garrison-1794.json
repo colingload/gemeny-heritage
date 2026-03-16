@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "nelson-garrison-1794",
+  "name": {
+    "first": "Nelson",
+    "middle": null,
+    "last": "Garrison",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1794",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1874",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1794",
+      "date_precision": "circa",
+      "place": "Virginia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "john-garrison-1774",
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic",
+    "antebellum"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "4th great-grandfather Garrison line."
+}

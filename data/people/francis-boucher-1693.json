@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "francis-boucher-1693",
+  "name": {
+    "first": "Francis",
+    "middle": null,
+    "last": "Boucher",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1693",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1728",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1693",
+      "date_precision": "circa",
+      "place": "Charles County, Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Father of Priscilla Boucher."
+}

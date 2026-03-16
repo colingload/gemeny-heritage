@@ -1,0 +1,56 @@
+{
+  "$schema": "person",
+  "id": "nathaniel-dubois-1798",
+  "name": {
+    "first": "Nathaniel",
+    "middle": null,
+    "last": "DuBois",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1798",
+    "date_precision": "year",
+    "place": "New York"
+  },
+  "death": {
+    "date": "1844-08-09",
+    "date_precision": "exact",
+    "place": "Kentucky"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1818",
+      "date_precision": "year",
+      "place": "New York",
+      "census_notes": "Military service 1818-1832"
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "elias-l-dubois-1766",
+    "mother": "hannah-hoff-1770"
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic",
+    "new-york",
+    "kentucky",
+    "military",
+    "dubois"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born 1798 in New York. Father Elias L. DuBois (1766-1842, Poughkeepsie). Mother Hannah Hoff (1770-1842). Both parents died on the same day — June 23, 1842 — remarkable. Military service 1818-1832 in New York. Married Catharine Eliza Degroff (1802-) in 1818. Children: Sarah Wilhemina (1819-1819), Barnet Livi (1820-1820), Simon Peter (1821-1821, Poughkeepsie — three infant deaths), John (1831), Barnet (1833-1872), David (1835), Rachel Sara (1839-1890), Mary (1841, PA). Lost three children in infancy in Poughkeepsie. Died August 9, 1844 in Kentucky at age 46, when Rachel was only 4."
+}

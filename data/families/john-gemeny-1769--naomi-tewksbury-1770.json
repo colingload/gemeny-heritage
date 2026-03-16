@@ -1,0 +1,15 @@
+{
+  "$schema": "family",
+  "id": "john-gemeny-1769--naomi-tewksbury-1770",
+  "partners": ["john-gemeny-1769", "naomi-tewksbury-1770"],
+  "marriage": {
+    "date": "1790-07-24",
+    "date_precision": "exact",
+    "place": "Salem, MA"
+  },
+  "divorce": null,
+  "children": [
+    "john-gemeny-ii-1791"
+  ],
+  "notes": "John 'The Sea Captain' Gemeny and Naomi Tewksbury. John disappeared at sea. Naomi is credited with changing the surname spelling from Gemini to Gemeny."
+}

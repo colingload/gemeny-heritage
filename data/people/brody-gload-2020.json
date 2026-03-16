@@ -1,0 +1,24 @@
+{
+  "$schema": "person",
+  "id": "brody-gload-2020",
+  "name": { "first": "Brody", "middle": null, "last": "Gload", "maiden": null, "suffix": null, "alternate_spellings": [] },
+  "birth": {
+    "date": "2020-07-09",
+    "date_precision": "exact",
+    "place": null
+  },
+  "death": null,
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [],
+  "generation": 9,
+  "lineage_branch": "gload",
+  "parents": { "father": "colin-gload-1989", "mother": null },
+  "privacy": "family",
+  "tags": ["contemporary"],
+  "sources": [],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Son of Colin Gload. 9th generation descendant of Anthony Gemini."
+}

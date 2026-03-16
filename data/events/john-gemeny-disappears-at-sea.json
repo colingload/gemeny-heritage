@@ -1,0 +1,16 @@
+{
+  "$schema": "event",
+  "id": "john-gemeny-disappears-at-sea",
+  "title": "John 'The Sea Captain' Gemeny disappears at sea",
+  "date_start": "1800",
+  "date_end": null,
+  "date_precision": "circa",
+  "era": "early-republic",
+  "category": "death",
+  "description": "John Gemeny, Ship's Master, sailed on a voyage and was never heard from again. Family legend holds that his wife Naomi hid their son John II in a cupboard to prevent him from going to sea with his father. Thus every Gemeny in America descends from John II.",
+  "people": ["john-gemeny-1769", "naomi-tewksbury-1770", "john-gemeny-ii-1791"],
+  "location": "At sea",
+  "artifacts": [],
+  "narratives": ["narratives/pleasant-view-and-quilt.md"],
+  "tags": ["sea-captain", "disappearance", "legend", "cupboard"]
+}

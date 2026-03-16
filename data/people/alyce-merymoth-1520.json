@@ -1,0 +1,55 @@
+{
+  "$schema": "person",
+  "id": "alyce-merymoth-1520",
+  "name": {
+    "first": "Alyce",
+    "middle": null,
+    "last": "Merymoth",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1520",
+    "date_precision": "year",
+    "place": "Warwickshire, England"
+  },
+  "death": {
+    "date": null,
+    "date_precision": "unknown",
+    "place": "England"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1520",
+      "date_precision": "year",
+      "place": "Warwickshire, England",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "england",
+    "warwickshire",
+    "1500s",
+    "tudor-era"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born 1520 in Warwickshire, England — during the reign of Henry VIII. Wife of John Copp (1516-1565). Mother of Thomas Copp (1539-1628). Grandmother of William Copp (1589-1670) who emigrated to Massachusetts. Death date and place unknown."
+}

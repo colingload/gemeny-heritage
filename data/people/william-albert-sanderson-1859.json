@@ -1,0 +1,54 @@
+{
+  "$schema": "person",
+  "id": "william-albert-sanderson-1859",
+  "name": {
+    "first": "William",
+    "middle": "Albert",
+    "last": "Sanderson",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1859-04-06",
+    "date_precision": "exact",
+    "place": "Hallsville, Duplin County, NC"
+  },
+  "death": {
+    "date": "1945",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1859",
+      "date_precision": "year",
+      "place": "Hallsville, Duplin County, NC",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "isaac-sanderson-1831",
+    "mother": "sylvia-kennedy-1830"
+  },
+  "privacy": "public",
+  "tags": [
+    "civil-war",
+    "reconstruction",
+    "north-carolina"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Son of Isaac and Sylvia. Born in Hallsville, Duplin County, NC."
+}

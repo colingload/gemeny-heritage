@@ -1,0 +1,55 @@
+{
+  "$schema": "person",
+  "id": "ralph-rogers-1506",
+  "name": {
+    "first": "Ralph",
+    "middle": null,
+    "last": "Rogers",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1506",
+    "date_precision": "year",
+    "place": "Sutton Valence, Kent, England"
+  },
+  "death": {
+    "date": "1555-02-04",
+    "date_precision": "exact",
+    "place": "Sutton Valence, Kent, England"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1506",
+      "date_precision": "year",
+      "place": "Sutton Valence, Kent, England",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "england",
+    "kent",
+    "1500s",
+    "tudor-era"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born 1506 in Sutton Valence, Kent, England — during the reign of Henry VII. The earliest known Rogers ancestor. Married Margery Gouldwell/Goldwell (1510-1552, also of Sutton Valence). Son: Francis Rogers of Dartford (1536-1568). Grandson: Sir Robert Rogers (1565-1639). Wife Margery died 1552 in Kent. Died February 4, 1555 in Sutton Valence at age 49."
+}

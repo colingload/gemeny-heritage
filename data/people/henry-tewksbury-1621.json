@@ -1,0 +1,82 @@
+{
+  "$schema": "person",
+  "id": "henry-tewksbury-1621",
+  "name": {
+    "first": "Henry",
+    "middle": null,
+    "last": "Tewksbury",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1621",
+    "date_precision": "year",
+    "place": "Greenwich, Kent, England"
+  },
+  "death": {
+    "date": "1697-04-09",
+    "date_precision": "exact",
+    "place": "Amesbury, Essex County, Massachusetts"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1654",
+      "date_precision": "year",
+      "place": "Boston, Massachusetts",
+      "census_notes": "Arrived from England"
+    },
+    {
+      "date": "1659",
+      "date_precision": "year",
+      "place": "Newbury, Essex County, MA",
+      "census_notes": null
+    },
+    {
+      "date": "1677",
+      "date_precision": "year",
+      "place": "Amesbury, Essex County, MA",
+      "census_notes": null
+    },
+    {
+      "date": "1680",
+      "date_precision": "year",
+      "place": "Amesbury, Essex County, MA",
+      "census_notes": null
+    },
+    {
+      "date": "1690",
+      "date_precision": "year",
+      "place": "Amesbury, Massachusetts",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "henry-brundish-tewksbury-1585",
+    "mother": "alice-brewse-1586"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "england",
+    "immigrant",
+    "greenwich",
+    "amesbury",
+    "newbury",
+    "1600s"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born 1621 in Greenwich, Kent, England. Parents: Henry Brundish (John Henry) Tewksbury (1585-1621) and Alice Brewse (1586-1697). Arrived in Boston, Massachusetts in 1654 — an English immigrant to colonial New England. Married Martha Copp on November 10, 1659 in Boston. Settled in Newbury, Essex County, MA. Four children: Henry (1664-1723), Naomi (1667-1733), Ruth (1668-1737), John (1674-1750). Moved to Amesbury by 1677. Died April 9, 1697 in Amesbury at age 76. His grandson Jonathan Tewksbury married Mary Prideaux, and their granddaughter Naomi married John 'The Sea Captain' Gemeny."
+}

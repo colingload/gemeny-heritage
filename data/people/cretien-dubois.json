@@ -1,0 +1,54 @@
+{
+  "$schema": "person",
+  "id": "cretien-dubois",
+  "name": {
+    "first": "Cretien",
+    "middle": null,
+    "last": "DuBois",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": null,
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": null,
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": null,
+      "date_precision": "circa",
+      "place": "Wicres, Artois, France",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "french",
+    "huguenot",
+    "dubois"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Father of Louis Du Bois (1626-1696), the founding Huguenot patentee of New Paltz, NY. The earliest known DuBois ancestor. Likely from Wicres, Artois, France (Pas-de-Calais). Nothing else is known about him."
+}

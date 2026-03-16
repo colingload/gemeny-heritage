@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "leana-sanderson-1868",
+  "name": {
+    "first": "Leana",
+    "middle": null,
+    "last": "Sanderson",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1868",
+    "date_precision": "year",
+    "place": "Duplin County, NC"
+  },
+  "death": {
+    "date": null,
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1868",
+      "date_precision": "year",
+      "place": "Duplin County, NC",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "isaac-sanderson-1831",
+    "mother": "sylvia-kennedy-1830"
+  },
+  "privacy": "public",
+  "tags": [
+    "reconstruction",
+    "north-carolina"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Daughter of Isaac and Sylvia."
+}

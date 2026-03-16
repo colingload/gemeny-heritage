@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "robert-franklin-1720",
+  "name": {
+    "first": "Robert",
+    "middle": null,
+    "last": "FRANKLIN",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1720",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1760",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1720",
+      "date_precision": "circa",
+      "place": "Charles County, Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "john-franklin-1672",
+    "mother": "mary-lloyd-1675"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Father of Elizabeth Franklin."
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "mary-van-voorhees-1716",
+  "name": {
+    "first": "Mary",
+    "middle": null,
+    "last": "VAN VOORHEES",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1716",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1772",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1716",
+      "date_precision": "circa",
+      "place": "Dutchess County, New York",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "dutch"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "First wife of Elias (Elijah) DuBois. Van Voorhees — Dutch family. Married June 12, 1739 in Dutchess County, NY. Died 1772."
+}

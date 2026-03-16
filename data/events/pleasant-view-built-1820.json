@@ -1,0 +1,16 @@
+{
+  "$schema": "event",
+  "id": "pleasant-view-built-1820",
+  "title": "John Gemeny II builds Pleasant View estate",
+  "date_start": "1820",
+  "date_end": null,
+  "date_precision": "circa",
+  "era": "antebellum",
+  "category": "milestone",
+  "description": "John Gemeny II and Matilda Figg settle in Kinsale, Westmoreland County, VA, where they build 'Pleasant View' — the Gemeny family seat. The house stood on a small hill with a view across the Potomac River. It was said that 'on a clear day, one could see Piney Point, on the Maryland side.' They would raise nine children there.",
+  "people": ["john-gemeny-ii-1791", "matilda-figg-1796"],
+  "location": "Kinsale, Westmoreland County, VA",
+  "artifacts": ["artifacts/general-harrison-quilt-full.jpg"],
+  "narratives": ["narratives/pleasant-view-and-quilt.md"],
+  "tags": ["kinsale", "pleasant-view", "homestead"]
+}

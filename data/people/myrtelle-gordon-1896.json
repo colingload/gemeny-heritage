@@ -1,0 +1,124 @@
+{
+  "$schema": "person",
+  "id": "myrtelle-gordon-1896",
+  "name": {
+    "first": "Myrtelle",
+    "middle": "M.",
+    "last": "Gordon",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1896-12-13",
+    "date_precision": "exact",
+    "place": "District of Columbia"
+  },
+  "death": {
+    "date": "1967-07-23",
+    "date_precision": "exact",
+    "place": "College Park, Prince Georges County, MD"
+  },
+  "burial": {
+    "place": "Suitland, Prince George's County, MD"
+  },
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1900",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Single; Relation to Head of House: Daughter"
+    },
+    {
+      "date": "1910",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Relation to Head of House: Daughter"
+    },
+    {
+      "date": "1920",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Single; Relation to Head of House: Daughter"
+    },
+    {
+      "date": "1930",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Daughter"
+    },
+    {
+      "date": "1933",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": null
+    },
+    {
+      "date": "1935",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": null
+    },
+    {
+      "date": "1940",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Wife"
+    }
+  ],
+  "generation": 5,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "william-w-gordon-1866",
+    "mother": "mary-esther-mayes-1872"
+  },
+  "privacy": "public",
+  "tags": [
+    "turn-of-century",
+    "interwar",
+    "postwar"
+  ],
+  "sources": [
+    {
+      "type": "census",
+      "note": "1900 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1910 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1920 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1930 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1940 US Census, Washington DC"
+    },
+    {
+      "type": "marriage-record",
+      "note": "New York Marriage Index, 1929"
+    },
+    {
+      "type": "burial-record",
+      "note": "Suitland, Prince George's County, MD"
+    },
+    {
+      "type": "find-a-grave",
+      "note": "U.S., Find A Grave Index"
+    },
+    {
+      "type": "ssdi",
+      "note": "U.S., Social Security Death Index"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of Andrew 'Pop' Gemeny. Born in Washington DC. Lived with her parents in DC through the 1920s. Father William Wallace Gordon died June 23, 1926. Married Andrew Gemeny on May 18, 1929 at an Episcopal Church in New York. One son: William Gordon Gemeny (1930). Mother Mary Esther Mayes died April 25, 1957. Died July 23, 1967 in College Park, MD at age 70. Buried in Suitland, MD."
+}

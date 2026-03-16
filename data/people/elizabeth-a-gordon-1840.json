@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "elizabeth-a-gordon-1840",
+  "name": {
+    "first": "Elizabeth",
+    "middle": "A.",
+    "last": "Gordon",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1840",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1920",
+    "date_precision": "year",
+    "place": null
+  },
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1840",
+      "date_precision": "circa",
+      "place": "Washington, District of Columbia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "james-gordon-1799",
+    "mother": "maria-mayhue-1810"
+  },
+  "privacy": "public",
+  "tags": [
+    "civil-war",
+    "reconstruction"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Sibling of Thomas H. Gordon. Daughter of James Gordon and Maria Mayhue."
+}

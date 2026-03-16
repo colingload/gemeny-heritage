@@ -1,0 +1,55 @@
+{
+  "$schema": "person",
+  "id": "catherine-blanchan-1627",
+  "name": {
+    "first": "Catherine",
+    "middle": null,
+    "last": "Blanchan",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1627",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1713-10-18",
+    "date_precision": "exact",
+    "place": "Kingston, Ulster County, New York"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1713",
+      "date_precision": "year",
+      "place": "Kingston, Ulster County, New York",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "french",
+    "huguenot",
+    "1600s"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of Louis Du Bois, the founding Huguenot patentee of New Paltz. Died October 18, 1713 in Kingston at approximately age 86."
+}

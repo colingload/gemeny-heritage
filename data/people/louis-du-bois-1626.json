@@ -1,0 +1,66 @@
+{
+  "$schema": "person",
+  "id": "louis-du-bois-1626",
+  "name": {
+    "first": "Louis",
+    "middle": null,
+    "last": "Du Bois",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1626-10-27",
+    "date_precision": "exact",
+    "place": "Wicres, Pas-de-Calais, Artois, France"
+  },
+  "death": {
+    "date": "1696-06-23",
+    "date_precision": "exact",
+    "place": "Kingston, Ulster County, New York"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1626",
+      "date_precision": "year",
+      "place": "Wicres, Pas-de-Calais, Artois, France",
+      "census_notes": null
+    },
+    {
+      "date": "1696",
+      "date_precision": "year",
+      "place": "Kingston, Ulster County, New York",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "french",
+    "huguenot",
+    "new-paltz",
+    "kingston",
+    "new-york",
+    "dubois",
+    "1600s",
+    "immigrant"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "THE ORIGINAL DUBOIS IN AMERICA. Born October 27, 1626 in Wicres, Artois, France. French Huguenot — Protestant refugee. One of the original 12 patentees who founded New Paltz, New York in 1678. Emigrated from France to the Palatinate (Germany), then to New Amsterdam (New York). Father: Cretien DuBois (dates unknown, France). Married Catherine Blanchan on October 10, 1655 in Mannheim, Pfalz (Palatinate), Germany — they married in Germany before emigrating to New Amsterdam. Son Isaac born 1659 in Mannheim. Son Mattheus DuBois (1679-1748). Brother Isaac Du Bois (1659-1690). Louis Du Bois is the patriarch of one of the most prominent Dutch colonial families in the Hudson Valley. The DuBois Fort in New Paltz still stands. Died June 23, 1696 in Kingston at age 69."
+}

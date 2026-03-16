@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "nancy-garrison-1772",
+  "name": {
+    "first": "Nancy",
+    "middle": null,
+    "last": "Garrison",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1772",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": null,
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1772",
+      "date_precision": "circa",
+      "place": "Virginia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of John Garrison (1774)."
+}

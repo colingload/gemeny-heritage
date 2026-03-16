@@ -1,0 +1,63 @@
+{
+  "$schema": "person",
+  "id": "margery-gouldwell-1510",
+  "name": {
+    "first": "Margery",
+    "middle": null,
+    "last": "Gouldwell",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Goldwell"
+    ]
+  },
+  "birth": {
+    "date": "1510",
+    "date_precision": "year",
+    "place": "Sutton Valence, Kent, England"
+  },
+  "death": {
+    "date": "1552",
+    "date_precision": "year",
+    "place": "Kent, England"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1510",
+      "date_precision": "year",
+      "place": "Sutton Valence, Kent, England",
+      "census_notes": null
+    },
+    {
+      "date": "1552",
+      "date_precision": "year",
+      "place": "Kent, England",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "england",
+    "kent",
+    "1500s",
+    "tudor-era"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born c. 1510 in Sutton Valence, Kent, England. Wife of Ralph Rogers (1506-1555). Mother of Francis Rogers of Dartford (1536-1568). Grandmother of Sir Robert Rogers (1565-1639). Died 1552 in Kent at approximately age 42."
+}

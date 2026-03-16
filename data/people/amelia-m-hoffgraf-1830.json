@@ -1,0 +1,55 @@
+{
+  "$schema": "person",
+  "id": "amelia-m-hoffgraf-1830",
+  "name": {
+    "first": "Amelia",
+    "middle": "M.",
+    "last": "Hoffgraf",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Sc"
+    ]
+  },
+  "birth": {
+    "date": "1830",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1901",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1830",
+      "date_precision": "circa",
+      "place": "Virginia/Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum",
+    "reconstruction"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "3rd great-grandmother. Wife of Henry W. Schlichting."
+}

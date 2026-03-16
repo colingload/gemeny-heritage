@@ -1,0 +1,78 @@
+{
+  "$schema": "person",
+  "id": "matilda-figg-1796",
+  "name": {
+    "first": "Matilda",
+    "middle": null,
+    "last": "Figg",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Milly"
+    ]
+  },
+  "birth": {
+    "date": "1796-12-23",
+    "date_precision": "exact",
+    "place": "Virginia"
+  },
+  "death": {
+    "date": "1876-05-06",
+    "date_precision": "exact",
+    "place": "Kinsale, Westmoreland County, Virginia"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1816",
+      "date_precision": "year",
+      "place": "Alexandria, Virginia",
+      "census_notes": null
+    },
+    {
+      "date": "1820",
+      "date_precision": "circa",
+      "place": "Kinsale, Westmoreland County, VA",
+      "census_notes": "Pleasant View estate"
+    },
+    {
+      "date": "1850",
+      "date_precision": "year",
+      "place": "Cople Parish, Westmoreland County, VA",
+      "census_notes": null
+    }
+  ],
+  "generation": 2,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "john-figg-1750",
+    "mother": "elizabeth-mitchell-1770"
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum",
+    "civil-war",
+    "reconstruction",
+    "kinsale",
+    "pleasant-view"
+  ],
+  "sources": [
+    {
+      "type": "vital-records",
+      "note": "Birth record, Virginia"
+    },
+    {
+      "type": "census",
+      "note": "1850 US Census, Westmoreland County VA"
+    }
+  ],
+  "artifacts": [
+    "artifacts/general-harrison-quilt-full.jpg"
+  ],
+  "narratives": [
+    "narratives/pleasant-view-and-quilt.md"
+  ],
+  "notes": "Matilda 'Milly' Figg. Born December 23, 1796 in Virginia. Father: John Figg (1750-1839, died in Nelson County, Kentucky). Mother: Elizabeth Mitchell (1770-1852). Brother John Figg (1794-1814, died in New Orleans). Sister Margaret Figg (1784-1860, died in Clark, Indiana). Married John Henry Gemeny II on June 23, 1816 in Alexandria, VA. Nine children at Pleasant View in Kinsale: Naomi (1817), John III (1823), Richard Henry (1825), Virginia Cecilia (1827), Andrew (1829), Mary Elizabeth (1832), Benjamin (1835), Edgar John (1839), Amelia (1841-1843). The General Harrison Quilt, a Baltimore Album quilt, was given to John and Matilda with their initials. Husband died Feb 8, 1850 in Alexandria. Widowed at 53, she remained in Kinsale. Son Richard Henry died 1873. Died May 6, 1876 in Kinsale at age 79."
+}

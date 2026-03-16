@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "frederick-w-recker-1842",
+  "name": {
+    "first": "Frederick",
+    "middle": "W.",
+    "last": "Recker",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1842",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1918-07",
+    "date_precision": "month",
+    "place": "Alexandria, Virginia"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1918",
+      "date_precision": "year",
+      "place": "Alexandria, Virginia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "caspel-h-recker-1820",
+    "mother": "mary-h-recker-1820"
+  },
+  "privacy": "public",
+  "tags": [
+    "civil-war",
+    "reconstruction"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Father of Amelia Bertha Recker. Died July 1918 in Alexandria."
+}

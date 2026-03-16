@@ -1,0 +1,106 @@
+{
+  "$schema": "person",
+  "id": "mary-esther-mayes-1872",
+  "name": {
+    "first": "Mary Esther",
+    "middle": null,
+    "last": "Mayes",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1872-11-11",
+    "date_precision": "exact",
+    "place": "Indiana"
+  },
+  "death": {
+    "date": "1957-04-25",
+    "date_precision": "exact",
+    "place": null
+  },
+  "burial": {
+    "place": "Washington, District of Columbia"
+  },
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1900",
+      "date_precision": "year",
+      "place": "Washington, DC",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Wife"
+    },
+    {
+      "date": "1910",
+      "date_precision": "year",
+      "place": "Washington, DC",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Wife"
+    },
+    {
+      "date": "1920",
+      "date_precision": "year",
+      "place": "Washington, DC",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Wife"
+    },
+    {
+      "date": "1930",
+      "date_precision": "year",
+      "place": "Washington, DC",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Head"
+    },
+    {
+      "date": "1940",
+      "date_precision": "year",
+      "place": "Washington, DC",
+      "census_notes": "Marital Status: Widowed; Relation to Head of House: Mother-in-law"
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "thomas-a-mayes-1837",
+    "mother": "rachel-sara-dubois-1839"
+  },
+  "privacy": "public",
+  "tags": [
+    "reconstruction",
+    "turn-of-century",
+    "interwar",
+    "postwar",
+    "indiana"
+  ],
+  "sources": [
+    {
+      "type": "census",
+      "note": "1900 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1910 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1920 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1930 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1940 US Census, Washington DC"
+    },
+    {
+      "type": "marriage-record",
+      "note": "DC Marriages, Jan 23, 1895"
+    },
+    {
+      "type": "burial-record",
+      "note": "Washington, DC"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Great-grandmother. Born in Indiana. Parents: Thomas A. Mayes (1837-1906) and Rachel Sara DuBois (1839-1890). Mother died when Mary Esther was 17. Siblings: Catherine M. Mayes (1871-1934), Thomas A. Mayes Jr. (1875-1933), Morse O. Mayes (1876-), Samuel H. Mayes (1878-), Liggan A. Mayes (1880-1933). Married William Wallace Gordon on January 23, 1895 in DC. One daughter: Myrtelle M. Gordon (1896). Father Thomas died June 28, 1906. Husband William died June 23, 1926. Listed as Head of household in 1930 census, then as 'Mother-in-law' in 1940 (living with Andrew and Myrtelle Gemeny). Brothers Liggan and Thomas both died April 28, 1933. Sister Catherine died 1934. Died April 25, 1957 at age 84. Buried in Washington, DC."
+}

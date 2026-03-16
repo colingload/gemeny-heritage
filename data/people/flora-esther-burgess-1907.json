@@ -1,0 +1,87 @@
+{
+  "$schema": "person",
+  "id": "flora-esther-burgess-1907",
+  "name": {
+    "first": "Flora Esther",
+    "middle": null,
+    "last": "Burgess",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1907-11-29",
+    "date_precision": "exact",
+    "place": "Washington, District of Columbia"
+  },
+  "death": {
+    "date": "1996-12-10",
+    "date_precision": "exact",
+    "place": "Prince George's County, MD"
+  },
+  "burial": {
+    "place": "Suitland, Prince George's County, MD"
+  },
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1910",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Single; Relation to Head of House: Daughter"
+    },
+    {
+      "date": "1920",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Single; Relation to Head of House: Daughter"
+    },
+    {
+      "date": "1935",
+      "date_precision": "year",
+      "place": "Oxford, Granville County, NC",
+      "census_notes": null
+    },
+    {
+      "date": "1940",
+      "date_precision": "year",
+      "place": "Bristol, Virginia",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Wife"
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "eugene-s-burgess-1875",
+    "mother": "amelia-b-recker-1875"
+  },
+  "privacy": "public",
+  "tags": [
+    "turn-of-century",
+    "interwar",
+    "postwar",
+    "modern"
+  ],
+  "sources": [
+    {
+      "type": "census",
+      "note": "1910 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1920 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1940 US Census, Bristol VA"
+    },
+    {
+      "type": "burial-record",
+      "note": "Suitland, Prince George's County, MD"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Grandmother on the Sanderson side. Born in Washington DC. Grew up in DC with parents Eugene Speiden Burgess and Amelia Bertha Recker. Siblings: Brainard Recker Burgess (1899-1950), Alton Edwin Burgess (1904-1970), Roy Wilson Burgess (1918-2006). Married Albert Evans Sanderson. Lived in Oxford NC and Bristol VA. Widowed at age 38 when Albert died in 1946. Father Eugene died Dec 16, 1944. Mother Amelia died Jul 20, 1965. Died December 10, 1996 in Prince George's County at age 89. Buried in Suitland, MD."
+}

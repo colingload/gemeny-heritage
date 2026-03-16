@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "frederick-j-arnold-1739",
+  "name": {
+    "first": "Frederick",
+    "middle": "J.",
+    "last": "Arnold",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1739",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1812",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1739",
+      "date_precision": "circa",
+      "place": "North Carolina",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "early-republic"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Related to Susanna Arnold line."
+}

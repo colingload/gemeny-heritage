@@ -1,0 +1,54 @@
+{
+  "$schema": "person",
+  "id": "william-tyre-1783",
+  "name": {
+    "first": "William",
+    "middle": null,
+    "last": "Tyre",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Tiar"
+    ]
+  },
+  "birth": {
+    "date": null,
+    "date_precision": "unknown",
+    "place": null
+  },
+  "death": {
+    "date": "1783",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": null,
+      "date_precision": "circa",
+      "place": "Charles County, Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Father of Teresa Tyre."
+}

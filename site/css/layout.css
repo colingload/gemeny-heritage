@@ -1,0 +1,209 @@
+/* Gemeny Family Heritage — Layout */
+
+/* ===== Navigation ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border-light);
+  backdrop-filter: blur(10px);
+}
+
+.main-nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.85rem var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-home {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--color-text);
+  text-transform: uppercase;
+}
+
+.nav-home:hover {
+  color: var(--color-accent);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--color-text-secondary);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: color 0.2s var(--ease);
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.nav-active {
+  color: var(--color-text);
+}
+
+.nav-links a.nav-active::after {
+  content: '';
+  position: absolute;
+  bottom: -0.85rem;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+/* ===== Hero ===== */
+.hero {
+  background: var(--color-dark);
+  color: var(--color-cream);
+  text-align: center;
+  padding: var(--space-2xl) var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(139, 105, 20, 0.06) 0%, transparent 70%);
+}
+
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-md);
+  color: var(--color-cream);
+  text-transform: uppercase;
+  position: relative;
+}
+
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 300;
+  opacity: 0.7;
+  margin-bottom: var(--space-sm);
+  position: relative;
+}
+
+.hero-tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  opacity: 0.5;
+  font-size: 1rem;
+  position: relative;
+}
+
+/* ===== Entry Cards ===== */
+.entry-points {
+  max-width: var(--max-width);
+  margin: var(--space-2xl) auto;
+  padding: 0 var(--space-lg);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--color-border-light);
+  border: 1px solid var(--color-border-light);
+}
+
+.entry-card {
+  background: var(--color-card);
+  padding: var(--space-xl) var(--space-lg);
+  display: block;
+  color: var(--color-text);
+  transition: background 0.3s var(--ease);
+  text-align: center;
+}
+
+.entry-card:hover {
+  background: var(--color-bg-warm);
+  text-decoration: none;
+}
+
+.entry-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+  letter-spacing: 0.04em;
+}
+
+.entry-card p {
+  color: var(--color-text-light);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+  border-top: 1px solid var(--color-border-light);
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  color: var(--color-text-light);
+  font-size: 0.82rem;
+  margin-top: var(--space-2xl);
+  letter-spacing: 0.02em;
+}
+
+.footer-credits {
+  margin-top: var(--space-sm);
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .entry-points {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+  }
+
+  .entry-points {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    gap: var(--space-lg);
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border-light);
+    padding: var(--space-lg);
+    gap: var(--space-lg);
+  }
+}

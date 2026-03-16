@@ -1,0 +1,110 @@
+{
+  "$schema": "person",
+  "id": "william-w-gordon-1866",
+  "name": {
+    "first": "William",
+    "middle": "Wallace",
+    "last": "Gordon",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1866-01-28",
+    "date_precision": "exact",
+    "place": "Washington, District of Columbia"
+  },
+  "death": {
+    "date": "1926-06-23",
+    "date_precision": "exact",
+    "place": "District of Columbia"
+  },
+  "burial": {
+    "date": "1926-06-25",
+    "place": "Congressional Cemetery, Washington, DC"
+  },
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1870",
+      "date_precision": "year",
+      "place": "Washington Ward 6, DC",
+      "census_notes": null
+    },
+    {
+      "date": "1880",
+      "date_precision": "year",
+      "place": "Washington, DC",
+      "census_notes": "Marital Status: Single; Relation to Head of House: Stepson"
+    },
+    {
+      "date": "1900",
+      "date_precision": "year",
+      "place": "Washington, DC",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Head"
+    },
+    {
+      "date": "1910",
+      "date_precision": "year",
+      "place": "Washington, DC",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Head"
+    },
+    {
+      "date": "1920",
+      "date_precision": "year",
+      "place": "Washington, DC",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Head"
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "john-h-gordon-1837",
+    "mother": "mary-jane-arnold-1838"
+  },
+  "privacy": "public",
+  "tags": [
+    "reconstruction",
+    "turn-of-century",
+    "interwar",
+    "freemason"
+  ],
+  "sources": [
+    {
+      "type": "census",
+      "note": "1870 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1880 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1900 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1910 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1920 US Census, Washington DC"
+    },
+    {
+      "type": "marriage-record",
+      "note": "DC Marriages, Jan 23, 1895"
+    },
+    {
+      "type": "burial-record",
+      "note": "Congressional Cemetery, Washington DC"
+    },
+    {
+      "type": "fraternal",
+      "note": "Raised as Mason, May 28, 1892, Dawson Lodge No. 16, Washington DC"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Great-grandfather on the Gordon line. Born in Washington DC. Father James H. Gordon died July 13, 1869 when William was 3. Listed as 'Stepson' in 1880 census — mother Mary Jane Arnold remarried. Raised as a Mason on May 28, 1892 at Dawson Lodge No. 16, Washington DC. Married Mary Esther Mayes on January 23, 1895 in DC. One daughter: Myrtelle M. Gordon (1896). Mother Mary Jane Arnold died December 31, 1909. Half-siblings include Matilda C. Nokes, George W. Nokes (1869-1894), William U. Nokes (d. 1923), Ethel Adelaide Nokes (1878-1915), Royce Arnold Nokes (1880-). Full siblings: Nettie Gordon (d. 1870), Katie E. Gordon (1859-1863), Willie Arnold Gordon (1861-1862), Robert B. Gordon (1864-), Mary M. Gordon (1868-). Died June 23, 1926 at age 60. Buried at Congressional Cemetery, Washington DC."
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "person",
+  "id": "isabel-gunne-1550",
+  "name": {
+    "first": "Isabel",
+    "middle": null,
+    "last": "Gunne",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1550",
+    "date_precision": "year",
+    "place": "Gloucestershire, England"
+  },
+  "death": {
+    "date": "1624",
+    "date_precision": "year",
+    "place": "Hatton, Warwickshire, England"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1550",
+      "date_precision": "year",
+      "place": "Gloucestershire, England",
+      "census_notes": null
+    },
+    {
+      "date": "1624",
+      "date_precision": "year",
+      "place": "Hatton, Warwickshire, England",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "england",
+    "warwickshire",
+    "1500s",
+    "tudor-era",
+    "elizabethan"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born c. 1550 in Gloucestershire, England — during the reign of Elizabeth I. Married Thomas Copp on February 28, 1576 in Hatton, Warwickshire. Son William Copp (1589-1670) emigrated to colonial Massachusetts. Died 1624 in Hatton, Warwickshire at approximately age 74. She lived through the entire Elizabethan era and into the reign of James I."
+}

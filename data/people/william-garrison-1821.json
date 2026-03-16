@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "william-garrison-1821",
+  "name": {
+    "first": "William",
+    "middle": null,
+    "last": "Garrison",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1821",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1890",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1821",
+      "date_precision": "circa",
+      "place": "Virginia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "nelson-garrison-1794",
+    "mother": "eleanor-white-1800"
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum",
+    "civil-war"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "3rd great-grandfather Garrison line."
+}

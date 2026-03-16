@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "mary-haislip-1745",
+  "name": {
+    "first": "Mary",
+    "middle": null,
+    "last": "Haislip",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1745",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": null,
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1745",
+      "date_precision": "circa",
+      "place": "Charles County, Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of John Burgess (-1777)."
+}

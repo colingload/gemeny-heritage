@@ -1,0 +1,49 @@
+{
+  "$schema": "person",
+  "id": "amelia-gemeny-1965",
+  "name": {
+    "first": "Amelia",
+    "middle": "Gordon",
+    "last": "Gload",
+    "maiden": "Gemeny",
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1965",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": null,
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1965",
+      "date_precision": "circa",
+      "place": "Calvert County, Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": 7,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "william-gordon-gemeny-1930",
+    "mother": "mary-amelia-sanderson-1933"
+  },
+  "privacy": "public",
+  "tags": [
+    "modern",
+    "contemporary"
+  ],
+  "sources": [
+    {
+      "type": "family-records",
+      "note": "Gemeny descendants database"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Daughter of William Gordon Gemeny and Mary Amelia Sanderson. Mother of Colin Gload."
+}

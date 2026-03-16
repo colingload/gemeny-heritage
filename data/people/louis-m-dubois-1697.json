@@ -1,0 +1,62 @@
+{
+  "$schema": "person",
+  "id": "louis-m-dubois-1697",
+  "name": {
+    "first": "Louis",
+    "middle": "M.",
+    "last": "DUBOIS",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1697-07-18",
+    "date_precision": "exact",
+    "place": "Kingston, Ulster County, New York"
+  },
+  "death": {
+    "date": "1751",
+    "date_precision": "year",
+    "place": "Ulster, New York"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1697",
+      "date_precision": "year",
+      "place": "Kingston, Ulster County, New York",
+      "census_notes": null
+    },
+    {
+      "date": "1751",
+      "date_precision": "year",
+      "place": "Ulster, New York",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "mattheus-dubois-1679",
+    "mother": "sara-matthysen-1678"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "dutch",
+    "kingston",
+    "new-york",
+    "dubois"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born Jul 18, 1697 in Kingston, Ulster County, NY. Son of Mattheus DuBois (1679-1748) and Sara Matthysen (1678-1748). Many siblings born in Kingston: Mattheus (1698), Hiskia (1701), Ephraim (1703), Johannes (1706), Tjaatje (1707), Jesse (1709), Catrina (1715), Gideon (1719-1815), Peter (1720). Son: Elias (Elijah) DuBois (1713-1786). Father Mattheus died Jun 2, 1748 in Poughkeepsie. Mother Sara died 1748. Died 1751 in Ulster County at age 54."
+}

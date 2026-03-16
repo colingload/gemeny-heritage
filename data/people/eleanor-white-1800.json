@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "eleanor-white-1800",
+  "name": {
+    "first": "Eleanor",
+    "middle": null,
+    "last": "White",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1800",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1857",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1800",
+      "date_precision": "circa",
+      "place": "Virginia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of Nelson Garrison."
+}

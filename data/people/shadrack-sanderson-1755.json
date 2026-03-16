@@ -1,0 +1,59 @@
+{
+  "$schema": "person",
+  "id": "shadrack-sanderson-1755",
+  "name": {
+    "first": "Shadrack",
+    "middle": null,
+    "last": "Sanderson",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1755",
+    "date_precision": "year",
+    "place": "Craven County, North Carolina"
+  },
+  "death": {
+    "date": "1802",
+    "date_precision": "year",
+    "place": "Jones County, North Carolina"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1755",
+      "date_precision": "year",
+      "place": "Craven County, North Carolina",
+      "census_notes": null
+    },
+    {
+      "date": "1802",
+      "date_precision": "year",
+      "place": "Jones County, North Carolina",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "joseph-sanderson-1720",
+    "mother": "susan-george-1725"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "early-republic"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born 1755 in Craven County, NC. Father Joseph Sanderson (1720-1774) died Feb 12, 1774 in Craven County when Shadrack was 19. Died 1802 in Jones County, NC at age 47. Son Isaac (1800) was only 2 when Shadrack died."
+}

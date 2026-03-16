@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "priscilla-boucher-1715",
+  "name": {
+    "first": "Priscilla",
+    "middle": null,
+    "last": "BOUCHER",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1715",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1796",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1715",
+      "date_precision": "circa",
+      "place": "Charles County, Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "francis-boucher-1693",
+    "mother": "elizabeth-milstead-1705"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Mother of Elizabeth Franklin. Lived to 81."
+}

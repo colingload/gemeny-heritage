@@ -1,0 +1,58 @@
+{
+  "$schema": "person",
+  "id": "isaac-sanderson-sr-1800",
+  "name": {
+    "first": "Isaac",
+    "middle": null,
+    "last": "Sanderson",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1800",
+    "date_precision": "year",
+    "place": "Jones County, North Carolina"
+  },
+  "death": {
+    "date": "1839",
+    "date_precision": "circa",
+    "place": "Duplin County, North Carolina"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1800",
+      "date_precision": "year",
+      "place": "Jones County, North Carolina",
+      "census_notes": null
+    },
+    {
+      "date": "1839",
+      "date_precision": "year",
+      "place": "Duplin County, North Carolina",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "shadrack-sanderson-1755",
+    "mother": "ann-long-1760"
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born in Jones County, NC. Father Shadrack Sanderson (1755-1802) died in Jones County when Isaac was 2. Mother Ann Long (1760-1805) died in Jones County when he was 5 — orphaned at age 5. Son: Isaac Sanderson (1831-1912). Died c. 1839 in Duplin County, NC at age 39."
+}

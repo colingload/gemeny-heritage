@@ -1,0 +1,66 @@
+{
+  "$schema": "person",
+  "id": "louis-dubois-1744",
+  "name": {
+    "first": "Louis",
+    "middle": null,
+    "last": "DuBois",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Lewis",
+      "DuBoys"
+    ]
+  },
+  "birth": {
+    "date": "1744-08-16",
+    "date_precision": "exact",
+    "place": "Fishkill, Dutchess County, NY"
+  },
+  "death": {
+    "date": "1824-03-04",
+    "date_precision": "exact",
+    "place": "Poughkeepsie, Dutchess County, NY"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1790",
+      "date_precision": "year",
+      "place": "New Paltz, Ulster County, NY",
+      "census_notes": null
+    },
+    {
+      "date": "1820",
+      "date_precision": "year",
+      "place": "New Paltz, Ulster County, NY",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "elias-dubois-1713",
+    "mother": "mary-van-voorhees-1716"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "early-republic",
+    "dutch",
+    "poughkeepsie",
+    "new-york",
+    "dubois"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born Aug 16, 1744 in Fishkill, Dutchess County, NY. Baptized Sep 2, 1744. Dutch heritage — prominent Hudson Valley DuBois family. Father Elias (Elijah) DuBois (1713-1786, Kingston/Poughkeepsie). Mother Mary Van Voorhees (1716-1772, married 1739). Stepmother Susanna Vandenburg (1725-1789). Married Allida Van Kleek (1742-1793) — Van Kleek is a major Dutch Hudson Valley family. Children: Elias L. (1766-1842), Catherine (1768-1772), Johannes (1769-1842), Catherine (1775), Susanna (1775), Simon (1775), James (1778). Wife Allida died 1793. Lived in New Paltz, Ulster County. Military service in NY. Died March 4, 1824 in Poughkeepsie at age 79."
+}

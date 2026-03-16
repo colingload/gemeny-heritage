@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "walter-n-burgess-1878",
+  "name": {
+    "first": "Walter",
+    "middle": "N.",
+    "last": "BURGESS",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1878",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1977",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1878",
+      "date_precision": "circa",
+      "place": "Fauquier, Virginia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "benjamin-f-burgess-1845",
+    "mother": "lillian-l-garrison-1856"
+  },
+  "privacy": "public",
+  "tags": [
+    "reconstruction",
+    "modern"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Brother of Eugene Speiden Burgess. Born 1878, died 1977 — lived to 99."
+}

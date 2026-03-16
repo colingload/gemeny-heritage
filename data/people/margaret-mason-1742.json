@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "margaret-mason-1742",
+  "name": {
+    "first": "Margaret",
+    "middle": null,
+    "last": "Mason",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1742",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1800",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1742",
+      "date_precision": "circa",
+      "place": "North Carolina",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of William Kennedy. Both died in 1800."
+}

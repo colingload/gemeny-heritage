@@ -1,0 +1,95 @@
+{
+  "$schema": "person",
+  "id": "margaret-e-denny-1837",
+  "name": {
+    "first": "Margaret",
+    "middle": "Elnora",
+    "last": "Denny",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Nora"
+    ]
+  },
+  "birth": {
+    "date": "1837-05-27",
+    "date_precision": "exact",
+    "place": "Royal Oak, Talbot County, Maryland"
+  },
+  "death": {
+    "date": "1929-12-10",
+    "date_precision": "exact",
+    "place": "Swain Farm, Talbot County, Maryland"
+  },
+  "burial": {
+    "place": "Saint Michaels, Talbot County, MD"
+  },
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1850",
+      "date_precision": "year",
+      "place": "St. Michaels, Talbot County, MD",
+      "census_notes": null
+    },
+    {
+      "date": "1860",
+      "date_precision": "year",
+      "place": "St. Michaels, Talbot County, MD",
+      "census_notes": null
+    },
+    {
+      "date": "1870",
+      "date_precision": "year",
+      "place": "District 2, Talbot County, MD",
+      "census_notes": null
+    },
+    {
+      "date": "1880",
+      "date_precision": "year",
+      "place": "Chapel, Talbot County, MD",
+      "census_notes": null
+    }
+  ],
+  "generation": 3,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "stephen-denny-1784",
+    "mother": "maria-maynard-1813"
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum",
+    "civil-war",
+    "reconstruction",
+    "royal-oak",
+    "st-michaels",
+    "talbot-county"
+  ],
+  "sources": [
+    {
+      "type": "census",
+      "note": "1850 US Census, Talbot County MD"
+    },
+    {
+      "type": "census",
+      "note": "1860 US Census, Talbot County MD"
+    },
+    {
+      "type": "census",
+      "note": "1870 US Census, Talbot County MD"
+    },
+    {
+      "type": "census",
+      "note": "1880 US Census, Talbot County MD"
+    },
+    {
+      "type": "burial-record",
+      "note": "Saint Michaels, Talbot County MD"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Margaret Elnora 'Nora' Denny. Born in Royal Oak, Talbot County, MD. Parents: Stephen Denny (1784-1875) and Maria Maynard (1813-1855). Mother died when Nora was 17. Father died Jan 10, 1875 in Royal Oak at age 90. Siblings: Maria Josephine Denny (1839-1908), Adaline A. 'Ada' Denny (1845-1890), Wilbur Fisk Denny (1847-1869), James Aldron Massey Denny (1850-1938). Married Andrew Gemeny. Five children: Stephen Denny Gemeny (1859-1935), Edgar Dean Gemeny (1863-1939), Lillie May (1866-1867), Wilbur Fisk (1869-1870), Maria Elnora (1875-). Husband Andrew died Apr 13, 1882. Widowed at age 44 — survived him by 47 years. Brother Wilbur Fisk Denny died 1869, sister Ada died 1890, sister Maria Josephine died 1908. Died December 10, 1929 at age 92 at Swain Farm, Talbot County. Buried in Saint Michaels, MD."
+}

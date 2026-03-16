@@ -1,0 +1,64 @@
+{
+  "$schema": "person",
+  "id": "alice-brewse-1586",
+  "name": {
+    "first": "Alice",
+    "middle": null,
+    "last": "Brewse",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1586",
+    "date_precision": "year",
+    "place": "Upwey, Dorset, England"
+  },
+  "death": {
+    "date": "1697",
+    "date_precision": "year",
+    "place": "Newbury, Essex County, Massachusetts"
+  },
+  "burial": {
+    "date": "1697-06-29",
+    "place": "Searby-With-Owmby, Lincolnshire, England"
+  },
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1586",
+      "date_precision": "year",
+      "place": "Upwey, Dorset, England",
+      "census_notes": null
+    },
+    {
+      "date": "1697",
+      "date_precision": "year",
+      "place": "Newbury, Essex County, Massachusetts",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "thomas-brewse-1556",
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "england",
+    "dorset",
+    "1500s"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born 1586 in Upwey, Dorset, England. Father: Thomas Brewse (1556-1594, died when Alice was 8). Married Henry Brundish Tewksbury. Husband died 1621 when son Henry was born. Son Henry Tewksbury (1621-1697) emigrated to Massachusetts in 1654. If the death date of 1697 is accurate, Alice lived to approximately 111 years old — extraordinary even by modern standards. Died in Newbury, Essex County, MA. Buried June 29, 1697 at Searby-With-Owmby, Lincolnshire, England."
+}

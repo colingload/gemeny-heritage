@@ -1,0 +1,16 @@
+{
+  "$schema": "event",
+  "id": "anthony-gemini-arrives-salem-1755",
+  "title": "Anthony Gemini arrives in North America",
+  "date_start": "1755",
+  "date_end": null,
+  "date_precision": "circa",
+  "era": "colonial",
+  "category": "migration",
+  "description": "Anthony Gemini, believed to have been crew on one of the pilgrim ships, arrives in North America. He would marry Katherine Richards in Salem, Massachusetts the following year, establishing the Gemeny family line in America.",
+  "people": ["anthony-gemini-1730"],
+  "location": "Salem, Essex County, MA",
+  "artifacts": [],
+  "narratives": ["research/thomas-gemini-origin.md"],
+  "tags": ["colonial", "immigration", "salem", "founding"]
+}

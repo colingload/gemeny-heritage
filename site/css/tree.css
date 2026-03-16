@@ -1,0 +1,77 @@
+/* Gemeny Family Heritage — Tree View */
+
+.tree-container {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: var(--space-lg);
+}
+
+.tree-scroll {
+  min-width: fit-content;
+}
+
+.tree-svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.tree-line {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 1.5;
+}
+
+.tree-node-rect {
+  fill: var(--color-card);
+  stroke: var(--color-border);
+  stroke-width: 1;
+  transition: fill 0.2s, stroke 0.2s;
+}
+
+.tree-node:hover .tree-node-rect {
+  fill: var(--color-bg-warm);
+  stroke: var(--color-accent);
+}
+
+.tree-node-expanded {
+  stroke: var(--color-accent);
+  stroke-width: 1.5;
+}
+
+.tree-node-name {
+  text-anchor: middle;
+  font-family: var(--font-display);
+  font-size: 13px;
+  fill: var(--color-text);
+}
+
+.tree-node-dates {
+  text-anchor: middle;
+  font-family: var(--font-body);
+  font-size: 10px;
+  fill: var(--color-text-light);
+}
+
+.tree-node-expand {
+  text-anchor: middle;
+  font-size: 11px;
+  fill: var(--color-accent);
+}
+
+.tree-spouse-rect {
+  fill: var(--color-bg);
+  stroke: var(--color-border-light);
+  stroke-width: 1;
+  stroke-dasharray: 3 2;
+}
+
+.tree-spouse:hover .tree-spouse-rect {
+  stroke: var(--color-accent);
+}
+
+.tree-spouse-name {
+  text-anchor: middle;
+  font-family: var(--font-body);
+  font-size: 10px;
+  fill: var(--color-text-light);
+}

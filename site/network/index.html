@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Family Tree — Gemeny Heritage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:#f7f4ef;--warm:#f0ebe3;--dark:#1e1810;--text:#2a2017;--text-mid:#6d5f4e;
+      --text-light:#9a8d7c;--gold:#b8860b;--gold-hover:#d4a017;--border:#ddd5c8;
+      --navy:#0f1a2e;
+      --serif:'Cormorant Garamond','Georgia',serif;
+      --sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+      --branch-gemeny:#d4a017;--branch-gordon:#5e9acf;--branch-sanderson:#c47a5e;--branch-burgess:#8e6aad;--branch-unknown:#9a8d7c;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-font-smoothing:antialiased}
+    body{font-family:var(--sans);background:var(--navy);color:var(--cream);font-size:15px;line-height:1.65;overflow:hidden;height:100vh}
+
+    /* Nav */
+    .nav{background:rgba(15,26,46,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.06);position:relative;z-index:100}
+    .nav-inner{max-width:1400px;margin:0 auto;padding:0.7rem 2rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-brand{font-family:var(--serif);font-size:1.35rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--cream)}
+    .nav-back{font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none}
+    .nav-back:hover{color:var(--gold)}
+    a{color:var(--gold);text-decoration:none}
+
+    /* Controls bar */
+    .controls{display:flex;align-items:center;gap:0.8rem;padding:0.6rem 2rem;background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.06);flex-wrap:wrap;justify-content:center}
+    .search-wrap{position:relative}
+    .search-input{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:var(--cream);padding:0.35rem 0.7rem 0.35rem 1.8rem;font-family:var(--sans);font-size:0.75rem;border-radius:3px;width:200px;outline:none}
+    .search-input:focus{border-color:rgba(212,160,23,0.5)}
+    .search-input::placeholder{color:rgba(255,255,255,0.25)}
+    .search-icon{position:absolute;left:0.6rem;top:50%;transform:translateY(-50%);font-size:0.7rem;color:rgba(255,255,255,0.25);pointer-events:none}
+    .search-results{position:absolute;top:100%;left:0;width:280px;max-height:240px;overflow-y:auto;background:rgba(15,26,46,0.97);border:1px solid rgba(255,255,255,0.1);border-radius:3px;display:none;z-index:200}
+    .search-results.open{display:block}
+    .search-item{padding:0.4rem 0.7rem;cursor:pointer;font-size:0.75rem;color:rgba(255,255,255,0.6);border-bottom:1px solid rgba(255,255,255,0.04)}
+    .search-item:hover{background:rgba(212,160,23,0.1);color:var(--cream)}
+    .search-item-dates{font-size:0.65rem;color:rgba(255,255,255,0.3);margin-left:0.4rem}
+
+    .divider{width:1px;height:20px;background:rgba(255,255,255,0.08)}
+
+    /* Branch filter buttons */
+    .branch-btn{padding:0.25rem 0.6rem;border:1px solid rgba(255,255,255,0.12);background:none;cursor:pointer;font-family:var(--sans);font-size:0.65rem;letter-spacing:0.04em;text-transform:uppercase;color:rgba(255,255,255,0.35);transition:all 0.15s;border-radius:2px;display:flex;align-items:center;gap:0.3rem}
+    .branch-btn:hover{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.6)}
+    .branch-btn.active{color:#fff;border-color:currentColor}
+    .branch-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+
+    /* Badge filter buttons */
+    .badge-btn{padding:0.25rem 0.6rem;border:1px solid rgba(255,255,255,0.12);background:none;cursor:pointer;font-family:var(--sans);font-size:0.65rem;letter-spacing:0.04em;text-transform:uppercase;color:rgba(255,255,255,0.35);transition:all 0.15s;border-radius:2px}
+    .badge-btn:hover{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.6)}
+    .badge-btn.active{background:rgba(212,160,23,0.15);color:var(--gold);border-color:var(--gold)}
+
+    /* Zoom controls */
+    .zoom-btn{width:28px;height:28px;border:1px solid rgba(255,255,255,0.12);background:none;color:rgba(255,255,255,0.4);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;border-radius:2px;transition:all 0.15s}
+    .zoom-btn:hover{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.7)}
+
+    /* Canvas */
+    .canvas-wrap{position:relative;flex:1;overflow:hidden}
+    canvas{display:block;width:100%;height:100%}
+
+    /* Tooltip */
+    .tooltip{position:fixed;background:rgba(15,26,46,0.95);border-left:3px solid var(--gold);padding:0.6rem 0.8rem;pointer-events:none;opacity:0;transition:opacity 0.15s;z-index:150;max-width:280px}
+    .tooltip.visible{opacity:1}
+    .tooltip-name{font-family:var(--serif);font-size:1rem;color:var(--cream);margin-bottom:0.1rem}
+    .tooltip-dates{font-size:0.78rem;color:var(--gold);margin-bottom:0.15rem}
+    .tooltip-place{font-size:0.72rem;color:rgba(255,255,255,0.4);margin-bottom:0.2rem}
+    .tooltip-badges{display:flex;gap:0.3rem;flex-wrap:wrap}
+    .tooltip-badge{font-size:0.6rem;padding:0.1rem 0.35rem;border-radius:2px;text-transform:uppercase;letter-spacing:0.04em}
+    .tooltip-badge.military{background:rgba(180,60,60,0.25);color:#e87070}
+    .tooltip-badge.freemason{background:rgba(80,120,200,0.25);color:#70a0e8}
+    .tooltip-badge.dar{background:rgba(200,160,40,0.25);color:#e8c850}
+    .tooltip-badge.immigration{background:rgba(60,180,120,0.25);color:#60d8a0}
+
+    /* Detail sidebar */
+    .sidebar{position:fixed;top:0;right:-360px;width:360px;height:100vh;background:rgba(15,26,46,0.97);border-left:1px solid rgba(255,255,255,0.08);z-index:200;transition:right 0.25s ease;overflow-y:auto;padding:1.5rem}
+    .sidebar.open{right:0}
+    .sidebar-close{position:absolute;top:0.8rem;right:0.8rem;background:none;border:none;color:rgba(255,255,255,0.4);cursor:pointer;font-size:1.2rem;padding:0.3rem}
+    .sidebar-close:hover{color:var(--cream)}
+    .sidebar-name{font-family:var(--serif);font-size:1.6rem;font-weight:400;color:var(--cream);margin-bottom:0.3rem;padding-right:2rem}
+    .sidebar-dates{font-size:0.85rem;color:var(--gold);margin-bottom:0.5rem}
+    .sidebar-section{margin-top:1rem;padding-top:0.8rem;border-top:1px solid rgba(255,255,255,0.06)}
+    .sidebar-section h4{font-family:var(--serif);font-size:0.85rem;font-weight:400;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem}
+    .sidebar-item{font-size:0.82rem;color:rgba(255,255,255,0.6);margin-bottom:0.3rem;line-height:1.5}
+    .sidebar-item strong{color:var(--cream);font-weight:500}
+    .sidebar-link{display:inline-block;margin-top:0.8rem;padding:0.4rem 1rem;background:rgba(212,160,23,0.15);border:1px solid rgba(212,160,23,0.4);color:var(--gold);font-size:0.75rem;letter-spacing:0.05em;text-transform:uppercase;border-radius:2px;transition:all 0.15s}
+    .sidebar-link:hover{background:rgba(212,160,23,0.25);border-color:var(--gold)}
+    .sidebar-person-link{cursor:pointer;color:var(--gold);font-size:0.8rem}
+    .sidebar-person-link:hover{text-decoration:underline}
+    .sidebar-badges{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.5rem}
+
+    /* Loading overlay */
+    .loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:1.2rem;color:rgba(255,255,255,0.3);z-index:50}
+
+    /* Stats bar */
+    .stats{position:absolute;bottom:3.2rem;left:0.8rem;font-size:0.65rem;color:rgba(255,255,255,0.2);z-index:50}
+
+    /* Credit */
+    .credit{position:absolute;bottom:0;left:0;right:0;background:rgba(15,26,46,0.85);backdrop-filter:blur(8px);border-top:1px solid rgba(212,160,23,0.15);padding:0.5rem 2rem;text-align:center;z-index:50}
+    .credit-line{font-family:var(--serif);font-size:0.85rem;color:rgba(255,255,255,0.9);letter-spacing:0.02em}
+    .credit-line strong{color:var(--gold);font-weight:600}
+    .credit-sub{font-size:0.72rem;color:rgba(255,255,255,0.6);margin-top:0.15rem}
+
+    /* Layout */
+    .page{display:flex;flex-direction:column;height:100vh}
+    .main{flex:1;position:relative;overflow:hidden}
+
+    @media(max-width:600px){
+      .controls{gap:0.4rem;padding:0.4rem 0.5rem}
+      .search-input{width:140px}
+      .sidebar{width:100%;right:-100%}
+      .nav-inner{padding:0.6rem 1rem}
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <nav class="nav">
+    <div class="nav-inner">
+      <span class="nav-brand">Gemeny Heritage</span>
+      <a href="../index.html" class="nav-back">Back to Home</a>
+    </div>
+  </nav>
+
+  <div class="controls" id="controls">
+    <div class="search-wrap">
+      <span class="search-icon">&#x1F50D;</span>
+      <input type="text" class="search-input" id="searchInput" placeholder="Search by name...">
+      <div class="search-results" id="searchResults"></div>
+    </div>
+
+    <div class="divider"></div>
+
+    <button class="branch-btn active" data-branch="all">All</button>
+    <button class="branch-btn" data-branch="gemeny"><span class="branch-dot" style="background:var(--branch-gemeny)"></span>Gemeny</button>
+    <button class="branch-btn" data-branch="gordon"><span class="branch-dot" style="background:var(--branch-gordon)"></span>Gordon</button>
+    <button class="branch-btn" data-branch="sanderson"><span class="branch-dot" style="background:var(--branch-sanderson)"></span>Sanderson</button>
+    <button class="branch-btn" data-branch="burgess"><span class="branch-dot" style="background:var(--branch-burgess)"></span>Burgess</button>
+
+    <div class="divider"></div>
+
+    <button class="badge-btn" data-badge="military" title="Military service">&#x1F6E1; Military</button>
+    <button class="badge-btn" data-badge="freemason" title="Freemason">&#x1F3DB; Mason</button>
+    <button class="badge-btn" data-badge="dar" title="DAR Patriot">&#x2B50; DAR</button>
+    <button class="badge-btn" data-badge="immigration" title="Immigration">&#x26F5; Immig.</button>
+
+    <div class="divider"></div>
+
+    <button class="zoom-btn" id="zoomIn" title="Zoom in">+</button>
+    <button class="zoom-btn" id="zoomOut" title="Zoom out">&minus;</button>
+    <button class="zoom-btn" id="zoomReset" title="Reset view" style="font-size:0.65rem">FIT</button>
+  </div>
+
+  <div class="main" id="main">
+    <canvas id="canvas"></canvas>
+    <div class="tooltip" id="tooltip">
+      <div class="tooltip-name" id="ttName"></div>
+      <div class="tooltip-dates" id="ttDates"></div>
+      <div class="tooltip-place" id="ttPlace"></div>
+      <div class="tooltip-badges" id="ttBadges"></div>
+    </div>
+    <div class="loading" id="loading">Loading tree data...</div>
+    <div class="stats" id="stats"></div>
+    <div class="credit" id="credit">
+      <div class="credit-line">Genealogical research and data compiled by <strong>Steven E. Gemeny</strong>, son of W. Gordon Gemeny</div>
+      <div class="credit-line credit-sub">Website by Colin Gload, grandson of W. Gordon Gemeny</div>
+    </div>
+  </div>
+
+  <div class="sidebar" id="sidebar">
+    <button class="sidebar-close" id="sidebarClose">&times;</button>
+    <div id="sidebarContent"></div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ── Constants ────────────────────────────────────────────
+  const NODE_W = 170, NODE_H = 56;
+  const H_GAP = 24, V_GAP = 90;
+  const SPOUSE_GAP = 8;
+  const COLORS = {
+    gemeny: '#d4a017', 'gemeny-main': '#d4a017',
+    gordon: '#5e9acf', 'gordon-dubois': '#5e9acf', 'gordon-mayhue': '#5e9acf',
+    sanderson: '#c47a5e', 'sanderson-burgess': '#c47a5e',
+    burgess: '#8e6aad',
+    gload: '#9a8d7c',
+    unknown: '#6b6259'
+  };
+  const BADGE_ICONS = {
+    military: '\u{1F6E1}',
+    freemason: '\u{1F3DB}',
+    dar: '\u2B50',
+    immigration: '\u26F5'
+  };
+
+  function branchColor(branch) {
+    if (!branch) return COLORS.unknown;
+    for (const key of Object.keys(COLORS)) {
+      if (branch.includes(key)) return COLORS[key];
+    }
+    return COLORS.unknown;
+  }
+
+  function branchGroup(branch) {
+    if (!branch) return null;
+    if (branch.includes('gemeny')) return 'gemeny';
+    if (branch.includes('gordon') || branch.includes('dubois')) return 'gordon';
+    if (branch.includes('sanderson')) return 'sanderson';
+    if (branch.includes('burgess')) return 'burgess';
+    return null;
+  }
+
+  // ── State ────────────────────────────────────────────────
+  let data = null;           // { nodes, families }
+  let nodeMap = {};          // id -> node
+  let familyMap = {};        // id -> family
+  let treeRoot = null;       // root node for current view
+  let layoutNodes = [];      // nodes with x,y computed
+  let layoutEdges = [];      // edges to draw
+  let expanded = new Set();  // set of expanded node IDs
+  let selectedNode = null;
+  let hoveredNode = null;
+  let activeBranch = 'all';
+  let activeBadge = null;
+
+  // Camera
+  let camX = 0, camY = 0, zoom = 1;
+  let dragging = false, dragStartX, dragStartY, dragCamX, dragCamY;
+
+  // Canvas
+  const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, dpr;
+
+  function resize() {
+    const rect = canvas.parentElement.getBoundingClientRect();
+    dpr = window.devicePixelRatio || 1;
+    W = rect.width; H = rect.height;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    draw();
+  }
+
+  // ── Data loading ─────────────────────────────────────────
+  async function loadData() {
+    const loadingEl = document.getElementById('loading');
+
+    // Try multiple paths (works whether served from root or subdirectory)
+    const paths = [
+      '../../data/gedcom-tree.json',
+      '../data/gedcom-tree.json',
+      '/data/gedcom-tree.json',
+      'data/gedcom-tree.json'
+    ];
+
+    let resp = null;
+    for (const p of paths) {
+      try {
+        const r = await fetch(p);
+        if (r.ok) { resp = r; break; }
+      } catch(e) { /* try next */ }
+    }
+
+    if (!resp) {
+      loadingEl.innerHTML = 'Could not load tree data.<br><span style="font-size:0.7rem;color:rgba(255,255,255,0.3)">If opening this file directly, use a local server:<br><code style="color:var(--gold)">npx serve ../../</code> or VS Code Live Server</span>';
+      return;
+    }
+
+    try {
+      data = await resp.json();
+    } catch(e) {
+      loadingEl.textContent = 'Error parsing tree data: ' + e.message;
+      return;
+    }
+    nodeMap = {};
+    familyMap = {};
+    for (const n of data.nodes) nodeMap[n.id] = n;
+    for (const f of data.families) familyMap[f.id] = f;
+
+    // Find default root: William Gordon Gemeny (married Mary Amelia Sanderson)
+    // Look for the family that connects them
+    let defaultRoot = null;
+    for (const n of data.nodes) {
+      if (/william.*gordon.*gemeny/i.test(n.name) && n.birthYear >= 1925 && n.birthYear <= 1935) {
+        defaultRoot = n;
+        break;
+      }
+    }
+    if (!defaultRoot) {
+      // fallback: pick first node with most descendants
+      defaultRoot = data.nodes[0];
+    }
+
+    setRoot(defaultRoot.id);
+    document.getElementById('loading').style.display = 'none';
+    updateStats();
+  }
+
+  // ── Tree layout ──────────────────────────────────────────
+
+  function getChildren(nodeId) {
+    const children = [];
+    const node = nodeMap[nodeId];
+    if (!node) return children;
+    for (const fId of (node.familiesAsSpouse || [])) {
+      const fam = familyMap[fId];
+      if (!fam) continue;
+      for (const cId of (fam.children || [])) {
+        if (nodeMap[cId]) children.push(cId);
+      }
+    }
+    return children;
+  }
+
+  function getSpouse(nodeId, familyId) {
+    const fam = familyMap[familyId];
+    if (!fam) return null;
+    if (fam.husband === nodeId) return fam.wife;
+    if (fam.wife === nodeId) return fam.husband;
+    return null;
+  }
+
+  function getParents(nodeId) {
+    const node = nodeMap[nodeId];
+    if (!node || !node.familyAsChild) return [];
+    const fam = familyMap[node.familyAsChild];
+    if (!fam) return [];
+    const parents = [];
+    if (fam.husband && nodeMap[fam.husband]) parents.push(fam.husband);
+    if (fam.wife && nodeMap[fam.wife]) parents.push(fam.wife);
+    return parents;
+  }
+
+  function setRoot(nodeId) {
+    treeRoot = nodeId;
+    expanded.clear();
+    // Auto-expand 3 generations
+    expandGenerations(nodeId, 3);
+    computeLayout();
+    centerOnRoot();
+    draw();
+  }
+
+  function expandGenerations(nodeId, depth) {
+    if (depth <= 0) return;
+    expanded.add(nodeId);
+    for (const cId of getChildren(nodeId)) {
+      expandGenerations(cId, depth - 1);
+    }
+  }
+
+  function toggleExpand(nodeId) {
+    if (expanded.has(nodeId)) {
+      // Collapse: remove this and all descendants
+      collapseSubtree(nodeId);
+    } else {
+      expanded.add(nodeId);
+    }
+    computeLayout();
+    draw();
+  }
+
+  function collapseSubtree(nodeId) {
+    expanded.delete(nodeId);
+    for (const cId of getChildren(nodeId)) {
+      collapseSubtree(cId);
+    }
+  }
+
+  function computeLayout() {
+    layoutNodes = [];
+    layoutEdges = [];
+    if (!treeRoot || !nodeMap[treeRoot]) return;
+
+    // Compute subtree widths bottom-up, then assign positions top-down
+    const widths = {};
+    const visited = new Set();
+
+    function subtreeWidth(nId) {
+      if (visited.has(nId)) return NODE_W;
+      visited.add(nId);
+      const children = expanded.has(nId) ? getChildren(nId) : [];
+      if (children.length === 0) {
+        widths[nId] = NODE_W + SPOUSE_GAP + NODE_W; // room for spouse
+        return widths[nId];
+      }
+      let total = 0;
+      for (const cId of children) {
+        total += subtreeWidth(cId) + H_GAP;
+      }
+      total -= H_GAP;
+      const minWidth = NODE_W + SPOUSE_GAP + NODE_W;
+      widths[nId] = Math.max(total, minWidth);
+      return widths[nId];
+    }
+
+    subtreeWidth(treeRoot);
+
+    // Also build ancestor chain above root (up to 4 generations)
+    const ancestorLayers = [];
+    let currentIds = [treeRoot];
+    for (let i = 0; i < 4; i++) {
+      const parentLayer = [];
+      for (const id of currentIds) {
+        const parents = getParents(id);
+        for (const p of parents) {
+          if (!parentLayer.includes(p)) parentLayer.push(p);
+        }
+      }
+      if (parentLayer.length === 0) break;
+      ancestorLayers.unshift(parentLayer);
+      currentIds = parentLayer;
+    }
+
+    // Position ancestors above
+    const rootY = ancestorLayers.length * (NODE_H + V_GAP);
+    for (let layer = 0; layer < ancestorLayers.length; layer++) {
+      const y = layer * (NODE_H + V_GAP);
+      const ids = ancestorLayers[layer];
+      const totalW = ids.length * (NODE_W + H_GAP) - H_GAP;
+      let startX = -totalW / 2;
+      for (const id of ids) {
+        layoutNodes.push({ id, x: startX, y, isAncestor: true });
+        startX += NODE_W + H_GAP;
+      }
+    }
+
+    // Draw edges between ancestor layers
+    for (let layer = 0; layer < ancestorLayers.length; layer++) {
+      const y = layer * (NODE_H + V_GAP);
+      for (const id of ancestorLayers[layer]) {
+        // Find children in next layer (or root layer)
+        const nextLayer = layer + 1 < ancestorLayers.length ? ancestorLayers[layer + 1] : [treeRoot];
+        const node = nodeMap[id];
+        if (!node) continue;
+        for (const fId of (node.familiesAsSpouse || [])) {
+          const fam = familyMap[fId];
+          if (!fam) continue;
+          for (const cId of fam.children) {
+            if (nextLayer.includes(cId)) {
+              layoutEdges.push({ from: id, to: cId, type: 'parent-child' });
+            }
+          }
+        }
+      }
+    }
+
+    // Position descendants
+    const visitedLayout = new Set();
+    function positionSubtree(nId, x, y) {
+      if (visitedLayout.has(nId)) return;
+      visitedLayout.add(nId);
+
+      // Place main node
+      layoutNodes.push({ id: nId, x, y, isAncestor: false });
+
+      // Place spouse(s) to the right
+      for (const fId of (nodeMap[nId].familiesAsSpouse || [])) {
+        const spouseId = getSpouse(nId, fId);
+        if (spouseId && nodeMap[spouseId] && !visitedLayout.has(spouseId)) {
+          visitedLayout.add(spouseId);
+          layoutNodes.push({ id: spouseId, x: x + NODE_W + SPOUSE_GAP, y, isSpouse: true });
+          layoutEdges.push({ from: nId, to: spouseId, type: 'spouse' });
+        }
+      }
+
+      // Position children
+      if (!expanded.has(nId)) return;
+      const children = getChildren(nId);
+      if (children.length === 0) return;
+
+      let totalW = 0;
+      for (const cId of children) {
+        totalW += (widths[cId] || NODE_W) + H_GAP;
+      }
+      totalW -= H_GAP;
+
+      let childX = x + (widths[nId] || NODE_W) / 2 - totalW / 2;
+      const childY = y + NODE_H + V_GAP;
+
+      for (const cId of children) {
+        const cw = widths[cId] || NODE_W;
+        const cx = childX + cw / 2 - NODE_W / 2;
+        positionSubtree(cId, cx, childY);
+        layoutEdges.push({ from: nId, to: cId, type: 'parent-child' });
+        childX += cw + H_GAP;
+      }
+    }
+
+    positionSubtree(treeRoot, -NODE_W / 2, rootY);
+  }
+
+  function centerOnRoot() {
+    const rootLayout = layoutNodes.find(n => n.id === treeRoot);
+    if (!rootLayout) return;
+    zoom = 0.8;
+    camX = -(rootLayout.x + NODE_W / 2) * zoom + W / 2;
+    camY = -(rootLayout.y + NODE_H / 2) * zoom + H / 2;
+  }
+
+  // ── Drawing ──────────────────────────────────────────────
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    ctx.save();
+    ctx.translate(camX, camY);
+    ctx.scale(zoom, zoom);
+
+    drawEdges();
+    drawNodes();
+
+    ctx.restore();
+  }
+
+  function isNodeVisible(n) {
+    if (activeBranch !== 'all') {
+      const node = nodeMap[n.id];
+      const bg = branchGroup(node && node.branch);
+      if (bg && bg !== activeBranch) return false;
+    }
+    return true;
+  }
+
+  function isNodeHighlighted(n) {
+    if (!activeBadge) return true;
+    const node = nodeMap[n.id];
+    return node && node.badges && node.badges.includes(activeBadge);
+  }
+
+  function drawEdges() {
+    for (const e of layoutEdges) {
+      const fromLayout = layoutNodes.find(n => n.id === e.from);
+      const toLayout = layoutNodes.find(n => n.id === e.to);
+      if (!fromLayout || !toLayout) continue;
+
+      const dimmed = activeBadge && !isNodeHighlighted(fromLayout) && !isNodeHighlighted(toLayout);
+
+      ctx.beginPath();
+      if (e.type === 'spouse') {
+        // Horizontal line between spouses
+        ctx.moveTo(fromLayout.x + NODE_W, fromLayout.y + NODE_H / 2);
+        ctx.lineTo(toLayout.x, toLayout.y + NODE_H / 2);
+        ctx.strokeStyle = dimmed ? 'rgba(212,160,23,0.06)' : 'rgba(212,160,23,0.35)';
+        ctx.lineWidth = 2;
+        ctx.setLineDash([4, 3]);
+      } else {
+        // Parent-child: vertical connector
+        const fx = fromLayout.x + NODE_W / 2;
+        const fy = fromLayout.y + NODE_H;
+        const tx = toLayout.x + NODE_W / 2;
+        const ty = toLayout.y;
+        const midY = fy + (ty - fy) / 2;
+
+        ctx.moveTo(fx, fy);
+        ctx.lineTo(fx, midY);
+        ctx.lineTo(tx, midY);
+        ctx.lineTo(tx, ty);
+        ctx.strokeStyle = dimmed ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.12)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([]);
+      }
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+  }
+
+  function drawNodes() {
+    for (const ln of layoutNodes) {
+      const node = nodeMap[ln.id];
+      if (!node) continue;
+
+      const visible = isNodeVisible(ln);
+      const highlighted = isNodeHighlighted(ln);
+      const dimmed = !visible || (activeBadge && !highlighted);
+      const isHovered = hoveredNode && hoveredNode.id === ln.id;
+      const isSelected = selectedNode && selectedNode.id === ln.id;
+
+      const alpha = dimmed ? 0.1 : 1;
+      const color = branchColor(node.branch);
+
+      // Node background
+      ctx.fillStyle = isHovered || isSelected
+        ? `rgba(30,40,60,${alpha})`
+        : `rgba(20,30,50,${alpha})`;
+      ctx.strokeStyle = isSelected
+        ? `rgba(212,160,23,${alpha})`
+        : `${color}${dimmed ? '1a' : '80'}`;
+      ctx.lineWidth = isSelected ? 2 : 1;
+
+      roundRect(ctx, ln.x, ln.y, NODE_W, NODE_H, 4);
+      ctx.fill();
+      ctx.stroke();
+
+      // Left color accent bar
+      ctx.fillStyle = `${color}${dimmed ? '1a' : 'cc'}`;
+      ctx.fillRect(ln.x, ln.y, 3, NODE_H);
+
+      if (dimmed && !isHovered) continue; // skip text for dimmed nodes
+
+      // Name
+      ctx.fillStyle = `rgba(255,255,255,${alpha * 0.85})`;
+      ctx.font = `${Math.min(11, 11)}px ${getComputedStyle(document.documentElement).getPropertyValue('--serif')}`;
+      const displayName = truncate(node.name, 20);
+      ctx.fillText(displayName, ln.x + 8, ln.y + 18);
+
+      // Dates
+      const dates = formatDates(node);
+      ctx.fillStyle = `rgba(255,255,255,${alpha * 0.35})`;
+      ctx.font = `${9}px ${getComputedStyle(document.documentElement).getPropertyValue('--sans')}`;
+      ctx.fillText(dates, ln.x + 8, ln.y + 32);
+
+      // Badges
+      if (node.badges && node.badges.length > 0) {
+        let bx = ln.x + 8;
+        ctx.font = '11px sans-serif';
+        for (const b of node.badges) {
+          ctx.fillText(BADGE_ICONS[b] || '', bx, ln.y + 47);
+          bx += 16;
+        }
+      }
+
+      // Expand/collapse indicator
+      const children = getChildren(ln.id);
+      if (children.length > 0 && !ln.isSpouse) {
+        const ex = ln.x + NODE_W - 16;
+        const ey = ln.y + NODE_H - 14;
+        ctx.fillStyle = 'rgba(212,160,23,0.5)';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.fillText(expanded.has(ln.id) ? '−' : '+', ex, ey);
+
+        // Child count
+        ctx.fillStyle = 'rgba(255,255,255,0.2)';
+        ctx.font = '8px sans-serif';
+        ctx.fillText(children.length, ln.x + NODE_W - 14, ln.y + 12);
+      }
+
+      // Site profile indicator dot
+      if (node.siteId) {
+        ctx.beginPath();
+        ctx.arc(ln.x + NODE_W - 6, ln.y + 6, 3, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(212,160,23,0.6)';
+        ctx.fill();
+      }
+    }
+  }
+
+  function roundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+  }
+
+  function truncate(str, len) {
+    return str.length > len ? str.substring(0, len - 1) + '\u2026' : str;
+  }
+
+  function formatDates(node) {
+    const b = node.birthYear || '?';
+    const d = node.deathDate ? (node.deathDate.match(/\d{4}/) || ['?'])[0] : '';
+    return d ? `${b} \u2013 ${d}` : `b. ${b}`;
+  }
+
+  // ── Hit detection ────────────────────────────────────────
+
+  function screenToWorld(sx, sy) {
+    return { x: (sx - camX) / zoom, y: (sy - camY) / zoom };
+  }
+
+  function nodeAt(sx, sy) {
+    const { x, y } = screenToWorld(sx, sy);
+    // Search in reverse (top-drawn last)
+    for (let i = layoutNodes.length - 1; i >= 0; i--) {
+      const ln = layoutNodes[i];
+      if (x >= ln.x && x <= ln.x + NODE_W && y >= ln.y && y <= ln.y + NODE_H) {
+        return ln;
+      }
+    }
+    return null;
+  }
+
+  function expandBtnAt(sx, sy) {
+    const { x, y } = screenToWorld(sx, sy);
+    for (let i = layoutNodes.length - 1; i >= 0; i--) {
+      const ln = layoutNodes[i];
+      const btnX = ln.x + NODE_W - 20;
+      const btnY = ln.y + NODE_H - 20;
+      if (x >= btnX && x <= btnX + 20 && y >= btnY && y <= btnY + 20) {
+        const children = getChildren(ln.id);
+        if (children.length > 0) return ln;
+      }
+    }
+    return null;
+  }
+
+  // ── Interaction ──────────────────────────────────────────
+
+  canvas.addEventListener('mousedown', function(e) {
+    dragging = true;
+    dragStartX = e.clientX; dragStartY = e.clientY;
+    dragCamX = camX; dragCamY = camY;
+    canvas.style.cursor = 'grabbing';
+  });
+
+  window.addEventListener('mousemove', function(e) {
+    if (dragging) {
+      camX = dragCamX + (e.clientX - dragStartX);
+      camY = dragCamY + (e.clientY - dragStartY);
+      draw();
+      return;
+    }
+
+    const rect = canvas.getBoundingClientRect();
+    const sx = e.clientX - rect.left;
+    const sy = e.clientY - rect.top;
+    const ln = nodeAt(sx, sy);
+
+    if (ln && nodeMap[ln.id]) {
+      hoveredNode = ln;
+      canvas.style.cursor = 'pointer';
+      showTooltip(e.clientX, e.clientY, nodeMap[ln.id]);
+    } else {
+      if (hoveredNode) { hoveredNode = null; draw(); }
+      canvas.style.cursor = 'grab';
+      hideTooltip();
+    }
+    draw();
+  });
+
+  window.addEventListener('mouseup', function(e) {
+    if (!dragging) return;
+    const moved = Math.abs(e.clientX - dragStartX) + Math.abs(e.clientY - dragStartY);
+    dragging = false;
+    canvas.style.cursor = 'grab';
+
+    if (moved < 5) {
+      // Click
+      const rect = canvas.getBoundingClientRect();
+      const sx = e.clientX - rect.left;
+      const sy = e.clientY - rect.top;
+
+      // Check expand button first
+      const expNode = expandBtnAt(sx, sy);
+      if (expNode) {
+        toggleExpand(expNode.id);
+        return;
+      }
+
+      const ln = nodeAt(sx, sy);
+      if (ln) {
+        selectedNode = ln;
+        showSidebar(nodeMap[ln.id]);
+      } else {
+        selectedNode = null;
+        closeSidebar();
+      }
+      draw();
+    }
+  });
+
+  canvas.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    const mx = e.clientX - rect.left;
+    const my = e.clientY - rect.top;
+
+    const oldZoom = zoom;
+    const factor = e.deltaY < 0 ? 1.12 : 0.89;
+    zoom = Math.min(4, Math.max(0.08, zoom * factor));
+
+    // Zoom toward cursor
+    camX = mx - (mx - camX) * (zoom / oldZoom);
+    camY = my - (my - camY) * (zoom / oldZoom);
+
+    draw();
+  }, { passive: false });
+
+  // Touch support
+  let lastTouchDist = 0;
+  let lastTouchMid = null;
+  canvas.addEventListener('touchstart', function(e) {
+    if (e.touches.length === 1) {
+      dragging = true;
+      dragStartX = e.touches[0].clientX;
+      dragStartY = e.touches[0].clientY;
+      dragCamX = camX; dragCamY = camY;
+    } else if (e.touches.length === 2) {
+      dragging = false;
+      const dx = e.touches[1].clientX - e.touches[0].clientX;
+      const dy = e.touches[1].clientY - e.touches[0].clientY;
+      lastTouchDist = Math.sqrt(dx * dx + dy * dy);
+      lastTouchMid = { x: (e.touches[0].clientX + e.touches[1].clientX) / 2, y: (e.touches[0].clientY + e.touches[1].clientY) / 2 };
+    }
+  }, { passive: true });
+
+  canvas.addEventListener('touchmove', function(e) {
+    e.preventDefault();
+    if (e.touches.length === 1 && dragging) {
+      camX = dragCamX + (e.touches[0].clientX - dragStartX);
+      camY = dragCamY + (e.touches[0].clientY - dragStartY);
+      draw();
+    } else if (e.touches.length === 2) {
+      const dx = e.touches[1].clientX - e.touches[0].clientX;
+      const dy = e.touches[1].clientY - e.touches[0].clientY;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      const mid = { x: (e.touches[0].clientX + e.touches[1].clientX) / 2, y: (e.touches[0].clientY + e.touches[1].clientY) / 2 };
+
+      if (lastTouchDist > 0) {
+        const oldZoom = zoom;
+        zoom = Math.min(4, Math.max(0.08, zoom * (dist / lastTouchDist)));
+        const rect = canvas.getBoundingClientRect();
+        const mx = mid.x - rect.left;
+        const my = mid.y - rect.top;
+        camX = mx - (mx - camX) * (zoom / oldZoom);
+        camY = my - (my - camY) * (zoom / oldZoom);
+      }
+      // Pan
+      if (lastTouchMid) {
+        camX += mid.x - lastTouchMid.x;
+        camY += mid.y - lastTouchMid.y;
+      }
+      lastTouchDist = dist;
+      lastTouchMid = mid;
+      draw();
+    }
+  }, { passive: false });
+
+  canvas.addEventListener('touchend', function() {
+    dragging = false;
+    lastTouchDist = 0;
+    lastTouchMid = null;
+  });
+
+  // ── Tooltip ──────────────────────────────────────────────
+
+  const tooltip = document.getElementById('tooltip');
+  const ttName = document.getElementById('ttName');
+  const ttDates = document.getElementById('ttDates');
+  const ttPlace = document.getElementById('ttPlace');
+  const ttBadges = document.getElementById('ttBadges');
+
+  function showTooltip(mx, my, node) {
+    ttName.textContent = node.name;
+    ttDates.textContent = formatDates(node);
+    ttPlace.textContent = node.birthPlace || '';
+    ttBadges.innerHTML = '';
+    for (const b of (node.badges || [])) {
+      const span = document.createElement('span');
+      span.className = 'tooltip-badge ' + b;
+      span.textContent = (BADGE_ICONS[b] || '') + ' ' + b;
+      ttBadges.appendChild(span);
+    }
+    tooltip.classList.add('visible');
+    const tx = Math.min(mx + 15, W - 290);
+    const ty = Math.min(my + 15, H - 120);
+    tooltip.style.left = tx + 'px';
+    tooltip.style.top = ty + 'px';
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('visible');
+  }
+
+  // ── Sidebar ──────────────────────────────────────────────
+
+  const sidebar = document.getElementById('sidebar');
+  const sidebarContent = document.getElementById('sidebarContent');
+
+  document.getElementById('sidebarClose').addEventListener('click', closeSidebar);
+
+  function closeSidebar() {
+    sidebar.classList.remove('open');
+    selectedNode = null;
+    draw();
+  }
+
+  function showSidebar(node) {
+    sidebar.classList.add('open');
+
+    const dates = formatDates(node);
+    const parents = getParents(node.id);
+    const children = getChildren(node.id);
+    const spouseIds = [];
+    for (const fId of (node.familiesAsSpouse || [])) {
+      const s = getSpouse(node.id, fId);
+      if (s) spouseIds.push(s);
+    }
+
+    let html = `
+      <div class="sidebar-name">${node.name}</div>
+      <div class="sidebar-dates">${dates}</div>
+    `;
+
+    // Badges
+    if (node.badges && node.badges.length > 0) {
+      html += '<div class="sidebar-badges">';
+      for (const b of node.badges) {
+        html += `<span class="tooltip-badge ${b}">${BADGE_ICONS[b] || ''} ${b}</span>`;
+      }
+      html += '</div>';
+    }
+
+    // Birth/death details
+    html += '<div class="sidebar-section"><h4>Details</h4>';
+    if (node.birthDate) html += `<div class="sidebar-item"><strong>Born:</strong> ${node.birthDate}${node.birthPlace ? ', ' + node.birthPlace : ''}</div>`;
+    if (node.deathDate) html += `<div class="sidebar-item"><strong>Died:</strong> ${node.deathDate}${node.deathPlace ? ', ' + node.deathPlace : ''}</div>`;
+    if (node.branch) html += `<div class="sidebar-item"><strong>Branch:</strong> ${node.branch}</div>`;
+    html += '</div>';
+
+    // Family connections
+    if (parents.length > 0 || spouseIds.length > 0 || children.length > 0) {
+      html += '<div class="sidebar-section"><h4>Family</h4>';
+      for (const pId of parents) {
+        const p = nodeMap[pId];
+        if (p) html += `<div class="sidebar-item"><strong>Parent:</strong> <span class="sidebar-person-link" data-id="${pId}">${p.name}</span></div>`;
+      }
+      for (const sId of spouseIds) {
+        const s = nodeMap[sId];
+        if (s) html += `<div class="sidebar-item"><strong>Spouse:</strong> <span class="sidebar-person-link" data-id="${sId}">${s.name}</span></div>`;
+      }
+      for (const cId of children) {
+        const c = nodeMap[cId];
+        if (c) html += `<div class="sidebar-item"><strong>Child:</strong> <span class="sidebar-person-link" data-id="${cId}">${c.name}</span></div>`;
+      }
+      html += '</div>';
+    }
+
+    // View profile link
+    if (node.siteId) {
+      html += `<div class="sidebar-section">
+        <a href="../index.html#/person/${node.siteId}" class="sidebar-link">View Full Profile &rarr;</a>
+      </div>`;
+    }
+
+    // Navigate tree
+    html += `<div class="sidebar-section">
+      <button class="sidebar-link" onclick="window.treeApp.setRoot('${node.id}')">Set as Tree Root</button>
+    </div>`;
+
+    sidebarContent.innerHTML = html;
+
+    // Person link clicks
+    sidebarContent.querySelectorAll('.sidebar-person-link').forEach(el => {
+      el.addEventListener('click', function() {
+        const id = this.dataset.id;
+        if (nodeMap[id]) {
+          selectedNode = layoutNodes.find(n => n.id === id) || null;
+          showSidebar(nodeMap[id]);
+          // Pan to person
+          const ln = layoutNodes.find(n => n.id === id);
+          if (ln) panTo(ln.x + NODE_W / 2, ln.y + NODE_H / 2);
+          draw();
+        }
+      });
+    });
+  }
+
+  function panTo(wx, wy) {
+    camX = -wx * zoom + W / 2;
+    camY = -wy * zoom + H / 2;
+  }
+
+  // ── Search ───────────────────────────────────────────────
+
+  const searchInput = document.getElementById('searchInput');
+  const searchResults = document.getElementById('searchResults');
+  let searchTimeout;
+
+  searchInput.addEventListener('input', function() {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(doSearch, 200);
+  });
+
+  searchInput.addEventListener('focus', function() {
+    if (searchResults.children.length > 0) searchResults.classList.add('open');
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-wrap')) searchResults.classList.remove('open');
+  });
+
+  function doSearch() {
+    const q = searchInput.value.trim().toLowerCase();
+    searchResults.innerHTML = '';
+    if (q.length < 2) { searchResults.classList.remove('open'); return; }
+
+    const matches = data.nodes.filter(n => n.name.toLowerCase().includes(q)).slice(0, 20);
+    for (const m of matches) {
+      const div = document.createElement('div');
+      div.className = 'search-item';
+      div.innerHTML = m.name + `<span class="search-item-dates">${formatDates(m)}</span>`;
+      div.addEventListener('click', function() {
+        searchResults.classList.remove('open');
+        searchInput.value = m.name;
+
+        // Ensure this person is visible: set as root or expand to them
+        setRoot(m.id);
+        expandGenerations(m.id, 2);
+        computeLayout();
+
+        const ln = layoutNodes.find(n => n.id === m.id);
+        if (ln) {
+          panTo(ln.x + NODE_W / 2, ln.y + NODE_H / 2);
+          selectedNode = ln;
+          showSidebar(m);
+        }
+        draw();
+      });
+      searchResults.appendChild(div);
+    }
+    if (matches.length > 0) searchResults.classList.add('open');
+    else searchResults.classList.remove('open');
+  }
+
+  // ── Controls ─────────────────────────────────────────────
+
+  // Branch filters
+  document.querySelectorAll('.branch-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.branch-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      activeBranch = this.dataset.branch;
+      draw();
+    });
+  });
+
+  // Badge filters
+  document.querySelectorAll('.badge-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      if (this.classList.contains('active')) {
+        this.classList.remove('active');
+        activeBadge = null;
+      } else {
+        document.querySelectorAll('.badge-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        activeBadge = this.dataset.badge;
+      }
+      draw();
+    });
+  });
+
+  // Zoom buttons
+  document.getElementById('zoomIn').addEventListener('click', function() {
+    const mx = W / 2, my = H / 2;
+    const oldZoom = zoom;
+    zoom = Math.min(4, zoom * 1.3);
+    camX = mx - (mx - camX) * (zoom / oldZoom);
+    camY = my - (my - camY) * (zoom / oldZoom);
+    draw();
+  });
+
+  document.getElementById('zoomOut').addEventListener('click', function() {
+    const mx = W / 2, my = H / 2;
+    const oldZoom = zoom;
+    zoom = Math.max(0.08, zoom * 0.77);
+    camX = mx - (mx - camX) * (zoom / oldZoom);
+    camY = my - (my - camY) * (zoom / oldZoom);
+    draw();
+  });
+
+  document.getElementById('zoomReset').addEventListener('click', function() {
+    centerOnRoot();
+    draw();
+  });
+
+  // ── Stats ────────────────────────────────────────────────
+
+  function updateStats() {
+    const badge = data.nodes.reduce((acc, n) => { for (const b of n.badges) acc[b] = (acc[b] || 0) + 1; return acc; }, {});
+    const matched = data.nodes.filter(n => n.siteId).length;
+    document.getElementById('stats').textContent =
+      `${data.nodes.length} people \u00b7 ${data.families.length} families \u00b7 ${matched} with profiles \u00b7 ` +
+      `${badge.military || 0} military \u00b7 ${badge.freemason || 0} masons \u00b7 ${badge.dar || 0} DAR \u00b7 ${badge.immigration || 0} immigrants`;
+  }
+
+  // ── Public API (for sidebar buttons) ─────────────────────
+
+  window.treeApp = {
+    setRoot: function(id) {
+      setRoot(id);
+      draw();
+    }
+  };
+
+  // ── Init ─────────────────────────────────────────────────
+
+  window.addEventListener('resize', resize);
+  resize();
+  loadData();
+
+})();
+</script>
+</body>
+</html>

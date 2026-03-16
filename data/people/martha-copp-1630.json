@@ -1,0 +1,74 @@
+{
+  "$schema": "person",
+  "id": "martha-copp-1630",
+  "name": {
+    "first": "Martha",
+    "middle": null,
+    "last": "Copp",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1630",
+    "date_precision": "year",
+    "place": "Greenwich, Kent, England"
+  },
+  "death": {
+    "date": "1729-01-12",
+    "date_precision": "exact",
+    "place": "Amesbury, Essex County, Massachusetts"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1640",
+      "date_precision": "year",
+      "place": "Massachusetts",
+      "census_notes": "Arrived from England at age 10"
+    },
+    {
+      "date": "1650",
+      "date_precision": "year",
+      "place": "Boston, Massachusetts",
+      "census_notes": "First marriage"
+    },
+    {
+      "date": "1659",
+      "date_precision": "year",
+      "place": "Newbury, Essex County, MA",
+      "census_notes": "Second marriage"
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "william-copp-1589",
+    "mother": "anne-rogers-1590"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "england",
+    "immigrant",
+    "greenwich",
+    "boston",
+    "amesbury",
+    "1600s"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    },
+    {
+      "type": "book",
+      "note": "North America, Family Histories, 1500-2000"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born 1630 in Greenwich, Kent, England. Parents: William Copp (1589-1670) and Anne Rogers (1590-1633). Mother died when Martha was 3. Arrived in Massachusetts c. 1640 at age 10. First marriage: William Harvey (1634-1658) c. 1650 in Boston. Children with Harvey: William (1651-1652), Thomas (1652-1716), John (1655-1706), Mary (1657-1658). William Harvey died Aug 15, 1658. Second marriage: Henry Tewksbury on November 10, 1659 in Boston. Children with Tewksbury: Henry (1664-1723), Naomi (1667-1733), Ruth (1668-1737), John (1674-1750). Father William Copp died Feb 27, 1670. Henry Tewksbury died 1697. Lived to see son Thomas Harvey die 1716, son Henry Tewksbury die 1723. Died January 12, 1729 in Amesbury at approximately age 99 — nearly a centenarian in colonial America. Remarkable longevity."
+}

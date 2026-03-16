@@ -1,0 +1,77 @@
+{
+  "$schema": "person",
+  "id": "mary-amelia-sanderson-1933",
+  "name": {
+    "first": "Mary",
+    "middle": "Amelia",
+    "last": "Gemeny",
+    "maiden": "Sanderson",
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1933-02-27",
+    "date_precision": "exact",
+    "place": "Guilford, North Carolina"
+  },
+  "death": {
+    "date": "2016-04-28",
+    "date_precision": "exact",
+    "place": "Solomons Island, Calvert County, MD"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [
+    "Homemaker"
+  ],
+  "residence": [
+    {
+      "date": "1935",
+      "date_precision": "year",
+      "place": "Oxford, Granville County, NC",
+      "census_notes": null
+    },
+    {
+      "date": "1940-04-01",
+      "date_precision": "exact",
+      "place": "Bristol, Virginia",
+      "census_notes": "Marital Status: Single; Relation to Head of House: Daughter"
+    },
+    {
+      "date": "1990",
+      "date_precision": "year",
+      "place": "Dowell, Calvert County, MD",
+      "census_notes": null
+    }
+  ],
+  "generation": 6,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "albert-e-sanderson-1905",
+    "mother": "flora-esther-burgess-1907"
+  },
+  "tags": [
+    "postwar",
+    "modern",
+    "calvert-county",
+    "dowell",
+    "north-carolina"
+  ],
+  "sources": [
+    {
+      "type": "vital-records",
+      "note": "Gemeny descendants database v102"
+    },
+    {
+      "type": "census",
+      "note": "1935 residence record, Oxford NC"
+    },
+    {
+      "type": "census",
+      "note": "1940 US Census, Bristol VA"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Daughter of Albert Evans Sanderson and Flora Esther Burgess. Born in Guilford, NC. Father died when she was 13. Married William Gordon Gemeny on November 7, 1953 in Washington, DC. Three children. Married 62 years. Died April 28, 2016 in Solomons Island, MD at age 83."
+}

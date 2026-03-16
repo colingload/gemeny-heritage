@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "eliza-j-howdershell-1822",
+  "name": {
+    "first": "Eliza",
+    "middle": "J.",
+    "last": "Howdershell",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1822",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1912",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1822",
+      "date_precision": "circa",
+      "place": "Virginia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "john-howdershell-1789",
+    "mother": "rebecca-turner-1790"
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum",
+    "reconstruction"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "3rd great-grandmother. Wife of William Garrison. Lived to 90."
+}

@@ -1,0 +1,78 @@
+{
+  "$schema": "person",
+  "id": "anthony-gemini-1730",
+  "name": {
+    "first": "Anthony",
+    "middle": null,
+    "last": "Gemeny",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Gemini",
+      "Jeminy",
+      "Gemyne",
+      "Antony"
+    ]
+  },
+  "birth": {
+    "date": "1730",
+    "date_precision": "circa",
+    "place": null
+  },
+  "death": {
+    "date": "1776",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [
+    "sailor"
+  ],
+  "residence": [
+    {
+      "date": "1750",
+      "date_precision": "year",
+      "place": "Essex County, Massachusetts",
+      "census_notes": null
+    },
+    {
+      "date": "1756",
+      "date_precision": "year",
+      "place": "Salem, Essex County, MA",
+      "census_notes": "Married here"
+    }
+  ],
+  "generation": 0,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "immigrant",
+    "founding-ancestor",
+    "salem"
+  ],
+  "sources": [
+    {
+      "type": "vital-records",
+      "note": "Vital Records of Salem Marriages, Essex Inst. Pg 545"
+    },
+    {
+      "type": "vital-records",
+      "note": "Vital Records of Salem, Essex Inst."
+    },
+    {
+      "type": "family-history-library",
+      "note": "Family History Library, Salt Lake City, UT, Film # 0761210"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [
+    "research/thomas-gemini-origin.md"
+  ],
+  "notes": "Anthony (Jeminy) Gemeny. The founding ancestor of every Gemeny in America. Born c. 1730, origin unknown — possibly Italian, possibly English via Thomas Gemini of Louvain (see W. Gordon Gemeny's 2002 essay). Recorded in Essex County, MA by 1750. Married Catherine Richards on October 17, 1756 in Salem, MA. Three children: Mary F. (1769, born before Nov 5), John (1769, christened Nov 5 — twins), Martha (1771-1790). Died 1776 at approximately age 46 — the year of American independence. Catherine later married Ebenezer Aborn."
+}

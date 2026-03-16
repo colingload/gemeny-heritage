@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "thomas-h-gordon-1835",
+  "name": {
+    "first": "Thomas",
+    "middle": "H.",
+    "last": "Gordon",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1835",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": null,
+    "date_precision": "unknown",
+    "place": null
+  },
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1835",
+      "date_precision": "circa",
+      "place": "Washington, District of Columbia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "james-gordon-1799",
+    "mother": "maria-mayhue-1810"
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum",
+    "civil-war"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "2nd great-grandfather on the Gordon line. Son of James Gordon and Maria Mayhue."
+}

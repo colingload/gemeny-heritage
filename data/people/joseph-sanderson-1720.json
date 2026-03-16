@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "joseph-sanderson-1720",
+  "name": {
+    "first": "Joseph",
+    "middle": null,
+    "last": "Sanderson",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1720",
+    "date_precision": "year",
+    "place": "Craven County, North Carolina"
+  },
+  "death": {
+    "date": "1774-02-12",
+    "date_precision": "exact",
+    "place": "Craven County, North Carolina"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1720",
+      "date_precision": "year",
+      "place": "Craven County, North Carolina",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born 1720 in Craven County, NC. The earliest known Sanderson ancestor in America. Sons: Thomas Sanderson (1750, Craven County) and Shadrack Sanderson (1755-1802, Craven County). Died February 12, 1774 in Craven County at age 54."
+}

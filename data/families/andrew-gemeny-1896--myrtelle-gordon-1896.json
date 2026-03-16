@@ -1,0 +1,15 @@
+{
+  "$schema": "family",
+  "id": "andrew-gemeny-1896--myrtelle-gordon-1896",
+  "partners": ["andrew-gemeny-1896", "myrtelle-gordon-1896"],
+  "marriage": {
+    "date": null,
+    "date_precision": "unknown",
+    "place": null
+  },
+  "divorce": null,
+  "children": [
+    "william-gordon-gemeny-1930"
+  ],
+  "notes": "Andrew 'Pop' Gemeny and Myrtelle M. Gordon. Parents of William Gordon Gemeny."
+}

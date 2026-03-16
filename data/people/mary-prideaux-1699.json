@@ -1,0 +1,68 @@
+{
+  "$schema": "person",
+  "id": "mary-prideaux-1699",
+  "name": {
+    "first": "Mary",
+    "middle": null,
+    "last": "Prideaux",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1699",
+    "date_precision": "year",
+    "place": "Marblehead, Essex County, Massachusetts"
+  },
+  "death": {
+    "date": "1776",
+    "date_precision": "year",
+    "place": "Danvers, Essex County, Massachusetts"
+  },
+  "burial": {
+    "place": "Puritan burial ground"
+  },
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1699",
+      "date_precision": "year",
+      "place": "Marblehead, Essex County, MA",
+      "census_notes": null
+    },
+    {
+      "date": "1717",
+      "date_precision": "year",
+      "place": "Marblehead, Essex County, MA",
+      "census_notes": "Married here"
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "massachusetts",
+    "puritan",
+    "marblehead",
+    "1600s"
+  ],
+  "sources": [
+    {
+      "type": "marriage-record",
+      "note": "Marriage to Jonathan Tewksbury, Oct 30, 1717, Marblehead MA"
+    },
+    {
+      "type": "burial-record",
+      "note": "Puritan burial"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Naomi Tewksbury's grandmother. Born 1699 in Marblehead, Essex County, MA — one of the earliest known ancestors, born in the 1600s. Puritan. Married Jonathan Tewksbury (1695-) on October 30, 1717 in Marblehead. Son Richard Tewksbury (1729-1775). Son Richard died Nov 12, 1775. Mary died 1776 in Danvers, MA at approximately age 77. Buried in a Puritan burial ground."
+}

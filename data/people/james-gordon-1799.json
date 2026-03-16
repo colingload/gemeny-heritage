@@ -1,0 +1,69 @@
+{
+  "$schema": "person",
+  "id": "james-gordon-1799",
+  "name": {
+    "first": "James",
+    "middle": null,
+    "last": "Gordon",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1789",
+    "date_precision": "year",
+    "place": "Ireland"
+  },
+  "death": {
+    "date": null,
+    "date_precision": "unknown",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1850",
+      "date_precision": "year",
+      "place": "Washington Ward 6, DC",
+      "census_notes": null
+    },
+    {
+      "date": "1860",
+      "date_precision": "year",
+      "place": "Washington Ward 6, DC",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic",
+    "antebellum",
+    "ireland",
+    "immigrant"
+  ],
+  "sources": [
+    {
+      "type": "marriage-record",
+      "note": "DC Marriages, Dec 2, 1830, FamilySearch"
+    },
+    {
+      "type": "census",
+      "note": "1850 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1860 US Census, Washington DC"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "3rd great-grandfather on the Gordon line. Born in Ireland, 1789. Immigrant to America. Married Maria Mayhue on December 2, 1830 in Washington, DC. Four children, all born in Washington DC: Thomas H. (c. 1835), James H. (1837-1869), Elizabeth Ann (1840-1920), George M. (1848-1863). Son George died at 15 in 1863 during the Civil War era. Wife Maria died April 26, 1867. Son James died July 13, 1869. Death date unknown."
+}

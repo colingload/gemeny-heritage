@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "george-m-gordon-1848",
+  "name": {
+    "first": "George",
+    "middle": "M.",
+    "last": "Gordon",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1848",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1863",
+    "date_precision": "year",
+    "place": null
+  },
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1848",
+      "date_precision": "circa",
+      "place": "Washington, District of Columbia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "james-gordon-1799",
+    "mother": "maria-mayhue-1810"
+  },
+  "privacy": "public",
+  "tags": [
+    "civil-war",
+    "reconstruction"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Sibling of Thomas H. Gordon. Died young at age 35."
+}

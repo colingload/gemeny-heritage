@@ -1,0 +1,54 @@
+{
+  "$schema": "person",
+  "id": "thomas-a-mayes-1837",
+  "name": {
+    "first": "Thomas",
+    "middle": "A.",
+    "last": "Mayes",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1837",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1906-06-28",
+    "date_precision": "exact",
+    "place": "District of Columbia"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1906",
+      "date_precision": "year",
+      "place": "District of Columbia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum",
+    "civil-war",
+    "reconstruction"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — from Mary Esther Mayes timeline"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Father of Mary Esther Mayes (1872-1957). Married Rachel Sara DuBois (1839-1890). Rachel died 1890 in Champaign County, Ohio. Thomas died June 28, 1906 in DC."
+}

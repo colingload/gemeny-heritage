@@ -1,0 +1,57 @@
+{
+  "$schema": "person",
+  "id": "mary-e-smith-1885",
+  "name": {
+    "first": "Mary",
+    "middle": "Elizabeth",
+    "last": "Smith",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1885-03",
+    "date_precision": "month",
+    "place": "Baxley, Appling County, Georgia"
+  },
+  "death": {
+    "date": "1917",
+    "date_precision": "year",
+    "place": "Georgia"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1900",
+      "date_precision": "year",
+      "place": "Militia District 1209, Bulloch County, GA",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "james-h-smith-1843",
+    "mother": "mary-ann-hall-1845"
+  },
+  "privacy": "public",
+  "tags": [
+    "turn-of-century",
+    "georgia"
+  ],
+  "sources": [
+    {
+      "type": "census",
+      "note": "1900 US Census, Bulloch County GA"
+    },
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Great-grandmother. Born in Baxley, Appling County, GA. Father: James H. Smith (1843-1913), died in Baxley, GA. Married Thadius Horry Sanderson. Four sons: Horry Lee (1901-1971), Norman P. (1904-), Albert Evans (1905-1946), John Jackson (1908-). Husband Thadius died 1913 in Georgia. Mary Elizabeth died 1917 in Georgia at age 32, leaving her sons orphaned — Albert Evans was just 12."
+}

@@ -1,0 +1,75 @@
+{
+  "$schema": "person",
+  "id": "mary-roberts-1836",
+  "name": {
+    "first": "Mary",
+    "middle": "E.",
+    "last": "Gemeny",
+    "maiden": "Roberts",
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1836",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1937",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1855",
+      "date_precision": "year",
+      "place": "Baltimore, MD",
+      "census_notes": null
+    },
+    {
+      "date": "1861",
+      "date_precision": "year",
+      "place": "Kinsale, Westmoreland County, VA",
+      "census_notes": null
+    },
+    {
+      "date": "1870",
+      "date_precision": "circa",
+      "place": "Junction City, KS",
+      "census_notes": null
+    }
+  ],
+  "generation": 3,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "civil-war",
+    "kinsale",
+    "author"
+  ],
+  "sources": [
+    {
+      "type": "vital-records",
+      "note": "Baltimore MD marriage records"
+    },
+    {
+      "type": "manuscript",
+      "note": "Author of 'A Reminiscence of the War of the Rebellion', 1913"
+    }
+  ],
+  "artifacts": [
+    "photos/mary-gemeny-young.jpg",
+    "photos/mary-gemeny-old.jpg"
+  ],
+  "narratives": [
+    "narratives/civil-war-memoir.md"
+  ],
+  "notes": "Wife of Benjamin Gemeny. Author of 'A Reminiscence of the War of the Rebellion' (1913), a firsthand account of her husband's imprisonment as a Union sympathizer during the Civil War. Lived to be approximately 101 years old."
+}

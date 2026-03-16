@@ -1,0 +1,97 @@
+{
+  "$schema": "person",
+  "id": "elias-l-dubois-1766",
+  "name": {
+    "first": "Elias",
+    "middle": "L.",
+    "last": "DuBois",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "DuBoys"
+    ]
+  },
+  "birth": {
+    "date": "1766-03-30",
+    "date_precision": "exact",
+    "place": "Poughkeepsie, Dutchess County, New York"
+  },
+  "death": {
+    "date": "1842-06-23",
+    "date_precision": "exact",
+    "place": "Poughkeepsie, Dutchess County, New York"
+  },
+  "burial": {
+    "place": "Poughkeepsie, Dutchess County, New York"
+  },
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1790",
+      "date_precision": "year",
+      "place": "Poughkeepsie, Dutchess County, NY",
+      "census_notes": null
+    },
+    {
+      "date": "1810",
+      "date_precision": "year",
+      "place": "Poughkeepsie, Dutchess County, NY",
+      "census_notes": null
+    },
+    {
+      "date": "1820",
+      "date_precision": "year",
+      "place": "Poughkeepsie, Dutchess County, NY",
+      "census_notes": null
+    },
+    {
+      "date": "1830",
+      "date_precision": "year",
+      "place": "Poughkeepsie, Dutchess County, NY",
+      "census_notes": null
+    },
+    {
+      "date": "1840",
+      "date_precision": "year",
+      "place": "Poughkeepsie, Dutchess County, NY",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "louis-dubois-1744",
+    "mother": "allida-van-kleek-1742"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "early-republic",
+    "new-york",
+    "poughkeepsie",
+    "dutch",
+    "dubois"
+  ],
+  "sources": [
+    {
+      "type": "christening",
+      "note": "Baptized May 4, 1766, Poughkeepsie"
+    },
+    {
+      "type": "census",
+      "note": "1790-1840 US Census, Poughkeepsie"
+    },
+    {
+      "type": "burial-record",
+      "note": "Poughkeepsie, Dutchess County, NY"
+    },
+    {
+      "type": "land-records",
+      "note": "Land Assessment, 1766, Dutchess, NY Colony"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born March 30, 1766 in Poughkeepsie, NY. Baptized May 4, 1766. Dutch heritage — DuBois family prominent in Hudson Valley. Father Louis (Lewis) DuBois (1744-1824, Poughkeepsie). Mother Allida Van Kleek (1742-1793, Poughkeepsie — Van Kleek is a prominent Dutch Hudson Valley family). Siblings: Catherine (1768-1772), Johannes (1769-1842), Catherine (1775), Susanna (1775), Simon (1775), James (1778). First marriage: Jacomyntje Van Benschoten on May 10, 1787 in Poughkeepsie (she died 1787). Second marriage: Hannah Hoff (1770-1842) in 1788. Children with Hannah: Rachel (1791), Lewis (1793), Laurence (1794-1873), Jacob (1796-1850), Nathaniel (1798-1844), Elizabeth (1806). Lived his entire life in Poughkeepsie — census records from 1790 through 1840. Father Louis died March 4, 1824. Mother Allida died 1793. Wife Hannah and brother Johannes both died on June 23, 1842 — the same day Elias himself died. Three deaths on the same day. Died June 23, 1842 at age 76. Buried in Poughkeepsie."
+}

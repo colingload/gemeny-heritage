@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "isaac-williams-1722",
+  "name": {
+    "first": "Isaac",
+    "middle": null,
+    "last": "Williams",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1722",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1806",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1722",
+      "date_precision": "circa",
+      "place": "North Carolina",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "matthew-williams-1694",
+    "mother": "abigail-nutman-1698"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "4th great-grandfather Williams line."
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "caspel-h-recker-1820",
+  "name": {
+    "first": "Caspel",
+    "middle": "H.",
+    "last": "Recker",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1820",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": null,
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1820",
+      "date_precision": "circa",
+      "place": "Alexandria, Virginia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "3rd great-grandfather Recker line."
+}

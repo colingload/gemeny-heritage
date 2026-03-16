@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "eva-ferguson-1866",
+  "name": {
+    "first": "Eva",
+    "middle": null,
+    "last": "Ferguson",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1869",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1936-01-04",
+    "date_precision": "exact",
+    "place": null
+  },
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1869",
+      "date_precision": "circa",
+      "place": "Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "reconstruction",
+    "turn-of-century"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Great-grandmother. Wife of Edgar Dean Gemeny. Mother of Andrew 'Pop' Gemeny."
+}

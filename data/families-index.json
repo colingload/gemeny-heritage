@@ -1,0 +1,64 @@
+[
+  {
+    "id": "amelia-gemeny-1965--ted-gload",
+    "partners": [
+      "amelia-gemeny-1965"
+    ],
+    "marriage_year": null,
+    "children_count": 1
+  },
+  {
+    "id": "andrew-gemeny-1896--myrtelle-gordon-1896",
+    "partners": [
+      "andrew-gemeny-1896",
+      "myrtelle-gordon-1896"
+    ],
+    "marriage_year": null,
+    "children_count": 1
+  },
+  {
+    "id": "anthony-gemini-1730--katherine-richards-1730",
+    "partners": [
+      "anthony-gemini-1730",
+      "katherine-richards-1730"
+    ],
+    "marriage_year": "1756",
+    "children_count": 4
+  },
+  {
+    "id": "benjamin-gemeny-1835--mary-roberts-1836",
+    "partners": [
+      "benjamin-gemeny-1835",
+      "mary-roberts-1836"
+    ],
+    "marriage_year": "1855",
+    "children_count": 0
+  },
+  {
+    "id": "john-gemeny-1769--naomi-tewksbury-1770",
+    "partners": [
+      "john-gemeny-1769",
+      "naomi-tewksbury-1770"
+    ],
+    "marriage_year": "1790",
+    "children_count": 1
+  },
+  {
+    "id": "john-gemeny-ii-1791--matilda-figg-1796",
+    "partners": [
+      "john-gemeny-ii-1791",
+      "matilda-figg-1796"
+    ],
+    "marriage_year": "1816",
+    "children_count": 2
+  },
+  {
+    "id": "william-gordon-gemeny-1930--mary-amelia-sanderson-1933",
+    "partners": [
+      "william-gordon-gemeny-1930",
+      "mary-amelia-sanderson-1933"
+    ],
+    "marriage_year": "1953",
+    "children_count": 3
+  }
+]

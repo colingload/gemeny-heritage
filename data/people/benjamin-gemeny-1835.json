@@ -1,0 +1,75 @@
+{
+  "$schema": "person",
+  "id": "benjamin-gemeny-1835",
+  "name": {
+    "first": "Benjamin",
+    "middle": null,
+    "last": "Gemeny",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1835-05-04",
+    "date_precision": "exact",
+    "place": "Washington, DC"
+  },
+  "death": {
+    "date": "1895",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1855",
+      "date_precision": "year",
+      "place": "Baltimore, MD",
+      "census_notes": null
+    },
+    {
+      "date": "1861",
+      "date_precision": "year",
+      "place": "Kinsale, Westmoreland County, VA",
+      "census_notes": null
+    },
+    {
+      "date": "1870",
+      "date_precision": "circa",
+      "place": "Junction City, KS",
+      "census_notes": null
+    }
+  ],
+  "generation": 3,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "john-gemeny-ii-1791",
+    "mother": "matilda-figg-1796"
+  },
+  "privacy": "public",
+  "tags": [
+    "civil-war",
+    "union-sympathizer",
+    "prisoner-of-war",
+    "kinsale"
+  ],
+  "sources": [
+    {
+      "type": "family-bible",
+      "note": "Gemeny Family Bible"
+    },
+    {
+      "type": "vital-records",
+      "note": "Baltimore MD marriage records"
+    }
+  ],
+  "artifacts": [
+    "photos/ben-gemeny-portrait.jpg"
+  ],
+  "narratives": [
+    "narratives/civil-war-memoir.md"
+  ],
+  "notes": "Husband of Mary E. Roberts. Imprisoned as Union spy during Civil War while living in Confederate Virginia. Subject of Mary's 1913 memoir 'A Reminiscence of the War of the Rebellion.' After the war, moved family west to Junction City, Kansas."
+}

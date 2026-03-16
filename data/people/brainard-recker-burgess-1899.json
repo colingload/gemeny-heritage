@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "brainard-recker-burgess-1899",
+  "name": {
+    "first": "Brainard",
+    "middle": "Recker",
+    "last": "Burgess",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1899-08-22",
+    "date_precision": "year",
+    "place": "Washington, DC"
+  },
+  "death": {
+    "date": "1950-03-22",
+    "date_precision": "exact",
+    "place": "Washington, DC"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1899",
+      "date_precision": "year",
+      "place": "Washington, DC",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "eugene-s-burgess-1875",
+    "mother": "amelia-b-recker-1875"
+  },
+  "privacy": "public",
+  "tags": [
+    "turn-of-century",
+    "interwar"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Brother of Flora Esther Burgess. Born Aug 22, 1899 in DC. Died March 22, 1950 in DC."
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "person",
+  "id": "alice-benton-1544",
+  "name": {
+    "first": "Alice",
+    "middle": null,
+    "last": "Benton",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1544-11-14",
+    "date_precision": "exact",
+    "place": "Epping, Essex, England"
+  },
+  "death": {
+    "date": "1605-09-16",
+    "date_precision": "exact",
+    "place": "Epping, Essex, England"
+  },
+  "burial": {
+    "place": "Epping, Epping Forest District, Essex, England"
+  },
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1544",
+      "date_precision": "year",
+      "place": "Epping, Essex, England",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "humphrey-benton-1520",
+    "mother": "joane-graygoose-1520"
+  },
+  "privacy": "public",
+  "tags": [
+    "england",
+    "essex",
+    "epping",
+    "1500s",
+    "tudor-era",
+    "elizabethan"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born November 14, 1544 in Epping, Essex, England. Father: Humphrey Benton Bayntun (1520-1579, died Oct 29, 1579 in Epping). Mother: Joane Graygoose (1520-1579, died Oct 27, 1579 in St Leonard Shoreditch, Middlesex — just 2 days before her husband). Married Francis Rogers of Dartford. Son: Sir Robert Rogers (1565-1639). Francis died 1568, leaving Alice widowed at 24. Died September 16, 1605 in Epping at age 60. Buried in Epping."
+}

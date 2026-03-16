@@ -1,0 +1,58 @@
+{
+  "$schema": "person",
+  "id": "richard-tewksbury-1729",
+  "name": {
+    "first": "Richard",
+    "middle": null,
+    "last": "Tewksbury",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1729",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1775-11-12",
+    "date_precision": "exact",
+    "place": "Manchester, Essex County, Massachusetts"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1775",
+      "date_precision": "year",
+      "place": "Manchester, Essex County, Massachusetts",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "jonathan-tewksbury-1695",
+    "mother": "mary-prideaux-1699"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "massachusetts",
+    "essex-county"
+  ],
+  "sources": [
+    {
+      "type": "marriage-record",
+      "note": "Marriage to Mary Follet, May 4, 1755, Danvers, Essex County MA"
+    },
+    {
+      "type": "vital-records",
+      "note": "Baptized Mar 7, 1729"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Father of Naomi Tewksbury. Baptized March 7, 1729/30. Parents: Jonathan Tewksbury (1695-) and Mary Prideaux (1699-1776). Married Mary Follet on May 4, 1755 in Danvers, Essex County, MA. Children: Susannah (1759-1842), Naomi (1770, born in New Hampshire). Died November 12, 1775 in Manchester, Essex, MA — just months before the Declaration of Independence. Naomi was only 5 when her father died."
+}

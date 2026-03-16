@@ -1,0 +1,102 @@
+{
+  "$schema": "person",
+  "id": "eugene-s-burgess-1875",
+  "name": {
+    "first": "Eugene",
+    "middle": "Speiden",
+    "last": "Burgess",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1875-04-27",
+    "date_precision": "exact",
+    "place": "Virginia"
+  },
+  "death": {
+    "date": "1944-12-16",
+    "date_precision": "exact",
+    "place": "Washington, District of Columbia"
+  },
+  "burial": {
+    "place": "Suitland, Prince George's County, MD"
+  },
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1880",
+      "date_precision": "year",
+      "place": "Alexandria, Virginia",
+      "census_notes": "Marital Status: Single; Relation to Head of House: Son"
+    },
+    {
+      "date": "1910",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Head"
+    },
+    {
+      "date": "1917",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": null
+    },
+    {
+      "date": "1920",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Head"
+    },
+    {
+      "date": "1930",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Head"
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "benjamin-f-burgess-1845",
+    "mother": "lillian-l-garrison-1856"
+  },
+  "privacy": "public",
+  "tags": [
+    "reconstruction",
+    "turn-of-century",
+    "interwar",
+    "virginia",
+    "alexandria"
+  ],
+  "sources": [
+    {
+      "type": "census",
+      "note": "1880 US Census, Alexandria VA"
+    },
+    {
+      "type": "census",
+      "note": "1910 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1920 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1930 US Census, Washington DC"
+    },
+    {
+      "type": "marriage-record",
+      "note": "Marriage to Amelia Bertha Recker, Oct 26, 1898, Alexandria VA"
+    },
+    {
+      "type": "burial-record",
+      "note": "Suitland, Prince George's County, MD"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Great-grandfather on the Burgess line. Born in Virginia. Father Benjamin Franklin Burgess (1845-1894) died Dec 14, 1894 in DC. Brother: Walter N. Burgess (1878-1977). Married Amelia Bertha Recker on October 26, 1898 in Alexandria, VA. Four children: Brainard Recker Burgess (1899-1950), Alton Edwin Burgess (1904-1970), Flora Esther Burgess (1907-1996), Roy Wilson Burgess (1918-2006). Traveled to Key West, FL in Feb 1925. Died December 16, 1944 at age 69 in Washington DC. Buried in Suitland, MD."
+}

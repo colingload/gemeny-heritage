@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "sara-matthysen-1678",
+  "name": {
+    "first": "Sara",
+    "middle": null,
+    "last": "MATTHYSEN",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1678",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1748",
+    "date_precision": "year",
+    "place": "Dutchess County, New York"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1748",
+      "date_precision": "year",
+      "place": "Dutchess County, New York",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "dutch"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of Mattheus DuBois (1679-1748). Married Jan 17, 1697 in Kingston. Mother of Louis M. DuBois and many others. Died 1748 in Dutchess County — same year as her husband."
+}

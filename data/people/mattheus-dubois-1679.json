@@ -1,0 +1,63 @@
+{
+  "$schema": "person",
+  "id": "mattheus-dubois-1679",
+  "name": {
+    "first": "Mattheus",
+    "middle": null,
+    "last": "DUBOIS",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1679-01-13",
+    "date_precision": "exact",
+    "place": "New Hurley, Shawagunk, Ulster County, NY"
+  },
+  "death": {
+    "date": "1748-06-02",
+    "date_precision": "exact",
+    "place": "Poughkeepsie, Dutchess County, NY"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1679",
+      "date_precision": "year",
+      "place": "New Hurley, Shawagunk, Ulster County, NY",
+      "census_notes": null
+    },
+    {
+      "date": "1748",
+      "date_precision": "year",
+      "place": "Poughkeepsie, Dutchess County, NY",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "louis-du-bois-1626",
+    "mother": "catherine-blanchan-1627"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "dutch",
+    "kingston",
+    "new-york",
+    "dubois",
+    "1600s"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born Jan 13, 1679 in New Hurley, Shawagunk, Ulster County, NY. Father Louis Du Bois (1626-1696) — one of the original Huguenot patentees of New Paltz, NY. Mother Catherine Blanchan (1627-1713). Married Sara Matthysen Jan 17, 1697 in Kingston. Father Louis died Jun 23, 1696 in Kingston. Mother Catherine died Oct 18, 1713 in Kingston. 11 children, all born in Kingston. Died June 2, 1748 in Poughkeepsie at age 69."
+}

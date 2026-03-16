@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "samuel-burgess-1706",
+  "name": {
+    "first": "Samuel",
+    "middle": null,
+    "last": "Burgess",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1706",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1746-05-07",
+    "date_precision": "exact",
+    "place": "Charles County, Maryland"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1746",
+      "date_precision": "year",
+      "place": "Charles County, Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "benjamin-burgess-1685",
+    "mother": "ann-unknown-1690"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born 1706. Father Benjamin Burgess (1685-1742) died before Oct 7, 1742 in Port Tobacco, Charles County, MD. Married Elizabeth Gorley (1690-1750) before March 4, 1730/31 in Charles County. Siblings: Eleanor Burgess (1710), John Burgess (1719-1775). Children: Jane (1740), John (1747-1774), Thomas (1743), Elizabeth (1745). Died before May 7, 1746 in Charles County at age 40."
+}

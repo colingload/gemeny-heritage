@@ -1,0 +1,75 @@
+{
+  "$schema": "person",
+  "id": "maria-mayhue-1810",
+  "name": {
+    "first": "Maria",
+    "middle": null,
+    "last": "Mayhue",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Mariah"
+    ]
+  },
+  "birth": {
+    "date": "1810",
+    "date_precision": "circa",
+    "place": "Washington, District of Columbia"
+  },
+  "death": {
+    "date": "1867-04-26",
+    "date_precision": "exact",
+    "place": "Washington, District of Columbia"
+  },
+  "burial": {
+    "place": "Washington, District of Columbia"
+  },
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1850",
+      "date_precision": "year",
+      "place": "Washington Ward 6, DC",
+      "census_notes": null
+    },
+    {
+      "date": "1860",
+      "date_precision": "year",
+      "place": "Washington Ward 6, DC",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum",
+    "civil-war"
+  ],
+  "sources": [
+    {
+      "type": "marriage-record",
+      "note": "DC Marriages, Dec 2, 1830, FamilySearch"
+    },
+    {
+      "type": "census",
+      "note": "1850 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1860 US Census, Washington DC"
+    },
+    {
+      "type": "burial-record",
+      "note": "Washington, DC"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "3rd great-grandmother. Born c. 1810 in Washington DC (from daughter's 1920 census). Married James Gordon on December 2, 1830 in Washington DC. Four children: Thomas H. (c. 1835), James H. (1837-1869), Elizabeth Ann (1840-1920), George M. (1848-1863). Son George died August 11, 1863 at age 15. Died April 26, 1867 in Washington DC. Buried in Washington, DC."
+}

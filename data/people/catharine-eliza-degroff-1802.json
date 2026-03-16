@@ -1,0 +1,49 @@
+{
+  "$schema": "person",
+  "id": "catharine-eliza-degroff-1802",
+  "name": {
+    "first": "Catharine",
+    "middle": "Eliza",
+    "last": "Degroff",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1802",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": null,
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1802",
+      "date_precision": "circa",
+      "place": "New York",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic",
+    "dubois"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of Nathaniel DuBois (1798-1844). Mother of Rachel Sara DuBois (1839-1890). Married 1818."
+}

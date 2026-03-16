@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "amelia-m-recker-schlichting-1857",
+  "name": {
+    "first": "Amelia",
+    "middle": "M. R.",
+    "last": "Schlichting",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1857",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1927-05-06",
+    "date_precision": "exact",
+    "place": "Alexandria, Virginia"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1927",
+      "date_precision": "year",
+      "place": "Alexandria, Virginia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "henry-w-schlichting-1834",
+    "mother": "amelia-m-hoffgraf-1830"
+  },
+  "privacy": "public",
+  "tags": [
+    "reconstruction"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Mother of Amelia Bertha Recker. Died May 6, 1927 in Alexandria."
+}

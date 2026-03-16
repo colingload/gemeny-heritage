@@ -1,0 +1,24 @@
+{
+  "$schema": "person",
+  "id": "aurora-gload-2024",
+  "name": { "first": "Aurora", "middle": null, "last": "Gload", "maiden": null, "suffix": null, "alternate_spellings": [] },
+  "birth": {
+    "date": "2024-07-25",
+    "date_precision": "exact",
+    "place": null
+  },
+  "death": null,
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [],
+  "generation": 9,
+  "lineage_branch": "gload",
+  "parents": { "father": "colin-gload-1989", "mother": null },
+  "privacy": "family",
+  "tags": ["contemporary"],
+  "sources": [],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Daughter of Colin Gload. 9th generation descendant of Anthony Gemini."
+}

@@ -1,0 +1,64 @@
+{
+  "$schema": "person",
+  "id": "elias-dubois-1713",
+  "name": {
+    "first": "Elias",
+    "middle": null,
+    "last": "DUBOIS",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Elijah"
+    ]
+  },
+  "birth": {
+    "date": "1713",
+    "date_precision": "year",
+    "place": "Kingston, Ulster County, New York"
+  },
+  "death": {
+    "date": "1786",
+    "date_precision": "year",
+    "place": "Poughkeepsie, Dutchess County, NY"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1713",
+      "date_precision": "year",
+      "place": "Kingston, Ulster County, New York",
+      "census_notes": null
+    },
+    {
+      "date": "1786",
+      "date_precision": "year",
+      "place": "Poughkeepsie, Dutchess County, NY",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "dutch",
+    "kingston",
+    "new-york",
+    "dubois"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born 1713 in Kingston, Ulster County, NY — one of the oldest Dutch settlements in America. First marriage: Mary Van Voorhees (1716-1772) on June 12, 1739 in Dutchess County. Second marriage: Susanna Vandenburg (1725-1789) in 1758. Son Louis (Lewis) DuBois (1744-1824). Died 1786 in Poughkeepsie at age 73."
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "person",
+  "id": "john-h-gordon-1837",
+  "name": {
+    "first": "James",
+    "middle": "H.",
+    "last": "Gordon",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1837-07-25",
+    "date_precision": "exact",
+    "place": "Washington, District of Columbia"
+  },
+  "death": {
+    "date": "1869-07-13",
+    "date_precision": "exact",
+    "place": "Washington, District of Columbia"
+  },
+  "burial": {
+    "place": "Congressional Cemetery, Washington, DC"
+  },
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1850",
+      "date_precision": "year",
+      "place": "Washington Ward 6, DC",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "james-gordon-1799",
+    "mother": "maria-mayhue-1810"
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum",
+    "civil-war"
+  ],
+  "sources": [
+    {
+      "type": "census",
+      "note": "1850 US Census, Washington DC"
+    },
+    {
+      "type": "marriage-record",
+      "note": "Marriage to Mary Jane Arnold, Mar 15, 1859, Washington DC"
+    },
+    {
+      "type": "probate",
+      "note": "Probate Jul 31, 1869, DC"
+    },
+    {
+      "type": "burial-record",
+      "note": "Congressional Cemetery, Washington DC"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "2nd great-grandfather on the Gordon line. Born in Washington DC. Siblings: Elizabeth Ann Gordon (1840-1920), George M. Gordon (1848-1863, died at 15). Mother Maria Mayhue died April 26, 1867. Married Mary Jane Arnold on March 15, 1859 in Washington DC. Children: Katie E. Gordon (1859-1863), Willie Arnold Gordon (1861-1862), William Wallace Gordon (1866-1926), Mary M. Gordon (1868-). Lost two young children — Katie died at 4 and Willie died at 1. Brother George died Aug 11, 1863. Died July 13, 1869 at age 31 in Washington DC. Buried at Congressional Cemetery. Probate filed July 31, 1869. Mary Jane later remarried George Washington Nokes."
+}

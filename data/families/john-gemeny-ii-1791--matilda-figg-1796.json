@@ -1,0 +1,16 @@
+{
+  "$schema": "family",
+  "id": "john-gemeny-ii-1791--matilda-figg-1796",
+  "partners": ["john-gemeny-ii-1791", "matilda-figg-1796"],
+  "marriage": {
+    "date": "1816-06-23",
+    "date_precision": "exact",
+    "place": "Alexandria, VA"
+  },
+  "divorce": null,
+  "children": [
+    "andrew-gemeny-1828",
+    "benjamin-gemeny-1835"
+  ],
+  "notes": "John Henry Gemeny II and Matilda 'Milly' Figg. Married June 23, 1816 in Alexandria, VA. Known children: Richard Henry (1825-1873), Andrew (1829-1882), Mary Elizabeth (1832-1891), Benjamin (1835-1895), Edgar John (1839-1924), Amelia (1841-1843). Only Andrew and Benjamin are fully seeded — others to be added."
+}

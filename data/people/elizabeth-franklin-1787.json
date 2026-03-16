@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "elizabeth-franklin-1787",
+  "name": {
+    "first": "Elizabeth",
+    "middle": null,
+    "last": "Franklin",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": null,
+    "date_precision": "unknown",
+    "place": null
+  },
+  "death": {
+    "date": "1787",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": null,
+      "date_precision": "circa",
+      "place": "Charles County, Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "robert-franklin-1720",
+    "mother": "priscilla-boucher-1715"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of John Burgess. Death 1787."
+}

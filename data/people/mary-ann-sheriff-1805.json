@@ -1,0 +1,54 @@
+{
+  "$schema": "person",
+  "id": "mary-ann-sheriff-1805",
+  "name": {
+    "first": "Mary Ann",
+    "middle": null,
+    "last": "Sheriff",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1805",
+    "date_precision": "year",
+    "place": "Washington, District of Columbia"
+  },
+  "death": {
+    "date": "1863-08-01",
+    "date_precision": "exact",
+    "place": "Washington, District of Columbia"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1805",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": "mary-parmelia-paine-1769"
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic",
+    "antebellum",
+    "civil-war"
+  ],
+  "sources": [
+    {
+      "type": "marriage-record",
+      "note": "Maryland Compiled Marriages, Nov 9, 1826, Prince George's MD"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "3rd great-grandmother. Born in Washington DC, 1805. Mother: Mary Parmelia Paine (1769-1860, died in Alexandria, VA). Half-brother: John Brannon (1817-1901, born in Albemarle, VA). Married Samuel Arnold on November 9, 1826 in Prince George's County, MD. Daughter: Mary Jane Arnold (1836-1909). Husband Samuel died 1855 in Washington DC. Died August 1, 1863 in Washington DC, during the Civil War."
+}

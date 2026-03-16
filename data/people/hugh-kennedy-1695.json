@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "hugh-kennedy-1695",
+  "name": {
+    "first": "Hugh",
+    "middle": null,
+    "last": "Kennedy",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1695",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1768",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1695",
+      "date_precision": "circa",
+      "place": "Duplin County, North Carolina",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "5th great-grandfather Kennedy line."
+}

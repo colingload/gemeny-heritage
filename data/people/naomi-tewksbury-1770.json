@@ -1,0 +1,76 @@
+{
+  "$schema": "person",
+  "id": "naomi-tewksbury-1770",
+  "name": {
+    "first": "Naomi",
+    "middle": null,
+    "last": "Tewksbury",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1770",
+    "date_precision": "year",
+    "place": "New Hampshire"
+  },
+  "death": {
+    "date": null,
+    "date_precision": "unknown",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [
+    "rooming house operator"
+  ],
+  "residence": [
+    {
+      "date": "1790",
+      "date_precision": "year",
+      "place": "Salem, Essex County, MA",
+      "census_notes": "Married here"
+    },
+    {
+      "date": "1800",
+      "date_precision": "circa",
+      "place": "Philadelphia, PA",
+      "census_notes": "Resided before 1802"
+    },
+    {
+      "date": "1810",
+      "date_precision": "circa",
+      "place": "Baltimore, MD",
+      "census_notes": "Believed to have operated a rooming house"
+    }
+  ],
+  "generation": 1,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "richard-tewksbury-1729",
+    "mother": "mary-follet-1727"
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic",
+    "salem",
+    "philadelphia",
+    "baltimore",
+    "new-hampshire"
+  ],
+  "sources": [
+    {
+      "type": "vital-records",
+      "note": "Salem marriage records, July 24, 1790"
+    },
+    {
+      "type": "family-search",
+      "note": "FamilySearch LLHF-6MX"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [
+    "narratives/pleasant-view-and-quilt.md"
+  ],
+  "notes": "Wife of John 'The Sea Captain' Gemeny. Born 1770 in New Hampshire. Father: Richard Tewksbury (1729-1775, died Nov 12, 1775 in Manchester, Essex, MA). Mother: Mary Follet (1727-1820, died Nov 22, 1820 in Salem, MA). Sister: Susannah Tewksbury (1759-1842). Married John Gemeny on July 24, 1790 in Salem, MA. Three children: John Henry (1791), Elizabeth Tewksbury (1794), Anthony Richard (1800, born in PA). Resided in Philadelphia before 1802. Husband John lost at sea c. 1804. Credited with changing the family surname spelling from Gemini/Jemminy to Gemeny. Settled in Baltimore where she is believed to have operated a rooming house. Outlived her husband by decades — saw son John Henry die 1850, son Anthony Richard die March 29, 1852 in Philadelphia, daughter Elizabeth die Aug 26, 1870. Death date unknown — if she lived to 100 like Mary Esther Mayes suggests the Tewksbury longevity, she could have died c. 1870."
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "person",
+  "id": "andrew-gemeny-1896",
+  "name": {
+    "first": "Andrew",
+    "middle": null,
+    "last": "Gemeny",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1896-11-16",
+    "date_precision": "exact",
+    "place": "St. Michaels, Maryland"
+  },
+  "death": {
+    "date": "1989-03-30",
+    "date_precision": "exact",
+    "place": "Brandywine, Prince Georges County, MD"
+  },
+  "burial": {
+    "place": "Suitland, Prince George's County, MD"
+  },
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1900",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Single; Relation to Head of House: Son"
+    },
+    {
+      "date": "1910",
+      "date_precision": "year",
+      "place": "Brandywine, Prince George's County, MD",
+      "census_notes": "Marital Status: Single; Relation to Head of House: Son"
+    },
+    {
+      "date": "1930",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Son-In-Law"
+    },
+    {
+      "date": "1933",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": null
+    },
+    {
+      "date": "1935",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": null
+    },
+    {
+      "date": "1940",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Head"
+    },
+    {
+      "date": "1960",
+      "date_precision": "circa",
+      "place": "Gemeny Farm, Prince George's County, MD",
+      "census_notes": null
+    }
+  ],
+  "generation": 5,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "edgar-dean-gemeny-1865",
+    "mother": "eva-ferguson-1866"
+  },
+  "privacy": "public",
+  "tags": [
+    "interwar",
+    "postwar",
+    "modern",
+    "oral-history",
+    "st-michaels",
+    "brandywine"
+  ],
+  "sources": [
+    {
+      "type": "vital-records",
+      "note": "Birth record, St. Michaels MD"
+    },
+    {
+      "type": "census",
+      "note": "1900 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1910 US Census, Brandywine, Prince George's MD"
+    },
+    {
+      "type": "census",
+      "note": "1930 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1940 US Census, Washington DC"
+    },
+    {
+      "type": "marriage-record",
+      "note": "Marriage to Myrtelle M. Gordon, May 18, 1929, Episcopal Church, New York"
+    },
+    {
+      "type": "marriage-record",
+      "note": "Marriage to Lucy Belle Pittman, Oct 2, 1967, Culpeper, VA"
+    },
+    {
+      "type": "oral-history",
+      "note": "Andrew Gemeny's recorded recollections, 1974-1980"
+    },
+    {
+      "type": "burial-record",
+      "note": "Suitland, Prince George's County, MD"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Andrew 'Pop' Gemeny. Born in St. Michaels, MD. Married Myrtelle M. Gordon on May 18, 1929 at an Episcopal Church in New York. One son: William Gordon Gemeny. After Myrtelle's death in 1967, married Lucy Belle Pittman on October 2, 1967 in Culpeper, VA. Recorded oral histories from 1974-1980, digitized by Steven Gemeny in 2007-2008. Lived at Gemeny Farm in Prince George's County. Siblings: Esther L. (1894-1967), Edgar Denny (1899-1988), Eva (1903-1974), Ferguson (1909-2009), Ruth (1910-1910). Died March 30, 1989 at age 92. Buried in Suitland, MD."
+}

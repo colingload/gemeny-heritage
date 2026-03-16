@@ -1,0 +1,17 @@
+{
+  "$schema": "family",
+  "id": "william-gordon-gemeny-1930--mary-amelia-sanderson-1933",
+  "partners": ["william-gordon-gemeny-1930", "mary-amelia-sanderson-1933"],
+  "marriage": {
+    "date": "1953-11-07",
+    "date_precision": "exact",
+    "place": "Washington, District of Columbia"
+  },
+  "divorce": null,
+  "children": [
+    "steven-gemeny-1955",
+    "michael-gemeny-1958",
+    "amelia-gemeny-1965"
+  ],
+  "notes": "Married 62 years until Mary's death in 2016."
+}

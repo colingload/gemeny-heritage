@@ -1,0 +1,61 @@
+{
+  "$schema": "person",
+  "id": "john-copp-1516",
+  "name": {
+    "first": "John",
+    "middle": null,
+    "last": "Copp",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1516",
+    "date_precision": "year",
+    "place": "Warwickshire, England"
+  },
+  "death": {
+    "date": "1565",
+    "date_precision": "year",
+    "place": "Hatton, Warwickshire, England"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1516",
+      "date_precision": "year",
+      "place": "Warwickshire, England",
+      "census_notes": null
+    },
+    {
+      "date": "1565",
+      "date_precision": "year",
+      "place": "Hatton, Warwickshire, England",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": "alyce-merymoth-1520"
+  },
+  "privacy": "public",
+  "tags": [
+    "england",
+    "warwickshire",
+    "1500s",
+    "tudor-era"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born 1516 in Warwickshire, England — during the reign of Henry VIII, one year before Martin Luther's 95 Theses. Mother: Alyce Merymoth (1520, Warwickshire). Married Alyce Merymoth. Resided in Bromley, Middlesex. Father of Thomas Copp (1539-1628). Died 1565 in Hatton, Warwickshire at age 49. His great-grandson William Copp emigrated to colonial Massachusetts in 1641."
+}

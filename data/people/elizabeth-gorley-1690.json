@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "elizabeth-gorley-1690",
+  "name": {
+    "first": "Elizabeth",
+    "middle": null,
+    "last": "Gorley",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1690",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1750-01-19",
+    "date_precision": "exact",
+    "place": "Charles County, Maryland"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1750",
+      "date_precision": "year",
+      "place": "Charles County, Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "thomas-gorley-1686",
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of Samuel Burgess (1706-1746). Married before March 4, 1730/31 in Charles County, MD. Father Thomas Gorley (1686-1720). Husband Samuel died 1746. Died before Jan 19, 1750 in Charles County."
+}

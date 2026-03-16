@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "thomas-l-burgess-1773",
+  "name": {
+    "first": "Thomas",
+    "middle": "L.",
+    "last": "Burgess",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1773-08-22",
+    "date_precision": "exact",
+    "place": "Charles County, Maryland"
+  },
+  "death": {
+    "date": "1824-04-13",
+    "date_precision": "exact",
+    "place": "Charles County, Maryland"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1773",
+      "date_precision": "year",
+      "place": "Charles County, Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "john-burgess-1747",
+    "mother": "elizabeth-franklin-1787"
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born Aug 22, 1773 in Charles County, MD. Father John Burgess (1747-1774) died before Aug 16, 1774 when Thomas was about 1. Mother Elizabeth Franklin died Oct 16, 1787 when Thomas was 14. Married Teresa Tyre Jun 21, 1795 in Charles County. Sons: Thomas Alexander (1795-1861), Robert L. (1805), Francis Boucher Franklin (1810-1865). Died Apr 13, 1824 in Charles County at age 50."
+}

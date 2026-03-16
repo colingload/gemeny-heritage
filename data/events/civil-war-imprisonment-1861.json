@@ -1,0 +1,16 @@
+{
+  "$schema": "event",
+  "id": "civil-war-imprisonment-1861",
+  "title": "Benjamin Gemeny imprisoned as Union spy",
+  "date_start": "1861",
+  "date_end": "1863",
+  "date_precision": "year",
+  "era": "civil-war",
+  "category": "military",
+  "description": "Benjamin Gemeny, a Union sympathizer living in Confederate Virginia, was captured and imprisoned for nearly two years. His wife Mary spent 18 months campaigning for his release. She would later write 'A Reminiscence of the War of the Rebellion' about the experience.",
+  "people": ["benjamin-gemeny-1835", "mary-roberts-1836"],
+  "location": "Westmoreland County, VA",
+  "artifacts": [],
+  "narratives": ["narratives/civil-war-memoir.md"],
+  "tags": ["civil-war", "imprisonment", "kinsale", "union-sympathizer"]
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "person",
+  "id": "anne-rogers-1590",
+  "name": {
+    "first": "Anne",
+    "middle": null,
+    "last": "Rogers",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1590",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1633",
+    "date_precision": "year",
+    "place": "Hatton, Warwickshire, England"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1633",
+      "date_precision": "year",
+      "place": "Hatton, Warwickshire, England",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "england",
+    "warwickshire",
+    "1500s"
+  ],
+  "sources": [
+    {
+      "type": "marriage-record",
+      "note": "Marriage to William Copp, Nov 24, 1614, Hatton, Warwickshire"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Mother of Martha Copp (1630-1729). Married William Copp on November 24, 1614 in Hatton, Warwickshire, England. Died 1633 in Hatton when Martha was only 3 years old."
+}

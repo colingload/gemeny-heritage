@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "isaac-lebbaus-sanderson-1874",
+  "name": {
+    "first": "Isaac",
+    "middle": "Lebbaus",
+    "last": "Sanderson",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1874-06-08",
+    "date_precision": "exact",
+    "place": "Duplin County, NC"
+  },
+  "death": {
+    "date": "1949",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1874",
+      "date_precision": "year",
+      "place": "Duplin County, NC",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "isaac-sanderson-1831",
+    "mother": "sylvia-kennedy-1830"
+  },
+  "privacy": "public",
+  "tags": [
+    "reconstruction",
+    "north-carolina"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Son of Isaac and Sylvia. Named after his father."
+}

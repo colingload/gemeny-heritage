@@ -1,0 +1,56 @@
+{
+  "$schema": "person",
+  "id": "sylvia-kennedy-1830",
+  "name": {
+    "first": "Sylvia",
+    "middle": "A.",
+    "last": "Kennedy",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1830-06",
+    "date_precision": "month",
+    "place": "Duplin County, North Carolina"
+  },
+  "death": {
+    "date": "1913-03",
+    "date_precision": "month",
+    "place": "Duplin County, North Carolina"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1830",
+      "date_precision": "year",
+      "place": "Duplin County, North Carolina",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "john-kennedy-1776",
+    "mother": "mary-williams-1793"
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum",
+    "civil-war",
+    "reconstruction",
+    "north-carolina",
+    "duplin-county"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "2nd great-grandmother on the Sanderson line. Born in Duplin County, NC. Father John Kennedy (1776-1862) died May 14, 1862 in Beulaville, Duplin County. Mother Mary Williams (1793-1870) died April 1, 1870 in Duplin County. Married Isaac Sanderson in 1857 in Duplin County. Eight children, all born in Duplin County: William Albert (1859), Orpah (1860), Thadius Horry (1866), Leana (1868), Martha Ann (1870), Isaac Lebbaus (1874), Mary Elizabeth (1877). Also raised Ivy Sanderson (1848). Husband Isaac died August 5, 1912. Sylvia died March 1913 in Duplin County at age 82, just months after her husband."
+}

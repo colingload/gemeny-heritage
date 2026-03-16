@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "susanna-vandenburg-1725",
+  "name": {
+    "first": "Susanna",
+    "middle": null,
+    "last": "Vandenburg",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1725",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1789-09-16",
+    "date_precision": "exact",
+    "place": "New York"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1789",
+      "date_precision": "year",
+      "place": "New York",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "dutch"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Second wife of Elias (Elijah) DuBois. Married 1758. Died September 16, 1789 in New York."
+}

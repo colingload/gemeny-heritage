@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "benjamin-burgess-1773",
+  "name": {
+    "first": "Benjamin",
+    "middle": null,
+    "last": "BURGESS",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1773",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1844",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1773",
+      "date_precision": "circa",
+      "place": "Charles County, Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "4th great-grandfather. Another Burgess branch."
+}

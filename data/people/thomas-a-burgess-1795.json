@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "thomas-a-burgess-1795",
+  "name": {
+    "first": "Thomas",
+    "middle": "Alexander",
+    "last": "Burgess",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1795-10-15",
+    "date_precision": "exact",
+    "place": "Charles County, Maryland"
+  },
+  "death": {
+    "date": "1861-10-11",
+    "date_precision": "exact",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1850",
+      "date_precision": "year",
+      "place": "Hill Top, Charles County, MD",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "thomas-l-burgess-1773",
+    "mother": "teresa-tyre-1777"
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic",
+    "antebellum"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Thomas Alexander Burgess. Born Oct 15, 1795 in Charles County, MD. Father Thomas L. Burgess (1773-1824) died when Thomas Alexander was 28. Mother Teresa Tyre died 1860 at age 83. Married Alethia Caroline Burgess on Feb 4, 1830. Lived at Hill Top, Charles County. Children: Sarah (1835), Louisa (1839), Artances (1841), Benjamin Franklin (1845-1894). Brothers: Robert L. Burgess (1805), Francis Boucher Franklin Burgess (1810-1865). Wife Alethia died Jun 23, 1861. Thomas died Oct 11, 1861 — just 4 months after his wife. Son Benjamin was 16."
+}

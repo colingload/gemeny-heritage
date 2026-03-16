@@ -1,0 +1,65 @@
+{
+  "$schema": "person",
+  "id": "thadius-h-sanderson-1866",
+  "name": {
+    "first": "Thadius",
+    "middle": "Horry",
+    "last": "Sanderson",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1866-05-18",
+    "date_precision": "exact",
+    "place": "Duplin County, North Carolina"
+  },
+  "death": {
+    "date": "1913",
+    "date_precision": "year",
+    "place": "Georgia"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1866",
+      "date_precision": "year",
+      "place": "Duplin County, North Carolina",
+      "census_notes": null
+    },
+    {
+      "date": "1913",
+      "date_precision": "year",
+      "place": "Georgia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "isaac-sanderson-1831",
+    "mother": "sylvia-kennedy-1830"
+  },
+  "privacy": "public",
+  "tags": [
+    "reconstruction",
+    "turn-of-century",
+    "north-carolina",
+    "georgia"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    },
+    {
+      "type": "vital-records",
+      "note": "Birth record, Duplin County NC"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Great-grandfather on the Sanderson line. Born in Duplin County, NC. Son of Isaac Sanderson (1831-1912) and Sylvia A. Kennedy (1830-1913). Father Isaac died August 5, 1912 in Duplin County, NC. Siblings: Leana (1868-), Martha Ann (1870-1952), Isaac Lebbaus (1874-1949), Mary Elizabeth (1877-1947). Also had older siblings Ivy (1848-), William A. (1859-1945), Orpah (1860-1940). Married Mary Elizabeth Smith. Four sons: Horry Lee (1901-1971), Norman P. (1904-), Albert Evans (1905-1946), John Jackson (1908-). Died 1913 in Georgia at age 47."
+}

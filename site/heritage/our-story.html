@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Heritage — Aurora &amp; Brody Gload</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:#f7f4ef;--warm:#f0ebe3;--dark:#1e1810;--text:#2a2017;--text-mid:#6d5f4e;
+      --text-light:#9a8d7c;--gold:#b8860b;--gold-hover:#d4a017;--border:#ddd5c8;
+      --border-light:#e8e2d8;--card:#fffefb;--navy:#0f1a2e;
+      --serif:'Cormorant Garamond','Georgia',serif;--sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--sans);background:var(--cream);color:var(--text);font-size:15px;line-height:1.65}
+    a{color:var(--gold);text-decoration:none}
+
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:100;background:rgba(247,244,239,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0.9rem 2rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-brand{font-family:var(--serif);font-size:1.5rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--text)}
+    .nav-back{font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-mid)}
+
+    /* Hero */
+    .hero{background:var(--navy);color:var(--cream);text-align:center;padding:5rem 2rem 4rem;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(184,134,11,0.06) 0%,transparent 60%)}
+    .hero-pre{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;opacity:0.35;margin-bottom:1.5rem;position:relative}
+    .hero h1{font-family:var(--serif);font-size:3.2rem;font-weight:300;letter-spacing:0.08em;line-height:1.2;position:relative;color:var(--cream)}
+    .hero-line{width:50px;height:1px;background:var(--gold);margin:1.5rem auto;opacity:0.5;position:relative}
+    .hero-sub{font-family:var(--serif);font-size:1.1rem;font-weight:300;opacity:0.55;line-height:1.8;position:relative;max-width:550px;margin:0 auto}
+
+    /* Stats bar */
+    .stats{display:flex;justify-content:center;gap:3rem;padding:2.5rem 2rem;background:var(--dark);color:var(--cream);flex-wrap:wrap}
+    .stat{text-align:center}
+    .stat-num{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:var(--gold);display:block}
+    .stat-label{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.4;margin-top:0.2rem}
+
+    /* Intro */
+    .intro{max-width:680px;margin:0 auto;padding:3rem 2rem;text-align:center}
+    .intro p{font-family:var(--serif);font-size:1.1rem;line-height:2;color:var(--text-mid);font-weight:300}
+    .intro strong{font-weight:500;color:var(--text)}
+
+    /* Generation sections */
+    .gen{max-width:800px;margin:0 auto;padding:0 2rem 4rem}
+    .gen-header{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.5rem;border-bottom:1px solid var(--border-light);padding-bottom:0.8rem}
+    .gen-num{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--gold);min-width:60px}
+    .gen-title{font-family:var(--serif);font-size:1.3rem;font-weight:400}
+    .gen-era{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-left:auto}
+    .gen-people{display:flex;gap:1px;background:var(--border-light);border:1px solid var(--border-light);margin-bottom:1.5rem}
+    .gen-person{flex:1;background:var(--card);padding:1.2rem;min-width:200px}
+    .gen-person-name{font-family:var(--serif);font-size:1.05rem;font-weight:500;margin-bottom:0.15rem}
+    .gen-person-dates{font-size:0.8rem;color:var(--text-light)}
+    .gen-person-place{font-size:0.78rem;color:var(--text-light);font-style:italic;margin-top:0.2rem}
+    .gen-story{font-family:var(--serif);font-size:1rem;line-height:1.9;color:var(--text-mid);font-weight:300}
+    .gen-story strong{font-weight:500;color:var(--text)}
+    .gen-fact{display:flex;align-items:flex-start;gap:0.8rem;margin:1rem 0;padding:0.8rem 1rem;background:var(--warm);font-size:0.88rem;line-height:1.6}
+    .gen-fact-icon{font-size:1.1rem;flex-shrink:0;margin-top:0.1rem}
+    .gen-milestone{border-left:3px solid var(--gold);padding:0.8rem 1.2rem;margin:1.2rem 0;background:var(--card)}
+    .gen-milestone-label{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+    .gen-milestone p{font-size:0.9rem;line-height:1.6;color:var(--text-mid)}
+
+    /* Deep roots (English ancestors) */
+    .deep-roots{background:var(--navy);color:var(--cream);padding:4rem 2rem}
+    .deep-roots-inner{max-width:800px;margin:0 auto}
+    .deep-roots h2{font-family:var(--serif);font-size:1.8rem;font-weight:300;text-align:center;margin-bottom:0.5rem;color:var(--cream)}
+    .deep-roots-sub{text-align:center;font-size:0.85rem;opacity:0.4;margin-bottom:2.5rem}
+    .deep-person{display:flex;gap:1.5rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.06);align-items:baseline}
+    .deep-person:last-child{border-bottom:none}
+    .deep-year{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--gold);min-width:50px;text-align:right;flex-shrink:0}
+    .deep-name{font-family:var(--serif);font-size:1rem;color:rgba(255,255,255,0.8)}
+    .deep-detail{font-size:0.8rem;color:rgba(255,255,255,0.35);margin-top:0.15rem}
+
+    /* You Are Here */
+    .you-section{background:var(--dark);color:var(--cream);padding:4rem 2rem;text-align:center}
+    .you-section h2{font-family:var(--serif);font-size:2rem;font-weight:300;margin-bottom:1rem;color:var(--gold)}
+    .you-section p{font-family:var(--serif);font-size:1.1rem;line-height:1.9;opacity:0.6;max-width:600px;margin:0 auto}
+
+    /* Footer */
+    .footer{border-top:1px solid var(--border-light);padding:2rem;text-align:center;color:var(--text-light);font-size:0.78rem;margin-top:0}
+
+    @media(max-width:600px){
+      .hero h1{font-size:2.2rem}
+      .stats{gap:1.5rem}
+      .stat-num{font-size:1.6rem}
+      .gen-people{flex-direction:column}
+      .gen-header{flex-wrap:wrap}
+      .deep-person{flex-direction:column;gap:0.3rem}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Gemeny</a>
+      <a href="../index.html" class="nav-back">&larr; Home</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <p class="hero-pre">For Aurora &amp; Brody</p>
+    <h1>Where You<br>Come From</h1>
+    <div class="hero-line"></div>
+    <p class="hero-sub">Your family story stretches back over 500 years &mdash; from Tudor England to colonial Salem to the Civil War and right to you.</p>
+  </section>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-num">9</span><span class="stat-label">Your Generation</span></div>
+    <div class="stat"><span class="stat-num">520+</span><span class="stat-label">Years Documented</span></div>
+    <div class="stat"><span class="stat-num">62</span><span class="stat-label">Ancestors Found</span></div>
+    <div class="stat"><span class="stat-num">3</span><span class="stat-label">Countries</span></div>
+    <div class="stat"><span class="stat-num">2</span><span class="stat-label">Knights</span></div>
+  </div>
+
+  <section class="intro">
+    <p>This is the story of <strong>your</strong> family. Every name here is someone you descend from &mdash; people who lived, loved, lost, crossed oceans, fought in wars, built homes, and made the choices that eventually led to you.</p>
+  </section>
+
+  <!-- Generation 9: Aurora & Brody -->
+  <section class="gen">
+    <div class="gen-header">
+      <span class="gen-num">Gen 9</span>
+      <span class="gen-title">You</span>
+      <span class="gen-era">Today</span>
+    </div>
+    <div class="gen-people">
+      <div class="gen-person">
+        <div class="gen-person-name">Brody Gload</div>
+        <div class="gen-person-dates">Born July 9, 2020</div>
+      </div>
+      <div class="gen-person">
+        <div class="gen-person-name">Aurora Gload</div>
+        <div class="gen-person-dates">Born July 25, 2024</div>
+      </div>
+    </div>
+    <p class="gen-story">You are the 9th generation of the Gemeny family in America &mdash; and your roots go even further, all the way back to 1500s England.</p>
+  </section>
+
+  <!-- Generation 8: Colin -->
+  <section class="gen">
+    <div class="gen-header">
+      <span class="gen-num">Gen 8</span>
+      <span class="gen-title">Your Dad</span>
+      <span class="gen-era">1989 &ndash; Present</span>
+    </div>
+    <div class="gen-people">
+      <div class="gen-person">
+        <div class="gen-person-name">Colin Frederick Gload</div>
+        <div class="gen-person-dates">Born May 24, 1989 &middot; Rapid City, South Dakota</div>
+        <div class="gen-person-place">Lives in Fallston, Maryland</div>
+      </div>
+    </div>
+    <p class="gen-story">Your dad is the one building this site &mdash; to make sure you always know where you come from.</p>
+  </section>
+
+  <!-- Generation 7: Amelia -->
+  <section class="gen">
+    <div class="gen-header">
+      <span class="gen-num">Gen 7</span>
+      <span class="gen-title">Your Grandmother</span>
+      <span class="gen-era">1965 &ndash; Present</span>
+    </div>
+    <div class="gen-people">
+      <div class="gen-person">
+        <div class="gen-person-name">Amelia Gordon Gemeny</div>
+        <div class="gen-person-dates">Born 1965</div>
+        <div class="gen-person-place">Daughter of William Gordon Gemeny &amp; Mary Amelia Sanderson</div>
+      </div>
+    </div>
+    <p class="gen-story">Your grandmother Amelia connects you to the Gemeny name. Her brothers Steven (who created the original family website) and Michael carry the name forward.</p>
+  </section>
+
+  <!-- Generation 6: W. Gordon & Mary Amelia -->
+  <section class="gen">
+    <div class="gen-header">
+      <span class="gen-num">Gen 6</span>
+      <span class="gen-title">Your Great-Grandparents</span>
+      <span class="gen-era">1930 &ndash; 2017</span>
+    </div>
+    <div class="gen-people">
+      <div class="gen-person">
+        <div class="gen-person-name">William Gordon Gemeny</div>
+        <div class="gen-person-dates">Jan 5, 1930 &ndash; Nov 22, 2017</div>
+        <div class="gen-person-place">Washington, DC &rarr; Dowell, Maryland</div>
+      </div>
+      <div class="gen-person">
+        <div class="gen-person-name">Mary Amelia Sanderson</div>
+        <div class="gen-person-dates">Feb 27, 1933 &ndash; Apr 28, 2016</div>
+        <div class="gen-person-place">Guilford, NC &rarr; Solomons Island, MD</div>
+      </div>
+    </div>
+    <p class="gen-story">Gordon and Mary Amelia married on November 7, 1953 in Washington, DC. They were married for <strong>62 years</strong>. Gordon worked in insurance and wrote a research essay tracing the family&rsquo;s possible origins to a 1540s engraver in England.</p>
+    <div class="gen-fact"><span class="gen-fact-icon">&#128220;</span> Gordon&rsquo;s 2002 essay on Thomas Gemini of Louvain opened the possibility that the family came from England, not Italy.</div>
+    <div class="gen-fact"><span class="gen-fact-icon">&#128148;</span> Mary Amelia&rsquo;s father died when she was just 13 years old.</div>
+  </section>
+
+  <!-- Generation 5: Pop & Myrtelle -->
+  <section class="gen">
+    <div class="gen-header">
+      <span class="gen-num">Gen 5</span>
+      <span class="gen-title">Your 2x Great-Grandparents</span>
+      <span class="gen-era">1896 &ndash; 1989</span>
+    </div>
+    <div class="gen-people">
+      <div class="gen-person">
+        <div class="gen-person-name">Andrew &ldquo;Pop&rdquo; Gemeny</div>
+        <div class="gen-person-dates">Nov 16, 1896 &ndash; Mar 30, 1989</div>
+        <div class="gen-person-place">St. Michaels, MD &rarr; Brandywine, MD</div>
+      </div>
+      <div class="gen-person">
+        <div class="gen-person-name">Myrtelle M. Gordon</div>
+        <div class="gen-person-dates">Dec 13, 1896 &ndash; Jul 23, 1967</div>
+        <div class="gen-person-place">Washington, DC &rarr; College Park, MD</div>
+      </div>
+    </div>
+    <p class="gen-story">&ldquo;Pop&rdquo; Gemeny was the family storyteller. In the 1970s, he sat down with a tape recorder and told stories about the family &mdash; stories that had been passed down for generations. Those recordings were later digitized and preserved.</p>
+    <div class="gen-milestone">
+      <div class="gen-milestone-label">Notable</div>
+      <p>Pop and Myrtelle married on <strong>May 18, 1929</strong> at an Episcopal Church in New York. Pop lived to <strong>92 years old</strong>. After Myrtelle&rsquo;s death, he married Lucy Belle Pittman &mdash; whose green tomato pickle recipe is preserved in the family archive.</p>
+    </div>
+    <div class="gen-fact"><span class="gen-fact-icon">&#127908;</span> Pop&rsquo;s oral history recordings from the 1970s are one of the most precious family artifacts.</div>
+    <div class="gen-fact"><span class="gen-fact-icon">&#9798;</span> Pop was a Freemason. He lived at &ldquo;Gemeny Farm&rdquo; in Prince George&rsquo;s County, Maryland.</div>
+  </section>
+
+  <!-- Generation 4: Edgar Dean & Eva -->
+  <section class="gen">
+    <div class="gen-header">
+      <span class="gen-num">Gen 4</span>
+      <span class="gen-title">Your 3x Great-Grandparents</span>
+      <span class="gen-era">1863 &ndash; 1939</span>
+    </div>
+    <div class="gen-people">
+      <div class="gen-person">
+        <div class="gen-person-name">Edgar Dean Gemeny</div>
+        <div class="gen-person-dates">Jan 12, 1863 &ndash; Sep 25, 1939</div>
+        <div class="gen-person-place">Kinsale, VA &rarr; Washington, DC</div>
+      </div>
+      <div class="gen-person">
+        <div class="gen-person-name">Eva Ferguson</div>
+        <div class="gen-person-dates">1869 &ndash; Jan 4, 1936</div>
+      </div>
+    </div>
+    <p class="gen-story">Edgar Dean was born in <strong>Kinsale, Virginia</strong> &mdash; the same town where his grandfather John II had built the family estate &ldquo;Pleasant View.&rdquo; He was born during the Civil War. His father died when he was 19. He married Eva Ferguson in Baltimore in 1893 and had six children.</p>
+    <div class="gen-fact"><span class="gen-fact-icon">&#127466;</span> Edgar&rsquo;s daughter Ruth was born and died in 1910 &mdash; living only 48 days.</div>
+    <div class="gen-fact"><span class="gen-fact-icon">&#128511;</span> His son Ferguson Gemeny (1909&ndash;2009) lived to be <strong>100 years old</strong>.</div>
+  </section>
+
+  <!-- Generation 3: Andrew & Nora -->
+  <section class="gen">
+    <div class="gen-header">
+      <span class="gen-num">Gen 3</span>
+      <span class="gen-title">Your 4x Great-Grandparents</span>
+      <span class="gen-era">1829 &ndash; 1929</span>
+    </div>
+    <div class="gen-people">
+      <div class="gen-person">
+        <div class="gen-person-name">Andrew Gemeny</div>
+        <div class="gen-person-dates">Mar 4, 1829 &ndash; Apr 13, 1882</div>
+        <div class="gen-person-place">Alexandria, VA &rarr; Royal Oak, MD</div>
+      </div>
+      <div class="gen-person">
+        <div class="gen-person-name">Margaret Elnora &ldquo;Nora&rdquo; Denny</div>
+        <div class="gen-person-dates">May 27, 1837 &ndash; Dec 10, 1929</div>
+        <div class="gen-person-place">Royal Oak, Talbot County, MD</div>
+      </div>
+    </div>
+    <p class="gen-story">Andrew was a <strong>Civil War soldier</strong> from Virginia and a carpenter by trade. He grew up near Pleasant View in Kinsale, then moved to Royal Oak on Maryland&rsquo;s Eastern Shore.</p>
+    <div class="gen-milestone">
+      <div class="gen-milestone-label">Remarkable</div>
+      <p>Nora was widowed at age 44 when Andrew died in 1882. She survived him by <strong>47 years</strong>, dying in 1929 at age 92 at Swain Farm in Talbot County. Two of their children &mdash; Lillie May and Wilbur Fisk &mdash; died as infants.</p>
+    </div>
+  </section>
+
+  <!-- Generation 2: John Henry II & Matilda -->
+  <section class="gen">
+    <div class="gen-header">
+      <span class="gen-num">Gen 2</span>
+      <span class="gen-title">Your 5x Great-Grandparents</span>
+      <span class="gen-era">1791 &ndash; 1876</span>
+    </div>
+    <div class="gen-people">
+      <div class="gen-person">
+        <div class="gen-person-name">John Henry Gemeny II</div>
+        <div class="gen-person-dates">Mar 25, 1791 &ndash; Feb 8, 1850</div>
+        <div class="gen-person-place">Massachusetts &rarr; Alexandria &rarr; Kinsale, VA</div>
+      </div>
+      <div class="gen-person">
+        <div class="gen-person-name">Matilda &ldquo;Milly&rdquo; Figg</div>
+        <div class="gen-person-dates">Dec 23, 1796 &ndash; May 6, 1876</div>
+        <div class="gen-person-place">Virginia &rarr; Kinsale, VA</div>
+      </div>
+    </div>
+    <p class="gen-story">John II is the man from whom <strong>every living Gemeny descends</strong>. He built <strong>Pleasant View</strong> in Kinsale, Virginia &mdash; a beautiful home on a hill overlooking the Potomac River. He and Matilda raised <strong>nine children</strong> there.</p>
+    <div class="gen-milestone">
+      <div class="gen-milestone-label">The Cupboard Legend</div>
+      <p>As a boy, John II was meant to go to sea with his father. His mother Naomi <strong>hid him in a cupboard</strong> on the day his father sailed away and was never heard from again. If she hadn&rsquo;t hidden him, the Gemeny line would have ended.</p>
+    </div>
+    <div class="gen-milestone">
+      <div class="gen-milestone-label">The General Harrison Quilt</div>
+      <p>A beautiful <strong>Baltimore Album Quilt</strong> was given to John and Matilda with their initials to celebrate their wedding. It has been in the family for over 200 years.</p>
+    </div>
+    <div class="gen-fact"><span class="gen-fact-icon">&#9876;</span> John II&rsquo;s brother Benjamin was <strong>imprisoned as a Union spy</strong> during the Civil War. Benjamin&rsquo;s wife Mary wrote a memoir about it in 1913.</div>
+  </section>
+
+  <!-- Generation 1: John "The Sea Captain" & Naomi -->
+  <section class="gen">
+    <div class="gen-header">
+      <span class="gen-num">Gen 1</span>
+      <span class="gen-title">Your 6x Great-Grandparents</span>
+      <span class="gen-era">1769 &ndash; c. 1804</span>
+    </div>
+    <div class="gen-people">
+      <div class="gen-person">
+        <div class="gen-person-name">John &ldquo;The Sea Captain&rdquo; Gemeny</div>
+        <div class="gen-person-dates">Nov 5, 1769 &ndash; c. 1804</div>
+        <div class="gen-person-place">Salem, MA &rarr; Philadelphia &rarr; Lost at sea</div>
+      </div>
+      <div class="gen-person">
+        <div class="gen-person-name">Naomi Tewksbury</div>
+        <div class="gen-person-dates">1770 &ndash; ?</div>
+        <div class="gen-person-place">New Hampshire &rarr; Salem &rarr; Philadelphia &rarr; Baltimore</div>
+      </div>
+    </div>
+    <p class="gen-story">John was a <strong>ship&rsquo;s captain</strong> who sailed merchant vessels out of Philadelphia. He was a twin &mdash; born the same day as his sister Mary. Around 1804, he sailed on a voyage and <strong>was never heard from again</strong>.</p>
+    <div class="gen-milestone">
+      <div class="gen-milestone-label">The Name Change</div>
+      <p>Naomi is credited with changing the family name from <strong>Gemini</strong> (or Jemminy) to <strong>Gemeny</strong>. She settled in Baltimore after John&rsquo;s disappearance and ran a rooming house.</p>
+    </div>
+    <div class="gen-fact"><span class="gen-fact-icon">&#128674;</span> John&rsquo;s burial record simply says: <em>&ldquo;Lost at sea per family bible.&rdquo;</em></div>
+  </section>
+
+  <!-- Generation 0: Anthony & Catherine -->
+  <section class="gen">
+    <div class="gen-header">
+      <span class="gen-num">Gen 0</span>
+      <span class="gen-title">The Founding Ancestor</span>
+      <span class="gen-era">c. 1730 &ndash; 1776</span>
+    </div>
+    <div class="gen-people">
+      <div class="gen-person">
+        <div class="gen-person-name">Anthony Gemini</div>
+        <div class="gen-person-dates">c. 1730 &ndash; 1776</div>
+        <div class="gen-person-place">Unknown origin &rarr; Salem, Massachusetts</div>
+      </div>
+      <div class="gen-person">
+        <div class="gen-person-name">Catherine Richards</div>
+        <div class="gen-person-dates">Apr 7, 1730 &ndash; ?</div>
+        <div class="gen-person-place">Salem, Massachusetts</div>
+      </div>
+    </div>
+    <p class="gen-story">This is where it all begins. <strong>Anthony Gemini</strong> &mdash; a sailor &mdash; arrived in North America around 1755. Nobody knows exactly where he came from. The family always assumed Italy, but a 2002 research essay suggested possible English roots through Thomas Gemini of Louvain, a famous engraver.</p>
+    <p class="gen-story">Anthony married <strong>Catherine Richards</strong> on October 17, 1756 in Salem, Massachusetts. He died in <strong>1776</strong> &mdash; the year America declared independence.</p>
+    <div class="gen-milestone">
+      <div class="gen-milestone-label">The Founding Marriage</div>
+      <p>October 17, 1756 &mdash; Salem, Massachusetts. Every Gemeny in this country traces back to this moment.</p>
+    </div>
+  </section>
+
+  <!-- Deep English Roots -->
+  <section class="deep-roots">
+    <div class="deep-roots-inner">
+      <h2>Before America</h2>
+      <p class="deep-roots-sub">Your family goes even further &mdash; across the Atlantic to Tudor England</p>
+
+      <div class="deep-person">
+        <span class="deep-year">1699</span>
+        <div><div class="deep-name">Mary Prideaux</div><div class="deep-detail">Born in Marblehead, MA &middot; Puritan &middot; Grandmother of Naomi Tewksbury</div></div>
+      </div>
+      <div class="deep-person">
+        <span class="deep-year">1630</span>
+        <div><div class="deep-name">Martha Copp</div><div class="deep-detail">Born in Greenwich, England &middot; Arrived in Massachusetts age 10 &middot; Lived to 99</div></div>
+      </div>
+      <div class="deep-person">
+        <span class="deep-year">1621</span>
+        <div><div class="deep-name">Henry Tewksbury</div><div class="deep-detail">Born in Greenwich, Kent &middot; Arrived Boston 1654 &middot; Settled in Amesbury</div></div>
+      </div>
+      <div class="deep-person">
+        <span class="deep-year">1589</span>
+        <div><div class="deep-name">William Copp</div><div class="deep-detail">Born in Hatton, Warwickshire &middot; Became Freeman in Boston 1641 &middot; Martha&rsquo;s father</div></div>
+      </div>
+      <div class="deep-person">
+        <span class="deep-year">1586</span>
+        <div><div class="deep-name">Alice Brewse</div><div class="deep-detail">Born in Upwey, Dorset, England &middot; Mother of Henry Tewksbury</div></div>
+      </div>
+      <div class="deep-person">
+        <span class="deep-year">1585</span>
+        <div><div class="deep-name">Henry Brundish Tewksbury</div><div class="deep-detail">Born in Tewksbury, Gloucestershire &middot; Arrived Boston 1620 (Mayflower year)</div></div>
+      </div>
+      <div class="deep-person">
+        <span class="deep-year">1580</span>
+        <div><div class="deep-name">Cecelia Taylor</div><div class="deep-detail">Born in London &middot; Daughter of Sir James Taylor &middot; Died in Watertown, MA</div></div>
+      </div>
+      <div class="deep-person">
+        <span class="deep-year">1565</span>
+        <div><div class="deep-name">&#9876; Sir Robert Rogers</div><div class="deep-detail">Knight &middot; Hatton, Warwickshire &middot; Anne Rogers&rsquo; father</div></div>
+      </div>
+      <div class="deep-person">
+        <span class="deep-year">1550</span>
+        <div><div class="deep-name">&#9876; Sir James Taylor</div><div class="deep-detail">Knight &middot; London &middot; Buried in Lancashire &middot; Cecelia&rsquo;s father</div></div>
+      </div>
+      <div class="deep-person">
+        <span class="deep-year">1550</span>
+        <div><div class="deep-name">Isabel Gunne</div><div class="deep-detail">Gloucestershire &middot; Lived through the entire Elizabethan era</div></div>
+      </div>
+      <div class="deep-person">
+        <span class="deep-year">1539</span>
+        <div><div class="deep-name">Thomas Copp</div><div class="deep-detail">Hatton, Warwickshire &middot; Born during reign of Henry VIII &middot; Lived to 88</div></div>
+      </div>
+      <div class="deep-person">
+        <span class="deep-year">1520</span>
+        <div><div class="deep-name">Humphrey Benton &amp; Joane Graygoose</div><div class="deep-detail">Epping, Essex &middot; Died 2 days apart in October 1579</div></div>
+      </div>
+      <div class="deep-person">
+        <span class="deep-year">1516</span>
+        <div><div class="deep-name">John Copp</div><div class="deep-detail">Warwickshire &middot; Born one year before Martin Luther&rsquo;s 95 Theses</div></div>
+      </div>
+      <div class="deep-person">
+        <span class="deep-year">1506</span>
+        <div><div class="deep-name">Ralph Rogers</div><div class="deep-detail">Sutton Valence, Kent &middot; The earliest known ancestor</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- You Are Here -->
+  <section class="you-section">
+    <h2>You Are Here</h2>
+    <p>From a sailor in colonial Salem to knights in Tudor England &mdash; 520 years, 9 generations, and thousands of small choices led to you, Brody and Aurora. This is your heritage.</p>
+  </section>
+
+  <footer class="footer">
+    <p>Built with love by your dad &middot; The Gemeny Family Heritage Project</p>
+  </footer>
+
+</body>
+</html>

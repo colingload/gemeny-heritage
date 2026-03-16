@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "john-howdershell-1789",
+  "name": {
+    "first": "John",
+    "middle": null,
+    "last": "Howdershell",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1789",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1864",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1789",
+      "date_precision": "circa",
+      "place": "Virginia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic",
+    "civil-war"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "4th great-grandfather Howdershell line."
+}

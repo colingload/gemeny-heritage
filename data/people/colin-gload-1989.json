@@ -1,0 +1,57 @@
+{
+  "$schema": "person",
+  "id": "colin-gload-1989",
+  "name": {
+    "first": "Colin",
+    "middle": "Frederick",
+    "last": "Gload",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1989-05-24",
+    "date_precision": "exact",
+    "place": "Rapid City, Pennington County, SD"
+  },
+  "death": null,
+  "burial": null,
+  "gender": "male",
+  "occupation": [
+    "entrepreneur",
+    "consultant"
+  ],
+  "residence": [
+    {
+      "date": "1989",
+      "date_precision": "year",
+      "place": "College Park, Prince Georges County, MD",
+      "census_notes": null
+    },
+    {
+      "date": "2020",
+      "date_precision": "circa",
+      "place": "Fallston, MD",
+      "census_notes": null
+    }
+  ],
+  "generation": 8,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": "amelia-gemeny-1965"
+  },
+  "privacy": "family",
+  "tags": [
+    "contemporary"
+  ],
+  "sources": [
+    {
+      "type": "vital-records",
+      "note": "Gemeny descendants database v102"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Son of Amelia Gordon Gemeny and Frederick Anthony 'Ted' Gload. Project curator and site developer."
+}

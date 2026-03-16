@@ -1,0 +1,85 @@
+{
+  "$schema": "person",
+  "id": "william-copp-1589",
+  "name": {
+    "first": "William",
+    "middle": null,
+    "last": "Copp",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1589-11-09",
+    "date_precision": "exact",
+    "place": "Bewsall, Hatton, Warwickshire, England"
+  },
+  "death": {
+    "date": "1670-02-27",
+    "date_precision": "exact",
+    "place": "Boston, Suffolk County, Massachusetts"
+  },
+  "burial": {
+    "place": "Boston, Suffolk County, MA"
+  },
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1641",
+      "date_precision": "year",
+      "place": "Massachusetts Colony",
+      "census_notes": "Freeman, Jun 2, 1641"
+    },
+    {
+      "date": "1641",
+      "date_precision": "year",
+      "place": "Boston, Massachusetts",
+      "census_notes": "Arrived"
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "thomas-copp-1539",
+    "mother": "isabel-gunne-1550"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "england",
+    "immigrant",
+    "warwickshire",
+    "boston",
+    "1500s"
+  ],
+  "sources": [
+    {
+      "type": "christening",
+      "note": "England & Wales, Christening Index, 1530-1980"
+    },
+    {
+      "type": "immigration",
+      "note": "U.S. and Canada, Passenger and Immigration Lists Index"
+    },
+    {
+      "type": "book",
+      "note": "North America, Family Histories, 1500-2000"
+    },
+    {
+      "type": "marriage-record",
+      "note": "U.S., New England Marriages Prior to 1700"
+    },
+    {
+      "type": "probate",
+      "note": "Massachusetts Wills and Probate Records"
+    },
+    {
+      "type": "census",
+      "note": "Massachusetts Compiled Census, Freeman Jun 2 1641"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born November 9, 1589 in Bewsall, Hatton, Warwickshire, England. Parents: Thomas Copp (1539-1628, Hatton) and Isabel Gunne (1550-1624, Hatton). Mother died 1624, father died Feb 11, 1628. First marriage: Anne Rogers on November 24, 1614 in Hatton, Warwickshire. Daughter Martha Copp (1630-1729) with Anne. Anne died 1633. Second marriage: Judith Goodith Icthorn (1605-1670). Children with Judith/Anne: Rebecca (1618), John (1622), Joanna (1625-1654), Ann (1630-1661). Arrived in Massachusetts Colony by 1641, became Freeman June 2, 1641 in Boston. Daughter Joanna died 1654 in Boston. Daughter Ann died 1661 in Boston. Died February 27, 1670 in Boston at age 80. Buried in Boston. His daughter Martha Copp married Henry Tewksbury — connecting the Copp line to the Tewksbury and eventually the Gemeny family."
+}

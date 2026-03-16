@@ -1,0 +1,59 @@
+{
+  "$schema": "person",
+  "id": "lillian-l-garrison-1856",
+  "name": {
+    "first": "Lillian",
+    "middle": "L.",
+    "last": "Garrison",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1856",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1956",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1856",
+      "date_precision": "circa",
+      "place": "Fauquier, Virginia",
+      "census_notes": null
+    },
+    {
+      "date": "1856",
+      "date_precision": "circa",
+      "place": "Alexandria, Virginia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "william-garrison-1821",
+    "mother": "eliza-j-howdershell-1822"
+  },
+  "privacy": "public",
+  "tags": [
+    "reconstruction",
+    "modern"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Mother of Eugene Speiden Burgess. Lived to 100."
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "person",
+  "id": "teresa-tyre-1777",
+  "name": {
+    "first": "Teresa",
+    "middle": null,
+    "last": "Tyre",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Tiar"
+    ]
+  },
+  "birth": {
+    "date": "1777",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1860",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1777",
+      "date_precision": "circa",
+      "place": "Charles County, Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic",
+    "antebellum"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of Thomas L. Burgess. Lived to 83."
+}

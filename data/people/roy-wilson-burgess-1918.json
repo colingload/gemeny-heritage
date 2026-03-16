@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "roy-wilson-burgess-1918",
+  "name": {
+    "first": "Roy",
+    "middle": "Wilson",
+    "last": "Burgess",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1918-07-19",
+    "date_precision": "year",
+    "place": "District of Columbia"
+  },
+  "death": {
+    "date": "2006",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1918",
+      "date_precision": "year",
+      "place": "District of Columbia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "eugene-s-burgess-1875",
+    "mother": "amelia-b-recker-1875"
+  },
+  "privacy": "public",
+  "tags": [
+    "interwar",
+    "modern"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Brother of Flora Esther Burgess. Born Jul 19, 1918 in DC. Died 2006."
+}

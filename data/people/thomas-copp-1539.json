@@ -1,0 +1,55 @@
+{
+  "$schema": "person",
+  "id": "thomas-copp-1539",
+  "name": {
+    "first": "Thomas",
+    "middle": null,
+    "last": "Copp",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1539-06-28",
+    "date_precision": "exact",
+    "place": "Hatton, Bewsall, Warwickshire, England"
+  },
+  "death": {
+    "date": "1628-02-11",
+    "date_precision": "exact",
+    "place": "Hatton, Bewsall, Warwickshire, England"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1539",
+      "date_precision": "year",
+      "place": "Hatton, Bewsall, Warwickshire, England",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "john-copp-1516",
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "england",
+    "warwickshire",
+    "1500s",
+    "tudor-era"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born June 28, 1539 in Hatton, Warwickshire — during the reign of Henry VIII. Father: John Copp (1516-1565, Hatton). Married Isabel Gunne (1550-1624, from Gloucestershire) on February 28, 1576 in Hatton. Son William Copp (1589-1670) emigrated to colonial Massachusetts. Wife Isabel died 1624 in Hatton. Died February 11, 1628 in Hatton at age 88. Buried in Hatton, Worcestershire."
+}

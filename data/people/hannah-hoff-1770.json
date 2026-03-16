@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "hannah-hoff-1770",
+  "name": {
+    "first": "Hannah",
+    "middle": null,
+    "last": "Hoff",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1770",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1842-06-23",
+    "date_precision": "exact",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1770",
+      "date_precision": "circa",
+      "place": "Poughkeepsie, Dutchess County, NY",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic",
+    "dubois"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Second wife of Elias L. DuBois (1766-1842). Mother of Nathaniel DuBois (1798-1844). Died June 23, 1842 — the same day as her husband Elias and his brother Johannes. Three family members died on the same day."
+}

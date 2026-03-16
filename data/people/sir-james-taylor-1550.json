@@ -1,0 +1,65 @@
+{
+  "$schema": "person",
+  "id": "sir-james-taylor-1550",
+  "name": {
+    "first": "James",
+    "middle": null,
+    "last": "Taylor",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Sir James Taylor"
+    ]
+  },
+  "birth": {
+    "date": "1550",
+    "date_precision": "year",
+    "place": "London, England"
+  },
+  "death": {
+    "date": "1627",
+    "date_precision": "year",
+    "place": "England"
+  },
+  "burial": {
+    "date": "1627-01-07",
+    "place": "Dalton-In-Furness, Lancashire, England"
+  },
+  "gender": "male",
+  "occupation": [
+    "knight"
+  ],
+  "residence": [
+    {
+      "date": "1600",
+      "date_precision": "circa",
+      "place": "Prestbury, Cheshire, England",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "england",
+    "london",
+    "lancashire",
+    "cheshire",
+    "knighted",
+    "1500s",
+    "elizabethan"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Sir James Taylor — a knight. Born 1550 in London. Resided in Prestbury, Cheshire. Daughter: Cecelia Taylor (1580-1662, born in London), who married Sir Robert Rogers. Cecelia eventually emigrated to colonial Massachusetts, dying in Watertown in 1662. Died 1627 at age 77. Buried January 7, 1627 at Dalton-In-Furness, Lancashire. Two knights in this line — Sir James and his son-in-law Sir Robert Rogers."
+}

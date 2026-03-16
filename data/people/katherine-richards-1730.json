@@ -1,0 +1,69 @@
+{
+  "$schema": "person",
+  "id": "katherine-richards-1730",
+  "name": {
+    "first": "Catherine",
+    "middle": null,
+    "last": "Richards",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Katherine"
+    ]
+  },
+  "birth": {
+    "date": "1730-04-07",
+    "date_precision": "exact",
+    "place": null
+  },
+  "death": {
+    "date": null,
+    "date_precision": "unknown",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1750",
+      "date_precision": "year",
+      "place": "Essex County, Massachusetts",
+      "census_notes": null
+    },
+    {
+      "date": "1756",
+      "date_precision": "year",
+      "place": "Salem, Essex County, MA",
+      "census_notes": null
+    }
+  ],
+  "generation": 0,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "salem"
+  ],
+  "sources": [
+    {
+      "type": "vital-records",
+      "note": "Vital Records of Salem Marriages, Essex Inst. Pg 545"
+    },
+    {
+      "type": "family-history-library",
+      "note": "Family History Library, Salt Lake City, UT, Film # 0761210"
+    },
+    {
+      "type": "christening",
+      "note": "Christening record, Apr 7, 1730"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Catherine Richards. Born April 7, 1730 (christened same day). Recorded in Essex County, MA by 1750. Married Anthony (Jeminy) Gemeny on October 17, 1756 in Salem, MA. Three children: Mary F. (1769), John (1769, twins), Martha (1771-1790). Anthony died 1776. Catherine later married Ebenezer Aborn (1724-1789), who died 1789 in Massachusetts. Son John lost at sea c. 1804. Daughter Martha died before July 4, 1790. Death date unknown."
+}

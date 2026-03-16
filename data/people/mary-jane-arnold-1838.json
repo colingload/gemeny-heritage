@@ -1,0 +1,93 @@
+{
+  "$schema": "person",
+  "id": "mary-jane-arnold-1838",
+  "name": {
+    "first": "Mary Jane",
+    "middle": null,
+    "last": "Arnold",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1836-02-05",
+    "date_precision": "exact",
+    "place": "Prince George's County, Maryland"
+  },
+  "death": {
+    "date": "1909-12-31",
+    "date_precision": "exact",
+    "place": "Washington, District of Columbia"
+  },
+  "burial": {
+    "place": "Washington, District of Columbia"
+  },
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1870",
+      "date_precision": "year",
+      "place": "District 4, Upper Falls, Harford County, MD",
+      "census_notes": "Occupation: Keeping House"
+    },
+    {
+      "date": "1870",
+      "date_precision": "year",
+      "place": "Washington Ward 3, DC",
+      "census_notes": null
+    },
+    {
+      "date": "1880",
+      "date_precision": "year",
+      "place": "Washington, DC",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Wife"
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "samuel-arnold-1795",
+    "mother": "mary-ann-sheriff-1805"
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum",
+    "civil-war",
+    "reconstruction",
+    "prince-georges-county"
+  ],
+  "sources": [
+    {
+      "type": "baptism",
+      "note": "Baptized Oct 22, 1837, Saint Johns Parish, Prince George's MD"
+    },
+    {
+      "type": "census",
+      "note": "1870 US Census, Harford County MD"
+    },
+    {
+      "type": "census",
+      "note": "1870 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1880 US Census, Washington DC"
+    },
+    {
+      "type": "marriage-record",
+      "note": "Marriage to James H. Gordon, Mar 15, 1859, Washington DC"
+    },
+    {
+      "type": "marriage-record",
+      "note": "Marriage to George Washington Nokes, Feb 4, 1878, DC"
+    },
+    {
+      "type": "burial-record",
+      "note": "Washington, DC"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "2nd great-grandmother. Born in Prince George's County, MD. Baptized Oct 22, 1837 at Saint Johns Parish. Father Samuel Arnold (1795-1855) died in Washington DC. Mother Mary Ann Sheriff (1805-1863) died August 1, 1863 in Washington DC. First marriage: James H. Gordon on March 15, 1859 in DC. Children with Gordon: Katie E. (1859-1863), Willie Arnold (1861-1862), William Wallace (1866-1926), Nettie (d. 1870), Mary M. (1868-). Lost two children young. James died July 13, 1869 at 31, leaving Mary Jane a widow at 33. Second marriage: George Washington Nokes (1836-1891) on February 4, 1878 in DC. Children with Nokes: Mary H. Nokes (1863-), William U. Nokes (1865-1923), Matilda C. Nokes (1867-), George W. Nokes (1869-1894), Ethel Adelaide Nokes (1878-1915), Royce Arnold Nokes (1880-). Third marriage: 1885 (details unknown). George Nokes died June 20, 1891 in Centerville, Prince George's MD. Son George W. Nokes died 1894. Died December 31, 1909 at age 73 in Washington DC."
+}

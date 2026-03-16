@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "james-h-smith-1843",
+  "name": {
+    "first": "James",
+    "middle": "H.",
+    "last": "Smith",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1843",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1913",
+    "date_precision": "year",
+    "place": "Baxley, Georgia"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1913",
+      "date_precision": "year",
+      "place": "Baxley, Georgia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "civil-war",
+    "georgia"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Father of Mary Elizabeth Smith. Died 1913 in Baxley, GA."
+}

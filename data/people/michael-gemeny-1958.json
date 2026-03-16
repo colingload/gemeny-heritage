@@ -1,0 +1,49 @@
+{
+  "$schema": "person",
+  "id": "michael-gemeny-1958",
+  "name": {
+    "first": "Michael",
+    "middle": "Wayne",
+    "last": "Gemeny",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1958",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": null,
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1958",
+      "date_precision": "circa",
+      "place": "Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": 7,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "william-gordon-gemeny-1930",
+    "mother": "mary-amelia-sanderson-1933"
+  },
+  "privacy": "public",
+  "tags": [
+    "modern",
+    "contemporary"
+  ],
+  "sources": [
+    {
+      "type": "family-records",
+      "note": "Gemeny descendants database"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Son of William Gordon Gemeny and Mary Amelia Sanderson."
+}

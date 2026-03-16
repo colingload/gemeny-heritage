@@ -1,0 +1,72 @@
+{
+  "$schema": "person",
+  "id": "rachel-sara-dubois-1839",
+  "name": {
+    "first": "Rachel",
+    "middle": "Sara",
+    "last": "DuBois",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1839-12-05",
+    "date_precision": "exact",
+    "place": "Ohio"
+  },
+  "death": {
+    "date": "1890-02-23",
+    "date_precision": "exact",
+    "place": "Champaign County, Ohio"
+  },
+  "burial": {
+    "place": "Urbana, Champaign County, Ohio"
+  },
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1880",
+      "date_precision": "year",
+      "place": "New Providence, Clark County, Indiana",
+      "census_notes": "Married; Wife"
+    },
+    {
+      "date": null,
+      "date_precision": "unknown",
+      "place": "Gosport, Owen County, Indiana",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": "nathaniel-dubois-1798",
+    "mother": "catharine-eliza-degroff-1802"
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum",
+    "reconstruction",
+    "ohio",
+    "indiana",
+    "dubois"
+  ],
+  "sources": [
+    {
+      "type": "census",
+      "note": "1850, 1870, 1880 US Census"
+    },
+    {
+      "type": "marriage-record",
+      "note": "Kentucky County Marriages, Mar 24, 1870, Louisville"
+    },
+    {
+      "type": "burial-record",
+      "note": "Urbana, Champaign County, Ohio"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born Dec 5, 1839 in Ohio. Father Nathaniel DuBois (1798-1844) died in Kentucky when Rachel was 4. Mother Catharine Eliza Degroff (1802-). Sister Mary DuBois (1841, PA). Brother Barnet DuBois (1833-1872). Married Thomas A. Mayes Mar 24, 1870 in Louisville, KY. Lived in Clark County and Owen County, Indiana. Six children: Catherine M. (1871-1934), Mary Esther (1872-1957), Thomas A. Jr (1875-1933), Morse O. (1876), Samuel H. (1878), Liggan A. (1880-1933). Died Feb 23, 1890 in Champaign County, OH at age 50. Buried in Urbana, OH."
+}

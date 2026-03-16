@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "henry-w-schlichting-1834",
+  "name": {
+    "first": "Henry",
+    "middle": "W.",
+    "last": "Schlichting",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1834",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1882",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1834",
+      "date_precision": "circa",
+      "place": "Virginia/Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "antebellum",
+    "civil-war"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "3rd great-grandfather Schlichting line."
+}

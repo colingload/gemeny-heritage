@@ -1,0 +1,102 @@
+{
+  "$schema": "person",
+  "id": "william-gordon-gemeny-1930",
+  "name": {
+    "first": "William",
+    "middle": "Gordon",
+    "last": "Gemeny",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1930-01-05",
+    "date_precision": "exact",
+    "place": "Washington, District of Columbia"
+  },
+  "death": {
+    "date": "2017-11-22",
+    "date_precision": "exact",
+    "place": "Solomons Island, Calvert County, MD"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [
+    "Insurance"
+  ],
+  "residence": [
+    {
+      "date": "1930",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Single; Relation to Head of House: Grandson"
+    },
+    {
+      "date": "1935",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": null
+    },
+    {
+      "date": "1940-04-01",
+      "date_precision": "exact",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Single; Relation to Head of House: Son"
+    },
+    {
+      "date": "1950",
+      "date_precision": "year",
+      "place": "College Park, MD",
+      "census_notes": null
+    },
+    {
+      "date": "1956",
+      "date_precision": "year",
+      "place": null,
+      "census_notes": null
+    },
+    {
+      "date": "1990",
+      "date_precision": "year",
+      "place": "Dowell, Calvert County, MD",
+      "census_notes": null
+    }
+  ],
+  "generation": 6,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "andrew-gemeny-1896",
+    "mother": "myrtelle-gordon-1896"
+  },
+  "tags": [
+    "postwar",
+    "modern",
+    "calvert-county",
+    "dowell"
+  ],
+  "sources": [
+    {
+      "type": "vital-records",
+      "note": "Gemeny descendants database v102"
+    },
+    {
+      "type": "census",
+      "note": "1930 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1935 residence record"
+    },
+    {
+      "type": "census",
+      "note": "1940 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1950 US Census, College Park MD"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Son of Andrew Gemeny and Myrtelle M. Gordon. Married Mary Amelia Sanderson on November 7, 1953. Three children: Steven Evans, Michael Wayne, and Amelia Gordon. Resided in Dowell, Calvert County, MD. Died November 22, 2017 in Solomons Island, MD at age 87."
+}

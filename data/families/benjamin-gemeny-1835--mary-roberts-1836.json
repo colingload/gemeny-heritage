@@ -1,0 +1,13 @@
+{
+  "$schema": "family",
+  "id": "benjamin-gemeny-1835--mary-roberts-1836",
+  "partners": ["benjamin-gemeny-1835", "mary-roberts-1836"],
+  "marriage": {
+    "date": "1855-11-01",
+    "date_precision": "exact",
+    "place": "Baltimore, MD"
+  },
+  "divorce": null,
+  "children": [],
+  "notes": "Benjamin was imprisoned as a Union spy during the Civil War. Mary wrote 'A Reminiscence of the War of the Rebellion' in 1913 about their experiences. Known children include Henry Millard (1856), Wilbur (1858), Minnie (1861), and Bessy — to be added."
+}

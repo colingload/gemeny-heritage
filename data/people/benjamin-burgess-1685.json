@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "benjamin-burgess-1685",
+  "name": {
+    "first": "Benjamin",
+    "middle": null,
+    "last": "Burgess",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1685",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1742-10-07",
+    "date_precision": "exact",
+    "place": "Port Tobacco, Charles County, Maryland"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1742",
+      "date_precision": "year",
+      "place": "Port Tobacco, Charles County, Maryland",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Earliest known Burgess ancestor. Born c. 1685. Married Ann (surname unknown, 1690-) c. 1705. Children: Samuel (1706-1746), Eleanor (1710), John (1719-1775). Died before Oct 7, 1742 in Port Tobacco, Charles County, MD. The Burgess family was established in Charles County, Maryland — one of the oldest counties in the state."
+}

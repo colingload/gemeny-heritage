@@ -1,0 +1,62 @@
+{
+  "$schema": "person",
+  "id": "francis-rogers-1536",
+  "name": {
+    "first": "Francis",
+    "middle": null,
+    "last": "Rogers",
+    "maiden": null,
+    "suffix": "of Dartford",
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1536",
+    "date_precision": "year",
+    "place": "Sutton Valence, County of Kent, England"
+  },
+  "death": {
+    "date": "1568",
+    "date_precision": "year",
+    "place": "Hatton, Warwickshire, England"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1536",
+      "date_precision": "year",
+      "place": "Sutton Valence, County of Kent, England",
+      "census_notes": null
+    },
+    {
+      "date": "1568",
+      "date_precision": "year",
+      "place": "Hatton, Warwickshire, England",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "ralph-rogers-1506",
+    "mother": "margery-gouldwell-1510"
+  },
+  "privacy": "public",
+  "tags": [
+    "england",
+    "kent",
+    "warwickshire",
+    "1500s",
+    "tudor-era"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Francis Rogers of Dartford. Born 1536 in Sutton Valence, Kent, England. Father: Ralph Rogers (1506-1555, died in Sutton Valence). Mother: Margery Gouldwell/Goldwell (1510-1552, died in Kent). Mother died when Francis was 16, father died when he was 19. Married Alice Benton (1544-1605). Son: Sir Robert Rogers (1565-1639) — a knight. Died 1568 in Hatton, Warwickshire at age 32, when Robert was only 3."
+}

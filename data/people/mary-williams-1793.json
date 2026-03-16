@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "mary-williams-1793",
+  "name": {
+    "first": "Mary",
+    "middle": null,
+    "last": "Williams",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1793",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1870-04-01",
+    "date_precision": "exact",
+    "place": "Duplin County, North Carolina"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1870",
+      "date_precision": "year",
+      "place": "Duplin County, North Carolina",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "isaac-williams-1722",
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Mother of Sylvia A. Kennedy. Died April 1, 1870 in Duplin County."
+}

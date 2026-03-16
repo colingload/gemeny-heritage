@@ -1,0 +1,64 @@
+{
+  "$schema": "person",
+  "id": "samuel-arnold-1795",
+  "name": {
+    "first": "Samuel",
+    "middle": null,
+    "last": "Arnold",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1795",
+    "date_precision": "year",
+    "place": "Maryland"
+  },
+  "death": {
+    "date": "1855",
+    "date_precision": "year",
+    "place": "Washington, District of Columbia"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1795",
+      "date_precision": "year",
+      "place": "Maryland",
+      "census_notes": null
+    },
+    {
+      "date": "1855",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": "elizabeth-thomas-1774"
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic",
+    "antebellum",
+    "maryland"
+  ],
+  "sources": [
+    {
+      "type": "marriage-record",
+      "note": "Maryland Compiled Marriages, Nov 9, 1826, Prince George's MD"
+    },
+    {
+      "type": "census",
+      "note": "1910 US Census (referenced)"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "3rd great-grandfather on the Arnold line. Born in Maryland, 1795. Biological parents: Samuel Thomas (1744-1815) and Elizabeth Thomas (1774-1820). Additional parent: Daniel S. Arnold (1768-1849, died in Hampshire County, WV). Mother Elizabeth died July 5, 1820 in Hampshire County, WV. Married Mary Ann Sheriff on November 9, 1826 in Prince George's County, MD. Daughter: Mary Jane Arnold (1836-1909). Died 1855 in Washington DC."
+}

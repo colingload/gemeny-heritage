@@ -1,0 +1,69 @@
+{
+  "$schema": "person",
+  "id": "cecelia-taylor-1580",
+  "name": {
+    "first": "Cecelia",
+    "middle": null,
+    "last": "Taylor",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1580",
+    "date_precision": "year",
+    "place": "London, England"
+  },
+  "death": {
+    "date": "1662-06-03",
+    "date_precision": "exact",
+    "place": "Watertown, Middlesex County, Massachusetts"
+  },
+  "burial": {
+    "date": "1667-07-19",
+    "place": "Kirkleatham, Yorkshire, England"
+  },
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1580",
+      "date_precision": "year",
+      "place": "London, England",
+      "census_notes": null
+    },
+    {
+      "date": "1662",
+      "date_precision": "year",
+      "place": "Watertown, Middlesex County, Massachusetts",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "sir-james-taylor-1550",
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "england",
+    "colonial",
+    "london",
+    "watertown",
+    "1500s"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    },
+    {
+      "type": "marriage-record",
+      "note": "Sheffield Registers of Baptisms and Marriages, 1560-1634"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born 1580 in London, England. Father: Sir James Taylor (1550-1627). Married Sir Robert Rogers. Daughter Anne Rogers (1590-1633). Son Thomas John Rogers (1609-1670). Husband Sir Robert died 1639 in Hatton. Cecelia emigrated to colonial Massachusetts — died June 3, 1662 in Watertown, Middlesex County at age 82. Buried July 19, 1667 at Kirkleatham, Yorkshire, England (body returned to England?)."
+}

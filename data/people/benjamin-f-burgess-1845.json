@@ -1,0 +1,56 @@
+{
+  "$schema": "person",
+  "id": "benjamin-f-burgess-1845",
+  "name": {
+    "first": "Benjamin",
+    "middle": "Franklin",
+    "last": "Burgess",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1845-03-26",
+    "date_precision": "exact",
+    "place": "Baltimore, Maryland"
+  },
+  "death": {
+    "date": "1894-12-14",
+    "date_precision": "exact",
+    "place": "District of Columbia"
+  },
+  "burial": {
+    "date": "1894-12-16",
+    "place": "Alexandria, Virginia"
+  },
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1880",
+      "date_precision": "year",
+      "place": "Alexandria, Virginia",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Self"
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "burgess",
+  "parents": {
+    "father": "thomas-a-burgess-1795",
+    "mother": "alethia-c-burgess-1813"
+  },
+  "privacy": "public",
+  "tags": [
+    "civil-war",
+    "reconstruction"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Benjamin Franklin Burgess. Born March 26, 1845 in Baltimore, MD. Father Thomas Alexander Burgess (1795-1861) died Oct 11, 1861. Mother Alethia Caroline Burgess (1813-1861) died Jun 23, 1861 — both parents died in 1861, Benjamin was 16. Married Lillian L. Garrison on July 22, 1874 in Fauquier, Virginia. Lived in Alexandria, VA. Sons: Eugene Speiden Burgess (1875-1944), Walter N. Burgess (1878-1977). Died December 14, 1894 in DC at age 49. Buried December 16, 1894 in Alexandria, VA."
+}

@@ -1,0 +1,117 @@
+{
+  "$schema": "person",
+  "id": "edgar-dean-gemeny-1865",
+  "name": {
+    "first": "Edgar",
+    "middle": "Dean",
+    "last": "Gemeny",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1863-01-12",
+    "date_precision": "exact",
+    "place": "Kinsale, Westmoreland County, VA"
+  },
+  "death": {
+    "date": "1939-09-25",
+    "date_precision": "exact",
+    "place": "Washington, District of Columbia"
+  },
+  "burial": {
+    "place": "Brandywine, Prince George's County, MD"
+  },
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1870",
+      "date_precision": "year",
+      "place": "District 2, Talbot County, MD",
+      "census_notes": null
+    },
+    {
+      "date": "1900",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Head"
+    },
+    {
+      "date": "1910",
+      "date_precision": "year",
+      "place": "Brandywine, Prince George's County, MD",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Head"
+    },
+    {
+      "date": "1920",
+      "date_precision": "year",
+      "place": "Baltimore Ward 16, Baltimore, MD",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Head"
+    },
+    {
+      "date": "1928",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": null
+    },
+    {
+      "date": "1930",
+      "date_precision": "year",
+      "place": "Washington, District of Columbia",
+      "census_notes": "Marital Status: Married; Relation to Head of House: Head"
+    }
+  ],
+  "generation": 4,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "andrew-gemeny-1828",
+    "mother": "margaret-e-denny-1837"
+  },
+  "privacy": "public",
+  "tags": [
+    "reconstruction",
+    "turn-of-century",
+    "interwar",
+    "kinsale",
+    "royal-oak",
+    "brandywine"
+  ],
+  "sources": [
+    {
+      "type": "vital-records",
+      "note": "Birth record, Kinsale VA"
+    },
+    {
+      "type": "census",
+      "note": "1870 US Census, Talbot County MD"
+    },
+    {
+      "type": "census",
+      "note": "1900 US Census, Washington DC"
+    },
+    {
+      "type": "census",
+      "note": "1910 US Census, Brandywine MD"
+    },
+    {
+      "type": "census",
+      "note": "1920 US Census, Baltimore MD"
+    },
+    {
+      "type": "census",
+      "note": "1930 US Census, Washington DC"
+    },
+    {
+      "type": "marriage-record",
+      "note": "Marriage to Eva Ferguson, Mar 30, 1893, Baltimore MD"
+    },
+    {
+      "type": "burial-record",
+      "note": "Brandywine, Prince George's County, MD"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born in Kinsale, VA — the same town where his grandfather John Gemeny II built Pleasant View. Father Andrew Gemeny (1829-1882) died when Edgar was 19 in Royal Oak, Talbot County, MD. Mother Margaret Elnora 'Nora' Denny (1837-1929) lived to age 92, dying at Swain Farm, Talbot MD. Married Eva Ferguson on March 30, 1893 in Baltimore. Six children: Esther L. (1894-1967), Andrew 'Pop' (1896-1989), Edgar Denny (1899-1988), Eva (1903-1974), Ferguson (1909-2009), Ruth (1910-1910). Siblings: Stephen Denny Gemeny (1859-1935), Lillie May (1866-1867), Wilbur Fisk (1869-1870), Maria Elnora (1875-). Lived in Royal Oak, Washington DC, Brandywine MD, and Baltimore. Died September 25, 1939 at age 76. Buried in Brandywine, MD."
+}

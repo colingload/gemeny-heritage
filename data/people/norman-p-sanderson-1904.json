@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "norman-p-sanderson-1904",
+  "name": {
+    "first": "Norman",
+    "middle": "P.",
+    "last": "Sanderson",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1904",
+    "date_precision": "year",
+    "place": "Appling, Georgia"
+  },
+  "death": {
+    "date": null,
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1904",
+      "date_precision": "year",
+      "place": "Appling, Georgia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "thadius-h-sanderson-1866",
+    "mother": "mary-e-smith-1885"
+  },
+  "privacy": "public",
+  "tags": [
+    "turn-of-century"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Brother of Albert Evans Sanderson."
+}

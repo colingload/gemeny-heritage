@@ -1,0 +1,54 @@
+{
+  "$schema": "person",
+  "id": "allida-van-kleek-1742",
+  "name": {
+    "first": "Allida",
+    "middle": null,
+    "last": "Van Kleek",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1742",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1793",
+    "date_precision": "year",
+    "place": "Poughkeepsie, Dutchess County, NY"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1793",
+      "date_precision": "year",
+      "place": "Poughkeepsie, Dutchess County, NY",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "dutch",
+    "poughkeepsie"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of Louis (Lewis) DuBois. Van Kleek — a prominent Dutch family in the Hudson Valley. Died 1793 in Poughkeepsie."
+}

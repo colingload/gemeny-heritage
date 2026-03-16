@@ -1,0 +1,64 @@
+{
+  "$schema": "person",
+  "id": "sir-robert-rogers-1565",
+  "name": {
+    "first": "Robert",
+    "middle": null,
+    "last": "Rogers",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Sir Robert Rogers"
+    ]
+  },
+  "birth": {
+    "date": "1565",
+    "date_precision": "year",
+    "place": "Hatton, Warwickshire, England"
+  },
+  "death": {
+    "date": "1639",
+    "date_precision": "year",
+    "place": "Hatton, Warwickshire, England"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [
+    "knight"
+  ],
+  "residence": [
+    {
+      "date": "1565",
+      "date_precision": "year",
+      "place": "Hatton, Warwickshire, England",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "francis-rogers-1536",
+    "mother": "alice-benton-1544"
+  },
+  "privacy": "public",
+  "tags": [
+    "england",
+    "warwickshire",
+    "1500s",
+    "knighted",
+    "elizabethan"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    },
+    {
+      "type": "marriage-record",
+      "note": "Sheffield Registers of Baptisms and Marriages, 1560-1634"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Sir Robert Rogers — a knighted Englishman. Born 1565 in Hatton, Warwickshire. Father: Francis Rogers of Dartford (1536-1568, died when Robert was 3). Mother: Alice Benton (1544-1605, died in Epping, Essex). Married Cecelia Taylor (1580-1662, born in London). Daughter Anne Rogers (1590-1633) married William Copp — connecting the Rogers line to the Copp/Tewksbury/Gemeny line. Son Thomas John Rogers (1609-1670, born in Watford, Northamptonshire). Anne died 1633 in Hatton. Died 1639 in Hatton at age 74."
+}

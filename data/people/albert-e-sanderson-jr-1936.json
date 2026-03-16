@@ -1,0 +1,58 @@
+{
+  "$schema": "person",
+  "id": "albert-e-sanderson-jr-1936",
+  "name": {
+    "first": "Albert",
+    "middle": "E.",
+    "last": "Sanderson",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1936-07-19",
+    "date_precision": "exact",
+    "place": "Oxford, Granville County, NC"
+  },
+  "death": {
+    "date": "2007-11-27",
+    "date_precision": "exact",
+    "place": "Cheverly, Prince George's County, MD"
+  },
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1936",
+      "date_precision": "year",
+      "place": "Oxford, Granville County, NC",
+      "census_notes": null
+    },
+    {
+      "date": "2007",
+      "date_precision": "year",
+      "place": "Cheverly, Prince George's County, MD",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "albert-e-sanderson-1905",
+    "mother": "flora-esther-burgess-1907"
+  },
+  "privacy": "public",
+  "tags": [
+    "postwar",
+    "modern"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Brother of Mary Amelia Sanderson. Son of Albert E. Sanderson and Flora Esther Burgess."
+}

@@ -1,0 +1,62 @@
+{
+  "$schema": "person",
+  "id": "henry-brundish-tewksbury-1585",
+  "name": {
+    "first": "Henry",
+    "middle": "Brundish",
+    "last": "Tewksbury",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "John Henry Tewksbury"
+    ]
+  },
+  "birth": {
+    "date": "1585",
+    "date_precision": "year",
+    "place": "Tewksbury, Gloucestershire, England"
+  },
+  "death": {
+    "date": "1621",
+    "date_precision": "year",
+    "place": "Kent, England"
+  },
+  "burial": {
+    "date": "1660-07-08",
+    "place": "North Cheriton, Somerset, England"
+  },
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1620",
+      "date_precision": "year",
+      "place": "Boston, Massachusetts",
+      "census_notes": "Arrived from England"
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "william-tuxbury-tewksbury-1565",
+    "mother": "sarah-bulman-tewksbury-1565"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "england",
+    "immigrant",
+    "gloucestershire",
+    "1500s",
+    "mayflower-era"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Born 1585 in Tewksbury, Gloucestershire, England. Parents: William Tuxbury Tewksbury (1565-1620, West Hatch, Somerset) and Sarah Bulman Tewksbury (1565-1621, West Hatch, Somerset). Arrived in Boston, Massachusetts in 1620 — the same year as the Mayflower. Both parents died in England in 1620-1621. Married Alice Brewse. Son Henry Tewksbury born 1621 in Greenwich, Kent, England. Died 1621 in Kent, England at age 36 — the same year his son was born. Buried July 8, 1660 at North Cheriton, Somerset (reburial?). The surname comes from the town of Tewksbury (Tewkesbury) in Gloucestershire."
+}

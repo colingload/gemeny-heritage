@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "samuel-h-ellis-1840",
+  "name": {
+    "first": "Samuel",
+    "middle": "H.",
+    "last": "Ellis",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1840",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1898",
+    "date_precision": "year",
+    "place": null
+  },
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1840",
+      "date_precision": "circa",
+      "place": "Washington, District of Columbia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gordon-dubois",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "civil-war",
+    "reconstruction"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "2nd great-grandfather on the Ellis line."
+}

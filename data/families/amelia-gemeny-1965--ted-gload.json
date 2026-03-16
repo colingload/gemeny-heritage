@@ -1,0 +1,15 @@
+{
+  "$schema": "family",
+  "id": "amelia-gemeny-1965--ted-gload",
+  "partners": ["amelia-gemeny-1965"],
+  "marriage": {
+    "date": null,
+    "date_precision": "unknown",
+    "place": null
+  },
+  "divorce": null,
+  "children": [
+    "colin-gload-1989"
+  ],
+  "notes": "Amelia Gordon Gemeny and Frederick Anthony 'Ted' Gload. Parents of Colin Gload."
+}

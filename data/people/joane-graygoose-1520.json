@@ -1,0 +1,61 @@
+{
+  "$schema": "person",
+  "id": "joane-graygoose-1520",
+  "name": {
+    "first": "Joane",
+    "middle": null,
+    "last": "Graygoose",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1520",
+    "date_precision": "year",
+    "place": "Epping, Essex, England"
+  },
+  "death": {
+    "date": "1579-10-27",
+    "date_precision": "exact",
+    "place": "St Leonard Shoreditch, Middlesex, England"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1520",
+      "date_precision": "year",
+      "place": "Epping, Essex, England",
+      "census_notes": null
+    },
+    {
+      "date": "1579",
+      "date_precision": "year",
+      "place": "St Leonard Shoreditch, Middlesex, England",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "england",
+    "middlesex",
+    "1500s",
+    "tudor-era"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com family tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of Humphrey Benton Bayntun (1520-1579). Mother of Alice Benton (1544-1605). Died October 27, 1579 in St Leonard Shoreditch, Middlesex, England. Her husband Humphrey died just 2 days later on October 29 — a remarkable coincidence, possibly suggesting illness or epidemic."
+}

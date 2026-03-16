@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "elizabeth-garrison-1769",
+  "name": {
+    "first": "Elizabeth",
+    "middle": null,
+    "last": "Garrison",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1769",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1858",
+    "date_precision": "year",
+    "place": null
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1769",
+      "date_precision": "circa",
+      "place": "Virginia",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Related to Garrison line. Lived to 89."
+}

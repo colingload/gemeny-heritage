@@ -1,0 +1,18 @@
+{
+  "$schema": "family",
+  "id": "anthony-gemini-1730--katherine-richards-1730",
+  "partners": ["anthony-gemini-1730", "katherine-richards-1730"],
+  "marriage": {
+    "date": "1756-10-17",
+    "date_precision": "exact",
+    "place": "Salem, MA"
+  },
+  "divorce": null,
+  "children": [
+    "john-gemeny-1769",
+    "mary-gemeny-1769",
+    "martha-gemeny-1771",
+    "polly-gemeny"
+  ],
+  "notes": "Marriage recorded in Vital Records of Salem Marriages, Essex Inst. Pg 545. Katherine later married Ebenezer Aborn."
+}

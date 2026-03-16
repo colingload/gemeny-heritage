@@ -1,0 +1,53 @@
+{
+  "$schema": "person",
+  "id": "john-kennedy-1776",
+  "name": {
+    "first": "John",
+    "middle": null,
+    "last": "Kennedy",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1776",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1862-05-14",
+    "date_precision": "exact",
+    "place": "Beulaville, Duplin County, NC"
+  },
+  "burial": null,
+  "gender": "male",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1862",
+      "date_precision": "year",
+      "place": "Beulaville, Duplin County, NC",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": "william-kennedy-1734",
+    "mother": "margaret-mason-1742"
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic",
+    "irish"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Father of Sylvia A. Kennedy. Irish flag shown in Ancestry — Irish descent. Died May 14, 1862 in Beulaville."
+}

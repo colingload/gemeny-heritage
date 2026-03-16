@@ -1,0 +1,85 @@
+{
+  "$schema": "person",
+  "id": "john-gemeny-1769",
+  "name": {
+    "first": "John",
+    "middle": null,
+    "last": "Gemeny",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": [
+      "Jemminy",
+      "Jeminy"
+    ]
+  },
+  "birth": {
+    "date": "1769-11-05",
+    "date_precision": "exact",
+    "place": "Salem, Essex County, Massachusetts"
+  },
+  "death": {
+    "date": "1804",
+    "date_precision": "circa",
+    "place": "At sea"
+  },
+  "burial": {
+    "place": "Lost at sea per family bible"
+  },
+  "gender": "male",
+  "occupation": [
+    "ship's master",
+    "sea captain"
+  ],
+  "residence": [
+    {
+      "date": "1769",
+      "date_precision": "year",
+      "place": "Salem, Essex County, MA",
+      "census_notes": "Born and christened here"
+    },
+    {
+      "date": "1797",
+      "date_precision": "year",
+      "place": "Philadelphia, PA",
+      "census_notes": "Listed as Master, The James, a Brig of 147 89/95 tonns belonging to Mark and John Prager"
+    }
+  ],
+  "generation": 1,
+  "lineage_branch": "gemeny",
+  "parents": {
+    "father": "anthony-gemini-1730",
+    "mother": "katherine-richards-1730"
+  },
+  "privacy": "public",
+  "tags": [
+    "colonial",
+    "early-republic",
+    "sea-captain",
+    "salem",
+    "philadelphia",
+    "lost-at-sea"
+  ],
+  "sources": [
+    {
+      "type": "vital-records",
+      "note": "Vital Records of Salem, Essex Inst. — christening Nov 5, 1769"
+    },
+    {
+      "type": "family-search",
+      "note": "FamilySearch MFB7-GRV"
+    },
+    {
+      "type": "ship-records",
+      "note": "Listed as Master of The James, Aug 1797"
+    },
+    {
+      "type": "family-bible",
+      "note": "Lost at sea per family bible"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [
+    "narratives/pleasant-view-and-quilt.md"
+  ],
+  "notes": "John 'The Sea Captain' Gemeny, also recorded as John (Jemminy) Gemeny. Born and christened November 5, 1769 in Salem, MA. Twin with sister Mary F. Gemeny (born before Nov 5, 1769). Father Anthony (Jeminy) Gemeny died 1776 when John was 7. Sister Martha Gemeny (1771-1790) died before July 4, 1790. Married Naomi Tewksbury on July 24, 1790 in Salem, MA. Employed as Ship's Master by late 1790s. Three children: John Henry (1791, MA), Elizabeth Tewksbury (1794), Anthony Richard (1800, PA). Moved family from Salem to Philadelphia area c. 1797. Acquired a Pennsylvania Tall Clock that remains in the family. Died c. 1804 at sea, age ~35. Lost at sea per family bible. Family legend: his wife Naomi hid their son John Henry in a cupboard on the day John sailed on his final voyage. Every Gemeny in America descends from his son John Henry."
+}

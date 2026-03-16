@@ -1,0 +1,52 @@
+{
+  "$schema": "person",
+  "id": "ann-long-1760",
+  "name": {
+    "first": "Ann",
+    "middle": null,
+    "last": "Long",
+    "maiden": null,
+    "suffix": null,
+    "alternate_spellings": []
+  },
+  "birth": {
+    "date": "1760",
+    "date_precision": "year",
+    "place": null
+  },
+  "death": {
+    "date": "1805",
+    "date_precision": "year",
+    "place": "Jones County, North Carolina"
+  },
+  "burial": null,
+  "gender": "female",
+  "occupation": [],
+  "residence": [
+    {
+      "date": "1805",
+      "date_precision": "year",
+      "place": "Jones County, North Carolina",
+      "census_notes": null
+    }
+  ],
+  "generation": null,
+  "lineage_branch": "sanderson",
+  "parents": {
+    "father": null,
+    "mother": null
+  },
+  "privacy": "public",
+  "tags": [
+    "early-republic"
+  ],
+  "sources": [
+    {
+      "type": "ancestry",
+      "note": "Ancestry.com — Steven Gemeny Family Tree"
+    }
+  ],
+  "artifacts": [],
+  "narratives": [],
+  "notes": "Wife of Shadrack Sanderson (1755-1802). Widowed at age 42 when Shadrack died in 1802. Died 1805 in Jones County, NC — son Isaac was only 5, orphaned."
+}
