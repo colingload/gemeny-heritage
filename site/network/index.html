@@ -1403,25 +1403,71 @@
     activeBranch = 'all';
 
     if (val === 'all') {
-      // Reset
-      if (!activeBadge) {
-        viewMode = 'tree';
-        viewToggle.textContent = 'GRID';
-        viewToggle.style.color = '';
-      }
+      // Reset to default
+      viewMode = 'tree';
+      viewToggle.textContent = 'GRID';
+      viewToggle.style.color = '';
+      savedTreeLayout = null;
+      const gordon = data.nodes.find(n => /william.*gordon.*gemeny/i.test(n.name) && n.birthYear >= 1925 && n.birthYear <= 1935);
+      if (gordon) setRoot(gordon.id);
+      applyFilters();
     } else if (val.startsWith('branch:')) {
       activeBranch = val.substring(7);
-      viewMode = 'grid';
-      viewToggle.textContent = 'TREE';
-      viewToggle.style.color = 'var(--gold)';
+      // Find youngest person in this branch, set as root in tree view
+      const branchPeople = data.nodes.filter(n => branchGroup(n.branch) === activeBranch && n.birthYear);
+      setFamilyRoot(branchPeople);
     } else if (val.startsWith('surname:')) {
       activeSurname = val.substring(8);
-      viewMode = 'grid';
-      viewToggle.textContent = 'TREE';
-      viewToggle.style.color = 'var(--gold)';
+      // Find youngest person with this surname, set as root in tree view
+      const surnamePeople = data.nodes.filter(n => {
+        const parts = n.name.split(' ');
+        return parts[parts.length - 1] === activeSurname && n.birthYear;
+      });
+      setFamilyRoot(surnamePeople);
     }
-    applyFilters();
   });
+
+  function setFamilyRoot(people) {
+    if (people.length === 0) { applyFilters(); return; }
+
+    // Find the youngest person as root
+    people.sort((a, b) => b.birthYear - a.birthYear);
+    const youngest = people[0];
+
+    // Stay in tree view
+    viewMode = 'tree';
+    viewToggle.textContent = 'GRID';
+    viewToggle.style.color = '';
+    savedTreeLayout = null;
+
+    // Set youngest as root and expand all descendants
+    setRoot(youngest.id);
+
+    // Also expand more aggressively — all descendants
+    function expandAllFrom(id, visited) {
+      if (visited.has(id)) return;
+      visited.add(id);
+      expanded.add(id);
+      getChildren(id).forEach(c => expandAllFrom(c, visited));
+    }
+    expandAllFrom(youngest.id, new Set());
+    computeLayout();
+
+    // Zoom to fit all visible nodes
+    if (layoutNodes.length > 1) {
+      let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+      layoutNodes.forEach(ln => {
+        minX = Math.min(minX, ln.x); maxX = Math.max(maxX, ln.x + NODE_W);
+        minY = Math.min(minY, ln.y); maxY = Math.max(maxY, ln.y + NODE_H);
+      });
+      const tw = maxX - minX, th = maxY - minY;
+      zoom = Math.min(W / tw * 0.85, H / th * 0.85, 1);
+      camX = -(minX + tw / 2) * zoom + W / 2;
+      camY = -(minY + th / 2) * zoom + H / 2;
+    }
+    draw();
+    updateStats();
+  }
 
   // Badge filters (toggle on/off, can combine with branch)
   document.querySelectorAll('.badge-btn').forEach(btn => {
