@@ -87,12 +87,33 @@
     .sidebar-item strong{color:var(--cream);font-weight:500}
     .sidebar-link{display:inline-block;margin-top:0.8rem;padding:0.4rem 1rem;background:rgba(212,160,23,0.15);border:1px solid rgba(212,160,23,0.4);color:var(--gold);font-size:0.75rem;letter-spacing:0.05em;text-transform:uppercase;border-radius:2px;transition:all 0.15s}
     .sidebar-link:hover{background:rgba(212,160,23,0.25);border-color:var(--gold)}
+    .sidebar-story{font-family:var(--serif);font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.7;font-style:italic}
     .sidebar-person-link{cursor:pointer;color:var(--gold);font-size:0.8rem}
     .sidebar-person-link:hover{text-decoration:underline}
     .sidebar-badges{display:flex;gap:0.4rem;flex-wrap:wrap;margin-top:0.5rem}
 
+    /* Relationship panel */
+    .relate-panel{display:none;position:absolute;top:0.8rem;left:50%;transform:translateX(-50%);background:rgba(15,26,46,0.95);border:1px solid rgba(212,160,23,0.3);border-radius:4px;padding:0.6rem 1rem;z-index:80;text-align:center;max-width:500px}
+    .relate-panel.open{display:block}
+    .relate-msg{font-family:var(--serif);font-size:0.9rem;color:rgba(255,255,255,0.8);line-height:1.5}
+    .relate-msg strong{color:var(--gold)}
+    .relate-cancel{background:none;border:none;color:rgba(255,255,255,0.3);cursor:pointer;font-size:0.75rem;margin-top:0.3rem;padding:0.2rem 0.5rem}
+    .relate-cancel:hover{color:var(--cream)}
+    .relate-path{font-size:0.75rem;color:rgba(255,255,255,0.4);margin-top:0.3rem}
+
     /* Loading overlay */
     .loading{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:1.2rem;color:rgba(255,255,255,0.3);z-index:50}
+
+    /* Timeline bar */
+    .timeline-bar{display:flex;align-items:center;gap:0.6rem;padding:0.4rem 2rem;background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.06)}
+    .timeline-slider{flex:1;height:3px;-webkit-appearance:none;appearance:none;background:rgba(255,255,255,0.1);outline:none;border-radius:2px;cursor:pointer}
+    .timeline-slider::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid rgba(15,26,46,0.8)}
+    .timeline-slider::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--gold);cursor:pointer;border:2px solid rgba(15,26,46,0.8)}
+    .timeline-year{font-family:var(--serif);font-size:1.4rem;font-weight:300;color:var(--gold);min-width:3.5rem;text-align:center}
+    .timeline-alive{font-size:0.7rem;color:rgba(255,255,255,0.35);min-width:6rem;text-align:right;white-space:nowrap}
+    .play-btn{width:28px;height:28px;border-radius:50%;background:rgba(212,160,23,0.12);border:1px solid rgba(212,160,23,0.4);color:#d4a017;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.7rem;transition:all 0.15s;padding:0}
+    .play-btn:hover{background:rgba(212,160,23,0.2);border-color:#d4a017}
+    .play-btn.playing{background:rgba(212,160,23,0.25)}
 
     /* Stats bar */
     .stats{position:absolute;bottom:3.2rem;left:0.8rem;font-size:0.65rem;color:rgba(255,255,255,0.2);z-index:50}
@@ -148,9 +169,20 @@
 
     <div class="divider"></div>
 
+    <button class="badge-btn" id="relateBtn" title="Find how two people are related">&#x1F517; Related?</button>
+
+    <div class="divider"></div>
+
     <button class="zoom-btn" id="zoomIn" title="Zoom in">+</button>
     <button class="zoom-btn" id="zoomOut" title="Zoom out">&minus;</button>
     <button class="zoom-btn" id="zoomReset" title="Reset view" style="font-size:0.65rem">FIT</button>
+  </div>
+
+  <div class="timeline-bar" id="timelineBar">
+    <button class="play-btn" id="timePlay" title="Play/pause timeline">&#9654;</button>
+    <span class="timeline-year" id="timeYear">2026</span>
+    <input type="range" class="timeline-slider" id="timeSlider" min="1500" max="2026" value="2026" step="1">
+    <span class="timeline-alive" id="timeAlive"></span>
   </div>
 
   <div class="main" id="main">
@@ -160,6 +192,10 @@
       <div class="tooltip-dates" id="ttDates"></div>
       <div class="tooltip-place" id="ttPlace"></div>
       <div class="tooltip-badges" id="ttBadges"></div>
+    </div>
+    <div class="relate-panel" id="relatePanel">
+      <div class="relate-msg" id="relateMsg">Click two people to find their relationship</div>
+      <button class="relate-cancel" id="relateCancel">&times; Cancel</button>
     </div>
     <div class="loading" id="loading">Loading tree data...</div>
     <div class="stats" id="stats"></div>
@@ -227,6 +263,9 @@
   let hoveredNode = null;
   let activeBranch = 'all';
   let activeBadge = null;
+  let timelineYear = 2026;  // timeline slider year (2026 = show all)
+  let timelinePlaying = false;
+  let timelineInterval = null;
 
   // Camera
   let camX = 0, camY = 0, zoom = 1;
@@ -522,6 +561,21 @@
     ctx.restore();
   }
 
+  function isAliveInYear(node, year) {
+    if (year >= 2026) return true; // 2026 = show all
+    if (!node.birthYear) return true; // unknown birth = always show
+    if (node.birthYear > year) return false; // not born yet
+    // Estimate death year
+    let deathYear = null;
+    if (node.deathDate) {
+      const m = node.deathDate.match(/\d{4}/);
+      if (m) deathYear = parseInt(m[0]);
+    }
+    if (deathYear) return year <= deathYear;
+    // No death date: assume alive for 90 years after birth
+    return year <= node.birthYear + 90;
+  }
+
   function isNodeVisible(n) {
     if (activeBranch !== 'all') {
       const node = nodeMap[n.id];
@@ -529,6 +583,12 @@
       if (bg && bg !== activeBranch) return false;
     }
     return true;
+  }
+
+  function isNodeAlive(n) {
+    if (timelineYear >= 2026) return true;
+    const node = nodeMap[n.id];
+    return node && isAliveInYear(node, timelineYear);
   }
 
   function isNodeHighlighted(n) {
@@ -543,7 +603,8 @@
       const toLayout = layoutNodes.find(n => n.id === e.to);
       if (!fromLayout || !toLayout) continue;
 
-      const dimmed = activeBadge && !isNodeHighlighted(fromLayout) && !isNodeHighlighted(toLayout);
+      const edgeAlive = isNodeAlive(fromLayout) && isNodeAlive(toLayout);
+      const dimmed = !edgeAlive || (activeBadge && !isNodeHighlighted(fromLayout) && !isNodeHighlighted(toLayout));
 
       ctx.beginPath();
       if (e.type === 'spouse') {
@@ -580,8 +641,10 @@
       if (!node) continue;
 
       const visible = isNodeVisible(ln);
+      const alive = isNodeAlive(ln);
       const highlighted = isNodeHighlighted(ln);
-      const dimmed = !visible || (activeBadge && !highlighted);
+      const onPath = relatePath.length > 0 && relatePath.includes(ln.id);
+      const dimmed = (!visible || (activeBadge && !highlighted) || !alive) && !onPath;
       const isHovered = hoveredNode && hoveredNode.id === ln.id;
       const isSelected = selectedNode && selectedNode.id === ln.id;
 
@@ -592,10 +655,12 @@
       ctx.fillStyle = isHovered || isSelected
         ? `rgba(30,40,60,${alpha})`
         : `rgba(20,30,50,${alpha})`;
-      ctx.strokeStyle = isSelected
-        ? `rgba(212,160,23,${alpha})`
-        : `${color}${dimmed ? '1a' : '80'}`;
-      ctx.lineWidth = isSelected ? 2 : 1;
+      ctx.strokeStyle = onPath
+        ? 'rgba(255,200,50,1)'
+        : isSelected
+          ? `rgba(212,160,23,${alpha})`
+          : `${color}${dimmed ? '1a' : '80'}`;
+      ctx.lineWidth = onPath ? 2.5 : isSelected ? 2 : 1;
 
       roundRect(ctx, ln.x, ln.y, NODE_W, NODE_H, 4);
       ctx.fill();
@@ -765,8 +830,12 @@
 
       const ln = nodeAt(sx, sy);
       if (ln) {
-        selectedNode = ln;
-        showSidebar(nodeMap[ln.id]);
+        if (relateMode) {
+          handleRelateClick(ln.id);
+        } else {
+          selectedNode = ln;
+          showSidebar(nodeMap[ln.id]);
+        }
       } else {
         selectedNode = null;
         closeSidebar();
@@ -891,6 +960,104 @@
     draw();
   }
 
+  function generateLifeStory(node, parentIds, spouseIds, childrenIds) {
+    const parts = [];
+    const firstName = node.name.split(' ')[0];
+    const pronoun = node.sex === 'F' ? 'she' : node.sex === 'M' ? 'he' : 'they';
+    const possessive = node.sex === 'F' ? 'her' : node.sex === 'M' ? 'his' : 'their';
+    const childWord = node.sex === 'F' ? 'daughter' : node.sex === 'M' ? 'son' : 'child';
+
+    // Birth
+    if (node.birthDate || node.birthPlace) {
+      let s = '';
+      if (node.birthDate) {
+        s = `Born ${node.birthDate}`;
+        if (node.birthPlace) s += ` in ${node.birthPlace.split(',').slice(0,2).join(',')}`;
+      } else {
+        s = `Born in ${node.birthPlace.split(',').slice(0,2).join(',')}`;
+      }
+      // Parents
+      if (parentIds.length > 0) {
+        const parentNames = parentIds.map(id => nodeMap[id] ? nodeMap[id].name.split(' ')[0] : '?');
+        s += `, ${firstName} was the ${childWord} of ${parentNames.join(' and ')}`;
+      }
+      parts.push(s + '.');
+    }
+
+    // Marriage
+    for (const sId of spouseIds) {
+      const spouse = nodeMap[sId];
+      if (!spouse) continue;
+      // Find the family to get marriage date
+      for (const fId of (node.familiesAsSpouse || [])) {
+        const fam = familyMap[fId];
+        if (!fam) continue;
+        if (fam.husband === sId || fam.wife === sId) {
+          let s = `${firstName} married ${spouse.name}`;
+          if (fam.marriageDate) {
+            s += ` on ${fam.marriageDate}`;
+            // Calculate age at marriage
+            if (node.birthYear) {
+              const my = fam.marriageDate.match(/\d{4}/);
+              if (my) {
+                const age = parseInt(my[0]) - node.birthYear;
+                if (age > 0 && age < 100) s += ` at age ${age}`;
+              }
+            }
+          }
+          if (fam.marriagePlace) s += ` in ${fam.marriagePlace.split(',').slice(0,2).join(',')}`;
+          parts.push(s + '.');
+          break;
+        }
+      }
+    }
+
+    // Children
+    if (childrenIds.length > 0) {
+      if (childrenIds.length === 1) {
+        const c = nodeMap[childrenIds[0]];
+        parts.push(`They had one child${c ? ', ' + c.name : ''}.`);
+      } else {
+        const names = childrenIds.slice(0, 4).map(id => nodeMap[id] ? nodeMap[id].name.split(' ')[0] : '?');
+        let s = `They had ${childrenIds.length} children`;
+        if (childrenIds.length <= 4) {
+          s += `: ${names.join(', ')}`;
+        } else {
+          s += `, including ${names.join(', ')}`;
+        }
+        parts.push(s + '.');
+      }
+    }
+
+    // Badges
+    if (node.badges && node.badges.length > 0) {
+      const badgeTexts = [];
+      if (node.badges.includes('military')) badgeTexts.push('served in the military');
+      if (node.badges.includes('freemason')) badgeTexts.push('was a Freemason');
+      if (node.badges.includes('dar')) badgeTexts.push('is recognized as a patriot ancestor (DAR/SAR)');
+      if (node.badges.includes('immigration')) badgeTexts.push('immigrated to America');
+      if (badgeTexts.length > 0) {
+        parts.push(`${firstName} ${badgeTexts.join(' and ')}.`);
+      }
+    }
+
+    // Death
+    if (node.deathDate) {
+      let s = `${firstName} passed away ${node.deathDate}`;
+      if (node.deathPlace) s += ` in ${node.deathPlace.split(',').slice(0,2).join(',')}`;
+      if (node.birthYear) {
+        const dy = node.deathDate.match(/\d{4}/);
+        if (dy) {
+          const age = parseInt(dy[0]) - node.birthYear;
+          if (age > 0 && age < 120) s += `, at the age of ${age}`;
+        }
+      }
+      parts.push(s + '.');
+    }
+
+    return parts.length > 0 ? parts.join(' ') : '';
+  }
+
   function showSidebar(node) {
     sidebar.classList.add('open');
 
@@ -915,6 +1082,12 @@
         html += `<span class="tooltip-badge ${b}">${BADGE_ICONS[b] || ''} ${b}</span>`;
       }
       html += '</div>';
+    }
+
+    // Auto-generated life story
+    const story = generateLifeStory(node, parents, spouseIds, children);
+    if (story) {
+      html += `<div class="sidebar-section"><h4>Life Story</h4><div class="sidebar-story">${story}</div></div>`;
     }
 
     // Birth/death details
@@ -1079,6 +1252,193 @@
     centerOnRoot();
     draw();
   });
+
+  // ── Timeline Slider ───────────────────────────────────────
+
+  const timeSlider = document.getElementById('timeSlider');
+  const timeYearEl = document.getElementById('timeYear');
+  const timeAliveEl = document.getElementById('timeAlive');
+  const timePlayBtn = document.getElementById('timePlay');
+
+  timeSlider.addEventListener('input', function() {
+    timelineYear = parseInt(this.value);
+    updateTimelineDisplay();
+    draw();
+  });
+
+  timePlayBtn.addEventListener('click', function() {
+    if (timelinePlaying) {
+      stopTimeline();
+    } else {
+      startTimeline();
+    }
+  });
+
+  function startTimeline() {
+    timelinePlaying = true;
+    timePlayBtn.innerHTML = '&#9646;&#9646;';
+    timePlayBtn.classList.add('playing');
+    if (timelineYear >= 2026) timelineYear = 1500;
+    timelineInterval = setInterval(function() {
+      timelineYear += 2;
+      if (timelineYear > 2026) {
+        timelineYear = 2026;
+        stopTimeline();
+      }
+      timeSlider.value = timelineYear;
+      updateTimelineDisplay();
+      draw();
+    }, 80);
+  }
+
+  function stopTimeline() {
+    timelinePlaying = false;
+    timePlayBtn.innerHTML = '&#9654;';
+    timePlayBtn.classList.remove('playing');
+    if (timelineInterval) { clearInterval(timelineInterval); timelineInterval = null; }
+  }
+
+  function updateTimelineDisplay() {
+    timeYearEl.textContent = timelineYear >= 2026 ? 'All' : timelineYear;
+    if (data && timelineYear < 2026) {
+      const alive = data.nodes.filter(n => isAliveInYear(n, timelineYear)).length;
+      timeAliveEl.textContent = alive + ' people alive';
+    } else {
+      timeAliveEl.textContent = '';
+    }
+  }
+
+  // ── Relationship Finder ──────────────────────────────────
+
+  let relateMode = false;
+  let relateA = null, relateB = null;
+  let relatePath = [];
+
+  const relatePanel = document.getElementById('relatePanel');
+  const relateMsg = document.getElementById('relateMsg');
+
+  document.getElementById('relateBtn').addEventListener('click', function() {
+    if (relateMode) {
+      exitRelateMode();
+    } else {
+      relateMode = true;
+      relateA = null; relateB = null; relatePath = [];
+      relatePanel.classList.add('open');
+      relateMsg.innerHTML = 'Click the <strong>first</strong> person';
+      this.classList.add('active');
+      draw();
+    }
+  });
+
+  document.getElementById('relateCancel').addEventListener('click', exitRelateMode);
+
+  function exitRelateMode() {
+    relateMode = false;
+    relateA = null; relateB = null; relatePath = [];
+    relatePanel.classList.remove('open');
+    document.getElementById('relateBtn').classList.remove('active');
+    draw();
+  }
+
+  function handleRelateClick(nodeId) {
+    if (!relateA) {
+      relateA = nodeId;
+      relateMsg.innerHTML = `<strong>${nodeMap[nodeId].name}</strong> \u2194 Click the <strong>second</strong> person`;
+    } else if (!relateB) {
+      relateB = nodeId;
+      const result = findRelationship(relateA, relateB);
+      if (result) {
+        relatePath = result.path;
+        relateMsg.innerHTML = `<strong>${nodeMap[relateA].name}</strong> \u2194 <strong>${nodeMap[relateB].name}</strong><br><span style="color:var(--gold);font-size:1.1rem">${result.label}</span><div class="relate-path">${result.path.map(id => nodeMap[id] ? nodeMap[id].name : id).join(' \u2192 ')}</div>`;
+      } else {
+        relateMsg.innerHTML = `<strong>${nodeMap[relateA].name}</strong> \u2194 <strong>${nodeMap[relateB].name}</strong><br>No connection found`;
+      }
+      draw();
+    } else {
+      // Reset for new search
+      relateA = nodeId; relateB = null; relatePath = [];
+      relateMsg.innerHTML = `<strong>${nodeMap[nodeId].name}</strong> \u2194 Click the <strong>second</strong> person`;
+      draw();
+    }
+  }
+
+  function findRelationship(idA, idB) {
+    // BFS through family connections
+    const queue = [[idA]];
+    const visited = new Set([idA]);
+    const maxDepth = 30;
+
+    while (queue.length > 0) {
+      const path = queue.shift();
+      if (path.length > maxDepth) continue;
+      const current = path[path.length - 1];
+
+      if (current === idB) {
+        return { path, label: describeRelationship(path) };
+      }
+
+      // Get all connected people: parents, children, spouses
+      const neighbors = [];
+      const node = nodeMap[current];
+      if (!node) continue;
+
+      // Parents
+      const parents = getParents(current);
+      for (const p of parents) neighbors.push(p);
+
+      // Children
+      for (const fId of (node.familiesAsSpouse || [])) {
+        const fam = familyMap[fId];
+        if (!fam) continue;
+        for (const c of fam.children) neighbors.push(c);
+        // Spouse
+        const s = getSpouse(current, fId);
+        if (s) neighbors.push(s);
+      }
+
+      // Also check if current is a child — get siblings via parent families
+      if (node.familyAsChild) {
+        const fam = familyMap[node.familyAsChild];
+        if (fam) {
+          for (const c of fam.children) {
+            if (c !== current) neighbors.push(c);
+          }
+        }
+      }
+
+      for (const n of neighbors) {
+        if (!visited.has(n) && nodeMap[n]) {
+          visited.add(n);
+          queue.push([...path, n]);
+        }
+      }
+    }
+    return null;
+  }
+
+  function describeRelationship(path) {
+    if (path.length === 1) return 'Same person';
+    if (path.length === 2) {
+      // Direct connection: parent, child, or spouse
+      const a = path[0], b = path[1];
+      const parents = getParents(b);
+      if (parents.includes(a)) return 'Parent \u2192 Child';
+      const parentsA = getParents(a);
+      if (parentsA.includes(b)) return 'Child \u2192 Parent';
+      // Check spouse
+      const nodeA = nodeMap[a];
+      for (const fId of (nodeA.familiesAsSpouse || [])) {
+        if (getSpouse(a, fId) === b) return 'Spouses';
+      }
+      // Siblings
+      if (nodeA.familyAsChild && nodeMap[b].familyAsChild && nodeA.familyAsChild === nodeMap[b].familyAsChild) return 'Siblings';
+      return 'Connected (1 step)';
+    }
+    const steps = path.length - 1;
+    if (steps <= 3) return `${steps}-step connection`;
+    if (steps <= 6) return `${steps}-step family connection`;
+    return `Distant relatives (${steps} steps)`;
+  }
 
   // ── Stats ────────────────────────────────────────────────
 

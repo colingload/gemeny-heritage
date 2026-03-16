@@ -1588,45 +1588,32 @@
   </footer>
 
   <script>
-  // === This Day in History ===
+  // === This Day in History (1,380 events from full GEDCOM) ===
   (function() {
-    const events = [
-      { m:1,  d:5,  text: '<strong>W. Gordon Gemeny</strong> was born on this day in 1930 in Washington, DC.' },
-      { m:2,  d:27, text: '<strong>Mary Amelia Sanderson</strong> was born on this day in 1933 in Guilford, NC.' },
-      { m:4,  d:28, text: '<strong>Mary Amelia Sanderson Gemeny</strong> passed away on this day in 2016, in Solomons Island, MD. She was 83.' },
-      { m:5,  d:4,  text: '<strong>Benjamin Gemeny</strong> was born on this day in 1835. He would later be imprisoned as a Union spy.' },
-      { m:5,  d:24, text: '<strong>Colin Frederick Gload</strong> was born on this day in 1989 in Rapid City, SD &mdash; 8th generation.' },
-      { m:6,  d:23, text: '<strong>John Gemeny II</strong> married <strong>Matilda Figg</strong> on this day in 1816 in Alexandria, VA.' },
-      { m:7,  d:24, text: '<strong>John "The Sea Captain"</strong> married <strong>Naomi Tewksbury</strong> on this day in 1790 in Salem, MA.' },
-      { m:8,  d:14, text: '<strong>Mary Gemeny</strong> began writing her Civil War memoir on this day in 1913, at age 77.' },
-      { m:10, d:17, text: '<strong>Anthony Gemini</strong> married <strong>Katherine Richards</strong> on this day in 1756 in Salem, MA &mdash; the founding marriage.' },
-      { m:11, d:1,  text: '<strong>Benjamin Gemeny</strong> married <strong>Mary Roberts</strong> on this day in 1855 in Baltimore, MD.' },
-      { m:11, d:7,  text: '<strong>W. Gordon Gemeny</strong> married <strong>Mary Amelia Sanderson</strong> on this day in 1953 in Washington, DC.' },
-      { m:11, d:22, text: '<strong>W. Gordon Gemeny</strong> passed away on this day in 2017 in Solomons Island, MD. He was 87.' }
-    ];
-
-    const fallbacks = [
-      'Anthony Gemini arrived in North America circa 1755 &mdash; a sailor who founded a family line spanning 300 years.',
-      'John "The Sea Captain" Gemeny vanished at sea. His son, hidden in a cupboard, survived to continue the family line.',
-      'The General Harrison Quilt, a Baltimore Album quilt, was given to John II and Matilda Gemeny to celebrate their wedding.',
-      'Mary Gemeny lived to be approximately 101 years old. In 1913, at age 77, she wrote her memoir of the Civil War.',
-      'Naomi Tewksbury is credited with changing the family surname from Gemini to Gemeny around 1790.'
-    ];
-
+    const el = document.getElementById('today-text');
+    const months = ['','January','February','March','April','May','June','July','August','September','October','November','December'];
     const now = new Date();
     const m = now.getMonth() + 1;
     const d = now.getDate();
-    const months = ['','January','February','March','April','May','June','July','August','September','October','November','December'];
 
-    const match = events.find(e => e.m === m && e.d === d);
-    const el = document.getElementById('today-text');
-
-    if (match) {
-      el.innerHTML = 'On ' + months[m] + ' ' + d + ' &mdash; ' + match.text;
-    } else {
-      el.innerHTML = months[m] + ' ' + d;
-      el.closest('.today-inner').style.opacity = '0.4';
-    }
+    fetch('data/on-this-day-events.json')
+      .then(r => r.json())
+      .then(function(events) {
+        const matches = events.filter(e => e.m === m && e.d === d);
+        if (matches.length > 0) {
+          // Pick up to 3 random matches for variety
+          const shuffled = matches.sort(() => 0.5 - Math.random()).slice(0, 3);
+          el.innerHTML = 'On ' + months[m] + ' ' + d + ' &mdash; ' + shuffled.map(e => e.text).join('<br style="margin:0.4rem 0">');
+        } else {
+          // Fallback: pick a random event from any day
+          const fallback = events[Math.floor(Math.random() * events.length)];
+          el.innerHTML = months[m] + ' ' + d + ' &mdash; No exact match today, but did you know? ' + fallback.text;
+        }
+      })
+      .catch(function() {
+        // Fallback if fetch fails (e.g. local file:// access)
+        el.innerHTML = months[m] + ' ' + d;
+      });
   })();
 
   // === Horizontal Timeline Filters (two independent rows) ===
