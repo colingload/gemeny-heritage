@@ -200,6 +200,68 @@
       opacity: 0.7;
     }
 
+    /* Focal point (Mim & Pip) */
+    .lineage-focal {
+      text-align: center; padding: 2rem 1.5rem;
+      background: linear-gradient(160deg, #121e15 0%, #1a2e1a 100%);
+      color: var(--cream);
+      margin: 1.5rem 0;
+      position: relative;
+    }
+    .lineage-focal::before,
+    .lineage-focal::after {
+      content: ''; display: block;
+      width: 1px; height: 2rem;
+      background: var(--gold); margin: 0 auto;
+      opacity: 0.4;
+    }
+    .lineage-focal::before { margin-bottom: 1rem; }
+    .lineage-focal::after { margin-top: 1rem; }
+    .lineage-focal .lineage-name {
+      font-size: 1.5rem; color: var(--cream);
+    }
+    .lineage-focal .lineage-detail {
+      color: rgba(255,255,255,0.5);
+    }
+    .lineage-focal .lineage-tag {
+      background: var(--gold); color: #fff;
+      border-color: var(--gold); opacity: 1;
+      font-size: 0.7rem; padding: 0.2rem 0.8rem;
+    }
+
+    /* Section divider label */
+    .lineage-divider {
+      text-align: center; padding: 1.5rem 0 0.5rem;
+      font-family: var(--sans); font-size: 0.62rem;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-light); opacity: 0.5;
+    }
+
+    /* Nine branches grid */
+    .branches-grid {
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 2rem 4rem;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px; background: var(--border-light);
+      border: 1px solid var(--border-light);
+    }
+    .branch-card {
+      background: var(--card); padding: 1.5rem;
+      text-align: center;
+    }
+    .branch-card h3 {
+      font-family: var(--serif); font-size: 1rem; font-weight: 500;
+      margin-bottom: 0.15rem;
+    }
+    .branch-card-children {
+      font-size: 0.75rem; color: var(--text-light); margin-top: 0.3rem;
+      line-height: 1.5;
+    }
+    .branch-card-count {
+      font-size: 0.68rem; color: var(--gold); margin-top: 0.4rem;
+      font-weight: 500;
+    }
+
     /* ===== Moments ===== */
     .moments {
       background: var(--warm);
@@ -426,12 +488,13 @@
     <p class="hero-pre">Poissant &middot; Glaude &middot; Glode &middot; Gload &mdash; 440 Years</p>
     <h1>The Gload<br>Family</h1>
     <div class="hero-line"></div>
-    <p class="hero-sub">From the salt marshes of Huguenot France to modern America &mdash; thirteen generations, four countries, five surnames.</p>
+    <p class="hero-sub">The story of <strong>Frederick &ldquo;Mim&rdquo; &amp; Eva &ldquo;Pip&rdquo; Gload</strong> &mdash; and the lineage that brought them to Champlain, and the nine branches that grew from their family.</p>
+    <p style="font-family:var(--serif);font-size:0.95rem;font-weight:300;font-style:italic;opacity:0.3;margin-top:2rem;position:relative">Nine children &middot; Thirty-five grandchildren &middot; Four countries &middot; Five surnames</p>
   </section>
 
   <!-- Intro -->
   <section class="intro">
-    <p>Start with <strong>Poissant</strong>, a word that tastes of the French Atlantic. Follow it through <strong>Poissant dit LaSaline</strong>, the alias of a young Huguenot orphan who crossed the ocean with a musket and a forced conversion. Watch it become <strong>Glaude</strong>, then <strong>Glode</strong>, then finally <strong>Gload</strong> &mdash; each mutation a record of displacement, of a family moving ever southward through <strong>440 years and four countries</strong>.</p>
+    <p>Starting from <strong>Mim &amp; Pip</strong>, this archive traces the Gload name back through centuries &mdash; from <strong>Poissant</strong> in Huguenot France, through <strong>Glaude</strong> and <strong>Glode</strong> in Quebec and upstate New York, to the <strong>Gload</strong> family of Champlain. Forward from Mim &amp; Pip, nine children scattered from New York to Maryland, Illinois, Iowa, Arizona, and beyond. <strong>440 years. Four countries. Five surnames. One family.</strong></p>
   </section>
 
   <!-- This Day in History -->
@@ -466,9 +529,9 @@
     </a>
   </section>
 
-  <!-- Direct Lineage -->
+  <!-- Lineage: Ancestors up to Mim & Pip -->
   <section class="lineage" id="lineage">
-    <div class="section-label">Direct Lineage &mdash; Thirteen Generations</div>
+    <div class="section-label">Ancestors &mdash; The Path to Champlain</div>
     <div class="lineage-chain">
 
       <div class="lineage-person">
@@ -480,61 +543,117 @@
       <div class="lineage-person">
         <div class="lineage-name">Jacques Poissant dit LaSaline</div>
         <div class="lineage-detail">1661 &ndash; 1734 &middot; Marennes &rarr; Quebec &middot; Soldier, Compagnies franches de la Marine</div>
-        <span class="lineage-tag">Gen 1 &middot; Crossed the Atlantic</span>
+        <span class="lineage-tag">Crossed the Atlantic 1684</span>
       </div>
 
       <div class="lineage-person">
         <div class="lineage-name">Claude &ldquo;Glode&rdquo; Poissant</div>
         <div class="lineage-detail">1709 &ndash; 1773 &middot; La Prairie, Quebec &middot; Godfather changed the name</div>
-        <span class="lineage-tag">Gen 2</span>
+        <span class="lineage-tag">The Name Change</span>
       </div>
 
       <div class="lineage-person">
         <div class="lineage-name">Jacques-Marie Claude Poissant</div>
         <div class="lineage-detail">c. 1750 &ndash; c. 1824 &middot; Quebec &middot; Lived through the British Conquest</div>
-        <span class="lineage-tag">Gen 3</span>
       </div>
 
       <div class="lineage-person">
         <div class="lineage-name">Jacques &ldquo;Jacob&rdquo; Poissant dit Glode</div>
-        <div class="lineage-detail">c. 1812 &ndash; c. 1867 &middot; Quebec &rarr; Champlain, NY &middot; Crossed the border</div>
-        <span class="lineage-tag">Gen 4 &middot; Quebec to America</span>
+        <div class="lineage-detail">c. 1812 &ndash; c. 1867 &middot; Quebec &rarr; Champlain, NY</div>
+        <span class="lineage-tag">Crossed the Border c. 1825</span>
       </div>
 
       <div class="lineage-person">
         <div class="lineage-name">Joseph Glode</div>
         <div class="lineage-detail">c. 1835, Champlain, NY &middot; Canal family &middot; Twelve children</div>
-        <span class="lineage-tag">Gen 5</span>
       </div>
 
       <div class="lineage-person">
         <div class="lineage-name">Amos Glode / Gload</div>
         <div class="lineage-detail">c. 1874 &ndash; 1933 &middot; Champlain, NY &middot; Final surname shift: Glode &rarr; Gload</div>
-        <span class="lineage-tag">Gen 6</span>
       </div>
 
-      <div class="lineage-person">
-        <div class="lineage-name">Frederick &ldquo;Mim&rdquo; Gload Sr. &amp; Eva &ldquo;Pip&rdquo; Lavalley</div>
-        <div class="lineage-detail">c. 1900 &middot; Champlain, NY &middot; Nine children, 35 grandchildren</div>
-        <span class="lineage-tag">Gen 7</span>
-      </div>
+    </div>
+
+    <!-- FOCAL POINT: Mim & Pip -->
+    <div class="lineage-focal">
+      <div class="lineage-name">Frederick &ldquo;Mim&rdquo; Gload Sr.<br>&amp; Eva &ldquo;Pip&rdquo; Lavalley</div>
+      <div class="lineage-detail">c. 1900 &middot; Champlain, New York</div>
+      <span class="lineage-tag">The Trunk &middot; Nine Children &middot; 35 Grandchildren</span>
+    </div>
+
+    <div class="lineage-divider">The Nine Branches</div>
+  </section>
+
+  <!-- The Nine Branches of Mim & Pip -->
+  <div class="branches-grid">
+    <div class="branch-card">
+      <h3>Richard Gload</h3>
+      <div class="branch-card-children">Dickie, Jerry, Jimmy, Allen</div>
+      <div class="branch-card-count">4 children</div>
+    </div>
+    <div class="branch-card">
+      <h3>Peter Gload</h3>
+      <div class="branch-card-children">Peggy (Maloney), David</div>
+      <div class="branch-card-count">2 children</div>
+    </div>
+    <div class="branch-card">
+      <h3>Betty Gload</h3>
+      <div class="branch-card-children">Jan (Gaines), Kathy (Shumaker), Jill (Reese)</div>
+      <div class="branch-card-count">3 children &middot; Passnault</div>
+    </div>
+    <div class="branch-card" style="border-left:3px solid var(--gold)">
+      <h3>Robert &ldquo;Bob&rdquo; Gload</h3>
+      <div class="branch-card-children">Ted, Nancy (Crim), Bob Jr., Chris</div>
+      <div class="branch-card-count">4 children &middot; Colin&rsquo;s line</div>
+    </div>
+    <div class="branch-card">
+      <h3>Joyce Gload</h3>
+      <div class="branch-card-children">Raney, Bob, Susie, Cindy, Laurie, Brenda, Tim</div>
+      <div class="branch-card-count">7 children &middot; Rock &middot; Largest branch</div>
+    </div>
+    <div class="branch-card">
+      <h3>Marion Gload</h3>
+      <div class="branch-card-children">Val, Matt, Bill</div>
+      <div class="branch-card-count">3 children</div>
+    </div>
+    <div class="branch-card">
+      <h3>Gloria Gload</h3>
+      <div class="branch-card-children">Becky, Johnny, Patti (Crowley), Michael</div>
+      <div class="branch-card-count">4 children</div>
+    </div>
+    <div class="branch-card">
+      <h3>Leona Gload</h3>
+      <div class="branch-card-children">Butch, Ree, Gina (Redina), Vicky (O&rsquo;Donnell)</div>
+      <div class="branch-card-count">4 children &middot; Shapiro &middot; 1937&ndash;2026</div>
+    </div>
+    <div class="branch-card">
+      <h3>Mary Lou Gload</h3>
+      <div class="branch-card-children">Cheryl (Schneider), Eve (Redmond), Sandy (Berry), Andrea (Wendel)</div>
+      <div class="branch-card-count">4 children &middot; Snyder</div>
+    </div>
+  </div>
+
+  <!-- Colin's Line (Robert's branch detail) -->
+  <section class="lineage">
+    <div class="section-label">Robert&rsquo;s Branch &mdash; Champlain to Maryland</div>
+    <div class="lineage-chain">
 
       <div class="lineage-person">
         <div class="lineage-name">Robert Frederick Gload &amp; Dolores DiPersico</div>
         <div class="lineage-detail">1930 &ndash; 2020 &middot; USAF Major &middot; Champlain &rarr; Crofton, MD</div>
-        <span class="lineage-tag">Gen 8 &middot; Military bridge to Maryland</span>
+        <span class="lineage-tag">Military bridge to Maryland</span>
       </div>
 
       <div class="lineage-person">
         <div class="lineage-name">Frederick Anthony &ldquo;Ted&rdquo; Gload &amp; Diane Lee</div>
         <div class="lineage-detail">b. 1959, Plattsburgh, NY</div>
-        <span class="lineage-tag">Gen 9</span>
       </div>
 
       <div class="lineage-person">
-        <div class="lineage-name">Colin Frederick Gload</div>
+        <div class="lineage-name">Colin Frederick Gload &amp; Brittany</div>
         <div class="lineage-detail">b. 1989, Rapid City, SD &middot; Archive curator</div>
-        <span class="lineage-tag">Gen 10</span>
+        <span class="lineage-tag">Project Curator</span>
       </div>
 
     </div>
@@ -546,6 +665,13 @@
       <div class="section-label">Key Figures</div>
       <div class="figures-grid">
 
+        <div class="figure" style="border-bottom:3px solid var(--gold)">
+          <div class="figure-gen">The Trunk &middot; Depression Era</div>
+          <h3>Frederick &ldquo;Mim&rdquo; &amp; Eva &ldquo;Pip&rdquo; Gload</h3>
+          <div class="figure-dates">c. 1900s &middot; Champlain, NY</div>
+          <p class="figure-desc">Raised nine children during the Depression and WWII. 35 grandchildren. Every modern Gload branch traces back to their home in Champlain.</p>
+        </div>
+
         <a href="stories/salt-soldiers-surnames.html" class="figure">
           <div class="figure-gen">Founding Ancestor &middot; 1618</div>
           <h3>Jacques Poissant</h3>
@@ -554,52 +680,38 @@
         </a>
 
         <a href="stories/salt-soldiers-surnames.html" class="figure">
-          <div class="figure-gen">Generation 1 &middot; The Crossing</div>
+          <div class="figure-gen">The Crossing &middot; 1684</div>
           <h3>Jacques dit LaSaline</h3>
           <div class="figure-dates">1661 &ndash; 1734</div>
-          <p class="figure-desc">Orphaned Huguenot soldier. Crossed the Atlantic aboard L&rsquo;Emerillon in 1684. Forced to abjure his faith. Nine children in Quebec.</p>
+          <p class="figure-desc">Orphaned Huguenot soldier. Crossed the Atlantic aboard L&rsquo;Emerillon. Forced to abjure his faith. Nine children in Quebec.</p>
         </a>
 
         <a href="stories/salt-soldiers-surnames.html" class="figure">
-          <div class="figure-gen">Generation 2 &middot; The Name Change</div>
+          <div class="figure-gen">The Name Change &middot; 1709</div>
           <h3>Claude &ldquo;Glode&rdquo; Poissant</h3>
           <div class="figure-dates">1709 &ndash; 1773</div>
-          <p class="figure-desc">A godfather named Glode Maheu at his baptism changed the family name forever. Poissant became Claude, then Glaude, then Glode, then Gload.</p>
+          <p class="figure-desc">A godfather named Glode Maheu at his baptism changed the family name forever. Poissant &rarr; Claude &rarr; Glaude &rarr; Glode &rarr; Gload.</p>
         </a>
 
         <div class="figure">
-          <div class="figure-gen">Generation 7 &middot; Depression Era</div>
-          <h3>Frederick &ldquo;Mim&rdquo; &amp; Eva &ldquo;Pip&rdquo;</h3>
-          <div class="figure-dates">c. 1900s</div>
-          <p class="figure-desc">Raised nine children in Champlain during the Depression and WWII. 35 grandchildren. The trunk from which every modern Gload branch grows.</p>
-        </div>
-
-        <div class="figure">
-          <div class="figure-gen">Generation 8 &middot; Cold War</div>
-          <h3>Robert Frederick Gload</h3>
+          <div class="figure-gen">Colin&rsquo;s Line &middot; Cold War</div>
+          <h3>Robert &ldquo;Pippy&rdquo; Gload</h3>
           <div class="figure-dates">1930 &ndash; 2020</div>
-          <p class="figure-desc">USAF Major. Mount Assumption Institute &rsquo;47. Carried the family from Champlain to Maryland. Avid fisherman who once spotted &ldquo;Champ&rdquo; on the lake.</p>
+          <p class="figure-desc">USAF Major. Mount Assumption &rsquo;47. Carried the family from Champlain to Maryland. Once spotted &ldquo;Champ&rdquo; on Lake Champlain.</p>
         </div>
 
         <div class="figure">
-          <div class="figure-gen">Generation 8 &middot; Last of Nine</div>
+          <div class="figure-gen">Last of Nine &middot; 2026</div>
           <h3>Leona Gload</h3>
           <div class="figure-dates">1937 &ndash; 2026</div>
-          <p class="figure-desc">The last surviving child of Mim and Pip. Her passing in 2026 closed a chapter. Preceded in death by all eight siblings.</p>
+          <p class="figure-desc">The last surviving child of Mim and Pip. With her passing, the stories they carried now live only in what they passed to their children.</p>
         </div>
 
         <div class="figure">
-          <div class="figure-gen">Generation 9</div>
-          <h3>Frederick &ldquo;Ted&rdquo; Gload</h3>
-          <div class="figure-dates">b. 1959</div>
-          <p class="figure-desc">Son of Robert and Dolores. Born in Plattsburgh. Father of Colin, Taylor, Kristen, and Andrew.</p>
-        </div>
-
-        <div class="figure">
-          <div class="figure-gen">Generation 10 &middot; The Archivist</div>
+          <div class="figure-gen">The Archivist</div>
           <h3>Colin Frederick Gload</h3>
           <div class="figure-dates">b. 1989</div>
-          <p class="figure-desc">Born in Rapid City, SD. Uses technology to rebuild what memory could no longer hold. Curator of this archive.</p>
+          <p class="figure-desc">Robert&rsquo;s grandson. Uses technology to rebuild what memory could no longer hold. Curator of this archive.</p>
         </div>
 
       </div>
