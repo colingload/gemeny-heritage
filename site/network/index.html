@@ -268,8 +268,8 @@
 
   // ── Constants ────────────────────────────────────────────
   const NODE_W = 170, NODE_H = 56;
-  const H_GAP = 24, V_GAP = 90;
-  const SPOUSE_GAP = 8;
+  const H_GAP = 16, V_GAP = 70;
+  const SPOUSE_GAP = 6;
   const COLORS = {
     gemeny: '#d4a017', 'gemeny-main': '#d4a017',
     gordon: '#5e9acf', 'gordon-dubois': '#5e9acf', 'gordon-mayhue': '#5e9acf',
@@ -496,9 +496,17 @@
     function subtreeWidth(nId) {
       if (visited.has(nId)) return NODE_W;
       visited.add(nId);
+      const node = nodeMap[nId];
+      // Only reserve spouse space if this node actually has a spouse
+      const hasSpouse = (node.familiesAsSpouse || []).some(fId => {
+        const s = getSpouse(nId, fId);
+        return s && nodeMap[s];
+      });
+      const selfWidth = hasSpouse ? NODE_W + SPOUSE_GAP + NODE_W : NODE_W;
+
       const children = expanded.has(nId) ? getChildren(nId) : [];
       if (children.length === 0) {
-        widths[nId] = NODE_W + SPOUSE_GAP + NODE_W; // room for spouse
+        widths[nId] = selfWidth;
         return widths[nId];
       }
       let total = 0;
@@ -506,8 +514,7 @@
         total += subtreeWidth(cId) + H_GAP;
       }
       total -= H_GAP;
-      const minWidth = NODE_W + SPOUSE_GAP + NODE_W;
-      widths[nId] = Math.max(total, minWidth);
+      widths[nId] = Math.max(total, selfWidth);
       return widths[nId];
     }
 
