@@ -1430,30 +1430,42 @@
   function setFamilyRoot(people) {
     if (people.length === 0) { applyFilters(); return; }
 
-    // Find the youngest person as root
-    people.sort((a, b) => b.birthYear - a.birthYear);
-    const youngest = people[0];
-
     // Stay in tree view
     viewMode = 'tree';
     viewToggle.textContent = 'GRID';
     viewToggle.style.color = '';
     savedTreeLayout = null;
 
-    // Set youngest as root and expand all descendants
-    setRoot(youngest.id);
+    // Find the oldest person as root (they'll have the most descendants visible)
+    people.sort((a, b) => (a.birthYear || 9999) - (b.birthYear || 9999));
+    const oldest = people[0];
 
-    // Also expand more aggressively — all descendants
-    function expandAllFrom(id, visited) {
-      if (visited.has(id)) return;
-      visited.add(id);
-      expanded.add(id);
-      getChildren(id).forEach(c => expandAllFrom(c, visited));
+    // Walk up from oldest to find their furthest ancestor
+    let rootId = oldest.id;
+    const visited = new Set();
+    while (true) {
+      visited.add(rootId);
+      const parents = getParents(rootId);
+      if (parents.length === 0) break;
+      rootId = parents[0];
+      if (visited.has(rootId)) break;
     }
-    expandAllFrom(youngest.id, new Set());
+
+    // Set this deep ancestor as root
+    treeRoot = rootId;
+    expanded.clear();
+
+    // Expand everything from root
+    function expandAllFrom(id, vis) {
+      if (vis.has(id)) return;
+      vis.add(id);
+      expanded.add(id);
+      getChildren(id).forEach(c => expandAllFrom(c, vis));
+    }
+    expandAllFrom(rootId, new Set());
     computeLayout();
 
-    // Zoom to fit all visible nodes
+    // Zoom to fit
     if (layoutNodes.length > 1) {
       let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
       layoutNodes.forEach(ln => {
@@ -1461,7 +1473,7 @@
         minY = Math.min(minY, ln.y); maxY = Math.max(maxY, ln.y + NODE_H);
       });
       const tw = maxX - minX, th = maxY - minY;
-      zoom = Math.min(W / tw * 0.85, H / th * 0.85, 1);
+      zoom = Math.min(W / tw * 0.85, H / th * 0.85, 0.8);
       camX = -(minX + tw / 2) * zoom + W / 2;
       camY = -(minY + th / 2) * zoom + H / 2;
     }
