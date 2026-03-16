@@ -652,16 +652,21 @@
   }
 
   function renderAgeDist(nodes) {
-    // 5-year buckets from 0 to 105+
-    const labels=[],values=[];
-    for(let i=0;i<=100;i+=5){labels.push(i+'-'+(i+4));values.push(0);}
+    // Special first bucket for infant death, then 5-year buckets
+    const labels=['0-1','2-4'];
+    const values=[0,0];
+    for(let i=5;i<=100;i+=5){labels.push(i+'-'+(i+4));values.push(0);}
     labels.push('105+');values.push(0);
     nodes.forEach(n=>{
       if(!n.birthYear||!n.deathDate)return;
       const dy=extractYear(n.deathDate);if(!dy)return;
       const age=dy-n.birthYear;if(age<0||age>120)return;
-      const idx=Math.min(Math.floor(age/5),values.length-1);
-      values[idx]++;
+      if(age<=1) values[0]++;
+      else if(age<=4) values[1]++;
+      else {
+        const idx=Math.min(Math.floor(age/5),values.length-1);
+        values[idx]++;
+      }
     });
     drawBarChart('chartAgeDist',labels,values,'#8e6aad',280);
   }
