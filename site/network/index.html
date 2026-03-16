@@ -59,6 +59,9 @@
 
     /* Badge filter buttons */
     .badge-btn{padding:0.25rem 0.6rem;border:1px solid rgba(255,255,255,0.12);background:none;cursor:pointer;font-family:var(--sans);font-size:0.65rem;letter-spacing:0.04em;text-transform:uppercase;color:rgba(255,255,255,0.35);transition:all 0.15s;border-radius:2px}
+    .family-select{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);color:var(--cream);padding:0.3rem 0.5rem;font-family:var(--sans);font-size:0.7rem;border-radius:3px;cursor:pointer;outline:none;min-width:130px}
+    .family-select:focus{border-color:var(--gold)}
+    .family-select option,.family-select optgroup{background:var(--navy);color:var(--cream)}
     .badge-btn:hover{border-color:rgba(255,255,255,0.3);color:rgba(255,255,255,0.6)}
     .story-link{background:rgba(212,160,23,0.1);border-color:rgba(212,160,23,0.3);color:var(--gold);text-decoration:none}
     .story-link:hover{background:rgba(212,160,23,0.2);border-color:var(--gold);color:var(--gold)}
@@ -194,11 +197,16 @@
     <div class="divider"></div>
 
     <button class="zoom-btn" id="clearBtn" title="Reset all filters and view" style="font-size:0.6rem;width:auto;padding:0 0.5rem;color:rgba(255,100,100,0.6)">CLEAR</button>
-    <button class="branch-btn active" data-branch="all">All</button>
-    <button class="branch-btn" data-branch="gemeny"><span class="branch-dot" style="background:var(--branch-gemeny)"></span>Gemeny</button>
-    <button class="branch-btn" data-branch="gordon"><span class="branch-dot" style="background:var(--branch-gordon)"></span>Gordon</button>
-    <button class="branch-btn" data-branch="sanderson"><span class="branch-dot" style="background:var(--branch-sanderson)"></span>Sanderson</button>
-    <button class="branch-btn" data-branch="burgess"><span class="branch-dot" style="background:var(--branch-burgess)"></span>Burgess</button>
+    <select class="family-select" id="familySelect" title="Filter by family name">
+      <option value="all">All Families</option>
+      <optgroup label="Main Branches">
+        <option value="branch:gemeny">Gemeny (branch)</option>
+        <option value="branch:gordon">Gordon/DuBois (branch)</option>
+        <option value="branch:sanderson">Sanderson (branch)</option>
+        <option value="branch:burgess">Burgess (branch)</option>
+      </optgroup>
+      <optgroup label="By Surname" id="surnameOptions"></optgroup>
+    </select>
 
     <div class="divider"></div>
 
@@ -383,6 +391,7 @@
 
     setRoot(defaultRoot.id);
     document.getElementById('loading').style.display = 'none';
+    populateSurnames();
     updateStats();
 
     // Check URL hash for person deep link (e.g. #person=I123)
@@ -647,6 +656,10 @@
     if (!node) return true;
     if (activeBranch !== 'all') {
       if (branchGroup(node.branch) !== activeBranch) return false;
+    }
+    if (activeSurname) {
+      const parts = node.name.split(' ');
+      if (parts[parts.length - 1] !== activeSurname) return false;
     }
     return true;
   }
@@ -1280,6 +1293,11 @@
     if (activeBranch !== 'all') {
       if (branchGroup(node.branch) !== activeBranch) pass = false;
     }
+    if (activeSurname) {
+      const parts = node.name.split(' ');
+      const last = parts[parts.length - 1];
+      if (last !== activeSurname) pass = false;
+    }
     if (activeBadge) {
       if (!node.badges || !node.badges.includes(activeBadge)) pass = false;
     }
@@ -1350,25 +1368,59 @@
     applyFilters();
   });
 
-  // Branch filters
-  document.querySelectorAll('.branch-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.branch-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      activeBranch = this.dataset.branch;
-      // Auto-switch to grid when selecting a specific branch
-      if (activeBranch !== 'all' && viewMode === 'tree') {
-        viewMode = 'grid';
-        viewToggle.textContent = 'TREE';
-        viewToggle.style.color = 'var(--gold)';
-      }
-      if (activeBranch === 'all' && !activeBadge) {
+  // Family dropdown filter (branches + surnames)
+  let activeSurname = null; // surname filter (separate from activeBranch)
+  const familySelect = document.getElementById('familySelect');
+
+  // Populate surname options after data loads
+  function populateSurnames() {
+    const counts = {};
+    data.nodes.forEach(n => {
+      const parts = n.name.split(' ');
+      const last = parts[parts.length - 1];
+      if (last && last.length > 1) counts[last] = (counts[last] || 0) + 1;
+    });
+    // Merge case variants (DuBois/Dubois, BURGESS/Burgess)
+    const merged = {};
+    Object.entries(counts).forEach(([name, count]) => {
+      const key = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+      merged[key] = (merged[key] || 0) + count;
+      // Keep original casing for matching
+    });
+    const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]).filter(e => e[1] >= 3);
+    const optgroup = document.getElementById('surnameOptions');
+    sorted.forEach(([name, count]) => {
+      const opt = document.createElement('option');
+      opt.value = 'surname:' + name;
+      opt.textContent = name + ' (' + count + ')';
+      optgroup.appendChild(opt);
+    });
+  }
+
+  familySelect.addEventListener('change', function() {
+    const val = this.value;
+    activeSurname = null;
+    activeBranch = 'all';
+
+    if (val === 'all') {
+      // Reset
+      if (!activeBadge) {
         viewMode = 'tree';
         viewToggle.textContent = 'GRID';
         viewToggle.style.color = '';
       }
-      applyFilters();
-    });
+    } else if (val.startsWith('branch:')) {
+      activeBranch = val.substring(7);
+      viewMode = 'grid';
+      viewToggle.textContent = 'TREE';
+      viewToggle.style.color = 'var(--gold)';
+    } else if (val.startsWith('surname:')) {
+      activeSurname = val.substring(8);
+      viewMode = 'grid';
+      viewToggle.textContent = 'TREE';
+      viewToggle.style.color = 'var(--gold)';
+    }
+    applyFilters();
   });
 
   // Badge filters (toggle on/off, can combine with branch)
@@ -1469,10 +1521,10 @@
   // ── Clear / Reset All ─────────────────────────────────────
 
   document.getElementById('clearBtn').addEventListener('click', function() {
-    // Reset branch filter
+    // Reset family filter
     activeBranch = 'all';
-    document.querySelectorAll('.branch-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector('.branch-btn[data-branch="all"]').classList.add('active');
+    activeSurname = null;
+    familySelect.value = 'all';
 
     // Reset badge filter
     activeBadge = null;
