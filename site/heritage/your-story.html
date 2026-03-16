@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Story — Gemeny Heritage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream:#f7f4ef;--warm:#f0ebe3;--dark:#1e1810;--text:#2a2017;--text-mid:#6d5f4e;
+      --text-light:#9a8d7c;--gold:#b8860b;--gold-hover:#d4a017;--border:#ddd5c8;
+      --border-light:#e8e2d8;--card:#fffefb;--navy:#0f1a2e;
+      --serif:'Cormorant Garamond','Georgia',serif;--sans:'Inter',-apple-system,'Segoe UI',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--sans);background:var(--cream);color:var(--text);font-size:15px;line-height:1.65}
+    a{color:var(--gold);text-decoration:none}
+
+    .nav{position:sticky;top:0;z-index:100;background:rgba(247,244,239,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border-light)}
+    .nav-inner{max-width:1100px;margin:0 auto;padding:0.9rem 2rem;display:flex;align-items:center;justify-content:space-between}
+    .nav-brand{font-family:var(--serif);font-size:1.5rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--text)}
+    .nav-back{font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-mid)}
+
+    .hero{background:var(--navy);color:var(--cream);text-align:center;padding:5rem 2rem 4rem;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(184,134,11,0.06) 0%,transparent 60%)}
+    .hero-pre{font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;opacity:0.35;margin-bottom:1.5rem;position:relative}
+    .hero h1{font-family:var(--serif);font-size:3.2rem;font-weight:300;letter-spacing:0.08em;line-height:1.2;position:relative;color:var(--cream)}
+    .hero-line{width:50px;height:1px;background:var(--gold);margin:1.5rem auto;opacity:0.5;position:relative}
+    .hero-sub{font-family:var(--serif);font-size:1.1rem;font-weight:300;opacity:0.55;line-height:1.8;position:relative;max-width:550px;margin:0 auto}
+
+    /* Search */
+    .search-section{position:relative;max-width:400px;margin:2rem auto 0;z-index:10}
+    .search-input{width:100%;padding:0.8rem 1.2rem;font-family:var(--serif);font-size:1.1rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:var(--cream);border-radius:4px;outline:none;text-align:center}
+    .search-input:focus{border-color:var(--gold)}
+    .search-input::placeholder{color:rgba(255,255,255,0.3)}
+    .search-dropdown{position:absolute;top:100%;left:0;right:0;max-height:300px;overflow-y:auto;background:var(--navy);border:1px solid rgba(255,255,255,0.1);border-top:none;border-radius:0 0 4px 4px;display:none;z-index:20}
+    .search-dropdown.open{display:block}
+    .search-option{padding:0.6rem 1.2rem;cursor:pointer;font-family:var(--serif);font-size:0.95rem;color:rgba(255,255,255,0.7);border-bottom:1px solid rgba(255,255,255,0.04)}
+    .search-option:hover{background:rgba(212,160,23,0.1);color:var(--cream)}
+    .search-option-dates{font-family:var(--sans);font-size:0.7rem;color:rgba(255,255,255,0.3);margin-left:0.5rem}
+
+    .stats{display:flex;justify-content:center;gap:3rem;padding:2.5rem 2rem;background:var(--dark);color:var(--cream);flex-wrap:wrap}
+    .stat{text-align:center}
+    .stat-num{font-family:var(--serif);font-size:2.2rem;font-weight:300;color:var(--gold);display:block}
+    .stat-label{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.4;margin-top:0.2rem}
+
+    .intro{max-width:680px;margin:0 auto;padding:3rem 2rem;text-align:center}
+    .intro p{font-family:var(--serif);font-size:1.1rem;line-height:2;color:var(--text-mid);font-weight:300}
+    .intro strong{font-weight:500;color:var(--text)}
+
+    .gen{max-width:800px;margin:0 auto;padding:0 2rem 4rem}
+    .gen-header{display:flex;align-items:baseline;gap:1rem;margin-bottom:1.5rem;border-bottom:1px solid var(--border-light);padding-bottom:0.8rem}
+    .gen-num{font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--gold);min-width:60px}
+    .gen-title{font-family:var(--serif);font-size:1.3rem;font-weight:400}
+    .gen-era{font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-left:auto}
+    .gen-people{display:flex;gap:1px;background:var(--border-light);border:1px solid var(--border-light);margin-bottom:1.5rem}
+    .gen-person{flex:1;background:var(--card);padding:1.2rem;min-width:200px}
+    .gen-person-name{font-family:var(--serif);font-size:1.05rem;font-weight:500;margin-bottom:0.15rem}
+    .gen-person-dates{font-size:0.8rem;color:var(--text-light)}
+    .gen-person-place{font-size:0.78rem;color:var(--text-light);font-style:italic;margin-top:0.2rem}
+    .gen-story{font-family:var(--serif);font-size:1rem;line-height:1.9;color:var(--text-mid);font-weight:300}
+    .gen-story strong{font-weight:500;color:var(--text)}
+    .gen-fact{display:flex;align-items:flex-start;gap:0.8rem;margin:1rem 0;padding:0.8rem 1rem;background:var(--warm);font-size:0.88rem;line-height:1.6}
+    .gen-fact-icon{font-size:1.1rem;flex-shrink:0;margin-top:0.1rem}
+    .gen-milestone{border-left:3px solid var(--gold);padding:0.8rem 1.2rem;margin:1.2rem 0;background:var(--card)}
+    .gen-milestone-label{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:0.3rem}
+    .gen-milestone p{font-size:0.9rem;line-height:1.6;color:var(--text-mid)}
+
+    .deep-roots{background:var(--navy);color:var(--cream);padding:4rem 2rem}
+    .deep-roots-inner{max-width:800px;margin:0 auto}
+    .deep-roots h2{font-family:var(--serif);font-size:1.8rem;font-weight:300;text-align:center;margin-bottom:0.5rem;color:var(--cream)}
+    .deep-roots-sub{text-align:center;font-size:0.85rem;opacity:0.4;margin-bottom:2.5rem}
+    .deep-person{display:flex;gap:1.5rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.06);align-items:baseline}
+    .deep-person:last-child{border-bottom:none}
+    .deep-year{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--gold);min-width:50px;text-align:right;flex-shrink:0}
+    .deep-name{font-family:var(--serif);font-size:1rem;color:rgba(255,255,255,0.8)}
+    .deep-detail{font-size:0.8rem;color:rgba(255,255,255,0.35);margin-top:0.15rem}
+
+    .you-section{background:var(--dark);color:var(--cream);padding:4rem 2rem;text-align:center}
+    .you-section h2{font-family:var(--serif);font-size:2rem;font-weight:300;margin-bottom:1rem;color:var(--gold)}
+    .you-section p{font-family:var(--serif);font-size:1.1rem;line-height:1.9;opacity:0.6;max-width:600px;margin:0 auto}
+
+    .footer{border-top:1px solid var(--border-light);padding:2rem;text-align:center;color:var(--text);font-size:0.78rem}
+    .footer strong{color:var(--dark)}
+    .footer-sub{font-size:0.7rem;color:var(--text-mid);margin-top:0.3rem}
+
+    #storyContent{display:none}
+    #storyContent.visible{display:block}
+
+    @media(max-width:600px){
+      .hero h1{font-size:2.2rem}
+      .stats{gap:1.5rem}
+      .stat-num{font-size:1.6rem}
+      .gen-people{flex-direction:column}
+      .gen-header{flex-wrap:wrap}
+      .deep-person{flex-direction:column;gap:0.3rem}
+      .search-input{font-size:0.95rem}
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-brand">Gemeny</a>
+      <a href="../index.html" class="nav-back">&larr; Home</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero">
+    <p class="hero-pre">Discover Your Heritage</p>
+    <h1 id="heroTitle">Your Story</h1>
+    <div class="hero-line"></div>
+    <p class="hero-sub" id="heroSub">Enter your name to trace your ancestry back through the centuries.</p>
+    <div class="search-section">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search your name...">
+      <div class="search-dropdown" id="searchDropdown"></div>
+    </div>
+  </section>
+
+  <div id="storyContent"></div>
+
+  <footer class="footer">
+    <p>Genealogical research and data compiled by <strong>Steven E. Gemeny</strong>, son of W. Gordon Gemeny.</p>
+    <p class="footer-sub">Website created by <strong>Colin Gload</strong>, grandson of W. Gordon Gemeny.</p>
+  </footer>
+
+<script>
+(function() {
+  'use strict';
+
+  let data = null, nodeMap = {}, familyMap = {};
+
+  async function loadData() {
+    const paths = ['../../data/gedcom-tree.json','../data/gedcom-tree.json','/data/gedcom-tree.json','data/gedcom-tree.json'];
+    for (const p of paths) {
+      try { const r = await fetch(p); if (r.ok) { data = await r.json(); break; } } catch(e) {}
+    }
+    if (!data) return;
+    for (const n of data.nodes) nodeMap[n.id] = n;
+    for (const f of data.families) familyMap[f.id] = f;
+  }
+
+  // ── Search ──────────────────────────────────────────────
+  const searchInput = document.getElementById('searchInput');
+  const dropdown = document.getElementById('searchDropdown');
+  let searchTimeout;
+
+  searchInput.addEventListener('input', function() {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(doSearch, 200);
+  });
+
+  searchInput.addEventListener('focus', function() {
+    if (dropdown.children.length > 0) dropdown.classList.add('open');
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.search-section')) dropdown.classList.remove('open');
+  });
+
+  function doSearch() {
+    const q = searchInput.value.trim().toLowerCase();
+    dropdown.innerHTML = '';
+    if (!data || q.length < 2) { dropdown.classList.remove('open'); return; }
+
+    const matches = data.nodes.filter(n => n.name.toLowerCase().includes(q)).slice(0, 15);
+    for (const m of matches) {
+      const div = document.createElement('div');
+      div.className = 'search-option';
+      const dates = m.birthYear ? (m.birthYear + (m.deathDate ? ' \u2013 ' + (m.deathDate.match(/\d{4}/)||['?'])[0] : '')) : '';
+      div.innerHTML = m.name + '<span class="search-option-dates">' + dates + '</span>';
+      div.addEventListener('click', function() {
+        dropdown.classList.remove('open');
+        searchInput.value = m.name;
+        generateStory(m.id);
+      });
+      dropdown.appendChild(div);
+    }
+    if (matches.length > 0) dropdown.classList.add('open');
+  }
+
+  // ── Helpers ─────────────────────────────────────────────
+  function getParents(id) {
+    const n = nodeMap[id];
+    if (!n || !n.familyAsChild) return [];
+    const f = familyMap[n.familyAsChild];
+    if (!f) return [];
+    const p = [];
+    if (f.husband && nodeMap[f.husband]) p.push(f.husband);
+    if (f.wife && nodeMap[f.wife]) p.push(f.wife);
+    return p;
+  }
+
+  function getSpouse(id) {
+    const n = nodeMap[id];
+    if (!n) return null;
+    for (const fId of (n.familiesAsSpouse || [])) {
+      const f = familyMap[fId];
+      if (!f) continue;
+      const sId = f.husband === id ? f.wife : f.husband;
+      if (sId && nodeMap[sId]) return { person: nodeMap[sId], family: f };
+    }
+    return null;
+  }
+
+  function getChildren(id) {
+    const n = nodeMap[id];
+    if (!n) return [];
+    const kids = [];
+    for (const fId of (n.familiesAsSpouse || [])) {
+      const f = familyMap[fId];
+      if (!f) continue;
+      for (const c of f.children) { if (nodeMap[c]) kids.push(c); }
+    }
+    return kids;
+  }
+
+  function formatDate(d) {
+    if (!d) return '?';
+    return d.replace(/ABT /i, 'c. ').replace(/BEF /i, 'before ').replace(/AFT /i, 'after ');
+  }
+
+  function extractYear(d) {
+    if (!d) return null;
+    const m = d.match(/\d{4}/);
+    return m ? parseInt(m[0]) : null;
+  }
+
+  function placeSummary(place) {
+    if (!place) return '';
+    const parts = place.split(',').map(s => s.trim()).filter(Boolean);
+    return parts.slice(0, 2).join(', ');
+  }
+
+  function countries(place) {
+    if (!place) return [];
+    const lc = place.toLowerCase();
+    const c = [];
+    if (/england|london|leicester|ashby/i.test(lc)) c.push('England');
+    if (/ireland|dublin/i.test(lc)) c.push('Ireland');
+    if (/france|lille/i.test(lc)) c.push('France');
+    if (/switzerland|waldenburg/i.test(lc)) c.push('Switzerland');
+    if (/netherlands|holland/i.test(lc)) c.push('Netherlands');
+    if (/germany|palatinate/i.test(lc)) c.push('Germany');
+    if (/hungary/i.test(lc)) c.push('Hungary');
+    return c;
+  }
+
+  const BADGE_TEXT = {
+    military: { icon: '\u{1F6E1}', text: 'served in the military' },
+    freemason: { icon: '\u{1F3DB}', text: 'was a Freemason' },
+    dar: { icon: '\u2B50', text: 'is recognized as a patriot ancestor (DAR/SAR)' },
+    immigration: { icon: '\u26F5', text: 'immigrated to America' }
+  };
+
+  function genLabel(n) {
+    if (n === 0) return 'You';
+    if (n === 1) return 'Parents';
+    if (n === 2) return 'Grandparents';
+    if (n === 3) return 'Great-Grandparents';
+    return (n - 2) + 'x Great-Grandparents';
+  }
+
+  // ── Generate Story ──────────────────────────────────────
+  function generateStory(personId) {
+    const person = nodeMap[personId];
+    if (!person) return;
+
+    const firstName = person.name.split(' ')[0];
+
+    // Walk ancestor chain
+    const generations = [];
+    let currentIds = [personId];
+    const allAncestors = [];
+    const allCountries = new Set();
+    let earliestYear = extractYear(person.birthDate) || 2000;
+
+    // Generation 0 = the selected person
+    generations.push({ ids: [personId], genNum: 0 });
+
+    for (let g = 1; g < 20; g++) {
+      const nextGen = [];
+      for (const id of currentIds) {
+        const parents = getParents(id);
+        for (const p of parents) {
+          if (!nextGen.includes(p)) nextGen.push(p);
+        }
+      }
+      if (nextGen.length === 0) break;
+      generations.push({ ids: nextGen, genNum: g });
+      for (const id of nextGen) {
+        allAncestors.push(id);
+        const n = nodeMap[id];
+        if (n) {
+          const y = extractYear(n.birthDate);
+          if (y && y < earliestYear) earliestYear = y;
+          countries(n.birthPlace).forEach(c => allCountries.add(c));
+        }
+      }
+      currentIds = nextGen;
+    }
+
+    allCountries.add('United States');
+    const yearsSpan = (new Date().getFullYear()) - earliestYear;
+
+    // Update hero
+    document.getElementById('heroTitle').innerHTML = 'Where ' + firstName + '<br>Comes From';
+    document.getElementById('heroSub').textContent = firstName + "'s family story stretches back over " + yearsSpan + ' years.';
+
+    // Build HTML
+    let html = '';
+
+    // Stats bar
+    html += '<div class="stats">';
+    html += '<div class="stat"><span class="stat-num">' + generations.length + '</span><span class="stat-label">Generations</span></div>';
+    html += '<div class="stat"><span class="stat-num">' + yearsSpan + '+</span><span class="stat-label">Years Documented</span></div>';
+    html += '<div class="stat"><span class="stat-num">' + allAncestors.length + '</span><span class="stat-label">Ancestors Found</span></div>';
+    html += '<div class="stat"><span class="stat-num">' + allCountries.size + '</span><span class="stat-label">Countries</span></div>';
+    html += '</div>';
+
+    // Intro
+    html += '<section class="intro"><p>Every name below is someone ' + firstName + ' descends from &mdash; people who lived, loved, crossed oceans, fought in wars, built homes, and made the choices that eventually led here.</p></section>';
+
+    // Generation sections
+    const deepRoots = []; // ancestors born before 1700 or outside US
+
+    for (const gen of generations) {
+      const people = gen.ids.map(id => nodeMap[id]).filter(Boolean);
+      if (people.length === 0) continue;
+
+      // Check if these are "deep roots" (very early)
+      const earliest = people.reduce((min, p) => {
+        const y = extractYear(p.birthDate);
+        return y && y < min ? y : min;
+      }, 9999);
+
+      if (earliest < 1700 && gen.genNum > 5) {
+        for (const p of people) {
+          const y = extractYear(p.birthDate);
+          deepRoots.push({ name: p.name, year: y || '?', place: placeSummary(p.birthPlace), badges: p.badges });
+        }
+        continue;
+      }
+
+      // Find the main ancestor pair (pick first person and their spouse)
+      const main = people[0];
+      const spouseInfo = getSpouse(main.id);
+      const children = getChildren(main.id);
+
+      const birthY = extractYear(main.birthDate);
+      const deathY = extractYear(main.deathDate);
+      const eraStart = birthY || '?';
+      const eraEnd = deathY || (birthY ? 'Present' : '?');
+
+      html += '<section class="gen">';
+      html += '<div class="gen-header">';
+      html += '<span class="gen-num">Gen ' + gen.genNum + '</span>';
+      html += '<span class="gen-title">' + genLabel(gen.genNum) + '</span>';
+      html += '<span class="gen-era">' + eraStart + ' &ndash; ' + eraEnd + '</span>';
+      html += '</div>';
+
+      // People cards
+      html += '<div class="gen-people">';
+      html += '<div class="gen-person">';
+      html += '<div class="gen-person-name">' + main.name + '</div>';
+      html += '<div class="gen-person-dates">' + formatDate(main.birthDate) + (main.deathDate ? ' &ndash; ' + formatDate(main.deathDate) : '') + '</div>';
+      if (main.birthPlace) html += '<div class="gen-person-place">' + placeSummary(main.birthPlace) + '</div>';
+      html += '</div>';
+
+      // Show other people in this generation (spouse or second parent)
+      for (let i = 1; i < people.length; i++) {
+        const p = people[i];
+        html += '<div class="gen-person">';
+        html += '<div class="gen-person-name">' + p.name + '</div>';
+        html += '<div class="gen-person-dates">' + formatDate(p.birthDate) + (p.deathDate ? ' &ndash; ' + formatDate(p.deathDate) : '') + '</div>';
+        if (p.birthPlace) html += '<div class="gen-person-place">' + placeSummary(p.birthPlace) + '</div>';
+        html += '</div>';
+      }
+
+      // If only one parent found but they have a spouse, show spouse too
+      if (people.length === 1 && spouseInfo) {
+        const sp = spouseInfo.person;
+        html += '<div class="gen-person">';
+        html += '<div class="gen-person-name">' + sp.name + '</div>';
+        html += '<div class="gen-person-dates">' + formatDate(sp.birthDate) + (sp.deathDate ? ' &ndash; ' + formatDate(sp.deathDate) : '') + '</div>';
+        if (sp.birthPlace) html += '<div class="gen-person-place">' + placeSummary(sp.birthPlace) + '</div>';
+        html += '</div>';
+      }
+      html += '</div>';
+
+      // Narrative
+      const story = buildNarrative(main, people, spouseInfo, children, gen.genNum);
+      if (story) html += '<p class="gen-story">' + story + '</p>';
+
+      // Badge facts
+      for (const p of people) {
+        for (const b of (p.badges || [])) {
+          const info = BADGE_TEXT[b];
+          if (info) {
+            html += '<div class="gen-fact"><span class="gen-fact-icon">' + info.icon + '</span> <strong>' + p.name.split(' ')[0] + '</strong> ' + info.text + '.</div>';
+          }
+        }
+      }
+      if (spouseInfo && spouseInfo.person.badges) {
+        for (const b of spouseInfo.person.badges) {
+          const info = BADGE_TEXT[b];
+          if (info) {
+            html += '<div class="gen-fact"><span class="gen-fact-icon">' + info.icon + '</span> <strong>' + spouseInfo.person.name.split(' ')[0] + '</strong> ' + info.text + '.</div>';
+          }
+        }
+      }
+
+      // Marriage milestone
+      if (spouseInfo && spouseInfo.family.marriageDate) {
+        const mPlace = spouseInfo.family.marriagePlace ? ' in ' + placeSummary(spouseInfo.family.marriagePlace) : '';
+        html += '<div class="gen-milestone"><div class="gen-milestone-label">Marriage</div>';
+        html += '<p>Married on <strong>' + formatDate(spouseInfo.family.marriageDate) + '</strong>' + mPlace + '.</p></div>';
+      }
+
+      html += '</section>';
+    }
+
+    // Deep roots section
+    if (deepRoots.length > 0) {
+      deepRoots.sort((a, b) => (typeof a.year === 'number' ? a.year : 9999) - (typeof b.year === 'number' ? b.year : 9999));
+      html += '<section class="deep-roots"><div class="deep-roots-inner">';
+      html += '<h2>Deep Roots</h2>';
+      html += '<p class="deep-roots-sub">Earlier ancestors reaching back before 1700</p>';
+      for (const dr of deepRoots) {
+        html += '<div class="deep-person">';
+        html += '<div class="deep-year">' + dr.year + '</div>';
+        html += '<div><div class="deep-name">' + dr.name + '</div>';
+        if (dr.place) html += '<div class="deep-detail">' + dr.place + '</div>';
+        html += '</div></div>';
+      }
+      html += '</div></section>';
+    }
+
+    // Closing
+    html += '<section class="you-section">';
+    html += '<h2>' + yearsSpan + '+ Years of Family</h2>';
+    html += '<p>From ' + (earliestYear < 1600 ? 'Tudor England' : earliestYear < 1700 ? 'colonial America' : earliestYear < 1800 ? 'the early republic' : 'the 1800s') + ' to today &mdash; this is where ' + firstName + ' comes from.</p>';
+    html += '</section>';
+
+    document.getElementById('storyContent').innerHTML = html;
+    document.getElementById('storyContent').classList.add('visible');
+
+    // Scroll to stats
+    document.querySelector('.stats').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function buildNarrative(main, allPeople, spouseInfo, children, genNum) {
+    const parts = [];
+    const firstName = main.name.split(' ')[0];
+    const pronoun = main.sex === 'F' ? 'She' : main.sex === 'M' ? 'He' : 'They';
+
+    if (genNum === 0) {
+      if (main.birthDate && main.birthPlace) {
+        parts.push(firstName + ' was born ' + formatDate(main.birthDate) + ' in <strong>' + placeSummary(main.birthPlace) + '</strong>.');
+      }
+      return parts.join(' ');
+    }
+
+    // Birth
+    if (main.birthPlace) {
+      parts.push(firstName + ' was born' + (main.birthDate ? ' in ' + extractYear(main.birthDate) : '') + ' in <strong>' + placeSummary(main.birthPlace) + '</strong>.');
+    }
+
+    // Marriage + children
+    if (spouseInfo) {
+      let s = pronoun + ' married <strong>' + spouseInfo.person.name + '</strong>';
+      if (spouseInfo.family.marriageDate) {
+        const my = extractYear(spouseInfo.family.marriageDate);
+        if (my && main.birthYear) {
+          const age = my - main.birthYear;
+          if (age > 0 && age < 100) s += ' at age ' + age;
+        }
+      }
+      if (children.length > 0) {
+        s += ' and had <strong>' + children.length + ' child' + (children.length > 1 ? 'ren' : '') + '</strong>';
+      }
+      parts.push(s + '.');
+    } else if (children.length > 0) {
+      parts.push(pronoun + ' had <strong>' + children.length + ' child' + (children.length > 1 ? 'ren' : '') + '</strong>.');
+    }
+
+    // Death
+    if (main.deathDate) {
+      const dy = extractYear(main.deathDate);
+      let s = firstName + ' passed away';
+      if (dy && main.birthYear) {
+        const age = dy - main.birthYear;
+        if (age > 0 && age < 120) s += ' at age <strong>' + age + '</strong>';
+      }
+      if (main.deathPlace) s += ' in ' + placeSummary(main.deathPlace);
+      parts.push(s + '.');
+    }
+
+    return parts.join(' ');
+  }
+
+  // ── Init ────────────────────────────────────────────────
+  loadData();
+})();
+</script>
+</body>
+</html>
