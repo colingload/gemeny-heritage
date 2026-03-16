@@ -154,6 +154,7 @@
 
     <div class="divider"></div>
 
+    <button class="zoom-btn" id="clearBtn" title="Reset all filters and view" style="font-size:0.6rem;width:auto;padding:0 0.5rem;color:rgba(255,100,100,0.6)">CLEAR</button>
     <button class="branch-btn active" data-branch="all">All</button>
     <button class="branch-btn" data-branch="gemeny"><span class="branch-dot" style="background:var(--branch-gemeny)"></span>Gemeny</button>
     <button class="branch-btn" data-branch="gordon"><span class="branch-dot" style="background:var(--branch-gordon)"></span>Gordon</button>
@@ -1249,6 +1250,43 @@
   });
 
   document.getElementById('zoomReset').addEventListener('click', function() {
+    centerOnRoot();
+    draw();
+  });
+
+  // ── Clear / Reset All ─────────────────────────────────────
+
+  document.getElementById('clearBtn').addEventListener('click', function() {
+    // Reset branch filter
+    activeBranch = 'all';
+    document.querySelectorAll('.branch-btn').forEach(b => b.classList.remove('active'));
+    document.querySelector('.branch-btn[data-branch="all"]').classList.add('active');
+
+    // Reset badge filter
+    activeBadge = null;
+    document.querySelectorAll('.badge-btn').forEach(b => b.classList.remove('active'));
+
+    // Reset timeline
+    timelineYear = 2026;
+    timeSlider.value = 2026;
+    stopTimeline();
+    updateTimelineDisplay();
+
+    // Reset relationship mode
+    exitRelateMode();
+
+    // Reset search
+    searchInput.value = '';
+    searchResults.classList.remove('open');
+
+    // Close sidebar
+    closeSidebar();
+    selectedNode = null;
+    hoveredNode = null;
+
+    // Reset to default root and view
+    const gordon = data.nodes.find(n => /william.*gordon.*gemeny/i.test(n.name) && n.birthYear >= 1925 && n.birthYear <= 1935);
+    if (gordon) setRoot(gordon.id);
     centerOnRoot();
     draw();
   });
