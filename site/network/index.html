@@ -627,7 +627,7 @@
         ctx.lineTo(fx, midY);
         ctx.lineTo(tx, midY);
         ctx.lineTo(tx, ty);
-        ctx.strokeStyle = dimmed ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.12)';
+        ctx.strokeStyle = dimmed ? 'rgba(255,255,255,0.03)' : 'rgba(200,190,170,0.25)';
         ctx.lineWidth = 1;
         ctx.setLineDash([]);
       }
@@ -652,15 +652,15 @@
       const alpha = dimmed ? 0.1 : 1;
       const color = branchColor(node.branch);
 
-      // Node background
+      // Node background — warm tan/parchment
       ctx.fillStyle = isHovered || isSelected
-        ? `rgba(30,40,60,${alpha})`
-        : `rgba(20,30,50,${alpha})`;
+        ? `rgba(232,225,212,${alpha})`
+        : `rgba(247,244,239,${alpha})`;
       ctx.strokeStyle = onPath
         ? 'rgba(255,200,50,1)'
         : isSelected
-          ? `rgba(212,160,23,${alpha})`
-          : `${color}${dimmed ? '1a' : '80'}`;
+          ? `rgba(184,134,11,${alpha})`
+          : `rgba(200,190,170,${dimmed ? 0.1 : 0.5})`;
       ctx.lineWidth = onPath ? 2.5 : isSelected ? 2 : 1;
 
       roundRect(ctx, ln.x, ln.y, NODE_W, NODE_H, 4);
@@ -669,25 +669,25 @@
 
       // Left color accent bar
       ctx.fillStyle = `${color}${dimmed ? '1a' : 'cc'}`;
-      ctx.fillRect(ln.x, ln.y, 3, NODE_H);
+      ctx.fillRect(ln.x, ln.y, 4, NODE_H);
 
       if (dimmed && !isHovered) continue; // skip text for dimmed nodes
 
-      // Name
-      ctx.fillStyle = `rgba(255,255,255,${alpha * 0.85})`;
-      ctx.font = `${Math.min(11, 11)}px ${getComputedStyle(document.documentElement).getPropertyValue('--serif')}`;
+      // Name — dark text on light background
+      ctx.fillStyle = `rgba(42,32,23,${alpha * 0.9})`;
+      ctx.font = `500 ${11}px ${getComputedStyle(document.documentElement).getPropertyValue('--serif')}`;
       const displayName = truncate(node.name, 20);
-      ctx.fillText(displayName, ln.x + 8, ln.y + 18);
+      ctx.fillText(displayName, ln.x + 10, ln.y + 18);
 
       // Dates
       const dates = formatDates(node);
-      ctx.fillStyle = `rgba(255,255,255,${alpha * 0.35})`;
+      ctx.fillStyle = `rgba(109,95,78,${alpha * 0.8})`;
       ctx.font = `${9}px ${getComputedStyle(document.documentElement).getPropertyValue('--sans')}`;
-      ctx.fillText(dates, ln.x + 8, ln.y + 32);
+      ctx.fillText(dates, ln.x + 10, ln.y + 32);
 
       // Badges
       if (node.badges && node.badges.length > 0) {
-        let bx = ln.x + 8;
+        let bx = ln.x + 10;
         ctx.font = '11px sans-serif';
         for (const b of node.badges) {
           ctx.fillText(BADGE_ICONS[b] || '', bx, ln.y + 47);
@@ -700,12 +700,12 @@
       if (children.length > 0 && !ln.isSpouse) {
         const ex = ln.x + NODE_W - 16;
         const ey = ln.y + NODE_H - 14;
-        ctx.fillStyle = 'rgba(212,160,23,0.5)';
+        ctx.fillStyle = 'rgba(184,134,11,0.7)';
         ctx.font = 'bold 12px sans-serif';
         ctx.fillText(expanded.has(ln.id) ? '−' : '+', ex, ey);
 
         // Child count
-        ctx.fillStyle = 'rgba(255,255,255,0.2)';
+        ctx.fillStyle = 'rgba(109,95,78,0.4)';
         ctx.font = '8px sans-serif';
         ctx.fillText(children.length, ln.x + NODE_W - 14, ln.y + 12);
       }
@@ -714,7 +714,7 @@
       if (node.siteId) {
         ctx.beginPath();
         ctx.arc(ln.x + NODE_W - 6, ln.y + 6, 3, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(212,160,23,0.6)';
+        ctx.fillStyle = 'rgba(184,134,11,0.7)';
         ctx.fill();
       }
     }
