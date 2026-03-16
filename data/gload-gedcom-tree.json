@@ -1,4 +1,4 @@
-{
+﻿{
   "nodes": [
     {
       "id": "GI1",
@@ -359,7 +359,7 @@
       "birthYear": 1937,
       "birthDate": "1937",
       "birthPlace": "Plattsburgh, Clinton County, New York, USA",
-      "deathDate": "2026",
+      "deathDate": "2025",
       "deathPlace": "Manson, Iowa, USA",
       "siteId": null,
       "branch": "gload",
