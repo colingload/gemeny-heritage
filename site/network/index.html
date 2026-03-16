@@ -1458,7 +1458,33 @@
       applyFilters();
     } else if (val.startsWith('branch:')) {
       activeBranch = val.substring(7);
-      // Find youngest person in this branch, set as root in tree view
+      // For Gload branch, use Frederick Gload Sr. (Mim) as root
+      if (activeBranch === 'gload') {
+        const mim = data.nodes.find(n => /frederick.*gload.*sr/i.test(n.name) || (n.name === 'Frederick Charles Gload Sr.' || n.id === 'GI12'));
+        if (mim) {
+          viewMode = 'tree';
+          viewToggle.textContent = 'GRID';
+          viewToggle.style.color = '';
+          savedTreeLayout = null;
+          treeRoot = mim.id;
+          expanded.clear();
+          function expandGload(id, vis, depth) {
+            if (vis.has(id) || depth > 4) return;
+            vis.add(id); expanded.add(id);
+            getChildren(id).forEach(c => expandGload(c, vis, depth + 1));
+          }
+          expandGload(mim.id, new Set(), 0);
+          computeLayout();
+          if (layoutNodes.length > 1) {
+            let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
+            layoutNodes.forEach(ln=>{minX=Math.min(minX,ln.x);maxX=Math.max(maxX,ln.x+NODE_W);minY=Math.min(minY,ln.y);maxY=Math.max(maxY,ln.y+NODE_H)});
+            const tw=maxX-minX,th=maxY-minY;
+            zoom=Math.min(W/tw*0.85,H/th*0.85,0.8);
+            camX=-(minX+tw/2)*zoom+W/2;camY=-(minY+th/2)*zoom+H/2;
+          }
+          draw(); updateStats(); return;
+        }
+      }
       const branchPeople = data.nodes.filter(n => branchGroup(n.branch) === activeBranch && n.birthYear);
       setFamilyRoot(branchPeople);
     } else if (val.startsWith('surname:')) {
@@ -1497,14 +1523,17 @@
     treeRoot = rootId;
     expanded.clear();
 
-    // Expand everything from root
-    function expandAllFrom(id, vis) {
-      if (vis.has(id)) return;
+    // Expand from root, limiting depth so tree stays vertical and readable
+    function expandFromRoot(id, vis, depth, maxDepth) {
+      if (vis.has(id) || depth > maxDepth) return;
       vis.add(id);
       expanded.add(id);
-      getChildren(id).forEach(c => expandAllFrom(c, vis));
+      getChildren(id).forEach(c => expandFromRoot(c, vis, depth + 1, maxDepth));
     }
-    expandAllFrom(rootId, new Set());
+    // Use 4 generations for small trees, 3 for larger ones
+    const branchSize = people.length;
+    const maxDepth = branchSize > 50 ? 3 : 4;
+    expandFromRoot(rootId, new Set(), 0, maxDepth);
     computeLayout();
 
     // Zoom to fit
